@@ -6,20 +6,20 @@
     "patch": 0
   },
   "configurePresets": [
-    {
-      "name": "base",
-      "hidden": true,
-      "generator": "Ninja",
-      "binaryDir": "${sourceDir}/build/${presetName}",
-      "cacheVariables": {
-        "CMAKE_TOOLCHAIN_FILE": "C:/Users/quero/Desktop/server/vcpkg/scripts/buildsystems/vcpkg.cmake",
-        "VCPKG_OVERLAY_PORTS": "C:/Users/quero/Desktop/server/vcpkg/ports",
-        "BUILD_STATIC_LIBRARY": "ON",
-        "SPEED_UP_BUILD_UNITY": "ON",
-        "OPTIONS_ENABLE_SCCACHE": "ON",
-        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
-      }
-    },
+{
+  "name": "base",
+  "hidden": true,
+  "generator": "Ninja",
+  "binaryDir": "${sourceDir}/build/${presetName}",
+  "cacheVariables": {
+    "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+    "VCPKG_OVERLAY_PORTS": "$env{VCPKG_ROOT}/ports",
+    "BUILD_STATIC_LIBRARY": "ON",
+    "SPEED_UP_BUILD_UNITY": "ON",
+    "OPTIONS_ENABLE_SCCACHE": "ON",
+    "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+  }
+},
     {
       "name": "windows-release",
       "inherits": "base",
