@@ -14,7 +14,7 @@ jobs:
       - name: Install Ninja
         run: choco install ninja -y
 
-     - name: Setup vcpkg
+      - name: Setup vcpkg
         uses: lukka/run-vcpkg@v11
         with:
           vcpkgDirectory: ${{ github.workspace }}/vcpkg
@@ -23,8 +23,7 @@ jobs:
       - name: Configure
         env:
           VCPKG_ROOT: ${{ github.workspace }}/vcpkg
-        run: |
-          cmake --preset windows-release -DVCPKG_OVERLAY_PORTS="${{ github.workspace }}/ports"
+        run: cmake --preset windows-release -DVCPKG_OVERLAY_PORTS="${{ github.workspace }}/ports"
 
       - name: Build
         run: cmake --build build/windows-release --config RelWithDebInfo
