@@ -14,7 +14,7 @@ jobs:
       - name: Install Ninja
         run: choco install ninja -y
 
-- name: Setup vcpkg
+     - name: Setup vcpkg
         uses: lukka/run-vcpkg@v11
         with:
           vcpkgDirectory: ${{ github.workspace }}/vcpkg
