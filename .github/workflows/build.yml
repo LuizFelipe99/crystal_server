@@ -10,17 +10,17 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          submodules: recursive
 
       - name: Setup vcpkg
         uses: lukka/run-vcpkg@v11
-        with:
-          vcpkgGitCommitId: 'fc58568782450a92952ac4c6be7299c14d788456'
 
       - name: Configure
         run: cmake --preset windows-release
 
       - name: Build
-        run: cmake --build build/windows-release
+        run: cmake --build build/windows-release --config RelWithDebInfo
 
       - name: Upload
         uses: actions/upload-artifact@v4
