@@ -14,6 +14,11 @@ jobs:
       - name: Install Ninja
         run: choco install ninja -y
 
+      - name: Setup MSVC
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
+
       - name: Setup vcpkg
         uses: lukka/run-vcpkg@v11
         with:
