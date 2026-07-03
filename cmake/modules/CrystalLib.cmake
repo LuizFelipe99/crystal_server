@@ -81,7 +81,7 @@ target_link_libraries(${PROJECT_NAME}_lib
         magic_enum::magic_enum
         mio::mio
         protobuf::libprotobuf
-        pugixml::static
+        pugixml::pugixml
         spdlog::spdlog
         unofficial::argon2::libargon2
         unofficial::libmariadb
