@@ -131,6 +131,10 @@ void PlayerFunctions::init(lua_State* L) {
 	Lua::registerMethod(L, "Player", "getElementalDamageBonus", PlayerFunctions::luaPlayerGetElementalDamageBonus);
 	Lua::registerMethod(L, "Player", "setElementalDamageBonus", PlayerFunctions::luaPlayerSetElementalDamageBonus);
 
+	Lua::registerMethod(L, "Player", "getElementalBuildPoints", PlayerFunctions::luaPlayerGetElementalBuildPoints);
+	Lua::registerMethod(L, "Player", "setElementalBuildPoints", PlayerFunctions::luaPlayerSetElementalBuildPoints);
+	Lua::registerMethod(L, "Player", "resetElementalBuild", PlayerFunctions::luaPlayerResetElementalBuild);
+
 	Lua::registerMethod(L, "Player", "sendSpellCooldown", PlayerFunctions::luaPlayerSendSpellCooldown);
 	Lua::registerMethod(L, "Player", "sendSpellGroupCooldown", PlayerFunctions::luaPlayerSendSpellGroupCooldown);
 
@@ -1446,7 +1450,6 @@ int PlayerFunctions::luaPlayerGetLevel(lua_State* L) {
 }
 
 int PlayerFunctions::luaPlayerGetElementalDamageBonus(lua_State* L) {
-	// player:getElementalDamageBonus(combatType)
 	const auto &player = Lua::getUserdataShared<Player>(L, 1);
 	if (!player) {
 		lua_pushnil(L);
@@ -1459,7 +1462,6 @@ int PlayerFunctions::luaPlayerGetElementalDamageBonus(lua_State* L) {
 }
 
 int PlayerFunctions::luaPlayerSetElementalDamageBonus(lua_State* L) {
-	// player:setElementalDamageBonus(combatType, bonusPoints)
 	const auto &player = Lua::getUserdataShared<Player>(L, 1);
 	if (!player) {
 		lua_pushnil(L);
@@ -1469,6 +1471,44 @@ int PlayerFunctions::luaPlayerSetElementalDamageBonus(lua_State* L) {
 	const CombatType_t combatType = Lua::getNumber<CombatType_t>(L, 2);
 	const int32_t bonusPoints = Lua::getNumber<int32_t>(L, 3);
 	player->setElementalDamageBonus(combatType, bonusPoints);
+	Lua::pushBoolean(L, true);
+	return 1;
+}
+
+int PlayerFunctions::luaPlayerGetElementalBuildPoints(lua_State* L) {
+	const auto &player = Lua::getUserdataShared<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	const CombatType_t combatType = Lua::getNumber<CombatType_t>(L, 2);
+	lua_pushnumber(L, player->getElementalBuildPoints(combatType));
+	return 1;
+}
+
+int PlayerFunctions::luaPlayerSetElementalBuildPoints(lua_State* L) {
+	const auto &player = Lua::getUserdataShared<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	const CombatType_t combatType = Lua::getNumber<CombatType_t>(L, 2);
+	const int32_t points = Lua::getNumber<int32_t>(L, 3);
+	player->setElementalBuildPoints(combatType, points);
+	Lua::pushBoolean(L, true);
+	return 1;
+}
+
+int PlayerFunctions::luaPlayerResetElementalBuild(lua_State* L) {
+	const auto &player = Lua::getUserdataShared<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	player->resetElementalBuild();
 	Lua::pushBoolean(L, true);
 	return 1;
 }

@@ -1140,3 +1140,24 @@ void IOLoginDataLoad::loadPlayerExivaRestrictions(const std::shared_ptr<Player> 
 		}
 	}
 }
+
+void IOLoginDataLoad::loadPlayerElementalBuild(const std::shared_ptr<Player> &player) {
+	if (!player) {
+		g_logger().warn("[{}] - Player nullptr", __FUNCTION__);
+		return;
+	}
+
+	auto result = Database::getInstance().storeQuery(
+		fmt::format("SELECT `combat_type`, `points` FROM `player_elemental_build` WHERE `player_id` = {}", player->getGUID())
+	);
+
+	if (!result) {
+		return;
+	}
+
+	do {
+		const auto combatType = static_cast<CombatType_t>(result->getNumber<uint8_t>("combat_type"));
+		const auto points = result->getNumber<int32_t>("points");
+		player->setElementalBuildPoints(combatType, points);
+	} while (result->next());
+}

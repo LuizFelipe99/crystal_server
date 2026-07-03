@@ -43,6 +43,7 @@ public:
 	static bool savePlayerOutfits(const std::shared_ptr<Player> &player);
 	static bool savePlayerMounts(const std::shared_ptr<Player> &player);
 	static void savePlayerExivaRestrictions(const std::shared_ptr<Player> &player);
+	static bool savePlayerElementalBuild(const std::shared_ptr<Player> &player);
 
 protected:
 	using ItemBlockList = std::list<std::pair<int32_t, std::shared_ptr<Item>>>;

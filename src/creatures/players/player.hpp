@@ -449,6 +449,19 @@ public:
 		elementalDamageBonus[combatType] = bonusPoints;
 	}
 
+	int32_t getElementalBuildPoints(CombatType_t combatType) const {
+    return elementalBuildPoints[combatType];
+	}
+
+	void setElementalBuildPoints(CombatType_t combatType, int32_t points) {
+		elementalBuildPoints[combatType] = points;
+	}
+
+	void resetElementalBuild() {
+		std::fill(std::begin(elementalBuildPoints), std::end(elementalBuildPoints), 0);
+		std::fill(std::begin(elementalDamageBonus), std::end(elementalDamageBonus), 0);
+	}
+
 	int32_t getMagicShieldCapacityFlat(bool useCharges = false) const;
 
 	void setMagicShieldCapacityFlat(int32_t value);
@@ -1869,6 +1882,7 @@ private:
 
 	int32_t specializedMagicLevel[COMBAT_COUNT] = { 0 };
 	int32_t elementalDamageBonus[COMBAT_COUNT] = { 0 };
+	int32_t elementalBuildPoints[COMBAT_COUNT] = { 0 };
 	int32_t cleavePercent = 0;
 	std::map<uint8_t, int32_t> perfectShot;
 	int32_t magicShieldCapacityFlat = 0;

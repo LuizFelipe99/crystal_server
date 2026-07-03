@@ -178,6 +178,9 @@ bool IOLoginData::loadPlayer(const std::shared_ptr<Player> &player, const DBResu
 		// load weapon proficiency
 		IOLoginDataLoad::loadPlayerWeaponProficiency(player, result);
 
+		IOLoginDataLoad::loadPlayerElementalBuild(player);
+
+
 		if (disableIrrelevantInfo) {
 			return true;
 		}
@@ -290,6 +293,10 @@ bool IOLoginData::savePlayerGuard(const std::shared_ptr<Player> &player) {
 
 	if (!IOLoginDataSave::savePlayerStorage(player)) {
 		throw DatabaseException("[IOLoginDataSave::savePlayerStorage] - Failed to save player storage: " + player->getName());
+	}
+
+	if (!IOLoginDataSave::savePlayerElementalBuild(player)) {
+		throw DatabaseException("[IOLoginDataSave::savePlayerElementalBuild] - Failed to save player elemental build: " + player->getName());
 	}
 
 	if (player->isOutfitsModified()) {

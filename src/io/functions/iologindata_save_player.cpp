@@ -990,3 +990,31 @@ void IOLoginDataSave::savePlayerExivaRestrictions(const std::shared_ptr<Player> 
 
 	scope->set("guildWhitelist", ValueWrapper(guildArrayWrapper));
 }
+
+bool IOLoginDataSave::savePlayerElementalBuild(const std::shared_ptr<Player> &player) {
+	if (!player) {
+		g_logger().warn("[{}] - Player nullptr", __FUNCTION__);
+		return false;
+	}
+
+	auto &db = Database::getInstance();
+
+	if (!db.executeQuery(fmt::format("DELETE FROM `player_elemental_build` WHERE `player_id` = {}", player->getGUID()))) {
+		return false;
+	}
+
+	DBInsert insertQuery("INSERT INTO `player_elemental_build` (`player_id`, `combat_type`, `points`) VALUES ");
+
+	for (int32_t combatType = 0; combatType < COMBAT_COUNT; combatType++) {
+		const auto points = player->getElementalBuildPoints(static_cast<CombatType_t>(combatType));
+		if (points <= 0) {
+			continue;
+		}
+
+		if (!insertQuery.addRow(fmt::format("{}, {}, {}", player->getGUID(), combatType, points))) {
+			return false;
+		}
+	}
+
+	return insertQuery.execute();
+}
