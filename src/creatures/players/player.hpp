@@ -1883,12 +1883,30 @@ private:
 	int32_t specializedMagicLevel[COMBAT_COUNT] = { 0 };
 	int32_t elementalDamageBonus[COMBAT_COUNT] = { 0 };
 	int32_t elementalBuildPoints[COMBAT_COUNT] = { 0 };
+	int32_t elementalBuildAvailablePoints = 0;
 	int32_t cleavePercent = 0;
 	std::map<uint8_t, int32_t> perfectShot;
 	int32_t magicShieldCapacityFlat = 0;
 	int32_t magicShieldCapacityPercent = 0;
 
 	int32_t marriageSpouse = -1;
+
+	int32_t getElementalBuildAvailablePoints() const {
+    	return elementalBuildAvailablePoints;
+	}
+
+	void setElementalBuildAvailablePoints(int32_t points) {
+		elementalBuildAvailablePoints = points;
+	}
+
+	bool spendElementalBuildPoints(CombatType_t combatType, int32_t points) {
+		if (elementalBuildAvailablePoints < points) {
+			return false;
+		}
+		elementalBuildAvailablePoints -= points;
+		elementalBuildPoints[combatType] += points;
+		return true;
+	}
 
 	void updateItemsLight(bool internal = false);
 	uint16_t getStepSpeed() const override {

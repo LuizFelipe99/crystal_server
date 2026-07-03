@@ -111,6 +111,10 @@ class PlayerFunctions {
 	static int luaPlayerSetElementalBuildPoints(lua_State* L);
 	static int luaPlayerResetElementalBuild(lua_State* L);
 
+	static int luaPlayerGetElementalBuildAvailablePoints(lua_State* L);
+	static int luaPlayerSetElementalBuildAvailablePoints(lua_State* L);
+	static int luaPlayerSpendElementalBuildPoints(lua_State* L);
+
 	static int luaPlayerSendSpellCooldown(lua_State* L);
 	static int luaPlayerSendSpellGroupCooldown(lua_State* L);
 

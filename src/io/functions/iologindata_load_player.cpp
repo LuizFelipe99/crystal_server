@@ -185,6 +185,7 @@ bool IOLoginDataLoad::loadPlayerBasicInfo(const std::shared_ptr<Player> &player,
 	player->addForgeDustLevel(result->getNumber<uint64_t>("forge_dust_level"));
 	player->setRandomMount(static_cast<uint8_t>(result->getNumber<uint16_t>("randomize_mount")));
 	player->addBossPoints(result->getNumber<uint32_t>("boss_points"));
+	player->setElementalBuildAvailablePoints(result->getNumber<int32_t>("elemental_build_points"));
 	player->lastLoginSaved = result->getNumber<time_t>("lastlogin");
 	player->lastLogout = result->getNumber<time_t>("lastlogout");
 	player->offlineTrainingTime = result->getNumber<int32_t>("offlinetraining_time") * 1000;

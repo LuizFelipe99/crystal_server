@@ -358,6 +358,8 @@ bool IOLoginDataSave::savePlayerFirst(const std::shared_ptr<Player> &player) {
 
 	query << "`weapon_proficiencies` = " << db.escapeBlob(proficiencyData, static_cast<uint32_t>(proficiencySize)) << ",";
 
+	query << "`elemental_build_points` = " << player->getElementalBuildAvailablePoints() << ",";
+
 	if (!player->isOffline()) {
 		query << "`onlinetime` = `onlinetime` + " << onlineTimeDelta << ",";
 	}

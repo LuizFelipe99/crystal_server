@@ -135,6 +135,10 @@ void PlayerFunctions::init(lua_State* L) {
 	Lua::registerMethod(L, "Player", "setElementalBuildPoints", PlayerFunctions::luaPlayerSetElementalBuildPoints);
 	Lua::registerMethod(L, "Player", "resetElementalBuild", PlayerFunctions::luaPlayerResetElementalBuild);
 
+	Lua::registerMethod(L, "Player", "getElementalBuildAvailablePoints", PlayerFunctions::luaPlayerGetElementalBuildAvailablePoints);
+	Lua::registerMethod(L, "Player", "setElementalBuildAvailablePoints", PlayerFunctions::luaPlayerSetElementalBuildAvailablePoints);
+	Lua::registerMethod(L, "Player", "spendElementalBuildPoints", PlayerFunctions::luaPlayerSpendElementalBuildPoints);
+
 	Lua::registerMethod(L, "Player", "sendSpellCooldown", PlayerFunctions::luaPlayerSendSpellCooldown);
 	Lua::registerMethod(L, "Player", "sendSpellGroupCooldown", PlayerFunctions::luaPlayerSendSpellGroupCooldown);
 
@@ -5522,5 +5526,42 @@ int PlayerFunctions::luaPlayerDropConnection(lua_State* L) {
 
 	player->disconnect();
 	Lua::pushBoolean(L, true);
+	return 1;
+}
+
+int PlayerFunctions::luaPlayerGetElementalBuildAvailablePoints(lua_State* L) {
+	const auto &player = Lua::getUserdataShared<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	lua_pushnumber(L, player->getElementalBuildAvailablePoints());
+	return 1;
+}
+
+int PlayerFunctions::luaPlayerSetElementalBuildAvailablePoints(lua_State* L) {
+	const auto &player = Lua::getUserdataShared<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	const int32_t points = Lua::getNumber<int32_t>(L, 2);
+	player->setElementalBuildAvailablePoints(points);
+	Lua::pushBoolean(L, true);
+	return 1;
+}
+
+int PlayerFunctions::luaPlayerSpendElementalBuildPoints(lua_State* L) {
+	const auto &player = Lua::getUserdataShared<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	const CombatType_t combatType = Lua::getNumber<CombatType_t>(L, 2);
+	const int32_t points = Lua::getNumber<int32_t>(L, 3);
+	Lua::pushBoolean(L, player->spendElementalBuildPoints(combatType, points));
 	return 1;
 }
