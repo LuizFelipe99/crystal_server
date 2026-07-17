@@ -20,6 +20,7 @@
 #include "core.hpp"
 #include "config/configmanager.hpp"
 #include "creatures/npcs/npcs.hpp"
+#include "creatures/players/gembag/gem_definitions.hpp"
 #include "creatures/players/grouping/familiars.hpp"
 #include "creatures/players/imbuements/imbuements.hpp"
 #include "creatures/players/proficiencies/proficiencies.hpp"
@@ -348,6 +349,7 @@ void CrystalServer::loadModules() {
 	modulesLoadHelper(Familiars::getInstance().loadFromXml(), "XML/familiars.xml");
 	modulesLoadHelper(g_imbuements().loadFromXml(), "XML/imbuements.xml");
 	modulesLoadHelper(g_proficiencies().loadFromJson(), "items/proficiencies.json");
+	modulesLoadHelper(g_gemDefinitions().loadFromXml(), "XML/gems.xml");
 	modulesLoadHelper(g_storages().loadFromXML(), "XML/storages.xml");
 
 	modulesLoadHelper(Item::items.loadFromXml(), "items.xml");

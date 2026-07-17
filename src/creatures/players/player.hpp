@@ -220,6 +220,20 @@ struct EquippedWeaponProficiencyBonuses {
 	}
 };
 
+struct EquippedGemBonuses {
+	uint16_t critHitChance = 0;
+	uint16_t attackSpeed = 0;
+	std::map<skills_t, uint8_t> skillBonus;
+
+	void reset() {
+		critHitChance = 0;
+		attackSpeed = 0;
+		skillBonus.clear();
+	}
+};
+
+static constexpr uint8_t GEM_BAG_SLOTS = 4;
+
 using MuteCountMap = std::map<uint32_t, uint32_t>;
 
 static constexpr uint16_t PLAYER_MAX_SPEED = std::numeric_limits<uint16_t>::max();
@@ -1104,6 +1118,14 @@ public:
 	void sendWeaponProficiencyExperience(const uint16_t itemId, const uint32_t addProficiencyExperience);
 
 	std::unordered_map<uint16_t, WeaponProficiencyData> weaponProficiencies;
+
+	// Gem Bag
+	EquippedGemBonuses &getEquippedGemBonuses();
+	uint16_t getGemBagSlot(uint8_t slotIndex) const;
+	bool hasGemTypeSocketed(const std::string &gemType, uint8_t excludingSlot) const;
+	bool socketGem(uint8_t slotIndex, uint16_t itemId);
+	bool unsocketGem(uint8_t slotIndex);
+	void recalculateGemBonuses();
 
 	bool canExiva(const std::string &spellParam) const;
 
@@ -2012,4 +2034,7 @@ private:
 
 	void addWeaponProficiencyExperience(const std::shared_ptr<MonsterType> &mType, const ForgeClassifications_t classification, const bool bossSoulpit);
 	EquippedWeaponProficiencyBonuses equippedWeaponProficiency;
+
+	std::array<uint16_t, GEM_BAG_SLOTS> gemBag = {};
+	EquippedGemBonuses equippedGemBonuses;
 };

@@ -139,6 +139,10 @@ void PlayerFunctions::init(lua_State* L) {
 	Lua::registerMethod(L, "Player", "setElementalBuildAvailablePoints", PlayerFunctions::luaPlayerSetElementalBuildAvailablePoints);
 	Lua::registerMethod(L, "Player", "spendElementalBuildPoints", PlayerFunctions::luaPlayerSpendElementalBuildPoints);
 
+	Lua::registerMethod(L, "Player", "getGemBagSlot", PlayerFunctions::luaPlayerGetGemBagSlot);
+	Lua::registerMethod(L, "Player", "socketGem", PlayerFunctions::luaPlayerSocketGem);
+	Lua::registerMethod(L, "Player", "unsocketGem", PlayerFunctions::luaPlayerUnsocketGem);
+
 	Lua::registerMethod(L, "Player", "sendSpellCooldown", PlayerFunctions::luaPlayerSendSpellCooldown);
 	Lua::registerMethod(L, "Player", "sendSpellGroupCooldown", PlayerFunctions::luaPlayerSendSpellGroupCooldown);
 
@@ -5563,5 +5567,45 @@ int PlayerFunctions::luaPlayerSpendElementalBuildPoints(lua_State* L) {
 	const CombatType_t combatType = Lua::getNumber<CombatType_t>(L, 2);
 	const int32_t points = Lua::getNumber<int32_t>(L, 3);
 	Lua::pushBoolean(L, player->spendElementalBuildPoints(combatType, points));
+	return 1;
+}
+
+int PlayerFunctions::luaPlayerGetGemBagSlot(lua_State* L) {
+	// player:getGemBagSlot(slotIndex)
+	const auto &player = Lua::getUserdataShared<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	const uint8_t slotIndex = Lua::getNumber<uint8_t>(L, 2);
+	lua_pushnumber(L, player->getGemBagSlot(slotIndex));
+	return 1;
+}
+
+int PlayerFunctions::luaPlayerSocketGem(lua_State* L) {
+	// player:socketGem(slotIndex, itemId)
+	const auto &player = Lua::getUserdataShared<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	const uint8_t slotIndex = Lua::getNumber<uint8_t>(L, 2);
+	const uint16_t itemId = Lua::getNumber<uint16_t>(L, 3);
+	Lua::pushBoolean(L, player->socketGem(slotIndex, itemId));
+	return 1;
+}
+
+int PlayerFunctions::luaPlayerUnsocketGem(lua_State* L) {
+	// player:unsocketGem(slotIndex)
+	const auto &player = Lua::getUserdataShared<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	const uint8_t slotIndex = Lua::getNumber<uint8_t>(L, 2);
+	Lua::pushBoolean(L, player->unsocketGem(slotIndex));
 	return 1;
 }

@@ -17,7 +17,7 @@ local conf = {
     exhaust = 30,
     lootPouchId = 23721, -- pouchId
     percentPrice = 0.95, -- if u want to change to lose price, use 0.9 to earn 90% of origin price, 0.55 to 55% etc...
-    maxValueSell = 200, -- TAKE CARE, it is counted by slots NOT BY COUNT OF STACKABLES, 200 I think is a safe number
+    maxValueSell = 300, -- TAKE CARE, it is counted by slots NOT BY COUNT OF STACKABLES, 200 I think is a safe number
 	
 	-- configure itens for sell in data/scripts/lib/shop.lua
 }

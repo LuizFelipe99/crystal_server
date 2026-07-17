@@ -115,6 +115,11 @@ class PlayerFunctions {
 	static int luaPlayerSetElementalBuildAvailablePoints(lua_State* L);
 	static int luaPlayerSpendElementalBuildPoints(lua_State* L);
 
+	// Gem Bag
+	static int luaPlayerGetGemBagSlot(lua_State* L);
+	static int luaPlayerSocketGem(lua_State* L);
+	static int luaPlayerUnsocketGem(lua_State* L);
+
 	static int luaPlayerSendSpellCooldown(lua_State* L);
 	static int luaPlayerSendSpellGroupCooldown(lua_State* L);
 

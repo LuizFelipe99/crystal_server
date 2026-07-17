@@ -78,7 +78,10 @@
 #include "creatures/players/wheel/wheel_definitions.hpp"
 #include "creatures/players/proficiencies/proficiencies.hpp"
 #include "creatures/players/proficiencies/proficiencies_definitions.hpp"
+#include "creatures/players/gembag/gem_definitions.hpp"
 #include "utils/tools.hpp"
+
+static void applyGemDefinitionToBonuses(const GemDefinition &definition, EquippedGemBonuses &bonuses);
 
 MuteCountMap Player::muteCountMap;
 
@@ -7317,6 +7320,7 @@ uint32_t Player::getAttackSpeed() const {
 	}
 
 	uint32_t attackSpeed = vocation->getAttackSpeed() - modifiers;
+	attackSpeed -= equippedGemBonuses.attackSpeed;
 	return attackSpeed;
 }
 
@@ -7517,6 +7521,10 @@ uint16_t Player::getSkillLevel(skills_t skill) const {
 	}
 
 	if (auto it = equippedWeaponProficiency.skillBonus.find(skill); it != equippedWeaponProficiency.skillBonus.end()) {
+		skillLevel += it->second;
+	}
+
+	if (auto it = equippedGemBonuses.skillBonus.find(skill); it != equippedGemBonuses.skillBonus.end()) {
 		skillLevel += it->second;
 	}
 
@@ -12728,6 +12736,152 @@ void Player::removeEquippedWeaponProficiency(const uint16_t itemId) {
 
 	sendStats();
 	sendSkills();
+}
+
+bool Player::socketGem(uint8_t slotIndex, uint16_t itemId) {
+	if (slotIndex >= GEM_BAG_SLOTS) {
+		return false;
+	}
+
+	if (gemBag[slotIndex] != 0) {
+		sendCancelMessage("This gem slot is already occupied.");
+		return false;
+	}
+
+	const GemDefinition* definition =g_gemDefinitions().getById(itemId);
+	if (definition == nullptr) {
+		sendCancelMessage("This item is not a valid gem.");
+		return false;
+	}
+
+	if (hasGemTypeSocketed(definition->type, slotIndex)) {
+		sendCancelMessage("You already have a gem of this type equipped.");
+		return false;
+	}
+
+	const auto &gemItems = getInventoryItemsFromId(itemId, false);
+	if (gemItems.empty()) {
+		sendCancelMessage("You don't have this gem.");
+		return false;
+	}
+
+	const ReturnValue returnValue = g_game().internalRemoveItem(gemItems.front(), 1);
+	if (returnValue != RETURNVALUE_NOERROR) {
+		sendCancelMessage(returnValue);
+		return false;
+	}
+
+	gemBag[slotIndex] = itemId;
+	recalculateGemBonuses();
+	return true;
+}
+
+bool Player::unsocketGem(uint8_t slotIndex) {
+	if (slotIndex >= GEM_BAG_SLOTS) {
+		return false;
+	}
+
+	const uint16_t gemItemId = gemBag[slotIndex];
+	if (gemItemId == 0) {
+		return false;
+	}
+
+	const auto &newGemItem = Item::CreateItem(gemItemId, 1);
+	if (!newGemItem) {
+		return false;
+	}
+
+	const ReturnValue returnValue = g_game().internalPlayerAddItem(static_self_cast<Player>(), newGemItem);
+	if (returnValue != RETURNVALUE_NOERROR) {
+		sendCancelMessage(returnValue);
+		return false;
+	}
+
+	gemBag[slotIndex] = 0;
+	recalculateGemBonuses();
+	return true;
+}
+
+uint16_t Player::getGemBagSlot(uint8_t slotIndex) const {
+	if (slotIndex >= GEM_BAG_SLOTS) {
+		return 0;
+	}
+
+	return gemBag[slotIndex];
+}
+
+bool Player::hasGemTypeSocketed(const std::string &gemType, uint8_t excludingSlot) const {
+	for (uint8_t index = 0; index < GEM_BAG_SLOTS; ++index) {
+		if (index == excludingSlot) {
+			continue;
+		}
+
+		const uint16_t socketedGemId = gemBag[index];
+		if (socketedGemId == 0) {
+			continue;
+		}
+
+		const GemDefinition* socketedDefinition = g_gemDefinitions().getById(socketedGemId);
+		if (socketedDefinition == nullptr) {
+			continue;
+		}
+
+		if (socketedDefinition->type == gemType) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+EquippedGemBonuses &Player::getEquippedGemBonuses() {
+	return equippedGemBonuses;
+}
+
+void Player::recalculateGemBonuses() {
+	equippedGemBonuses.reset();
+
+	for (const uint16_t gemItemId : gemBag) {
+		if (gemItemId == 0) {
+			continue;
+		}
+
+		const GemDefinition* definition = g_gemDefinitions().getById(gemItemId);
+		if (definition == nullptr) {
+			continue;
+		}
+
+		applyGemDefinitionToBonuses(*definition, equippedGemBonuses);
+	}
+
+	sendStats();
+	sendSkills();
+}
+
+static void applyGemDefinitionToBonuses(const GemDefinition &definition, EquippedGemBonuses &bonuses) {
+	if (definition.attribute == "critChance") {
+		bonuses.critHitChance += static_cast<uint16_t>(definition.value * 100.0f);
+		return;
+	}
+
+	if (definition.attribute == "attackSpeed") {
+		bonuses.attackSpeed += static_cast<uint16_t>(definition.value);
+		return;
+	}
+
+	skills_t skillType = SKILL_NONE;
+	if (definition.attribute == "magicLevel") {
+		skillType = SKILL_MAGLEVEL;
+	} else if (definition.attribute == "shield") {
+		skillType = SKILL_SHIELD;
+	}
+
+	if (skillType == SKILL_NONE) {
+		g_logger().warn("[applyGemDefinitionToBonuses] Unknown gem attribute '{}' for gem type '{}', bonus ignored", definition.attribute, definition.type);
+		return;
+	}
+
+	bonuses.skillBonus[skillType] += static_cast<uint8_t>(definition.value);
 }
 
 bool Player::canExiva(const std::string &spellParam) const {

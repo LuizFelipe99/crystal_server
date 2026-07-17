@@ -1,0 +1,13 @@
+<gems>
+	<gem id="30001" type="onslaught" attribute="critChance" value="2" />
+	<gem id="30002" type="onslaught" attribute="critChance" value="4" />
+	<gem id="30003" type="onslaught" attribute="critChance" value="6" />
+	<gem id="30004" type="onslaught" attribute="critChance" value="8" />
+	<gem id="30005" type="onslaught" attribute="critChance" value="10" />
+
+	<gem id="30101" type="momentum" attribute="attackSpeed" value="1" />
+	<gem id="30102" type="momentum" attribute="attackSpeed" value="2" />
+	<gem id="30103" type="momentum" attribute="attackSpeed" value="3" />
+	<gem id="30104" type="momentum" attribute="attackSpeed" value="4" />
+	<gem id="30105" type="momentum" attribute="attackSpeed" value="5" />
+</gems>
