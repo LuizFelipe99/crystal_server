@@ -7507,6 +7507,7 @@ uint16_t Player::getSkillLevel(skills_t skill) const {
 	if (skill == SKILL_CRITICAL_HIT_CHANCE) {
 		skillLevel += 500; // Flag Bonus
 		skillLevel += equippedWeaponProficiency.critHitChance; // Proficiency Perk: critHitChance
+		skillLevel += equippedGemBonuses.critHitChance;
 	}
 
 	const int32_t avatarCritChance = m_wheelPlayer->checkAvatarSkill(WheelAvatarSkill_t::CRITICAL_CHANCE);
