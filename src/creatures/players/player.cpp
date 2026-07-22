@@ -7443,11 +7443,13 @@ uint32_t Player::getLoyaltyMagicLevel() const {
 }
 
 int32_t Player::getMaxHealth() const {
-	return std::max<int32_t>(1, healthMax + varStats[STAT_MAXHITPOINTS] + m_wheelPlayer->getStat(WheelStat_t::HEALTH));
+	return std::max<int32_t>(1, healthMax + varStats[STAT_MAXHITPOINTS] + m_wheelPlayer->getStat(WheelStat_t::HEALTH) + equippedGemBonuses.healthBonus);
+
 }
 
 uint32_t Player::getMaxMana() const {
-	return std::max<int32_t>(0, manaMax + varStats[STAT_MAXMANAPOINTS] + m_wheelPlayer->getStat(WheelStat_t::MANA));
+	return std::max<int32_t>(0, manaMax + varStats[STAT_MAXMANAPOINTS] + m_wheelPlayer->getStat(WheelStat_t::MANA) + equippedGemBonuses.manaBonus);
+
 }
 
 bool Player::hasExtraSwing() {
@@ -7502,8 +7504,8 @@ uint16_t Player::getSkillLevel(skills_t skill) const {
 		skillLevel += m_wheelPlayer->getMajorStatConditional("Ballistic Mastery", WheelMajor_t::CRITICAL_DMG);
 		skillLevel += m_wheelPlayer->checkAvatarSkill(WheelAvatarSkill_t::CRITICAL_DAMAGE);
 		skillLevel += equippedWeaponProficiency.critExtraDamage; // Proficiency Perk: critExtraDamage
+		skillLevel += equippedGemBonuses.critExtraDamage;
 	}
-
 	if (skill == SKILL_CRITICAL_HIT_CHANCE) {
 		skillLevel += 500; // Flag Bonus
 		skillLevel += equippedWeaponProficiency.critHitChance; // Proficiency Perk: critHitChance
@@ -12865,8 +12867,23 @@ static void applyGemDefinitionToBonuses(const GemDefinition &definition, Equippe
 		return;
 	}
 
+	if (definition.attribute == "critDamage") {
+		bonuses.critExtraDamage += static_cast<uint16_t>(definition.value * 100.0f);
+		return;
+	}
+
 	if (definition.attribute == "attackSpeed") {
 		bonuses.attackSpeed += static_cast<uint16_t>(definition.value);
+		return;
+	}
+
+	if (definition.attribute == "health") {
+		bonuses.healthBonus += static_cast<int32_t>(definition.value);
+		return;
+	}
+
+	if (definition.attribute == "mana") {
+		bonuses.manaBonus += static_cast<int32_t>(definition.value);
 		return;
 	}
 
@@ -12875,6 +12892,16 @@ static void applyGemDefinitionToBonuses(const GemDefinition &definition, Equippe
 		skillType = SKILL_MAGLEVEL;
 	} else if (definition.attribute == "shield") {
 		skillType = SKILL_SHIELD;
+	} else if (definition.attribute == "sword") {
+		skillType = SKILL_SWORD;
+	} else if (definition.attribute == "axe") {
+		skillType = SKILL_AXE;
+	} else if (definition.attribute == "club") {
+		skillType = SKILL_CLUB;
+	} else if (definition.attribute == "distance") {
+		skillType = SKILL_DISTANCE;
+	} else if (definition.attribute == "fist") {
+		skillType = SKILL_FIST;
 	}
 
 	if (skillType == SKILL_NONE) {

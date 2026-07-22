@@ -222,12 +222,18 @@ struct EquippedWeaponProficiencyBonuses {
 
 struct EquippedGemBonuses {
 	uint16_t critHitChance = 0;
+	uint16_t critExtraDamage = 0;
 	uint16_t attackSpeed = 0;
+	int32_t healthBonus = 0;
+	int32_t manaBonus = 0;
 	std::map<skills_t, uint8_t> skillBonus;
 
 	void reset() {
 		critHitChance = 0;
+		critExtraDamage = 0;
 		attackSpeed = 0;
+		healthBonus = 0;
+		manaBonus = 0;
 		skillBonus.clear();
 	}
 };
