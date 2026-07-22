@@ -238,7 +238,7 @@ struct EquippedGemBonuses {
 	}
 };
 
-static constexpr uint8_t GEM_BAG_SLOTS = 4;
+static constexpr uint8_t GEM_BAG_SLOTS = 9;
 
 using MuteCountMap = std::map<uint32_t, uint32_t>;
 
