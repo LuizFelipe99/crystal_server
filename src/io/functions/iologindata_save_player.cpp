@@ -1020,3 +1020,31 @@ bool IOLoginDataSave::savePlayerElementalBuild(const std::shared_ptr<Player> &pl
 
 	return insertQuery.execute();
 }
+
+bool IOLoginDataSave::savePlayerGemBag(const std::shared_ptr<Player> &player) {
+	if (!player) {
+		g_logger().warn("[{}] - Player nullptr", __FUNCTION__);
+		return false;
+	}
+
+	auto &db = Database::getInstance();
+
+	if (!db.executeQuery(fmt::format("DELETE FROM `player_gem_bag` WHERE `player_id` = {}", player->getGUID()))) {
+		return false;
+	}
+
+	DBInsert insertQuery("INSERT INTO `player_gem_bag` (`player_id`, `slot_index`, `item_id`) VALUES ");
+
+	for (uint8_t slotIndex = 0; slotIndex < GEM_BAG_SLOTS; slotIndex++) {
+		const uint16_t gemItemId = player->getGemBagSlot(slotIndex);
+		if (gemItemId == 0) {
+			continue;
+		}
+
+		if (!insertQuery.addRow(fmt::format("{}, {}, {}", player->getGUID(), slotIndex, gemItemId))) {
+			return false;
+		}
+	}
+
+	return insertQuery.execute();
+}

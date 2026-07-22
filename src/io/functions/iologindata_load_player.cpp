@@ -1162,3 +1162,26 @@ void IOLoginDataLoad::loadPlayerElementalBuild(const std::shared_ptr<Player> &pl
 		player->setElementalBuildPoints(combatType, points);
 	} while (result->next());
 }
+
+void IOLoginDataLoad::loadPlayerGemBag(const std::shared_ptr<Player> &player) {
+	if (!player) {
+		g_logger().warn("[{}] - Player nullptr", __FUNCTION__);
+		return;
+	}
+
+	auto result = Database::getInstance().storeQuery(
+		fmt::format("SELECT `slot_index`, `item_id` FROM `player_gem_bag` WHERE `player_id` = {}", player->getGUID())
+	);
+
+	if (!result) {
+		return;
+	}
+
+	do {
+		const auto slotIndex = result->getNumber<uint8_t>("slot_index");
+		const auto itemId = result->getNumber<uint16_t>("item_id");
+		player->setGemBagSlotDirect(slotIndex, itemId);
+	} while (result->next());
+
+	player->recalculateGemBonuses();
+}
