@@ -12950,3 +12950,11 @@ Player::ExivaRestrictions &Player::getExivaRestrictions() {
 const Player::ExivaRestrictions &Player::getExivaRestrictions() const {
 	return exivaRestrictions;
 }
+
+void Player::setGemBagSlotDirect(uint8_t slotIndex, uint16_t itemId) {
+	if (slotIndex >= GEM_BAG_SLOTS) {
+		return;
+	}
+
+	gemBag[slotIndex] = itemId;
+}

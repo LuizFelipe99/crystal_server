@@ -1126,6 +1126,7 @@ public:
 	bool socketGem(uint8_t slotIndex, uint16_t itemId);
 	bool unsocketGem(uint8_t slotIndex);
 	void recalculateGemBonuses();
+	void setGemBagSlotDirect(uint8_t slotIndex, uint16_t itemId);
 
 	bool canExiva(const std::string &spellParam) const;
 

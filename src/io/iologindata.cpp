@@ -180,6 +180,8 @@ bool IOLoginData::loadPlayer(const std::shared_ptr<Player> &player, const DBResu
 
 		IOLoginDataLoad::loadPlayerElementalBuild(player);
 
+		IOLoginDataLoad::loadPlayerGemBag(player);
+
 
 		if (disableIrrelevantInfo) {
 			return true;
@@ -297,6 +299,10 @@ bool IOLoginData::savePlayerGuard(const std::shared_ptr<Player> &player) {
 
 	if (!IOLoginDataSave::savePlayerElementalBuild(player)) {
 		throw DatabaseException("[IOLoginDataSave::savePlayerElementalBuild] - Failed to save player elemental build: " + player->getName());
+	}
+
+	if (!IOLoginDataSave::savePlayerGemBag(player)) {
+		throw DatabaseException("[IOLoginDataSave::savePlayerGemBag] - Failed to save player gem bag: " + player->getName());
 	}
 
 	if (player->isOutfitsModified()) {
