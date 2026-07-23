@@ -1128,7 +1128,7 @@ public:
 	// Gem Bag
 	EquippedGemBonuses &getEquippedGemBonuses();
 	uint16_t getGemBagSlot(uint8_t slotIndex) const;
-	bool hasGemTypeSocketed(const std::string &gemType, uint8_t excludingSlot) const;
+	uint8_t countGemTypeSocketed(const std::string &gemType, uint8_t excludingSlot) const;
 	bool socketGem(uint8_t slotIndex, uint16_t itemId);
 	bool unsocketGem(uint8_t slotIndex);
 	void recalculateGemBonuses();

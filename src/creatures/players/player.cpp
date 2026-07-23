@@ -12757,8 +12757,9 @@ bool Player::socketGem(uint8_t slotIndex, uint16_t itemId) {
 		return false;
 	}
 
-	if (hasGemTypeSocketed(definition->type, slotIndex)) {
-		sendCancelMessage("You already have a gem of this type equipped.");
+	static constexpr uint8_t MAX_GEMS_PER_TYPE = 2;
+	if (countGemTypeSocketed(definition->type, slotIndex) >= MAX_GEMS_PER_TYPE) {
+		sendCancelMessage("You already have the maximum number of gems of this type equipped.");
 		return false;
 	}
 
@@ -12985,4 +12986,30 @@ void Player::setGemBagSlotDirect(uint8_t slotIndex, uint16_t itemId) {
 	}
 
 	gemBag[slotIndex] = itemId;
+}
+
+uint8_t Player::countGemTypeSocketed(const std::string &gemType, uint8_t excludingSlot) const {
+	uint8_t count = 0;
+
+	for (uint8_t index = 0; index < GEM_BAG_SLOTS; ++index) {
+		if (index == excludingSlot) {
+			continue;
+		}
+
+		const uint16_t socketedGemId = gemBag[index];
+		if (socketedGemId == 0) {
+			continue;
+		}
+
+		const GemDefinition* socketedDefinition = g_gemDefinitions().getById(socketedGemId);
+		if (socketedDefinition == nullptr) {
+			continue;
+		}
+
+		if (socketedDefinition->type == gemType) {
+			count++;
+		}
+	}
+
+	return count;
 }
