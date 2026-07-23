@@ -12814,30 +12814,6 @@ uint16_t Player::getGemBagSlot(uint8_t slotIndex) const {
 	return gemBag[slotIndex];
 }
 
-bool Player::hasGemTypeSocketed(const std::string &gemType, uint8_t excludingSlot) const {
-	for (uint8_t index = 0; index < GEM_BAG_SLOTS; ++index) {
-		if (index == excludingSlot) {
-			continue;
-		}
-
-		const uint16_t socketedGemId = gemBag[index];
-		if (socketedGemId == 0) {
-			continue;
-		}
-
-		const GemDefinition* socketedDefinition = g_gemDefinitions().getById(socketedGemId);
-		if (socketedDefinition == nullptr) {
-			continue;
-		}
-
-		if (socketedDefinition->type == gemType) {
-			return true;
-		}
-	}
-
-	return false;
-}
-
 EquippedGemBonuses &Player::getEquippedGemBonuses() {
 	return equippedGemBonuses;
 }
