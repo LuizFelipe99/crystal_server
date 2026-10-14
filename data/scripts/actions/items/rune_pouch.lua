@@ -7,6 +7,7 @@ local QUANTITY_OPTIONS = { 100, 300, 500, 1000 }
 local SHOP_SESSION_SECONDS = 300
 
 local shopSessionExpiryByGuid = {}
+local requestThrottle = RequestThrottle.new(300)
 
 local runes = {
     { itemName = "animate dead rune",        shortName = "Animate Dead",   clientId = 3203, price = 375, category = "support" },
@@ -191,6 +192,13 @@ runeShopEvent:onExtendedOpcode(function(player, opcode, buffer)
 
     local data, pos, err = json.decode(buffer)
     if err or not data or not data.action then return true end
+
+    if requestThrottle:isThrottled(player) then
+        if data.action == "buy" then
+            sendBuyResult(player, false, "Please wait a moment before trying again.")
+        end
+        return true
+    end
 
     if data.action == "request" then
         if hasActiveShopSession(player) then

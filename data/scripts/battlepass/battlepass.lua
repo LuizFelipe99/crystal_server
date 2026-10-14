@@ -2,6 +2,7 @@ local json = dofile("data/libs/dkjson.lua")
 
 local DAILY_UNLOCK_HOUR = 0
 local NEXT_DAY_UNLOCK_KEY = "next-day-unlock"
+local requestThrottle = RequestThrottle.new(300)
 
 local function battlePassStore(player)
     return player:kv():scoped("battlepass")
@@ -342,6 +343,10 @@ local function onExtendedOpcodeReceived(player, opcode, buffer)
     local data, _, err = json.decode(buffer)
 
     if err or not data or not data.action then
+        return true
+    end
+
+    if requestThrottle:isThrottled(player) then
         return true
     end
 

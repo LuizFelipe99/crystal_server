@@ -9,6 +9,7 @@ local SINGLE_QUANTITY = { 1 }
 local SHOP_SESSION_SECONDS = 300
 
 local shopSessionExpiryByGuid = {}
+local requestThrottle = RequestThrottle.new(300)
 
 local ammunitions = {
     { itemName = "arrow",             shortName = "Arrow",             clientId = 3447,  price = 4,   category = "arrow",     quantities = BULK_QUANTITIES },
@@ -181,6 +182,13 @@ ammoShopEvent:onExtendedOpcode(function(player, opcode, buffer)
 
     local data, pos, err = json.decode(buffer)
     if err or not data or not data.action then
+        return true
+    end
+
+    if requestThrottle:isThrottled(player) then
+        if data.action == "buy" then
+            sendBuyResult(player, false, "Please wait a moment before trying again.")
+        end
         return true
     end
 

@@ -3,6 +3,7 @@ local json = dofile("data/libs/dkjson.lua")
 local CRAFTBENCH_OPCODE = 13
 local CRAFT_UNLOCK_STORAGE = 91003
 local LOCKED_MESSAGE = "You need to complete the quest to access the Craft Bench."
+local requestThrottle = RequestThrottle.new(300)
 local PARTIAL_LOSS_CATEGORY = "atribute_gem"
 local PARTIAL_LOSS_MINIMUM = 0
 
@@ -301,6 +302,11 @@ local function handleExecute(player, tabName, recipeIndex)
     end
 
     local requiredItems = getItemList(recipe, tabConfig.consumesKey)
+
+    if #requiredItems == 0 then
+        logger.warn("[CraftBench] Recipe '{}' has no required items and was blocked.", recipe.resultName)
+        return
+    end
     local rewardItems = getItemList(recipe, tabConfig.producesKey)
     local goldCost = recipe.goldCost or 0
 
@@ -350,6 +356,10 @@ craftBenchEvent:onExtendedOpcode(function(player, opcode, buffer)
     local data, pos, err = json.decode(buffer)
 
     if err or not data or not data.action then
+        return true
+    end
+
+    if requestThrottle:isThrottled(player) then
         return true
     end
 

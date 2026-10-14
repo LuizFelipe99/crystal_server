@@ -6,6 +6,7 @@ local ELEMENTAL_BUILD_CAP = ElementalBuildConfig.pointsCap
 local ELEMENTAL_BUILD_DAMAGE_RATIO = ElementalBuildConfig.damageRatio
 
 local VALID_COMBAT_TYPES = ElementalBuildConfig.validCombatTypes
+local requestThrottle = RequestThrottle.new(300)
 
 local function buildElementsPayload()
     local elementsPayload = {}
@@ -241,6 +242,10 @@ elementalBuildEvent:onExtendedOpcode(function(player, opcode, buffer)
     local data, _, err = json.decode(buffer)
 
     if err or not data or not data.action then
+        return true
+    end
+
+    if requestThrottle:isThrottled(player) then
         return true
     end
 

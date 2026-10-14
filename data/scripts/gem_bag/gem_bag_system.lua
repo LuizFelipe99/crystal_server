@@ -3,6 +3,7 @@ local json = dofile("data/libs/dkjson.lua")
 local gemBagOpcode = 18
 local gemBagSlotCount = 9
 local gemCatalogPath = "data/XML/gems.xml"
+local requestThrottle = RequestThrottle.new(300)
 
 local function readGemCatalog()
 	local gemDefinitionByItemId = {}
@@ -83,6 +84,14 @@ function ExtendedEvent.onExtendedOpcode(player, opcode, buffer)
 	end
 
 	local actionData = json.decode(buffer)
+	if type(actionData) ~= "table" then
+		return
+	end
+
+	if requestThrottle:isThrottled(player) then
+		return
+	end
+
 	if actionData.action == "socket" then
 		handleSocketAction(player, actionData)
 		return

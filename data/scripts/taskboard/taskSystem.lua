@@ -4,6 +4,7 @@ local taskConfig = dofile("data/scripts/taskboard/taskConfig.lua")
 local taskOpcode = 17
 local taskBaseStorage = 1500
 local taskCooldownBaseStorage = 2500
+local requestThrottle = RequestThrottle.new(300)
 
 local taskDifficulties = taskConfig.taskDifficulties
 local configMonsterTasks = taskConfig.configMonsterTasks
@@ -496,9 +497,20 @@ TaskDeathEvent:register()
 local ExtendedEvent = CreatureEvent("TaskExtended")
 
 function ExtendedEvent.onExtendedOpcode(player, opcode, buffer)
-	if opcode == taskOpcode then
-		TaskSystem.onAction(player, json.decode(buffer))
+	if opcode ~= taskOpcode then
+		return
 	end
+
+	local actionData = json.decode(buffer)
+	if type(actionData) ~= "table" then
+		return
+	end
+
+	if actionData.action ~= "hide" and requestThrottle:isThrottled(player) then
+		return
+	end
+
+	TaskSystem.onAction(player, actionData)
 end
 
 ExtendedEvent:type("extendedopcode")

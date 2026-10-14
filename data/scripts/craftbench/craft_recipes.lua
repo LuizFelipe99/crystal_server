@@ -566,14 +566,6 @@ return {
         }
     },
     {
-        resultName = "Gnome Legs",
-        resultClientId = 27649,
-        resultAmount = 1,
-        resultDescription = "",
-        vocation = "druid",
-        ingredients = {}
-    },
-    {
         resultName = "Falcon Rod",
         resultClientId = 28716,
         resultAmount = 1,
@@ -683,14 +675,6 @@ return {
         }
     },
     {
-        resultName = "Dawnfire Sherwani",
-        resultClientId = 39164,
-        resultAmount = 1,
-        resultDescription = "",
-        vocation = "sorcerer",
-        ingredients = {}
-    },
-    {
         resultName = "Soulshanks",
         resultClientId = 34092,
         resultAmount = 1,
@@ -769,14 +753,6 @@ return {
             { itemName = "giant sapphire", clientId = 30061, amount = 5 },
             { itemName = "giant amethyst", clientId = 32622, amount = 5 },
         }
-    },
-    {
-        resultName = "Naga Tanko",
-        resultClientId = 50262,
-        resultAmount = 1,
-        resultDescription = "",
-        vocation = "monk",
-        ingredients = {}
     },
     {
         resultName = "Soulgarb",
