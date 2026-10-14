@@ -3,6 +3,8 @@ local json = dofile("data/libs/dkjson.lua")
 local CRAFTBENCH_OPCODE = 13
 local CRAFT_UNLOCK_STORAGE = 91003
 local LOCKED_MESSAGE = "You need to complete the quest to access the Craft Bench."
+local PARTIAL_LOSS_CATEGORY = "atribute_gem"
+local PARTIAL_LOSS_MINIMUM = 0
 
 local craftRecipes = dofile("data/scripts/craftbench/craft_recipes.lua")
 local desmancheRecipes = dofile("data/scripts/craftbench/desmanche_recipes.lua")
@@ -143,6 +145,43 @@ local function removeItems(player, itemList)
     end
 end
 
+local function usesPartialLossOnFail(recipe)
+    return recipe.vocation == PARTIAL_LOSS_CATEGORY
+end
+
+local function removeRandomPortion(player, itemList)
+    local totalLost = 0
+    for _, item in ipairs(itemList) do
+        local lostAmount = math.random(PARTIAL_LOSS_MINIMUM, item.amount)
+        if lostAmount > 0 then
+            player:removeItem(item.clientId, lostAmount)
+            totalLost = totalLost + lostAmount
+        end
+    end
+    return totalLost
+end
+
+local function describePartialLoss(totalLost)
+    if totalLost == 0 then
+        return "The operation failed, but you kept all your gems."
+    end
+
+    if totalLost == 1 then
+        return "The operation failed. You lost 1 gem."
+    end
+
+    return "The operation failed. You lost " .. totalLost .. " gems."
+end
+
+local function resolveFailure(player, recipe, requiredItems)
+    if not usesPartialLossOnFail(recipe) then
+        removeItems(player, requiredItems)
+        return "The operation failed. Your materials were lost."
+    end
+
+    return describePartialLoss(removeRandomPortion(player, requiredItems))
+end
+
 local function grantItems(player, itemList)
     for _, item in ipairs(itemList) do
         player:addItem(item.clientId, resolveItemAmount(item))
@@ -281,8 +320,6 @@ local function handleExecute(player, tabName, recipeIndex)
         return
     end
 
-    removeItems(player, requiredItems)
-
     if goldCost > 0 then
         spendGold(player, goldCost)
     end
@@ -291,10 +328,11 @@ local function handleExecute(player, tabName, recipeIndex)
     local message
 
     if succeeded then
+        removeItems(player, requiredItems)
         grantItems(player, rewardItems)
         message = "Operation completed successfully."
     else
-        message = "The operation failed. Your materials were lost."
+        message = resolveFailure(player, recipe, requiredItems)
     end
 
     player:sendTextMessage(MESSAGE_EVENT_ADVANCE, message)
