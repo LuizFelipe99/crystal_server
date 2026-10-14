@@ -160,15 +160,24 @@ end
 local function grantTaskToken(player, task)
 	local tokenReward = task.tokenReward
 	if not taskTokenItemId or not tokenReward or tokenReward.count <= 0 then
-		return
+		return 0
 	end
 
 	if math.random(1, 100) > tokenReward.chance then
-		return
+		return 0
 	end
 
 	player:addItem(taskTokenItemId, tokenReward.count)
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You received " .. tokenReward.count .. "x task token!")
+	return tokenReward.count
+end
+
+local function describeTaskFinished(receivedTokens)
+	if receivedTokens == 0 then
+		return "Task finished."
+	end
+
+	return "Task finished. You received " .. receivedTokens .. "x task token!"
 end
 
 local function buildTokenRewardSnapshot(task)
@@ -380,10 +389,10 @@ TaskSystem = {
 							player:addItem(item.itemId, item.count)
 						end
 					end
-					grantTaskToken(player, task)
+					local receivedTokens = grantTaskToken(player, task)
 
 					sendResponse(player, {
-						message = 'Task finished.',
+						message = describeTaskFinished(receivedTokens),
 						color = 'green'
 					})
 
