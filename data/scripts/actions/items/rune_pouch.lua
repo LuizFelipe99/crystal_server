@@ -4,6 +4,9 @@ local RUNESHOP_OPCODE = 11
 local DELIVERY_CONTAINER_ID = 2854
 local RUNE_STACK_SIZE = 100
 local QUANTITY_OPTIONS = { 100, 300, 500, 1000 }
+local SHOP_SESSION_SECONDS = 300
+
+local shopSessionExpiryByGuid = {}
 
 local runes = {
     { itemName = "animate dead rune",        shortName = "Animate Dead",   clientId = 3203, price = 375, category = "support" },
@@ -40,6 +43,19 @@ local runes = {
     { itemName = "ultimate healing rune",    shortName = "Ult. Healing",   clientId = 3160, price = 175, category = "healing" },
     { itemName = "wild growth rune",         shortName = "Wild Growth",    clientId = 3156, price = 160, category = "support" },
 }
+
+local function isInFight(player)
+    return player:isPzLocked() or player:getCondition(CONDITION_INFIGHT, CONDITIONID_DEFAULT) ~= nil
+end
+
+local function openShopSession(player)
+    shopSessionExpiryByGuid[player:getGuid()] = os.time() + SHOP_SESSION_SECONDS
+end
+
+local function hasActiveShopSession(player)
+    local sessionExpiry = shopSessionExpiryByGuid[player:getGuid()]
+    return sessionExpiry ~= nil and sessionExpiry >= os.time()
+end
 
 local function isValidQuantity(quantity)
     for _, option in ipairs(QUANTITY_OPTIONS) do
@@ -113,18 +129,31 @@ local function createFilledContainer(runeClientId, quantity)
     return container
 end
 
-local function handleBuy(player, clientId, quantity)
-    if not isValidQuantity(quantity) then return end
-
-    local rune = nil
-    for _, r in ipairs(runes) do
-        if r.clientId == clientId then
-            rune = r
-            break
+local function findRune(clientId)
+    for _, rune in ipairs(runes) do
+        if rune.clientId == clientId then
+            return rune
         end
     end
+    return nil
+end
 
-    if not rune then return end
+local function handleBuy(player, clientId, quantity)
+    if not hasActiveShopSession(player) then
+        sendBuyResult(player, false, "Your shop session expired. Use the item again to reopen the shop.")
+        return
+    end
+
+    if isInFight(player) then
+        sendBuyResult(player, false, "You can't buy runes during a fight.")
+        return
+    end
+
+    local rune = findRune(clientId)
+    if not rune or not isValidQuantity(quantity) then
+        sendBuyResult(player, false, "Invalid purchase.")
+        return
+    end
 
     local totalPrice = rune.price * quantity
 
@@ -164,7 +193,9 @@ runeShopEvent:onExtendedOpcode(function(player, opcode, buffer)
     if err or not data or not data.action then return true end
 
     if data.action == "request" then
-        handleRequest(player)
+        if hasActiveShopSession(player) then
+            handleRequest(player)
+        end
     elseif data.action == "buy" then
         handleBuy(player, data.clientId, data.quantity)
     end
@@ -187,13 +218,12 @@ runeShopLoginEvent:register()
 local runeShopItem = Action()
 
 function runeShopItem.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-    local inFight = player:isPzLocked() or player:getCondition(CONDITION_INFIGHT, CONDITIONID_DEFAULT)
-
-    if inFight then
+    if isInFight(player) then
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You can't use this during a fight.")
         return true
     end
 
+    openShopSession(player)
     handleRequest(player)
     return true
 end

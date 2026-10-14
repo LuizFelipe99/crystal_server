@@ -6,6 +6,9 @@ local AMMO_STACK_SIZE = 100
 local BULK_QUANTITIES = { 100, 300, 500, 1000 }
 local THROWING_QUANTITIES = { 10, 25, 50, 100 }
 local SINGLE_QUANTITY = { 1 }
+local SHOP_SESSION_SECONDS = 300
+
+local shopSessionExpiryByGuid = {}
 
 local ammunitions = {
     { itemName = "arrow",             shortName = "Arrow",             clientId = 3447,  price = 4,   category = "arrow",     quantities = BULK_QUANTITIES },
@@ -18,6 +21,19 @@ local ammunitions = {
     { itemName = "crossbow",          shortName = "Crossbow",          clientId = 3349,  price = 600, category = "equipment", quantities = SINGLE_QUANTITY },
     { itemName = "quiver",            shortName = "Quiver",            clientId = 35562, price = 500, category = "equipment", quantities = SINGLE_QUANTITY },
 }
+
+local function isInFight(player)
+    return player:isPzLocked() or player:getCondition(CONDITION_INFIGHT, CONDITIONID_DEFAULT) ~= nil
+end
+
+local function openShopSession(player)
+    shopSessionExpiryByGuid[player:getGuid()] = os.time() + SHOP_SESSION_SECONDS
+end
+
+local function hasActiveShopSession(player)
+    local sessionExpiry = shopSessionExpiryByGuid[player:getGuid()]
+    return sessionExpiry ~= nil and sessionExpiry >= os.time()
+end
 
 local function findAmmunition(clientId)
     for _, ammo in ipairs(ammunitions) do
@@ -115,9 +131,21 @@ local function createDeliveryItem(ammo, quantity)
 end
 
 local function handleBuy(player, clientId, quantity)
+    if not hasActiveShopSession(player) then
+        sendBuyResult(player, false, "Your shop session expired. Use the item again to reopen the shop.")
+        return
+    end
+
+    if isInFight(player) then
+        sendBuyResult(player, false, "You can't buy ammunition during a fight.")
+        return
+    end
+
     local ammo = findAmmunition(clientId)
-    if not ammo then return end
-    if not isValidQuantity(ammo, quantity) then return end
+    if not ammo or not isValidQuantity(ammo, quantity) then
+        sendBuyResult(player, false, "Invalid purchase.")
+        return
+    end
 
     local totalPrice = ammo.price * quantity
 
@@ -157,7 +185,9 @@ ammoShopEvent:onExtendedOpcode(function(player, opcode, buffer)
     end
 
     if data.action == "request" then
-        handleRequest(player)
+        if hasActiveShopSession(player) then
+            handleRequest(player)
+        end
     elseif data.action == "buy" then
         handleBuy(player, data.clientId, data.quantity)
     end
@@ -180,6 +210,12 @@ ammoShopLoginEvent:register()
 local ammoShopItem = Action()
 
 function ammoShopItem.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+    if isInFight(player) then
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You can't use this during a fight.")
+        return true
+    end
+
+    openShopSession(player)
     handleRequest(player)
     return true
 end

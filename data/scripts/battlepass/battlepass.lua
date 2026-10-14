@@ -1,5 +1,60 @@
 local json = dofile("data/libs/dkjson.lua")
 
+local DAILY_UNLOCK_HOUR = 0
+local NEXT_DAY_UNLOCK_KEY = "next-day-unlock"
+
+local function battlePassStore(player)
+    return player:kv():scoped("battlepass")
+end
+
+local function calculateNextUnlockTimestamp()
+    local now = os.time()
+    local unlockMoment = os.date("*t", now)
+    unlockMoment.hour = DAILY_UNLOCK_HOUR
+    unlockMoment.min = 0
+    unlockMoment.sec = 0
+    local unlockTimestamp = os.time(unlockMoment)
+    if unlockTimestamp <= now then
+        unlockMoment.day = unlockMoment.day + 1
+        unlockTimestamp = os.time(unlockMoment)
+    end
+    return unlockTimestamp
+end
+
+local function secondsUntilNextDay(player)
+    local unlockTimestamp = battlePassStore(player):get(NEXT_DAY_UNLOCK_KEY) or 0
+    return math.max(0, unlockTimestamp - os.time())
+end
+
+local function isWaitingForNextDay(player)
+    return secondsUntilNextDay(player) > 0
+end
+
+local function describeWaitTime(remainingSeconds)
+    local hours = math.floor(remainingSeconds / 3600)
+    local minutes = math.ceil((remainingSeconds % 3600) / 60)
+    if minutes == 60 then
+        hours = hours + 1
+        minutes = 0
+    end
+    if hours == 0 then
+        return minutes .. "m"
+    end
+    return hours .. "h " .. minutes .. "m"
+end
+
+local function completeCurrentDay(player, currentDay)
+    player:setStorageValue(BattlePassStorage.dayStatus(currentDay), BATTLEPASS_STATUS_CLAIMED)
+    player:setStorageValue(BattlePassStorage.currentDay, math.min(currentDay + 1, BattlePassConfig.season.totalDays))
+    if currentDay >= BattlePassConfig.season.totalDays then
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Day " .. currentDay .. " completed! You finished the battle pass.")
+        return
+    end
+
+    battlePassStore(player):set(NEXT_DAY_UNLOCK_KEY, calculateNextUnlockTimestamp())
+    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Day " .. currentDay .. " completed! The next day unlocks tomorrow.")
+end
+
 local function mapRewardsToPayload(rewards)
     local payload = {}
     for index, reward in ipairs(rewards) do
@@ -53,9 +108,12 @@ local function resolveProRewardStatus(isVip, isCurrentDay, dayStatus)
     return "Claimed"
 end
 
-local function resolveDayStatusText(isCurrentDay, selectedDay, currentDay, canDeliver, canClaimPro, dayStatus)
+local function resolveDayStatusText(isCurrentDay, selectedDay, currentDay, canDeliver, canClaimPro, dayStatus, waitSeconds)
     if not isCurrentDay then
         return selectedDay > currentDay and "Complete previous days first" or "Completed"
+    end
+    if waitSeconds > 0 and dayStatus == BATTLEPASS_STATUS_PENDING then
+        return "Unlocks in " .. describeWaitTime(waitSeconds)
     end
     if canDeliver then
         return "Deliver items"
@@ -98,8 +156,9 @@ local function buildDayPreview(player, currentDay, selectedDay, isVip)
     end
 
     local dayStatus   = resolveRawDayStatus(player, selectedDay)
+    local waitSeconds = secondsUntilNextDay(player)
     local itemCount   = isCurrentDay and player:getItemCount(mission.itemId) or 0
-    local canDeliver  = isCurrentDay and dayStatus == BATTLEPASS_STATUS_PENDING and itemCount >= mission.amount
+    local canDeliver  = isCurrentDay and dayStatus == BATTLEPASS_STATUS_PENDING and itemCount >= mission.amount and waitSeconds == 0
     local canClaimPro = isCurrentDay and dayStatus == BATTLEPASS_STATUS_DELIVERED and isVip
 
     return {
@@ -113,7 +172,7 @@ local function buildDayPreview(player, currentDay, selectedDay, isVip)
         freeRewardStatus   = resolveFreeRewardStatus(isCurrentDay, dayStatus, canDeliver),
         proRewards         = mapRewardsToPayload(mission.proRewards),
         proRewardStatus    = resolveProRewardStatus(isVip, isCurrentDay, dayStatus),
-        dayStatusText      = resolveDayStatusText(isCurrentDay, selectedDay, currentDay, canDeliver, canClaimPro, dayStatus),
+        dayStatusText      = resolveDayStatusText(isCurrentDay, selectedDay, currentDay, canDeliver, canClaimPro, dayStatus, waitSeconds),
         missionItemCount   = itemCount,
         missionAmount      = mission.amount,
         canDeliver         = canDeliver,
@@ -222,6 +281,12 @@ local function handleDeliver(player)
         return
     end
 
+    if isWaitingForNextDay(player) then
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Day " .. currentDay .. " unlocks in " .. describeWaitTime(secondsUntilNextDay(player)) .. ".")
+        sendStateToPlayer(player, currentDay)
+        return
+    end
+
     if player:getItemCount(mission.itemId) < mission.amount then
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You don't have enough items.")
         return
@@ -232,9 +297,7 @@ local function handleDeliver(player)
     player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Free reward granted: " .. describeRewardList(mission.freeRewards))
 
     if not isVip then
-        player:setStorageValue(BattlePassStorage.dayStatus(currentDay), BATTLEPASS_STATUS_CLAIMED)
-        player:setStorageValue(BattlePassStorage.currentDay, math.min(currentDay + 1, BattlePassConfig.season.totalDays))
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Day " .. currentDay .. " completed!")
+        completeCurrentDay(player, currentDay)
     else
         player:setStorageValue(BattlePassStorage.dayStatus(currentDay), BATTLEPASS_STATUS_DELIVERED)
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You can now claim your Pro reward!")
@@ -266,9 +329,7 @@ local function handleClaimPro(player)
     grantRewardList(player, mission.proRewards)
     player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Pro reward granted: " .. describeRewardList(mission.proRewards))
 
-    player:setStorageValue(BattlePassStorage.dayStatus(currentDay), BATTLEPASS_STATUS_CLAIMED)
-    player:setStorageValue(BattlePassStorage.currentDay, math.min(currentDay + 1, BattlePassConfig.season.totalDays))
-    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Day " .. currentDay .. " completed!")
+    completeCurrentDay(player, currentDay)
 
     sendStateToPlayer(player, currentDay)
 end
