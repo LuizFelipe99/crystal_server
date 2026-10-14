@@ -8,6 +8,7 @@ local requestThrottle = RequestThrottle.new(300)
 
 local taskDifficulties = taskConfig.taskDifficulties
 local configMonsterTasks = taskConfig.configMonsterTasks
+local taskTokenItemId = taskConfig.taskTokenItemId
 
 local function getCurrentDayKey()
 	return tonumber(os.date("%Y%m%d"))
@@ -54,7 +55,8 @@ local function buildTaskDefinitions()
 				killsRequired = scaleAmount(monsterConfig.baseKillsRequired, difficultyConfig.killsMultiplier),
 				rewards = {
 					expReward = scaleAmount(monsterConfig.baseRewards.expReward, difficultyConfig.rewardMultiplier),
-					itemRewards = buildScaledItemRewards(monsterConfig.baseRewards.itemRewards, difficultyConfig.rewardMultiplier)
+					itemRewards = buildScaledItemRewards(monsterConfig.baseRewards.itemRewards, difficultyConfig.rewardMultiplier),
+					tokenReward = { chance = difficultyConfig.tokenChance or 0, count = difficultyConfig.tokenCount or 0 }
 				}
 			})
 		end
@@ -155,6 +157,36 @@ local function isTaskOnCooldown(player, task)
 	return lastCompletedDayKey == getCurrentDayKey()
 end
 
+local function grantTaskToken(player, task)
+	local tokenReward = task.tokenReward
+	if not taskTokenItemId or not tokenReward or tokenReward.count <= 0 then
+		return
+	end
+
+	if math.random(1, 100) > tokenReward.chance then
+		return
+	end
+
+	player:addItem(taskTokenItemId, tokenReward.count)
+	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You received " .. tokenReward.count .. "x task token!")
+end
+
+local function buildTokenRewardSnapshot(task)
+	local tokenReward = task.tokenReward
+	if not taskTokenItemId or not tokenReward or tokenReward.count <= 0 or tokenReward.chance <= 0 then
+		return nil
+	end
+
+	local itemType = ItemType(taskTokenItemId)
+	return {
+		itemId = taskTokenItemId,
+		clientId = itemType and itemType.getClientId and itemType:getClientId() or taskTokenItemId,
+		name = itemType and itemType:getName() or "task token",
+		count = tokenReward.count,
+		chance = tokenReward.chance
+	}
+end
+
 local function buildTaskSnapshot(player, task)
 	local snapshot = {
 		id = task.id,
@@ -166,6 +198,7 @@ local function buildTaskSnapshot(player, task)
 		kills = task.kills,
 		exp = task.exp,
 		itemRewards = task.itemRewards,
+		tokenReward = buildTokenRewardSnapshot(task),
 		onCooldownToday = isTaskOnCooldown(player, task)
 	}
 
@@ -206,7 +239,8 @@ TaskSystem = {
 				monsterLooktypes = resolveGroupLooktypes(taskDefinition.monsterNames),
 				kills = taskDefinition.killsRequired,
 				exp = taskDefinition.rewards.expReward,
-				itemRewards = resolveItemRewards(taskDefinition.rewards.itemRewards)
+				itemRewards = resolveItemRewards(taskDefinition.rewards.itemRewards),
+				tokenReward = taskDefinition.rewards.tokenReward
 			})
 		end
 
@@ -346,6 +380,7 @@ TaskSystem = {
 							player:addItem(item.itemId, item.count)
 						end
 					end
+					grantTaskToken(player, task)
 
 					sendResponse(player, {
 						message = 'Task finished.',

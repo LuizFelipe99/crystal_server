@@ -1,7 +1,9 @@
+local taskTokenItemId = 64465
+
 local taskDifficulties = {
-	easy = { killsMultiplier = 1, rewardMultiplier = 1 },
-	medium = { killsMultiplier = 3, rewardMultiplier = 1 },
-	hard = { killsMultiplier = 6, rewardMultiplier = 6 }
+	easy = { killsMultiplier = 1, rewardMultiplier = 1, tokenChance = 50, tokenCount = 1 },
+	medium = { killsMultiplier = 1, rewardMultiplier = 1, tokenChance = 85, tokenCount = 1 },
+	hard = { killsMultiplier = 6, rewardMultiplier = 6, tokenChance = 100, tokenCount = 2 }
 }
 
 local configMonsterTasks = {
@@ -14,12 +16,12 @@ local configMonsterTasks = {
 		baseRewards = {
 			expReward = 100000,
 			itemRewards = {
-				{ itemId = 3043, count = 5 }
+				{ itemId = 3043, count = 2 }
 			}
 		}
 	},
 	{
-id = 18,
+		id = 18,
 		displayName = "Rotworm",
 		monsterNames = { "Rotworm" },
 		difficulties = { "easy" },
@@ -27,12 +29,12 @@ id = 18,
 		baseRewards = {
 			expReward = 110000,
 			itemRewards = {
-				{ itemId = 3043, count = 48 }
+				{ itemId = 3043, count = 2 }
 			}
 		}
 	},
 	{
-id = 15,
+		id = 15,
 		displayName = "Minotaur",
 		monsterNames = { "Minotaur", "Minotaur Guard", "Minotaur Archer", "Minotaur Mage" },
 		difficulties = { "easy" },
@@ -40,12 +42,12 @@ id = 15,
 		baseRewards = {
 			expReward = 121000,
 			itemRewards = {
-				{ itemId = 3043, count = 39 }
+				{ itemId = 3043, count = 3 }
 			}
 		}
 	},
 	{
-id = 7,
+		id = 7,
 		displayName = "Elf",
 		monsterNames = { "Elf", "Elf Arcanist", "Elf Scout" },
 		difficulties = { "easy" },
@@ -53,12 +55,12 @@ id = 7,
 		baseRewards = {
 			expReward = 133100,
 			itemRewards = {
-				{ itemId = 3043, count = 15 }
+				{ itemId = 3043, count = 3 }
 			}
 		}
 	},
 	{
-id = 10,
+		id = 10,
 		displayName = "Ghoul",
 		monsterNames = { "Ghoul" },
 		difficulties = { "easy" },
@@ -66,12 +68,12 @@ id = 10,
 		baseRewards = {
 			expReward = 146400,
 			itemRewards = {
-				{ itemId = 3043, count = 24 }
+				{ itemId = 3043, count = 3 }
 			}
 		}
 	},
 	{
-id = 14,
+		id = 14,
 		displayName = "Kongra",
 		monsterNames = { "Kongra", "Sibang", "Merlkin" },
 		difficulties = { "easy" },
@@ -79,13 +81,12 @@ id = 14,
 		baseRewards = {
 			expReward = 161100,
 			itemRewards = {
-				{ itemId = 3043, count = 36 },
-				{ itemId = 64465, count = 1 }
+				{ itemId = 3043, count = 5 }
 			}
 		}
 	},
 	{
-id = 17,
+		id = 17,
 		displayName = "Nomad",
 		monsterNames = { "Nomad" },
 		difficulties = { "easy" },
@@ -93,27 +94,25 @@ id = 17,
 		baseRewards = {
 			expReward = 177200,
 			itemRewards = {
-				{ itemId = 3043, count = 45 },
-				{ itemId = 64465, count = 1 }
+				{ itemId = 3043, count = 5 }
 			}
 		}
 	},
 	{
-id = 2,
+		id = 2,
 		displayName = "Barbarian Headsplitter",
 		monsterNames = { "Barbarian Headsplitter", "Barbarian Skullhunter" },
-		difficulties = { "easy", },
+		difficulties = { "easy" },
 		baseKillsRequired = 300,
 		baseRewards = {
 			expReward = 194900,
 			itemRewards = {
-				{ itemId = 3043, count = 1 },
-				{ itemId = 64465, count = 1 }
+				{ itemId = 3043, count = 5 }
 			}
 		}
 	},
 	{
-id = 3,
+		id = 3,
 		displayName = "Cyclops",
 		monsterNames = { "Cyclops" },
 		difficulties = { "easy" },
@@ -126,7 +125,7 @@ id = 3,
 		}
 	},
 	{
-id = 4,
+		id = 4,
 		displayName = "Deepling Warrior",
 		monsterNames = { "Deepling Warrior", "Deepling Scout", "Deepling Spellsinger" },
 		difficulties = { "easy" },
@@ -139,21 +138,21 @@ id = 4,
 		}
 	},
 	{
-id = 5,
+		id = 5,
 		displayName = "Demon",
 		monsterNames = { "Demon" },
-		difficulties = { "easy" },
+		difficulties = { "medium" },
 		baseKillsRequired = 666,
 		baseRewards = {
 			expReward = 259400,
 			itemRewards = {
-				{ itemId = 3043, count = 8 },
-				{ itemId = 64465, count = 1 }
+				{ itemId = 3043, count = 50 },
+				{ itemId = 3388, count = 1 }
 			}
 		}
 	},
 	{
-id = 6,
+		id = 6,
 		displayName = "Dragon",
 		monsterNames = { "Dragon", "Dragon Lord" },
 		difficulties = { "easy" },
@@ -161,12 +160,14 @@ id = 6,
 		baseRewards = {
 			expReward = 285300,
 			itemRewards = {
-				{ itemId = 3043, count = 11 }
+				{ itemId = 3043, count = 10 },
+				{ itemId = 3322, count = 3 },
+				{ itemId = 3416, count = 3 }
 			}
 		}
 	},
 	{
-id = 8,
+		id = 8,
 		displayName = "Frazzlemaw",
 		monsterNames = { "Frazzlemaw", "Silencer" },
 		difficulties = { "easy" },
@@ -174,13 +175,12 @@ id = 8,
 		baseRewards = {
 			expReward = 313800,
 			itemRewards = {
-				{ itemId = 3043, count = 18 },
-				{ itemId = 64465, count = 1 }
+				{ itemId = 3043, count = 10 }
 			}
 		}
 	},
 	{
-id = 9,
+		id = 9,
 		displayName = "Frost Dragon",
 		monsterNames = { "Frost Dragon", "Frost Dragon Hatchling" },
 		difficulties = { "easy" },
@@ -188,12 +188,12 @@ id = 9,
 		baseRewards = {
 			expReward = 345200,
 			itemRewards = {
-				{ itemId = 3043, count = 21 }
+				{ itemId = 3043, count = 10 }
 			}
 		}
 	},
 	{
-id = 11,
+		id = 11,
 		displayName = "Glooth Bandit",
 		monsterNames = { "Glooth Bandit", "Glooth Brigand" },
 		difficulties = { "easy" },
@@ -201,13 +201,12 @@ id = 11,
 		baseRewards = {
 			expReward = 379700,
 			itemRewards = {
-				{ itemId = 3043, count = 27 },
-				{ itemId = 64465, count = 1 }
+				{ itemId = 3043, count = 12 }
 			}
 		}
 	},
 	{
-id = 12,
+		id = 12,
 		displayName = "Hero",
 		monsterNames = { "Hero", "Vicious Squire", "Renegade Knight", "Blood Priest", "Vile Grandmaster" },
 		difficulties = { "easy" },
@@ -215,12 +214,15 @@ id = 12,
 		baseRewards = {
 			expReward = 417700,
 			itemRewards = {
-				{ itemId = 3043, count = 30 }
+				{ itemId = 3043, count = 15 },
+				{ itemId = 3385, count = 1 },
+				{ itemId = 3381, count = 1 },
+				{ itemId = 3382, count = 1 }
 			}
 		}
 	},
 	{
-id = 13,
+		id = 13,
 		displayName = "Hydra",
 		monsterNames = { "Hydra" },
 		difficulties = { "easy" },
@@ -228,12 +230,13 @@ id = 13,
 		baseRewards = {
 			expReward = 459500,
 			itemRewards = {
-				{ itemId = 3043, count = 33 }
+				{ itemId = 3043, count = 15 },
+				{ itemId = 3079, count = 1 }
 			}
 		}
 	},
 	{
-id = 16,
+		id = 16,
 		displayName = "Nightmare",
 		monsterNames = { "Nightmare", "Nightmare Scion" },
 		difficulties = { "easy" },
@@ -241,12 +244,12 @@ id = 16,
 		baseRewards = {
 			expReward = 505400,
 			itemRewards = {
-				{ itemId = 3043, count = 42 }
+				{ itemId = 3043, count = 20 }
 			}
 		}
 	},
 	{
-id = 19,
+		id = 19,
 		displayName = "Skeleton Warrior",
 		monsterNames = { "Skeleton Warrior" },
 		difficulties = { "easy" },
@@ -254,12 +257,12 @@ id = 19,
 		baseRewards = {
 			expReward = 556000,
 			itemRewards = {
-				{ itemId = 3043, count = 51 }
+				{ itemId = 3043, count = 15 }
 			}
 		}
 	},
 	{
-id = 20,
+		id = 20,
 		displayName = "Spiky Carnivor",
 		monsterNames = { "Spiky Carnivor", "Lumbering Carnivor", "Menacing Carnivor" },
 		difficulties = { "easy" },
@@ -267,26 +270,25 @@ id = 20,
 		baseRewards = {
 			expReward = 611600,
 			itemRewards = {
-				{ itemId = 3043, count = 54 },
-				{ itemId = 64465, count = 1 }
+				{ itemId = 3043, count = 20 }
 			}
 		}
 	},
 	{
-id = 21,
+		id = 21,
 		displayName = "Stonerefiner",
 		monsterNames = { "Stonerefiner" },
 		difficulties = { "easy" },
-		baseKillsRequired = 750,
+		baseKillsRequired = 450,
 		baseRewards = {
 			expReward = 672700,
 			itemRewards = {
-				{ itemId = 3043, count = 57 }
+				{ itemId = 3043, count = 15 }
 			}
 		}
 	},
 	{
-id = 22,
+		id = 22,
 		displayName = "Werehyaena",
 		monsterNames = { "Werehyaena", "Werehyaena Shaman" },
 		difficulties = { "easy" },
@@ -294,12 +296,12 @@ id = 22,
 		baseRewards = {
 			expReward = 740000,
 			itemRewards = {
-				{ itemId = 3043, count = 60 }
+				{ itemId = 3043, count = 30 }
 			}
 		}
 	},
 	{
-id = 23,
+		id = 23,
 		displayName = "Wyrm",
 		monsterNames = { "Wyrm", "Elder Wyrm" },
 		difficulties = { "easy" },
@@ -307,14 +309,144 @@ id = 23,
 		baseRewards = {
 			expReward = 814000,
 			itemRewards = {
-				{ itemId = 3043, count = 63 },
-				{ itemId = 64465, count = 1 }
+				{ itemId = 3043, count = 10 }
+			}
+		}
+	},
+	{
+		id = 24,
+		displayName = "Asura",
+		monsterNames = { "Dawnfire Asura", "Midnight Asura", "Hellspawn" },
+		difficulties = { "medium" },
+		baseKillsRequired = 900,
+		baseRewards = {
+			expReward = 1350000,
+			itemRewards = {
+				{ itemId = 3043, count = 50 }
+			}
+		}
+	},
+	{
+		id = 25,
+		displayName = "Falcon",
+		monsterNames = { "Falcon Knight", "Falcon Paladin" },
+		difficulties = { "medium" },
+		baseKillsRequired = 900,
+		baseRewards = {
+			expReward = 1350000,
+			itemRewards = {
+				{ itemId = 3043, count = 50 }
+			}
+		}
+	},
+	{
+		id = 26,
+		displayName = "Cobra",
+		monsterNames = { "Cobra Scout", "Cobra Assassin" },
+		difficulties = { "medium" },
+		baseKillsRequired = 900,
+		baseRewards = {
+			expReward = 1350000,
+			itemRewards = {
+				{ itemId = 3043, count = 50 }
+			}
+		}
+	},
+	{
+		id = 27,
+		displayName = "Lion",
+		monsterNames = { "Lion Knight", "Lion Warlock" },
+		difficulties = { "medium" },
+		baseKillsRequired = 600,
+		baseRewards = {
+			expReward = 900000,
+			itemRewards = {
+				{ itemId = 3043, count = 25 }
+			}
+		}
+	},
+	{
+		id = 28,
+		displayName = "Werelion",
+		monsterNames = { "Werelion", "White Lion", "Werelioness" },
+		difficulties = { "medium" },
+		baseKillsRequired = 1000,
+		baseRewards = {
+			expReward = 1500000,
+			itemRewards = {
+				{ itemId = 3043, count = 60 }
+			}
+		}
+	},
+	{
+		id = 29,
+		displayName = "Inferniarch",
+		monsterNames = { "Gorger Inferniarch", "Broodrider Inferniarch", "Sineater Inferniarch" },
+		difficulties = { "medium" },
+		baseKillsRequired = 600,
+		baseRewards = {
+			expReward = 900000,
+			itemRewards = {
+				{ itemId = 3043, count = 60 }
+			}
+		}
+	},
+	{
+		id = 30,
+		displayName = "Secret Library",
+		monsterNames = { "Burning Book", "Energetic Book", "Brain Squid", "Cursed Book", "Ink Blob", "Icecold Book", "Biting Book", "Knowledge Elemental", "Rage Squid", "Guardian of Tales" },
+		difficulties = { "medium" },
+		baseKillsRequired = 500,
+		baseRewards = {
+			expReward = 750000,
+			itemRewards = {
+				{ itemId = 3043, count = 40 }
+			}
+		}
+	},
+	{
+		id = 31,
+		displayName = "Crazed Summer",
+		monsterNames = { "Crazed Summer Vanguard", "Crazed Summer Rearguard" },
+		difficulties = { "medium" },
+		baseKillsRequired = 600,
+		baseRewards = {
+			expReward = 900000,
+			itemRewards = {
+				{ itemId = 3043, count = 50 }
+			}
+		}
+	},
+	{
+		id = 32,
+		displayName = "Crazed Winter",
+		monsterNames = { "Crazed Winter Rearguard", "Crazed Winter Vanguard" },
+		difficulties = { "medium" },
+		baseKillsRequired = 600,
+		baseRewards = {
+			expReward = 900000,
+			itemRewards = {
+				{ itemId = 3043, count = 50 }
+			}
+		}
+	},
+	{
+		id = 33,
+		displayName = "Girtablilu",
+		monsterNames = { "Girtablilu Warrior", "Venerable Girtablilu" },
+		difficulties = { "medium" },
+		baseKillsRequired = 600,
+		baseRewards = {
+			expReward = 900000,
+			itemRewards = {
+				{ itemId = 3043, count = 30 }
 			}
 		}
 	}
 }
 
 return {
+	taskTokenItemId = taskTokenItemId,
 	taskDifficulties = taskDifficulties,
 	configMonsterTasks = configMonsterTasks
 }
