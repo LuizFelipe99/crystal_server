@@ -2,14 +2,59 @@ local json = dofile("data/libs/dkjson.lua")
 
 local gemBagOpcode = 18
 local gemBagSlotCount = 9
+local gemCatalogPath = "data/XML/gems.xml"
+
+local function readGemCatalog()
+	local gemDefinitionByItemId = {}
+	local catalogFile = io.open(gemCatalogPath, "r")
+	if not catalogFile then
+		print(">> GemBag: could not open " .. gemCatalogPath)
+		return gemDefinitionByItemId
+	end
+
+	for catalogLine in catalogFile:lines() do
+		local itemId = tonumber(catalogLine:match('<gem[^>]-id="(%d+)"'))
+		local attribute = catalogLine:match('<gem[^>]-attribute="([^"]+)"')
+		local value = tonumber(catalogLine:match('<gem[^>]-value="(%-?%d+)"'))
+		if itemId and attribute and value then
+			gemDefinitionByItemId[itemId] = { attribute = attribute, value = value }
+		end
+	end
+
+	catalogFile:close()
+	return gemDefinitionByItemId
+end
+
+local gemDefinitionByItemId = readGemCatalog()
+
+local function buildSlotDetails(itemId)
+	if itemId == 0 then
+		return {}
+	end
+
+	local gemDefinition = gemDefinitionByItemId[itemId]
+	if not gemDefinition then
+		return {}
+	end
+
+	local itemType = ItemType(itemId)
+	return {
+		name = itemType and itemType:getName() or nil,
+		attribute = gemDefinition.attribute,
+		value = gemDefinition.value
+	}
+end
 
 local function buildGemBagState(player)
 	local slots = {}
+	local details = {}
 	for slotIndex = 0, gemBagSlotCount - 1 do
-		table.insert(slots, player:getGemBagSlot(slotIndex))
+		local itemId = player:getGemBagSlot(slotIndex)
+		table.insert(slots, itemId)
+		table.insert(details, buildSlotDetails(itemId))
 	end
 
-	return { slots = slots }
+	return { slots = slots, details = details }
 end
 
 local function handleSocketAction(player, actionData)
