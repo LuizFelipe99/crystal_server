@@ -69,6 +69,16 @@ local function resolveDayStatusText(isCurrentDay, selectedDay, currentDay, canDe
     return "Collect the required items"
 end
 
+local function resolvePrimaryAction(canDeliver, canClaimPro)
+    if canClaimPro then
+        return "deliverPro"
+    end
+    if canDeliver then
+        return "deliver"
+    end
+    return nil
+end
+
 local function resolveDayLabel(selectedDay, currentDay)
     if selectedDay == currentDay then
         return "DAY " .. selectedDay .. " (CURRENT)"
@@ -104,6 +114,11 @@ local function buildDayPreview(player, currentDay, selectedDay, isVip)
         proRewards         = mapRewardsToPayload(mission.proRewards),
         proRewardStatus    = resolveProRewardStatus(isVip, isCurrentDay, dayStatus),
         dayStatusText      = resolveDayStatusText(isCurrentDay, selectedDay, currentDay, canDeliver, canClaimPro, dayStatus),
+        missionItemCount   = itemCount,
+        missionAmount      = mission.amount,
+        canDeliver         = canDeliver,
+        canClaimPro        = canClaimPro,
+        primaryAction      = resolvePrimaryAction(canDeliver, canClaimPro),
     }
 end
 
@@ -162,6 +177,7 @@ local function buildPlayerState(player, selectedDay)
         finalRewardLabel   = BattlePassConfig.finalReward.label,
         dayCounterText     = currentDay .. "/" .. BattlePassConfig.season.totalDays .. " Days",
         isVip              = isVip,
+        selectedDay        = selectedDay,
         selectedDayLabel   = dayPreview.selectedDayLabel,
         missionItemId      = dayPreview.missionItemId,
         missionDescription = dayPreview.missionDescription,
@@ -171,6 +187,11 @@ local function buildPlayerState(player, selectedDay)
         proRewards         = dayPreview.proRewards,
         proRewardStatus    = dayPreview.proRewardStatus,
         dayStatusText      = dayPreview.dayStatusText,
+        missionItemCount   = dayPreview.missionItemCount,
+        missionAmount      = dayPreview.missionAmount,
+        canDeliver         = dayPreview.canDeliver,
+        canClaimPro        = dayPreview.canClaimPro,
+        primaryAction      = dayPreview.primaryAction,
     }
 end
 
