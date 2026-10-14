@@ -1,13 +1,77 @@
 <gems>
-	<gem id="30001" type="onslaught" attribute="critChance" value="2" />
-	<gem id="30002" type="onslaught" attribute="critChance" value="4" />
-	<gem id="30003" type="onslaught" attribute="critChance" value="6" />
-	<gem id="30004" type="onslaught" attribute="critChance" value="8" />
-	<gem id="30005" type="onslaught" attribute="critChance" value="10" />
+	<!-- health gems -->
+	<gem id="62108" type="health" attribute="health" value="500" />
+	<gem id="62115" type="health" attribute="health" value="650" />
+	<gem id="62013" type="health" attribute="health" value="845" />
+	<gem id="62019" type="health" attribute="health" value="1099" />
+	<gem id="62025" type="health" attribute="health" value="1429" />
+	<gem id="62031" type="health" attribute="health" value="1857" />
+	<gem id="62037" type="health" attribute="health" value="2414" />
+	<gem id="62043" type="health" attribute="health" value="3138" />
+	<gem id="62049" type="health" attribute="health" value="4079" />
 
-	<gem id="30101" type="momentum" attribute="attackSpeed" value="1" />
-	<gem id="30102" type="momentum" attribute="attackSpeed" value="2" />
-	<gem id="30103" type="momentum" attribute="attackSpeed" value="3" />
-	<gem id="30104" type="momentum" attribute="attackSpeed" value="4" />
-	<gem id="30105" type="momentum" attribute="attackSpeed" value="5" />
+	<!-- mana gems -->
+	<gem id="62105" type="mana" attribute="mana" value="500" />
+	<gem id="62112" type="mana" attribute="mana" value="650" />
+	<gem id="62018" type="mana" attribute="mana" value="845" />
+	<gem id="62023" type="mana" attribute="mana" value="1099" />
+	<gem id="62029" type="mana" attribute="mana" value="1429" />
+	<gem id="62035" type="mana" attribute="mana" value="1857" />
+	<gem id="62041" type="mana" attribute="mana" value="2414" />
+	<gem id="62047" type="mana" attribute="mana" value="3138" />
+	<gem id="62053" type="mana" attribute="mana" value="4079" />
+
+	<!-- critical chance gems -->
+	<gem id="62107" type="critChance" attribute="critChance" value="1" />
+	<gem id="62114" type="critChance" attribute="critChance" value="2" />
+	<gem id="62015" type="critChance" attribute="critChance" value="3" />
+	<gem id="62021" type="critChance" attribute="critChance" value="4" />
+	<gem id="62027" type="critChance" attribute="critChance" value="5" />
+	<gem id="62033" type="critChance" attribute="critChance" value="6" />
+	<gem id="62039" type="critChance" attribute="critChance" value="7" />
+	<gem id="62045" type="critChance" attribute="critChance" value="8" />
+	<gem id="62051" type="critChance" attribute="critChance" value="10" />
+
+	<!-- critical damage gems -->
+	<gem id="62111" type="critDamage" attribute="critDamage" value="5" />
+	<gem id="62118" type="critDamage" attribute="critDamage" value="8" />
+	<gem id="62065" type="critDamage" attribute="critDamage" value="11" />
+	<gem id="62066" type="critDamage" attribute="critDamage" value="14" />
+	<gem id="62067" type="critDamage" attribute="critDamage" value="17" />
+	<gem id="62068" type="critDamage" attribute="critDamage" value="20" />
+	<gem id="62069" type="critDamage" attribute="critDamage" value="22" />
+	<gem id="62070" type="critDamage" attribute="critDamage" value="24" />
+	<gem id="62071" type="critDamage" attribute="critDamage" value="30" />
+
+	<!-- attackspeed gems -->
+	<gem id="62106" type="attackSpeed" attribute="attackSpeed" value="50" />
+	<gem id="62113" type="attackSpeed" attribute="attackSpeed" value="60" />
+	<gem id="62014" type="attackSpeed" attribute="attackSpeed" value="80" />
+	<gem id="62020" type="attackSpeed" attribute="attackSpeed" value="100" />
+	<gem id="62026" type="attackSpeed" attribute="attackSpeed" value="120" />
+	<gem id="62032" type="attackSpeed" attribute="attackSpeed" value="140" />
+	<gem id="62038" type="attackSpeed" attribute="attackSpeed" value="160" />
+	<gem id="62044" type="attackSpeed" attribute="attackSpeed" value="180" />
+	<gem id="62050" type="attackSpeed" attribute="attackSpeed" value="250" />
 </gems>
+
+
+<!-- attribute	Efeito	Escala no XML
+critChance		Chance de crítico	value em % (ex: 50 = 50%)
+critDamage		Dano extra em crítico	value em %
+attackSpeed		Velocidade de ataque	value direto (unidade nativa do attackSpeed)
+health			HP máximo	value direto (pontos de HP)
+mana			MP máximo	value direto (pontos de MP)
+magicLevel		Magic level	value direto (pontos)
+shield			Skill de shielding	value direto (pontos)
+sword			Skill de sword	value direto (pontos)
+axe				Skill de axe	value direto (pontos)
+club			Skill de club	value direto (pontos)
+distance		Skill de distance	value direto (pontos)
+fist			Skill de fist fighting	value direto (pontos) 
+
+
+caso queira aumentar quantidade de slots precisará recompilar 
+arquivo player.hpp
+static constexpr uint8_t GEM_BAG_SLOTS = 9;
+-->

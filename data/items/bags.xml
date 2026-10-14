@@ -17,5 +17,5 @@
 	<bag itemid="3079" name="Boots of Haste" chance="15" class="Dragon" />
 	<bag itemid="6578" name="Party Hat" chance="100" raceId="1938" /> <!-- Infernal Demon -->
 	<bag itemid="6578" name="Party Hat" chance="100" bossOnly="true" />
-	<bag itemid="3043" name="Crystal Coin" chance="100" maxAmount="100" />
+	<bag itemid="3043" name="Crystal Coin" chance="10" maxAmount="5" />
 </bags>

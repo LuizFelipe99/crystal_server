@@ -132,12 +132,7 @@ ammoShopLoginEvent:register()
 local ammoShopItem = Action()
 
 function ammoShopItem.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-    local inFight = player:isPzLocked() or player:getCondition(CONDITION_INFIGHT, CONDITIONID_DEFAULT)
 
-    if inFight then
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You can't use this during a fight.")
-        return true
-    end
 
     handleRequest(player)
     return true

@@ -397,3 +397,5 @@ database_backup
 # CLION
 cmake-build-*
 data-global/world/ORIGINAL/world.otbm
+data-global/world - Copia/
+data-global/

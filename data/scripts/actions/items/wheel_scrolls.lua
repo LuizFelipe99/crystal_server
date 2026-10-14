@@ -4,6 +4,7 @@ local promotionScrolls = {
 	[43948] = { name = "revised", points = 9, itemName = "revised promotion scroll" },
 	[43949] = { name = "extended", points = 13, itemName = "extended promotion scroll" },
 	[43950] = { name = "advanced", points = 20, itemName = "advanced promotion scroll" },
+	[60404] = { name = "advanced", points = 50, itemName = "advanced promotion scroll" },
 }
 
 local scroll = Action()

@@ -1,6 +1,5 @@
 local updateInterval = 60
 
--- Concoctions registry
 local concoctions = {}
 
 ConcoctionTickType = {
@@ -8,7 +7,6 @@ ConcoctionTickType = {
 	Experience = "experience",
 }
 
--- Concoction class
 Concoction = {}
 Concoction.__index = Concoction
 Concoction.Ids = {
@@ -33,6 +31,10 @@ Concoction.Ids = {
 	DeathAmplification = Concoction_DeathAmplification,
 	PhysicalAmplification = Concoction_PhysicalAmplification,
 }
+
+function Concoction.getAll()
+	return concoctions
+end
 
 function Concoction.find(identifier)
 	for _, concoction in ipairs(concoctions) do
@@ -109,6 +111,10 @@ end
 
 function Concoction:update(player)
 	player:updateConcoction(self.id, self:timeLeft(player))
+
+	if type(notifyPlayerPotionCooldownsChanged) == "function" then
+		notifyPlayerPotionCooldownsChanged(player)
+	end
 end
 
 local function tick(concoctionId, playerId, timeDeduction)
@@ -210,6 +216,5 @@ function Concoction:register()
 	action:id(self.id)
 	action:register()
 
-	-- add to Concoctions registry
 	table.insert(concoctions, self)
 end

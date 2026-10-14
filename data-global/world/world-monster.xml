@@ -4427,6 +4427,39 @@
 		<monster name="Pirate Cutthroat" x="-2" y="-1" z="3" spawntime="120" />
 		<monster name="Pirate Buccaneer" x="-2" y="2" z="3" spawntime="120" />
 	</monster>
+	<monster centerx="31421" centery="33589" centerz="3" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="3" spawntime="60" />
+		<monster name="Flame Dragon" x="0" y="1" z="3" spawntime="31232" />
+	</monster>
+	<monster centerx="31405" centery="33590" centerz="3" radius="1">
+		<monster name="Flame Dragon" x="-1" y="-1" z="3" spawntime="31232" />
+		<monster name="Flame Dragon" x="-1" y="0" z="3" spawntime="31232" />
+		<monster name="Flame Dragon" x="0" y="0" z="3" spawntime="31232" />
+		<monster name="Flame Dragon" x="-1" y="1" z="3" spawntime="31232" />
+		<monster name="Flame Dragon" x="0" y="1" z="3" spawntime="31232" />
+	</monster>
+	<monster centerx="31403" centery="33591" centerz="3" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="3" spawntime="60" />
+	</monster>
+	<monster centerx="31421" centery="33591" centerz="3" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="3" spawntime="31232" />
+		<monster name="Flame Dragon" x="-1" y="1" z="3" spawntime="31232" />
+		<monster name="Flame Dragon" x="0" y="1" z="3" spawntime="31232" />
+	</monster>
+	<monster centerx="31405" centery="33592" centerz="3" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="3" spawntime="31232" />
+	</monster>
+	<monster centerx="31402" centery="33606" centerz="3" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="3" spawntime="60" />
+		<monster name="Flame Dragon" x="1" y="0" z="3" spawntime="31232" />
+		<monster name="Flame Dragon" x="0" y="1" z="3" spawntime="31232" />
+		<monster name="Flame Dragon" x="1" y="1" z="3" spawntime="31232" />
+	</monster>
+	<monster centerx="31420" centery="33606" centerz="3" radius="1">
+		<monster name="Flame Dragon" x="-1" y="0" z="3" spawntime="31232" />
+		<monster name="Flame Dragon" x="0" y="0" z="3" spawntime="60" />
+		<monster name="Flame Dragon" x="-1" y="1" z="3" spawntime="31232" />
+	</monster>
 	<monster centerx="33082" centery="31036" centerz="4" radius="1">
 		<monster name="Lizard High Guard" x="0" y="0" z="4" spawntime="120" />
 	</monster>
@@ -7587,6 +7620,35 @@
 	</monster>
 	<monster centerx="33022" centery="32955" centerz="4" radius="1">
 		<monster name="Werepanther" x="0" y="0" z="4" spawntime="120" />
+	</monster>
+	<monster centerx="31403" centery="33589" centerz="4" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="4" spawntime="60" />
+		<monster name="Flame Dragon" x="0" y="1" z="4" spawntime="31232" />
+	</monster>
+	<monster centerx="31418" centery="33590" centerz="4" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="4" spawntime="60" />
+		<monster name="Flame Dragon" x="0" y="1" z="4" spawntime="31232" />
+		<monster name="Flame Dragon" x="1" y="1" z="4" spawntime="31232" />
+	</monster>
+	<monster centerx="31420" centery="33590" centerz="4" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="4" spawntime="31232" />
+		<monster name="Flame Dragon" x="0" y="1" z="4" spawntime="31232" />
+	</monster>
+	<monster centerx="31403" centery="33591" centerz="4" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="4" spawntime="31232" />
+	</monster>
+	<monster centerx="31419" centery="33592" centerz="4" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="4" spawntime="31232" />
+	</monster>
+	<monster centerx="31403" centery="33606" centerz="4" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="4" spawntime="60" />
+		<monster name="Flame Dragon" x="0" y="1" z="4" spawntime="31232" />
+		<monster name="Flame Dragon" x="1" y="1" z="4" spawntime="31232" />
+	</monster>
+	<monster centerx="31419" centery="33606" centerz="4" radius="1">
+		<monster name="Flame Dragon" x="1" y="-1" z="4" spawntime="60" />
+		<monster name="Flame Dragon" x="0" y="0" z="4" spawntime="60" />
+		<monster name="Flame Dragon" x="0" y="1" z="4" spawntime="60" />
 	</monster>
 	<monster centerx="10234" centery="10041" centerz="5" radius="1">
 		<monster name="Wyvern" x="0" y="0" z="5" spawntime="120" />
@@ -12611,6 +12673,219 @@
 	<monster centerx="33026" centery="32951" centerz="5" radius="1">
 		<monster name="Weretiger" x="0" y="0" z="5" spawntime="120" />
 	</monster>
+	<monster centerx="31438" centery="33573" centerz="5" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+		<monster name="Master Dragon" x="1" y="1" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31387" centery="33574" centerz="5" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+		<monster name="Flame Dragon" x="1" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31390" centery="33574" centerz="5" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31405" centery="33574" centerz="5" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="5" spawntime="60" />
+		<monster name="Flame Dragon" x="0" y="1" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31408" centery="33574" centerz="5" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+		<monster name="Flame Dragon" x="0" y="1" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31430" centery="33574" centerz="5" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+		<monster name="Master Dragon" x="1" y="1" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31398" centery="33575" centerz="5" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31415" centery="33575" centerz="5" radius="1">
+		<monster name="Flame Dragon" x="-1" y="-1" z="5" spawntime="60" />
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31422" centery="33575" centerz="5" radius="1">
+		<monster name="Flame Dragon" x="0" y="-1" z="5" spawntime="60" />
+		<monster name="Black Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31425" centery="33575" centerz="5" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31384" centery="33576" centerz="5" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+		<monster name="Master Dragon" x="1" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31440" centery="33576" centerz="5" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31388" centery="33578" centerz="5" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31436" centery="33578" centerz="5" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+		<monster name="Master Dragon" x="1" y="1" z="5" spawntime="60" weight="25" />
+		<monster name="Flame Dragon" x="1" y="1" z="5" spawntime="60" weight="25" />
+	</monster>
+	<monster centerx="31434" centery="33579" centerz="5" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31438" centery="33580" centerz="5" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31435" centery="33584" centerz="5" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31387" centery="33586" centerz="5" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+		<monster name="Flame Dragon" x="1" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31437" centery="33587" centerz="5" radius="1">
+		<monster name="Flame Dragon" x="-1" y="0" z="5" spawntime="60" />
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31387" centery="33589" centerz="5" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31403" centery="33589" centerz="5" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31405" centery="33589" centerz="5" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31418" centery="33589" centerz="5" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31403" centery="33591" centerz="5" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+		<monster name="Master Dragon" x="1" y="1" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31418" centery="33591" centerz="5" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31420" centery="33591" centerz="5" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31435" centery="33591" centerz="5" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31387" centery="33593" centerz="5" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31436" centery="33594" centerz="5" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31386" centery="33600" centerz="5" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31436" centery="33601" centerz="5" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31387" centery="33603" centerz="5" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31437" centery="33604" centerz="5" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31418" centery="33605" centerz="5" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="5" spawntime="60" />
+		<monster name="Master Dragon" x="1" y="1" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31405" centery="33606" centerz="5" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31402" centery="33607" centerz="5" radius="1">
+		<monster name="Master Dragon" x="1" y="-1" z="5" spawntime="60" />
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+		<monster name="Flame Dragon" x="1" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31420" centery="33607" centerz="5" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+		<monster name="Flame Dragon" x="1" y="1" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31387" centery="33609" centerz="5" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+		<monster name="Master Dragon" x="0" y="1" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31387" centery="33611" centerz="5" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31435" centery="33611" centerz="5" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31437" centery="33611" centerz="5" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31387" centery="33616" centerz="5" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31436" centery="33618" centerz="5" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31439" centery="33618" centerz="5" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31388" centery="33621" centerz="5" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+		<monster name="Master Dragon" x="1" y="0" z="5" spawntime="60" />
+		<monster name="Master Dragon" x="1" y="1" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31390" centery="33621" centerz="5" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31401" centery="33621" centerz="5" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31405" centery="33621" centerz="5" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31420" centery="33622" centerz="5" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31425" centery="33622" centerz="5" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31432" centery="33622" centerz="5" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31436" centery="33623" centerz="5" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31387" centery="33624" centerz="5" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31433" centery="33625" centerz="5" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31439" centery="33625" centerz="5" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31403" centery="33626" centerz="5" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31417" centery="33626" centerz="5" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31407" centery="33627" centerz="5" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31420" centery="33627" centerz="5" radius="1">
+		<monster name="Black Dragon" x="0" y="-1" z="5" spawntime="60" />
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31402" centery="33628" centerz="5" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31418" centery="33628" centerz="5" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31421" centery="33629" centerz="5" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31402" centery="33630" centerz="5" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31405" centery="33630" centerz="5" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
 	<monster centerx="14044" centery="13923" centerz="6" radius="1">
 		<monster name="Green Djinn" x="0" y="0" z="6" spawntime="120" />
 	</monster>
@@ -12817,9 +13092,6 @@
 	<monster centerx="33162" centery="31046" centerz="6" radius="1">
 		<monster name="Death Blob" x="0" y="0" z="6" spawntime="120" />
 	</monster>
-	<monster centerx="33078" centery="31047" centerz="6" radius="1">
-		<monster name="Lizard High Guard" x="0" y="0" z="6" spawntime="120" />
-	</monster>
 	<monster centerx="33184" centery="31047" centerz="6" radius="1">
 		<monster name="Souleater" x="0" y="0" z="6" spawntime="120" />
 	</monster>
@@ -12844,6 +13116,9 @@
 	<monster centerx="32049" centery="31048" centerz="6" radius="3">
 		<monster name="Frost Dragon Hatchling" x="-1" y="-3" z="6" spawntime="120" />
 		<monster name="Frost Giantess" x="3" y="1" z="6" spawntime="120" />
+	</monster>
+	<monster centerx="33078" centery="31048" centerz="6" radius="1">
+		<monster name="Lizard High Guard" x="0" y="-1" z="6" spawntime="120" />
 	</monster>
 	<monster centerx="33812" centery="31048" centerz="6" radius="3">
 		<monster name="Percht" x="0" y="-2" z="6" spawntime="120" />
@@ -19811,6 +20086,263 @@
 	<monster centerx="31938" centery="32953" centerz="6" radius="2">
 		<monster name="Pirate Buccaneer" x="-2" y="0" z="6" spawntime="120" />
 		<monster name="Pirate Marauder" x="1" y="1" z="6" spawntime="120" />
+	</monster>
+	<monster centerx="31430" centery="33571" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+		<monster name="Flame Dragon" x="1" y="1" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31439" centery="33572" centerz="6" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31383" centery="33573" centerz="6" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31386" centery="33573" centerz="6" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31399" centery="33574" centerz="6" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31408" centery="33574" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31427" centery="33574" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+		<monster name="Flame Dragon" x="0" y="1" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31431" centery="33574" centerz="6" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31436" centery="33574" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+		<monster name="Flame Dragon" x="0" y="1" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31387" centery="33575" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31396" centery="33575" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31439" centery="33575" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+		<monster name="Flame Dragon" x="-1" y="1" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31398" centery="33577" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31409" centery="33577" centerz="6" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31423" centery="33577" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31412" centery="33578" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+		<monster name="Flame Dragon" x="1" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31437" centery="33578" centerz="6" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31386" centery="33579" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31389" centery="33579" centerz="6" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="6" spawntime="60" />
+		<monster name="Flame Dragon" x="1" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31434" centery="33579" centerz="6" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31387" centery="33585" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31435" centery="33585" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31437" centery="33585" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31404" centery="33589" centerz="6" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31436" centery="33589" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31419" centery="33590" centerz="6" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="6" spawntime="60" />
+		<monster name="Master Dragon" x="1" y="0" z="6" spawntime="60" />
+		<monster name="Flame Dragon" x="1" y="1" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31403" centery="33591" centerz="6" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="6" spawntime="60" />
+		<monster name="Flame Dragon" x="1" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31387" centery="33592" centerz="6" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31410" centery="33593" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+		<monster name="Flame Dragon" x="1" y="1" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31435" centery="33593" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31406" centery="33595" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31415" centery="33595" centerz="6" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31421" centery="33595" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+		<monster name="Master Dragon" x="0" y="1" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31437" centery="33595" centerz="6" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31387" centery="33596" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31419" centery="33599" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31415" centery="33600" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31404" centery="33601" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="1" y="-1" z="6" spawntime="60" />
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31408" centery="33602" centerz="6" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31436" centery="33602" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+		<monster name="Master Dragon" x="1" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31387" centery="33603" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31413" centery="33603" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31404" centery="33605" centerz="6" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31404" centery="33607" centerz="6" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31410" centery="33607" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="1" y="-1" z="6" spawntime="60" />
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31419" centery="33607" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="1" y="-1" z="6" spawntime="60" />
+		<monster name="Black Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31421" centery="33607" centerz="6" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31435" centery="33612" centerz="6" radius="1">
+		<monster name="Master Dragon" x="1" y="-1" z="6" spawntime="60" />
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31387" centery="33613" centerz="6" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31387" centery="33618" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+		<monster name="Flame Dragon" x="-1" y="1" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31391" centery="33618" centerz="6" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31433" centery="33618" centerz="6" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31384" centery="33619" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31400" centery="33621" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+		<monster name="Master Dragon" x="-1" y="1" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31432" centery="33621" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31436" centery="33621" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31386" centery="33622" centerz="6" radius="1">
+		<monster name="Master Dragon" x="1" y="-1" z="6" spawntime="60" />
+		<monster name="Master Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31391" centery="33622" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31395" centery="33622" centerz="6" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31405" centery="33622" centerz="6" radius="1">
+		<monster name="Master Dragon" x="1" y="-1" z="6" spawntime="60" />
+		<monster name="Master Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31417" centery="33622" centerz="6" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31421" centery="33622" centerz="6" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31424" centery="33622" centerz="6" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31438" centery="33622" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31433" centery="33623" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31438" centery="33624" centerz="6" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31435" centery="33625" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31384" centery="33626" centerz="6" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31391" centery="33626" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31440" centery="33626" centerz="6" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31403" centery="33627" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+		<monster name="Flame Dragon" x="1" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31420" centery="33627" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31411" centery="33628" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+		<monster name="Flame Dragon" x="1" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31418" centery="33628" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+		<monster name="Flame Dragon" x="1" y="1" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31406" centery="33629" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31401" centery="33630" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31404" centery="33630" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31419" centery="33630" centerz="6" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="6" spawntime="60" />
 	</monster>
 	<monster centerx="10241" centery="10019" centerz="7" radius="1">
 		<monster name="Bear" x="0" y="0" z="7" spawntime="120" />
@@ -50105,6 +50637,237 @@
 		<monster name="Seagull" x="5" y="1" z="7" spawntime="120" />
 		<monster name="Toad" x="1" y="2" z="7" spawntime="120" />
 	</monster>
+	<monster centerx="31613" centery="33223" centerz="7" radius="1">
+		<monster name="Orc Warrior" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31619" centery="33223" centerz="7" radius="1">
+		<monster name="Werehyaena" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31613" centery="33226" centerz="7" radius="1">
+		<monster name="Stonerefiner" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31619" centery="33226" centerz="7" radius="1">
+		<monster name="Glooth Bandit" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31613" centery="33229" centerz="7" radius="1">
+		<monster name="Hydra" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31619" centery="33229" centerz="7" radius="1">
+		<monster name="Demon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31613" centery="33232" centerz="7" radius="1">
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31619" centery="33232" centerz="7" radius="1">
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31613" centery="33235" centerz="7" radius="1">
+		<monster name="Skeleton Warrior" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31619" centery="33235" centerz="7" radius="1">
+		<monster name="Nightmare" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31613" centery="33238" centerz="7" radius="1">
+		<monster name="Ghoul" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31619" centery="33238" centerz="7" radius="1">
+		<monster name="Rotworm" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31598" centery="33244" centerz="7" radius="1">
+		<monster name="Nomad" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31601" centery="33244" centerz="7" radius="1">
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31604" centery="33244" centerz="7" radius="1">
+		<monster name="Frost Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31625" centery="33244" centerz="7" radius="1">
+		<monster name="Minotaur" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31628" centery="33244" centerz="7" radius="1">
+		<monster name="Elf" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31631" centery="33244" centerz="7" radius="1">
+		<monster name="Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31634" centery="33244" centerz="7" radius="1">
+		<monster name="Spiky Carnivor" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31598" centery="33250" centerz="7" radius="1">
+		<monster name="Wyrm" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31601" centery="33250" centerz="7" radius="1">
+		<monster name="Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31604" centery="33250" centerz="7" radius="1">
+		<monster name="Dragon Lord" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31607" centery="33250" centerz="7" radius="1">
+		<monster name="Cyclops" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31625" centery="33250" centerz="7" radius="1">
+		<monster name="Barbarian Headsplitter" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31628" centery="33250" centerz="7" radius="1">
+		<monster name="Kongra" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31631" centery="33250" centerz="7" radius="1">
+		<monster name="Deepling Warrior" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31774" centery="33252" centerz="7" radius="1">
+		<monster name="Rat" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</monster>
+	<monster centerx="31777" centery="33252" centerz="7" radius="1">
+		<monster name="Icecold Book" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</monster>
+	<monster centerx="31780" centery="33252" centerz="7" radius="1">
+		<monster name="Infernal Demon" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</monster>
+	<monster centerx="31604" centery="33308" centerz="7" radius="1">
+		<monster name="Diremaw" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31610" centery="33308" centerz="7" radius="1">
+		<monster name="Sphinx" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31678" centery="33308" centerz="7" radius="1">
+		<monster name="Diremaw" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31684" centery="33308" centerz="7" radius="1">
+		<monster name="Sphinx" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31604" centery="33311" centerz="7" radius="1">
+		<monster name="Dark Torturer" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31610" centery="33311" centerz="7" radius="1">
+		<monster name="Weretiger" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31678" centery="33311" centerz="7" radius="1">
+		<monster name="Dark Torturer" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31684" centery="33311" centerz="7" radius="1">
+		<monster name="Weretiger" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31604" centery="33314" centerz="7" radius="1">
+		<monster name="Juggernaut" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31610" centery="33314" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" direction="3" />
+	</monster>
+	<monster centerx="31678" centery="33314" centerz="7" radius="1">
+		<monster name="Juggernaut" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31684" centery="33314" centerz="7" radius="1">
+		<monster name="Vexclaw" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31604" centery="33317" centerz="7" radius="1">
+		<monster name="True Dawnfire Asura" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31610" centery="33317" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" direction="3" />
+	</monster>
+	<monster centerx="31678" centery="33317" centerz="7" radius="1">
+		<monster name="True Dawnfire Asura" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31684" centery="33317" centerz="7" radius="1">
+		<monster name="Naga Warrior" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31589" centery="33323" centerz="7" radius="1">
+		<monster name="Bony Sea Devil" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</monster>
+	<monster centerx="31592" centery="33323" centerz="7" radius="1">
+		<monster name="Emerald Tortoise" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</monster>
+	<monster centerx="31595" centery="33323" centerz="7" radius="1">
+		<monster name="Noxious Ripptor" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</monster>
+	<monster centerx="31598" centery="33323" centerz="7" radius="1">
+		<monster name="Sulphider" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</monster>
+	<monster centerx="31616" centery="33323" centerz="7" radius="1">
+		<monster name="Hideous Fungus" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</monster>
+	<monster centerx="31619" centery="33323" centerz="7" radius="1">
+		<monster name="Magma Crawler" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</monster>
+	<monster centerx="31622" centery="33323" centerz="7" radius="1">
+		<monster name="Orewalker" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</monster>
+	<monster centerx="31625" centery="33323" centerz="7" radius="1">
+		<monster name="Blemished Spawn" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</monster>
+	<monster centerx="31663" centery="33323" centerz="7" radius="1">
+		<monster name="Lion Knight" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31666" centery="33323" centerz="7" radius="1">
+		<monster name="Cobra Scout" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31669" centery="33323" centerz="7" radius="1">
+		<monster name="Falcon Knight" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31672" centery="33323" centerz="7" radius="1">
+		<monster name="Dawnfire Asura" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31690" centery="33323" centerz="7" radius="1">
+		<monster name="Girtablilu Warrior" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31693" centery="33323" centerz="7" radius="1">
+		<monster name="Crazed Winter Rearguard" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31696" centery="33323" centerz="7" radius="1">
+		<monster name="Crazed Summer Vanguard" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31699" centery="33323" centerz="7" radius="1">
+		<monster name="Guzzlemaw" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31589" centery="33329" centerz="7" radius="1">
+		<monster name="Many Faces" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31592" centery="33329" centerz="7" radius="1">
+		<monster name="Cloak Of Terror" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31595" centery="33329" centerz="7" radius="1">
+		<monster name="Infernal Demon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31598" centery="33329" centerz="7" radius="1">
+		<monster name="Rotten Golem" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31616" centery="33329" centerz="7" radius="1">
+		<monster name="Rotten Man-Maggot" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31619" centery="33329" centerz="7" radius="1">
+		<monster name="Bloated Man-Maggot" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31622" centery="33329" centerz="7" radius="1">
+		<monster name="Darklight Source" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31625" centery="33329" centerz="7" radius="1">
+		<monster name="Wandering Pillar" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31663" centery="33329" centerz="7" radius="1">
+		<monster name="Werelion" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31666" centery="33329" centerz="7" radius="1">
+		<monster name="Gorger Inferniarch" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31669" centery="33329" centerz="7" radius="1">
+		<monster name="Lizard High Guard" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31672" centery="33329" centerz="7" radius="1">
+		<monster name="Priestess Of The Wild Sun" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31690" centery="33329" centerz="7" radius="1">
+		<monster name="Burning Book" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31693" centery="33329" centerz="7" radius="1">
+		<monster name="Energetic Book" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31696" centery="33329" centerz="7" radius="1">
+		<monster name="Icecold Book" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31699" centery="33329" centerz="7" radius="1">
+		<monster name="Cursed Book" x="0" y="0" z="7" spawntime="60" />
+	</monster>
 	<monster centerx="31542" centery="33474" centerz="7" radius="1">
 		<monster name="Vemiath Guardian" x="0" y="0" z="7" spawntime="60" />
 	</monster>
@@ -50233,6 +50996,554 @@
 	</monster>
 	<monster centerx="31546" centery="33560" centerz="7" radius="1">
 		<monster name="Darklight Construct" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31378" centery="33570" centerz="7" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31382" centery="33571" centerz="7" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31437" centery="33571" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Dragon" x="0" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31440" centery="33571" centerz="7" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31384" centery="33572" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31440" centery="33573" centerz="7" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31396" centery="33574" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="-1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31420" centery="33574" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Dragon" x="0" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31432" centery="33574" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Dragon" x="1" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31388" centery="33575" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31427" centery="33575" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31299" centery="33577" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Silencer" x="1" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31386" centery="33577" centerz="7" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31433" centery="33578" centerz="7" radius="1">
+		<monster name="Master Dragon" x="1" y="-1" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31267" centery="33579" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Silencer" x="0" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31376" centery="33579" centerz="7" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31390" centery="33579" centerz="7" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31440" centery="33579" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="0" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31241" centery="33580" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31258" centery="33580" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Silencer" x="1" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31302" centery="33581" centerz="7" radius="1">
+		<monster name="Shock Head" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Shock Head" x="1" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31306" centery="33581" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="120" />
+	</monster>
+	<monster centerx="31414" centery="33581" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31409" centery="33582" centerz="7" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Dragon" x="1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31424" centery="33582" centerz="7" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Dragon" x="-1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31435" centery="33582" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31308" centery="33583" centerz="7" radius="1">
+		<monster name="Silencer" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31316" centery="33583" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31404" centery="33583" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31326" centery="33584" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31393" centery="33584" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31436" centery="33584" centerz="7" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31318" centery="33585" centerz="7" radius="1">
+		<monster name="Silencer" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31388" centery="33585" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31260" centery="33586" centerz="7" radius="1">
+		<monster name="Shock Head" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31240" centery="33587" centerz="7" radius="1">
+		<monster name="Silencer" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31320" centery="33587" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31334" centery="33587" centerz="7" radius="1">
+		<monster name="Silencer" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31326" centery="33588" centerz="7" radius="1">
+		<monster name="Shock Head" x="1" y="-1" z="7" spawntime="60" />
+		<monster name="Shock Head" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31397" centery="33588" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31414" centery="33588" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31430" centery="33588" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="-1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31239" centery="33589" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31387" centery="33589" centerz="7" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Dragon" x="0" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31259" centery="33590" centerz="7" radius="1">
+		<monster name="Silencer" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31403" centery="33590" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Dragon" x="1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31420" centery="33590" centerz="7" radius="1">
+		<monster name="Black Dragon" x="1" y="-1" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" weight="25" />
+		<monster name="Master Dragon" x="0" y="0" z="7" spawntime="60" weight="25" />
+		<monster name="Master Dragon" x="1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31443" centery="33590" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="-1" y="1" z="7" spawntime="60" />
+		<monster name="Master Dragon" x="1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31262" centery="33591" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Frazzlemaw" x="1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31267" centery="33591" centerz="7" radius="1">
+		<monster name="Shock Head" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31435" centery="33591" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="1" y="-1" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Dragon" x="1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31247" centery="33592" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Frazzlemaw" x="1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31332" centery="33592" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Frazzlemaw" x="-1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31301" centery="33593" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31295" centery="33594" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31410" centery="33594" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31414" centery="33594" centerz="7" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Dragon" x="0" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31338" centery="33595" centerz="7" radius="1">
+		<monster name="Silencer" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31392" centery="33595" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31447" centery="33595" centerz="7" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31242" centery="33596" centerz="7" radius="1">
+		<monster name="Silencer" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31426" centery="33596" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31246" centery="33597" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31270" centery="33597" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Frazzlemaw" x="1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31304" centery="33597" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Frazzlemaw" x="1" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31333" centery="33597" centerz="7" radius="1">
+		<monster name="Shock Head" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31387" centery="33597" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="-1" y="1" z="7" spawntime="60" />
+		<monster name="Master Dragon" x="1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31406" centery="33597" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31452" centery="33597" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="-1" y="-1" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="-1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31274" centery="33598" centerz="7" radius="1">
+		<monster name="Shock Head" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31441" centery="33598" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Dragon" x="0" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31270" centery="33599" centerz="7" radius="1">
+		<monster name="Silencer" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31412" centery="33599" centerz="7" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31447" centery="33599" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="-1" y="-1" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Dragon" x="1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31289" centery="33600" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31380" centery="33600" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31417" centery="33600" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31397" centery="33601" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31435" centery="33601" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="1" y="-1" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Dragon" x="1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31411" centery="33602" centerz="7" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31273" centery="33603" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Frazzlemaw" x="1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31281" centery="33603" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Frazzlemaw" x="1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31247" centery="33604" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31285" centery="33604" centerz="7" radius="1">
+		<monster name="Shock Head" x="1" y="-1" z="7" spawntime="60" />
+		<monster name="Shock Head" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31322" centery="33604" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31334" centery="33604" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="-1" y="0" z="7" spawntime="60" />
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31293" centery="33605" centerz="7" radius="1">
+		<monster name="Shock Head" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Shock Head" x="0" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31430" centery="33605" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="1" y="-1" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Dragon" x="1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31300" centery="33606" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31320" centery="33606" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Shock Head" x="0" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31331" centery="33606" centerz="7" radius="1">
+		<monster name="Shock Head" x="0" y="-1" z="7" spawntime="60" />
+		<monster name="Shock Head" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31333" centery="33606" centerz="7" radius="1">
+		<monster name="Silencer" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31393" centery="33606" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31404" centery="33606" centerz="7" radius="1">
+		<monster name="Master Dragon" x="1" y="-1" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31414" centery="33606" centerz="7" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Dragon" x="1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31420" centery="33606" centerz="7" radius="1">
+		<monster name="Master Dragon" x="-1" y="-1" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31258" centery="33607" centerz="7" radius="1">
+		<monster name="Shock Head" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31409" centery="33607" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31435" centery="33607" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31297" centery="33608" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31317" centery="33608" centerz="7" radius="1">
+		<monster name="Silencer" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31377" centery="33609" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31427" centery="33609" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31266" centery="33610" centerz="7" radius="1">
+		<monster name="Silencer" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31268" centery="33610" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31275" centery="33610" centerz="7" radius="1">
+		<monster name="Shock Head" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31280" centery="33610" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31261" centery="33611" centerz="7" radius="1">
+		<monster name="Shock Head" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31314" centery="33611" centerz="7" radius="1">
+		<monster name="Shock Head" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Frazzlemaw" x="1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31255" centery="33612" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31387" centery="33612" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31397" centery="33612" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31436" centery="33612" centerz="7" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31307" centery="33613" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Frazzlemaw" x="0" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31381" centery="33613" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31273" centery="33614" centerz="7" radius="1">
+		<monster name="Shock Head" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31281" centery="33614" centerz="7" radius="1">
+		<monster name="Shock Head" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31411" centery="33614" centerz="7" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Dragon" x="1" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31424" centery="33614" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="1" y="-1" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Dragon" x="1" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31309" centery="33615" centerz="7" radius="1">
+		<monster name="Silencer" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31277" centery="33616" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31314" centery="33616" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="1" y="-1" z="7" spawntime="60" />
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31400" centery="33616" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31405" centery="33616" centerz="7" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31417" centery="33616" centerz="7" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31436" centery="33616" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31378" centery="33617" centerz="7" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31383" centery="33617" centerz="7" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31276" centery="33618" centerz="7" radius="1">
+		<monster name="Silencer" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31310" centery="33618" centerz="7" radius="1">
+		<monster name="Shock Head" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31390" centery="33618" centerz="7" radius="1">
+		<monster name="Master Dragon" x="-1" y="0" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31282" centery="33619" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Frazzlemaw" x="1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31292" centery="33619" centerz="7" radius="1">
+		<monster name="Shock Head" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31297" centery="33619" centerz="7" radius="1">
+		<monster name="Silencer" x="1" y="-1" z="7" spawntime="60" />
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31302" centery="33619" centerz="7" radius="1">
+		<monster name="Shock Head" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31307" centery="33619" centerz="7" radius="1">
+		<monster name="Silencer" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31374" centery="33619" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31384" centery="33620" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Dragon" x="-1" y="1" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31411" centery="33620" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="1" y="-1" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Dragon" x="0" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31281" centery="33621" centerz="7" radius="1">
+		<monster name="Silencer" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31403" centery="33621" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Master Dragon" x="0" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31432" centery="33621" centerz="7" radius="1">
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31396" centery="33622" centerz="7" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31423" centery="33622" centerz="7" radius="5">
+		<monster name="Master Dragon" x="4" y="-1" z="7" spawntime="60" />
+		<monster name="Master Dragon" x="-4" y="0" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="4" y="0" z="7" spawntime="60" />
+		<monster name="Master Dragon" x="-3" y="5" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31438" centery="33622" centerz="7" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31304" centery="33623" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Silencer" x="1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31377" centery="33623" centerz="7" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31391" centery="33624" centerz="7" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31282" centery="33625" centerz="7" radius="1">
+		<monster name="Master Frazzlemaw" x="1" y="-1" z="7" spawntime="60" />
+		<monster name="Master Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Silencer" x="-1" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31432" centery="33625" centerz="7" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31439" centery="33625" centerz="7" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31383" centery="33626" centerz="7" radius="1">
+		<monster name="Black Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31410" centery="33629" centerz="7" radius="5">
+		<monster name="Flame Dragon" x="1" y="-4" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="-4" y="-3" z="7" spawntime="60" />
+		<monster name="Black Dragon" x="1" y="0" z="7" spawntime="60" />
+		<monster name="Flame Dragon" x="-3" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31417" centery="33629" centerz="7" radius="1">
+		<monster name="Master Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31401" centery="33631" centerz="7" radius="1">
+		<monster name="Master Dragon" x="1" y="-1" z="7" spawntime="60" />
+		<monster name="Master Dragon" x="0" y="0" z="7" spawntime="60" />
 	</monster>
 	<monster centerx="10287" centery="10188" centerz="8" radius="1">
 		<monster name="Rotworm" x="0" y="0" z="8" spawntime="120" />
@@ -55716,8 +57027,8 @@
 		<monster name="Priestess Of The Wild Sun" x="2" y="2" z="8" spawntime="120" />
 		<monster name="Burning Gladiator" x="3" y="4" z="8" spawntime="120" />
 		<monster name="Black Sphinx Acolyte" x="-1" y="5" z="8" spawntime="120" />
-		<monster name="Burning Gladiator" x="1" y="9" z="8" spawntime="120" />
-		<monster name="Priestess Of The Wild Sun" x="3" y="9" z="8" spawntime="120" />
+		<monster name="Burning Gladiator" x="1" y="7" z="8" spawntime="120" />
+		<monster name="Priestess Of The Wild Sun" x="3" y="7" z="8" spawntime="120" />
 	</monster>
 	<monster centerx="33868" centery="31523" centerz="8" radius="15">
 		<monster name="Lamassu" x="3" y="-9" z="8" spawntime="120" />
@@ -76404,9 +77715,6 @@
 	<monster centerx="32988" centery="32942" centerz="8" radius="1">
 		<monster name="Weretiger" x="0" y="0" z="8" spawntime="120" />
 	</monster>
-	<monster centerx="33014" centery="32942" centerz="8" radius="1">
-		<monster name="Weretiger" x="0" y="0" z="8" spawntime="120" />
-	</monster>
 	<monster centerx="33021" centery="32942" centerz="8" radius="1">
 		<monster name="Weretiger" x="0" y="0" z="8" spawntime="120" />
 	</monster>
@@ -76421,6 +77729,9 @@
 	</monster>
 	<monster centerx="33011" centery="32943" centerz="8" radius="1">
 		<monster name="Weretiger" x="0" y="0" z="8" spawntime="120" />
+	</monster>
+	<monster centerx="33014" centery="32943" centerz="8" radius="1">
+		<monster name="Weretiger" x="0" y="-1" z="8" spawntime="120" />
 	</monster>
 	<monster centerx="33030" centery="32943" centerz="8" radius="1">
 		<monster name="Cunning Werepanther" x="0" y="0" z="8" spawntime="120" />
@@ -110502,10 +111813,10 @@
 	<monster centerx="32608" centery="31732" centerz="10" radius="1">
 		<monster name="Eyeless Devourer" x="0" y="0" z="10" spawntime="120" />
 	</monster>
-	<monster centerx="32629" centery="31732" centerz="10" radius="1">
-		<monster name="Blemished Spawn" x="0" y="0" z="10" spawntime="120" />
+	<monster centerx="32611" centery="31732" centerz="10" radius="1">
+		<monster name="Blemished Spawn" x="0" y="1" z="10" spawntime="120" />
 	</monster>
-	<monster centerx="32611" centery="31733" centerz="10" radius="1">
+	<monster centerx="32629" centery="31732" centerz="10" radius="1">
 		<monster name="Blemished Spawn" x="0" y="0" z="10" spawntime="120" />
 	</monster>
 	<monster centerx="32617" centery="31733" centerz="10" radius="1">
@@ -110907,9 +112218,6 @@
 	<monster centerx="32610" centery="31784" centerz="10" radius="1">
 		<monster name="Eyeless Devourer" x="0" y="0" z="10" spawntime="120" />
 	</monster>
-	<monster centerx="32683" centery="31784" centerz="10" radius="1">
-		<monster name="Eyeless Devourer" x="0" y="0" z="10" spawntime="120" />
-	</monster>
 	<monster centerx="34020" centery="31784" centerz="10" radius="1">
 		<monster name="Cursed Ape" x="0" y="0" z="10" spawntime="120" />
 	</monster>
@@ -110923,6 +112231,9 @@
 	</monster>
 	<monster centerx="32627" centery="31785" centerz="10" radius="1">
 		<monster name="Eyeless Devourer" x="0" y="0" z="10" spawntime="120" />
+	</monster>
+	<monster centerx="32683" centery="31785" centerz="10" radius="1">
+		<monster name="Eyeless Devourer" x="0" y="-1" z="10" spawntime="120" />
 	</monster>
 	<monster centerx="34034" centery="31785" centerz="10" radius="1">
 		<monster name="Iks Chuka" x="0" y="0" z="10" spawntime="120" />
@@ -110951,6 +112262,9 @@
 	<monster centerx="34054" centery="31788" centerz="10" radius="1">
 		<monster name="Iks Aucar" x="0" y="0" z="10" spawntime="120" />
 	</monster>
+	<monster centerx="32681" centery="31789" centerz="10" radius="1">
+		<monster name="Eyeless Devourer" x="0" y="1" z="10" spawntime="120" />
+	</monster>
 	<monster centerx="34088" centery="31789" centerz="10" radius="1">
 		<monster name="Iks Chuka" x="0" y="0" z="10" spawntime="120" />
 	</monster>
@@ -110965,9 +112279,6 @@
 		<monster name="Afflicted Strider" x="0" y="0" z="10" spawntime="120" />
 	</monster>
 	<monster centerx="32663" centery="31790" centerz="10" radius="1">
-		<monster name="Eyeless Devourer" x="0" y="0" z="10" spawntime="120" />
-	</monster>
-	<monster centerx="32681" centery="31790" centerz="10" radius="1">
 		<monster name="Eyeless Devourer" x="0" y="0" z="10" spawntime="120" />
 	</monster>
 	<monster centerx="33313" centery="31790" centerz="10" radius="1">
@@ -152363,8 +153674,8 @@
 	<monster centerx="33769" centery="32546" centerz="12" radius="1">
 		<monster name="Carnivostrich" x="0" y="0" z="12" spawntime="120" />
 	</monster>
-	<monster centerx="32637" centery="32547" centerz="12" radius="1">
-		<monster name="Icecold Book" x="0" y="0" z="12" spawntime="120" />
+	<monster centerx="32636" centery="32547" centerz="12" radius="1">
+		<monster name="Icecold Book" x="1" y="0" z="12" spawntime="120" />
 	</monster>
 	<monster centerx="32799" centery="32547" centerz="12" radius="1">
 		<monster name="Medusa" x="0" y="0" z="12" spawntime="120" />
@@ -160811,6 +162122,9 @@
 	<monster centerx="33192" centery="31639" centerz="13" radius="1">
 		<monster name="Minotaur Guard" x="0" y="-1" z="13" spawntime="120" />
 	</monster>
+	<monster centerx="33225" centery="31641" centerz="13" radius="1">
+		<monster name="Demon" x="0" y="0" z="13" spawntime="60" />
+	</monster>
 	<monster centerx="33146" centery="31642" centerz="13" radius="1">
 		<monster name="Wild Warrior" x="0" y="-1" z="13" spawntime="120" />
 	</monster>
@@ -160847,6 +162161,9 @@
 	<monster centerx="32818" centery="31646" centerz="13" radius="1">
 		<monster name="Ghoul" x="1" y="0" z="13" spawntime="120" />
 		<monster name="Ghoul" x="1" y="1" z="13" spawntime="120" />
+	</monster>
+	<monster centerx="33231" centery="31647" centerz="13" radius="1">
+		<monster name="Demon" x="0" y="0" z="13" spawntime="60" />
 	</monster>
 	<monster centerx="32713" centery="31649" centerz="13" radius="1">
 		<monster name="Ghoul" x="1" y="0" z="13" spawntime="120" />
@@ -172570,6 +173887,7 @@
 		<monster name="Sea Serpent" x="-1" y="-1" z="14" spawntime="120" />
 	</monster>
 	<monster centerx="33231" centery="31644" centerz="14" radius="3">
+		<monster name="Demon" x="0" y="-2" z="14" spawntime="60" />
 		<monster name="Demon" x="0" y="0" z="14" spawntime="120" />
 	</monster>
 	<monster centerx="32716" centery="31645" centerz="14" radius="1">
@@ -185913,6 +187231,13 @@
 	</monster>
 	<monster centerx="33203" centery="31638" centerz="15" radius="3">
 		<monster name="Demon" x="-2" y="2" z="15" spawntime="120" />
+		<monster name="Demon" x="2" y="2" z="15" spawntime="60" />
+	</monster>
+	<monster centerx="33196" centery="31642" centerz="15" radius="1">
+		<monster name="Demon" x="0" y="0" z="15" spawntime="60" />
+	</monster>
+	<monster centerx="33216" centery="31642" centerz="15" radius="1">
+		<monster name="Demon" x="0" y="0" z="15" spawntime="60" />
 	</monster>
 	<monster centerx="33505" centery="31643" centerz="15" radius="3">
 		<monster name="Sea Serpent" x="-1" y="0" z="15" spawntime="120" />
@@ -185940,11 +187265,18 @@
 	<monster centerx="32419" centery="31645" centerz="15" radius="3">
 		<monster name="Warlock" x="1" y="2" z="15" spawntime="120" />
 	</monster>
+	<monster centerx="33225" centery="31645" centerz="15" radius="1">
+		<monster name="Demon" x="0" y="0" z="15" spawntime="60" />
+	</monster>
 	<monster centerx="32508" centery="31647" centerz="15" radius="3">
 		<monster name="Warlock" x="1" y="-2" z="15" spawntime="120" />
 	</monster>
 	<monster centerx="33206" centery="31647" centerz="15" radius="3">
+		<monster name="Demon" x="-3" y="-3" z="15" spawntime="60" />
 		<monster name="Demon" x="2" y="-2" z="15" spawntime="120" />
+	</monster>
+	<monster centerx="33199" centery="31649" centerz="15" radius="1">
+		<monster name="Demon" x="0" y="0" z="15" spawntime="60" />
 	</monster>
 	<monster centerx="33449" centery="31650" centerz="15" radius="3">
 		<monster name="Blood Crab" x="1" y="-1" z="15" spawntime="120" />

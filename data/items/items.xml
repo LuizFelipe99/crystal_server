@@ -86127,15 +86127,6 @@
 		<attribute key="primarytype" value="statues" />
 	</item>
 
-	<item id="63401" article="a" name="golden ruby crafter">
-		<attribute key="description" value="Grants the player the pro battle pass." />
-	</item>
-
-	<item id="63400" article="a" name="platinum ruby crafter">
-		<attribute key="description" value="Grants the player the pro battle pass." />
-		<attribute key="weight" value="200" />
-	</item>
-
 	<item id="60252" article="a" name="portable forge">
 		<attribute key="description" value="Grants the player the access exalted forge." />
 		<attribute key="weight" value="1000" />
@@ -86144,5 +86135,259 @@
 	<item id="60239" article="a" name="Exaltation Forge Pedestal">
 		<attribute key="description" value="Grants the player the access exalted forge." />
 		<attribute key="primarytype" value="statues" />
+	</item>
+
+	<item id="60410" article="a" name="falcon bag">
+		<attribute key="primarytype" value="valuables" />
+		<attribute key="description" value="It contains the most powerful artifacts from the depths of Oberom" />
+		<attribute key="weight" value="1500" />
+	</item>
+	<item id="60411" article="a" name="lion bag">
+		<attribute key="primarytype" value="valuables" />
+		<attribute key="description" value="It contains the most powerful artifacts from the depths of Lion" />
+		<attribute key="weight" value="1500" />
+	</item>
+	<item id="60413" article="a" name="scarlett bag">
+		<attribute key="primarytype" value="valuables" />
+		<attribute key="description" value="It contains the most powerful artifacts from the depths of Scarlet" />
+		<attribute key="weight" value="1500" />
+	</item>
+	<item id="60414" article="a" name="timira bag">
+		<attribute key="primarytype" value="valuables" />
+		<attribute key="description" value="It contains the most powerful artifacts from the depths of Timira" />
+		<attribute key="weight" value="1500" />
+	</item>
+	<item id="60412" article="a" name="ratmiral bag">
+		<attribute key="primarytype" value="valuables" />
+		<attribute key="description" value="It contains the most powerful artifacts from the depths of Ratmiral" />
+		<attribute key="weight" value="1500" />
+	</item>
+	<item id="60404" article="a" name="more points wheel">
+		<attribute key="primarytype" value="valuables" />
+		<attribute key="description" value="Grants the player more points of whell of destiny" />
+		<attribute key="weight" value="500" />
+	</item>
+	<item id="64485" article="a" name="mount casket">
+		<attribute key="primarytype" value="valuables" />
+		<attribute key="description" value="Grants the player a new random mount" />
+		<attribute key="weight" value="500" />
+	</item>
+	<item id="64484" article="a" name="addon casket">
+		<attribute key="primarytype" value="valuables" />
+		<attribute key="description" value="Grants the player a new random addon" />
+		<attribute key="weight" value="500" />
+	</item>
+
+	<item id="60312" article="a" name="init gem bag">
+		<attribute key="primarytype" value="valuables" />
+		<attribute key="description" value="It contains the most powerful gems crafter" />
+		<attribute key="weight" value="1500" />
+	</item>
+
+	<item id="60313" article="a" name="elemental bonus bag">
+		<attribute key="primarytype" value="valuables" />
+		<attribute key="description" value="It contains the most powerful gems between nv 1-2" />
+		<attribute key="weight" value="1500" />
+	</item>
+
+	<item id="60483" article="a" name="golden ruby crafter nv. 1">
+		<attribute key="description" value="Grants the player the pro battle pass." />
+		<attribute key="weight" value="200" />
+	</item>
+	<item id="60490" article="a" name="golden ruby crafter nv. 2">
+		<attribute key="description" value="Grants the player the pro battle pass." />
+		<attribute key="weight" value="200" />
+	</item>
+	<item id="60497" article="a" name="golden ruby crafter nv. 3">
+		<attribute key="description" value="Grants the player the pro battle pass." />
+		<attribute key="weight" value="200" />
+	</item>
+		<item id="63401" article="a" name="golden ruby crafter nv. 4">
+		<attribute key="description" value="Grants the player the pro battle pass." />
+	</item>
+
+
+	<item id="60482" article="a" name="platinum ruby crafter nv. 1">
+		<attribute key="description" value="Grants the player the pro battle pass." />
+		<attribute key="weight" value="200" />
+	</item>
+	<item id="60489" article="a" name="platinum ruby crafter nv. 2">
+		<attribute key="description" value="Grants the player the pro battle pass." />
+		<attribute key="weight" value="200" />
+	</item>
+		<item id="60496" article="a" name="platinum ruby crafter nv. 3">
+		<attribute key="description" value="Grants the player the pro battle pass." />
+		<attribute key="weight" value="200" />
+	</item>
+	<item id="63400" article="a" name="platinum ruby crafter nv.4">
+		<attribute key="description" value="Grants the player the pro battle pass." />
+		<attribute key="weight" value="200" />
+	</item>
+
+<!-- custom dummy -->
+	<item id="61348" article="a" name="flame reaper dummy">
+		<attribute key="primarytype" value="furniture" />
+		<attribute key="description" value="You can train your skills by using training weapons with this expert exercise dummy" />
+		<attribute key="wrapableto" value="23398" />
+		<attribute key="rotateto" value="61349" />
+		<attribute key="type" value="dummy">
+			<attribute key="rate" value="115" />
+		</attribute>
+	</item>
+	<item id="61349" article="a" name="flame reaper dummy">
+		<attribute key="primarytype" value="furniture" />
+		<attribute key="description" value="You can train your skills by using training weapons with this expert exercise dummy" />
+		<attribute key="wrapableto" value="23398" />
+		<attribute key="rotateto" value="61348" />
+		<attribute key="type" value="dummy">
+			<attribute key="rate" value="115" />
+		</attribute>
+	</item>
+
+
+	<!-- attribute gems
+	 health gem -->
+	<item id="62108" article="a" name="health stone nivel 1">
+		<attribute key="description" value="Increases your max health in 500" />
+	</item>
+	<item id="62115" article="a" name="health stone nivel 2">
+		<attribute key="description" value="Increases your max health in 650" />
+	</item>
+	<item id="62013" article="a" name="health stone nivel 3">
+		<attribute key="description" value="Increases your max health in 845" />
+	</item>
+	<item id="62019" article="a" name="health stone nivel 4">
+		<attribute key="description" value="Increases your max health in 1099" />
+	</item>
+	<item id="62025" article="a" name="health stone nivel 5">
+		<attribute key="description" value="Increases your max health in 1429" />
+	</item>
+	<item id="62031" article="a" name="health stone nivel 6">
+		<attribute key="description" value="Increases your max health in 1857" />
+	</item>
+	<item id="62037" article="a" name="health stone nivel 7">
+		<attribute key="description" value="Increases your max health in 2414" />
+	</item>
+	<item id="62043" article="a" name="health stone nivel 8">
+		<attribute key="description" value="Increases your max health in 3138" />
+	</item>
+	<item id="62049" article="a" name="health stone nivel 9">
+		<attribute key="description" value="Increases your max health in 4079" />
+	</item>
+
+	<!-- mana gem -->
+	<item id="62105" article="a" name="mana stone nivel 1">
+		<attribute key="description" value="Increases your max mana in 500" />
+	</item>
+	<item id="62112" article="a" name="mana stone nivel 2">
+		<attribute key="description" value="Increases your max mana in 650" />
+	</item>
+	<item id="62018" article="a" name="mana stone nivel 3">
+		<attribute key="description" value="Increases your max mana in 845" />
+	</item>
+	<item id="62023" article="a" name="mana stone nivel 4">
+		<attribute key="description" value="Increases your max mana in 1099" />
+	</item>
+	<item id="62029" article="a" name="mana stone nivel 5">
+		<attribute key="description" value="Increases your max mana in 1429" />
+	</item>
+	<item id="62035" article="a" name="mana stone nivel 6">
+		<attribute key="description" value="Increases your max mana in 1857" />
+	</item>
+	<item id="62041" article="a" name="mana stone nivel 7">
+		<attribute key="description" value="Increases your max mana in 2414" />
+	</item>
+	<item id="62047" article="a" name="mana stone nivel 8">
+		<attribute key="description" value="Increases your max mana in 3138" />
+	</item>
+	<item id="62053" article="a" name="mana stone nivel 9">
+		<attribute key="description" value="Increases your max mana in 4079" />
+	</item>
+
+	<!-- critic chance gem -->
+	<item id="62107" article="a" name="critical chance stone nivel 1">
+		<attribute key="description" value="Increases your critic chance in 1" />
+	</item>
+	<item id="62114" article="a" name="critical chance stone nivel 2">
+		<attribute key="description" value="Increases your critic chance in 2" />
+	</item>
+	<item id="62015" article="a" name="critical chance stone nivel 3">
+		<attribute key="description" value="Increases your critic chance in 3" />
+	</item>
+	<item id="62021" article="a" name="critical chance stone nivel 4">
+		<attribute key="description" value="Increases your critic chance in 4" />
+	</item>
+	<item id="62027" article="a" name="critical chance stone nivel 5">
+		<attribute key="description" value="Increases your critic chance in 5" />
+	</item>
+	<item id="62033" article="a" name="critical chance stone nivel 6">
+		<attribute key="description" value="Increases your critic chance in 6" />
+	</item>
+	<item id="62039" article="a" name="critical chance stone nivel 7">
+		<attribute key="description" value="Increases your critic chance in 7" />
+	</item>
+	<item id="62045" article="a" name="critical chance stone nivel 8">
+		<attribute key="description" value="Increases your critic chance in 8" />
+	</item>
+	<item id="62051" article="a" name="critical chance stone nivel 9">
+		<attribute key="description" value="Increases your critic chance in 10" />
+	</item>
+
+	<!-- critical damage gems -->
+	<item id="62111" article="a" name="critical damage stone nivel 1">
+		<attribute key="description" value="Increases your critical damage in 5%" />
+	</item>
+	<item id="62118" article="a" name="critical damage stone nivel 2">
+		<attribute key="description" value="Increases your critical damage in 8%" />
+	</item>
+	<item id="62065" article="a" name="critical damage stone nivel 3">
+		<attribute key="description" value="Increases your critical damage in 11%" />
+	</item>
+	<item id="62066" article="a" name="critical damage stone nivel 4">
+		<attribute key="description" value="Increases your critical damage ins 14%" />
+	</item>
+	<item id="62067" article="a" name="critical damage stone nivel 5">
+		<attribute key="description" value="Increases your critical damage ins 17%" />
+	</item>
+	<item id="62068" article="a" name="critical damage stone nivel 6">
+		<attribute key="description" value="Increases your critical damage ins 20%" />
+	</item>
+	<item id="62069" article="a" name="critical damage stone nivel 7">
+		<attribute key="description" value="Increases your critical damage ins 22%" />
+	</item>
+	<item id="62070" article="a" name="critical damage stone nivel 8">
+		<attribute key="description" value="Increases your critical damage ins 24%" />
+	</item>
+	<item id="62071" article="a" name="critical damage stone nivel 9">
+		<attribute key="description" value="Increases your critical damage ins 30%" />
+	</item>
+	
+	<!-- attackspeed gem -->
+	<item id="62106" article="a" name="attackspeed stone nivel 1">
+		<attribute key="description" value="Increases your attackspeed in 50ms" />
+	</item>
+	<item id="62113" article="a" name="attackspeed stone nivel 2">
+		<attribute key="description" value="Increases your attackspeed in 60ms" />
+	</item>
+	<item id="62014" article="a" name="attackspeed stone nivel 3">
+		<attribute key="description" value="Increases your attackspeed in 80ms" />
+	</item>
+	<item id="62020" article="a" name="attackspeed stone nivel 4">
+		<attribute key="description" value="Increases your attackspeed in 100ms" />
+	</item>
+	<item id="62026" article="a" name="attackspeed stone nivel 5">
+		<attribute key="description" value="Increases your attackspeed in 120ms" />
+	</item>
+	<item id="62032" article="a" name="attackspeed stone nivel 6">
+		<attribute key="description" value="Increases your attackspeed in 140ms" />
+	</item>
+	<item id="62038" article="a" name="attackspeed stone nivel 7">
+		<attribute key="description" value="Increases your attackspeed in 160ms" />
+	</item>
+	<item id="62044" article="a" name="attackspeed stone nivel 8">
+		<attribute key="description" value="Increases your attackspeed in 180ms" />
+	</item>
+	<item id="62050" article="a" name="attackspeed stone nivel 9">
+		<attribute key="description" value="Increases your attackspeed in 250ms" />
 	</item>
 </items>
