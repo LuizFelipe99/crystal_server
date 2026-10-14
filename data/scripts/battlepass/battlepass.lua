@@ -2,6 +2,7 @@ local json = dofile("data/libs/dkjson.lua")
 
 local DAILY_UNLOCK_HOUR = 0
 local NEXT_DAY_UNLOCK_KEY = "next-day-unlock"
+local SEASON_ID_KEY = "season-id"
 local requestThrottle = RequestThrottle.new(300)
 
 local function battlePassStore(player)
@@ -42,6 +43,31 @@ local function describeWaitTime(remainingSeconds)
         return minutes .. "m"
     end
     return hours .. "h " .. minutes .. "m"
+end
+
+local function resetSeasonProgress(player)
+    for dayNumber = 1, BattlePassConfig.season.totalDays do
+        player:setStorageValue(BattlePassStorage.dayStatus(dayNumber), -1)
+    end
+    player:setStorageValue(BattlePassStorage.currentDay, -1)
+    player:setStorageValue(BattlePassStorage.isVip, -1)
+    battlePassStore(player):remove(NEXT_DAY_UNLOCK_KEY)
+end
+
+local function ensureCurrentSeason(player)
+    local store = battlePassStore(player)
+    local currentSeasonId = BattlePassConfig.season.id
+    local playerSeasonId = store:get(SEASON_ID_KEY)
+    if playerSeasonId == currentSeasonId then
+        return
+    end
+
+    if playerSeasonId ~= nil then
+        resetSeasonProgress(player)
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "A new Battle Pass season has started: " .. BattlePassConfig.season.name .. "!")
+    end
+
+    store:set(SEASON_ID_KEY, currentSeasonId)
 end
 
 local function completeCurrentDay(player, currentDay)
@@ -350,6 +376,8 @@ local function onExtendedOpcodeReceived(player, opcode, buffer)
         return true
     end
 
+    ensureCurrentSeason(player)
+
     if data.action == "request" then
         handleRequest(player, data.day)
     elseif data.action == "deliver" then
@@ -370,6 +398,7 @@ local battlepassLoginEvent = CreatureEvent("BattlePassLogin")
 battlepassLoginEvent:type("login")
 
 battlepassLoginEvent:onLogin(function(player)
+    ensureCurrentSeason(player)
     player:registerEvent("BattlePassOpcode")
     return true
 end)
