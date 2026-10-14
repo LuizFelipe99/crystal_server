@@ -1,19 +1,26 @@
 local json = dofile("data/libs/dkjson.lua")
 dofile("data/scripts/elementalbuild/elementalbuild_config.lua")
 
-local ELEMENTALBUILD_OPCODE = 14
-local ELEMENTAL_BUILD_CAP = 500
-local ELEMENTAL_BUILD_DAMAGE_RATIO = 1.0
+local ELEMENTALBUILD_OPCODE = ElementalBuildConfig.opcode
+local ELEMENTAL_BUILD_CAP = ElementalBuildConfig.pointsCap
+local ELEMENTAL_BUILD_DAMAGE_RATIO = ElementalBuildConfig.damageRatio
 
-local VALID_COMBAT_TYPES = {
-    [0]  = true,
-    [1]  = true,
-    [2]  = true,
-    [3]  = true,
-    [9]  = true,
-    [10] = true,
-    [11] = true,
-}
+local VALID_COMBAT_TYPES = ElementalBuildConfig.validCombatTypes
+
+local function buildElementsPayload()
+    local elementsPayload = {}
+
+    for _, element in ipairs(ElementalBuildConfig.elements) do
+        elementsPayload[#elementsPayload + 1] = {
+            combatType  = element.combatType,
+            key         = element.key,
+            name        = element.name,
+            description = element.description,
+        }
+    end
+
+    return elementsPayload
+end
 
 local function buildInvestedPointsPayload(player)
     local investedPoints = {}
@@ -113,6 +120,9 @@ local function sendFullState(player)
 
     player:sendExtendedOpcode(ELEMENTALBUILD_OPCODE, json.encode({
         action          = "data",
+        pointsCap       = ELEMENTAL_BUILD_CAP,
+        damageRatio     = ELEMENTAL_BUILD_DAMAGE_RATIO,
+        elements        = buildElementsPayload(),
         availablePoints = player:getElementalBuildAvailablePoints(),
         investedPoints  = buildInvestedPointsPayload(player),
         missions        = missionList,

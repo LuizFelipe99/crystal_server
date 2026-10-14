@@ -141,6 +141,16 @@ ElementalBuildConfig = {
         [9]  = true,
         [10] = true,
         [11] = true,
+    },
+
+    elements = {
+        { combatType = 0,  key = "physical", name = "Physical", description = "Increases all physical damage from melee attacks and physical spells." },
+        { combatType = 1,  key = "energy",   name = "Energy",   description = "Increases damage from energy spells like Thunderstorm and Energy Beam." },
+        { combatType = 2,  key = "earth",    name = "Earth",    description = "Increases damage from earth spells like Stone Shower and Terra Strike." },
+        { combatType = 3,  key = "fire",     name = "Fire",     description = "Increases damage from fire spells like Great Fireball and Fire Wave." },
+        { combatType = 9,  key = "ice",      name = "Ice",      description = "Increases damage from ice spells, runes and imbuements like Avalanche and Ice Wave." },
+        { combatType = 10, key = "holy",     name = "Holy",     description = "Increases damage from holy spells like Divine Missile and Holy Flash." },
+        { combatType = 11, key = "death",    name = "Death",    description = "Increases damage from death spells like Sudden Death and Death Strike." },
     }
 }
 
