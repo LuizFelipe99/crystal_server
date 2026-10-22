@@ -1,9 +1,24 @@
 local json = dofile("data/libs/dkjson.lua")
 
 local gemBagOpcode = 18
-local gemBagSlotCount = 9
+local gemBagSlotCount = 12
 local gemCatalogPath = "data/XML/gems.xml"
 local requestThrottle = RequestThrottle.new(300)
+
+local function parseGemCatalogLine(catalogLine)
+	if catalogLine:match("^%s*<!%-%-") then
+		return nil
+	end
+
+	local itemId = tonumber(catalogLine:match('<gem[^>]-id="(%d+)"'))
+	local attribute = catalogLine:match('<gem[^>]-attribute="([^"]+)"')
+	local value = tonumber(catalogLine:match('<gem[^>]-value="(%-?[%d%.]+)"'))
+	if not itemId or itemId == 0 or not attribute or not value then
+		return nil
+	end
+
+	return itemId, { attribute = attribute, value = value }
+end
 
 local function readGemCatalog()
 	local gemDefinitionByItemId = {}
@@ -14,11 +29,9 @@ local function readGemCatalog()
 	end
 
 	for catalogLine in catalogFile:lines() do
-		local itemId = tonumber(catalogLine:match('<gem[^>]-id="(%d+)"'))
-		local attribute = catalogLine:match('<gem[^>]-attribute="([^"]+)"')
-		local value = tonumber(catalogLine:match('<gem[^>]-value="(%-?%d+)"'))
-		if itemId and attribute and value then
-			gemDefinitionByItemId[itemId] = { attribute = attribute, value = value }
+		local itemId, gemDefinition = parseGemCatalogLine(catalogLine)
+		if itemId then
+			gemDefinitionByItemId[itemId] = gemDefinition
 		end
 	end
 

@@ -53,6 +53,105 @@
 	<gem id="62038" type="attackSpeed" attribute="attackSpeed" value="160" />
 	<gem id="62044" type="attackSpeed" attribute="attackSpeed" value="180" />
 	<gem id="62050" type="attackSpeed" attribute="attackSpeed" value="250" />
+
+	<!-- onslaught (fatal hit chance, %) gems: replace id="000" with the real item id and uncomment -->
+	<!-- <gem id="000" type="onslaught" attribute="onslaught" value="0.3" /> level 1 -->
+	<!-- <gem id="000" type="onslaught" attribute="onslaught" value="0.5" /> level 2 -->
+	<!-- <gem id="000" type="onslaught" attribute="onslaught" value="0.8" /> level 3 -->
+	<!-- <gem id="000" type="onslaught" attribute="onslaught" value="1.0" /> level 4 -->
+	<!-- <gem id="000" type="onslaught" attribute="onslaught" value="1.3" /> level 5 -->
+	<!-- <gem id="000" type="onslaught" attribute="onslaught" value="1.6" /> level 6 -->
+	<!-- <gem id="000" type="onslaught" attribute="onslaught" value="2.0" /> level 7 -->
+	<!-- <gem id="000" type="onslaught" attribute="onslaught" value="2.5" /> level 8 -->
+	<!-- <gem id="000" type="onslaught" attribute="onslaught" value="3.0" /> level 9 -->
+
+	<!-- transcendence (avatar chance, %) gems: replace id="000" with the real item id and uncomment -->
+	<!-- <gem id="000" type="transcendence" attribute="transcendence" value="0.3" /> level 1 -->
+	<!-- <gem id="000" type="transcendence" attribute="transcendence" value="0.5" /> level 2 -->
+	<!-- <gem id="000" type="transcendence" attribute="transcendence" value="0.8" /> level 3 -->
+	<!-- <gem id="000" type="transcendence" attribute="transcendence" value="1.0" /> level 4 -->
+	<!-- <gem id="000" type="transcendence" attribute="transcendence" value="1.3" /> level 5 -->
+	<!-- <gem id="000" type="transcendence" attribute="transcendence" value="1.6" /> level 6 -->
+	<!-- <gem id="000" type="transcendence" attribute="transcendence" value="2.0" /> level 7 -->
+	<!-- <gem id="000" type="transcendence" attribute="transcendence" value="2.5" /> level 8 -->
+	<!-- <gem id="000" type="transcendence" attribute="transcendence" value="3.0" /> level 9 -->
+
+	<!-- physical resistance (%) gems: replace id="000" with the real item id and uncomment -->
+	<!-- <gem id="000" type="resistPhysical" attribute="resistPhysical" value="1" /> level 1 -->
+	<!-- <gem id="000" type="resistPhysical" attribute="resistPhysical" value="2" /> level 2 -->
+	<!-- <gem id="000" type="resistPhysical" attribute="resistPhysical" value="3" /> level 3 -->
+	<!-- <gem id="000" type="resistPhysical" attribute="resistPhysical" value="4" /> level 4 -->
+	<!-- <gem id="000" type="resistPhysical" attribute="resistPhysical" value="5" /> level 5 -->
+	<!-- <gem id="000" type="resistPhysical" attribute="resistPhysical" value="6" /> level 6 -->
+	<!-- <gem id="000" type="resistPhysical" attribute="resistPhysical" value="7" /> level 7 -->
+	<!-- <gem id="000" type="resistPhysical" attribute="resistPhysical" value="8" /> level 8 -->
+	<!-- <gem id="000" type="resistPhysical" attribute="resistPhysical" value="10" /> level 9 -->
+
+	<!-- fire resistance (%) gems: replace id="000" with the real item id and uncomment -->
+	<!-- <gem id="000" type="resistFire" attribute="resistFire" value="1" /> level 1 -->
+	<!-- <gem id="000" type="resistFire" attribute="resistFire" value="2" /> level 2 -->
+	<!-- <gem id="000" type="resistFire" attribute="resistFire" value="3" /> level 3 -->
+	<!-- <gem id="000" type="resistFire" attribute="resistFire" value="4" /> level 4 -->
+	<!-- <gem id="000" type="resistFire" attribute="resistFire" value="5" /> level 5 -->
+	<!-- <gem id="000" type="resistFire" attribute="resistFire" value="6" /> level 6 -->
+	<!-- <gem id="000" type="resistFire" attribute="resistFire" value="7" /> level 7 -->
+	<!-- <gem id="000" type="resistFire" attribute="resistFire" value="8" /> level 8 -->
+	<!-- <gem id="000" type="resistFire" attribute="resistFire" value="10" /> level 9 -->
+
+	<!-- ice resistance (%) gems: replace id="000" with the real item id and uncomment -->
+	<!-- <gem id="000" type="resistIce" attribute="resistIce" value="1" /> level 1 -->
+	<!-- <gem id="000" type="resistIce" attribute="resistIce" value="2" /> level 2 -->
+	<!-- <gem id="000" type="resistIce" attribute="resistIce" value="3" /> level 3 -->
+	<!-- <gem id="000" type="resistIce" attribute="resistIce" value="4" /> level 4 -->
+	<!-- <gem id="000" type="resistIce" attribute="resistIce" value="5" /> level 5 -->
+	<!-- <gem id="000" type="resistIce" attribute="resistIce" value="6" /> level 6 -->
+	<!-- <gem id="000" type="resistIce" attribute="resistIce" value="7" /> level 7 -->
+	<!-- <gem id="000" type="resistIce" attribute="resistIce" value="8" /> level 8 -->
+	<!-- <gem id="000" type="resistIce" attribute="resistIce" value="10" /> level 9 -->
+
+	<!-- energy resistance (%) gems: replace id="000" with the real item id and uncomment -->
+	<!-- <gem id="000" type="resistEnergy" attribute="resistEnergy" value="1" /> level 1 -->
+	<!-- <gem id="000" type="resistEnergy" attribute="resistEnergy" value="2" /> level 2 -->
+	<!-- <gem id="000" type="resistEnergy" attribute="resistEnergy" value="3" /> level 3 -->
+	<!-- <gem id="000" type="resistEnergy" attribute="resistEnergy" value="4" /> level 4 -->
+	<!-- <gem id="000" type="resistEnergy" attribute="resistEnergy" value="5" /> level 5 -->
+	<!-- <gem id="000" type="resistEnergy" attribute="resistEnergy" value="6" /> level 6 -->
+	<!-- <gem id="000" type="resistEnergy" attribute="resistEnergy" value="7" /> level 7 -->
+	<!-- <gem id="000" type="resistEnergy" attribute="resistEnergy" value="8" /> level 8 -->
+	<!-- <gem id="000" type="resistEnergy" attribute="resistEnergy" value="10" /> level 9 -->
+
+	<!-- earth resistance (%) gems: replace id="000" with the real item id and uncomment -->
+	<!-- <gem id="000" type="resistEarth" attribute="resistEarth" value="1" /> level 1 -->
+	<!-- <gem id="000" type="resistEarth" attribute="resistEarth" value="2" /> level 2 -->
+	<!-- <gem id="000" type="resistEarth" attribute="resistEarth" value="3" /> level 3 -->
+	<!-- <gem id="000" type="resistEarth" attribute="resistEarth" value="4" /> level 4 -->
+	<!-- <gem id="000" type="resistEarth" attribute="resistEarth" value="5" /> level 5 -->
+	<!-- <gem id="000" type="resistEarth" attribute="resistEarth" value="6" /> level 6 -->
+	<!-- <gem id="000" type="resistEarth" attribute="resistEarth" value="7" /> level 7 -->
+	<!-- <gem id="000" type="resistEarth" attribute="resistEarth" value="8" /> level 8 -->
+	<!-- <gem id="000" type="resistEarth" attribute="resistEarth" value="10" /> level 9 -->
+
+	<!-- death resistance (%) gems: replace id="000" with the real item id and uncomment -->
+	<!-- <gem id="000" type="resistDeath" attribute="resistDeath" value="1" /> level 1 -->
+	<!-- <gem id="000" type="resistDeath" attribute="resistDeath" value="2" /> level 2 -->
+	<!-- <gem id="000" type="resistDeath" attribute="resistDeath" value="3" /> level 3 -->
+	<!-- <gem id="000" type="resistDeath" attribute="resistDeath" value="4" /> level 4 -->
+	<!-- <gem id="000" type="resistDeath" attribute="resistDeath" value="5" /> level 5 -->
+	<!-- <gem id="000" type="resistDeath" attribute="resistDeath" value="6" /> level 6 -->
+	<!-- <gem id="000" type="resistDeath" attribute="resistDeath" value="7" /> level 7 -->
+	<!-- <gem id="000" type="resistDeath" attribute="resistDeath" value="8" /> level 8 -->
+	<!-- <gem id="000" type="resistDeath" attribute="resistDeath" value="10" /> level 9 -->
+
+	<!-- holy resistance (%) gems: replace id="000" with the real item id and uncomment -->
+	<!-- <gem id="000" type="resistHoly" attribute="resistHoly" value="1" /> level 1 -->
+	<!-- <gem id="000" type="resistHoly" attribute="resistHoly" value="2" /> level 2 -->
+	<!-- <gem id="000" type="resistHoly" attribute="resistHoly" value="3" /> level 3 -->
+	<!-- <gem id="000" type="resistHoly" attribute="resistHoly" value="4" /> level 4 -->
+	<!-- <gem id="000" type="resistHoly" attribute="resistHoly" value="5" /> level 5 -->
+	<!-- <gem id="000" type="resistHoly" attribute="resistHoly" value="6" /> level 6 -->
+	<!-- <gem id="000" type="resistHoly" attribute="resistHoly" value="7" /> level 7 -->
+	<!-- <gem id="000" type="resistHoly" attribute="resistHoly" value="8" /> level 8 -->
+	<!-- <gem id="000" type="resistHoly" attribute="resistHoly" value="10" /> level 9 -->
 </gems>
 
 
@@ -69,9 +168,22 @@ axe				Skill de axe	value direto (pontos)
 club			Skill de club	value direto (pontos)
 distance		Skill de distance	value direto (pontos)
 fist			Skill de fist fighting	value direto (pontos) 
+onslaught		Chance de Onslaught (fatal)	value em % (aceita decimal, ex: 0.5 = 0.5%); soma com o tier da arma
+transcendence	Chance de Transcendence	value em % (aceita decimal); soma com o tier da legs
+resistPhysical	Resistencia fisica	value em %
+resistFire		Resistencia a fogo	value em %
+resistIce		Resistencia a gelo	value em %
+resistEnergy	Resistencia a energia	value em %
+resistEarth		Resistencia a terra	value em %
+resistDeath		Resistencia a morte	value em %
+resistHoly		Resistencia a sagrado	value em %
 
+Onslaught e Transcendence: valem mesmo sem tier no item; com tier somam; bota com tier amplifica o total.
+Resistencias: aplicadas com retorno decrescente junto com os itens (aparecem no Cyclopedia).
+Maximo de 2 gemas do mesmo type.
 
 caso queira aumentar quantidade de slots precisará recompilar 
 arquivo player.hpp
-static constexpr uint8_t GEM_BAG_SLOTS = 9;
+static constexpr uint8_t GEM_BAG_SLOTS = 12;
+e ajustar gemBagSlotCount em data/scripts/gem_bag/gem_bag_system.lua e no modulo game_gembag do cliente
 -->

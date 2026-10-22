@@ -3933,6 +3933,11 @@ BlockType_t Player::blockHit(const std::shared_ptr<Creature> &attacker, const Co
 			damage -= static_cast<int32_t>(std::ceil((double)(damage * vocation->getAbsorbPercent(combatType))) / 100.);
 		}
 
+		const double gemAbsorbPercent = equippedGemBonuses.absorbPercent[combatTypeToIndex(combatType)];
+		if (gemAbsorbPercent != 0) {
+			damage -= static_cast<int32_t>(std::round(damage * (gemAbsorbPercent / 100.0)));
+		}
+
 		// Wheel of destiny - apply resistance
 		wheel()->adjustDamageBasedOnResistanceAndSkill(damage, combatType);
 
@@ -5814,6 +5819,13 @@ void Player::calculateDamageReductionFromEquipedItems(std::array<double_t, COMBA
 			calculateDamageReductionFromItem(combatReductionArray, item);
 		}
 	}
+
+	for (uint16_t combatTypeIndex = 0; combatTypeIndex < COMBAT_COUNT; combatTypeIndex++) {
+		const double gemAbsorbPercent = equippedGemBonuses.absorbPercent[combatTypeIndex];
+		if (gemAbsorbPercent != 0) {
+			combatReductionArray[combatTypeIndex] = calculateDamageReduction(combatReductionArray[combatTypeIndex], gemAbsorbPercent);
+		}
+	}
 }
 
 void Player::calculateDamageReductionFromItem(std::array<double_t, COMBAT_COUNT> &combatReductionArray, const std::shared_ptr<Item> &item) const {
@@ -5861,8 +5873,37 @@ void Player::updateDamageReductionFromItemAbility(
 	}
 }
 
-double_t Player::calculateDamageReduction(double_t currentTotal, int16_t resistance) const {
+double_t Player::calculateDamageReduction(double_t currentTotal, double_t resistance) const {
 	return (100 - currentTotal) / 100.0 * resistance + currentTotal;
+}
+
+double Player::applyBootsAmplification(double chance) const {
+	const auto &boots = getInventoryItem(CONST_SLOT_FEET);
+	if (!boots || boots->getTier() == 0) {
+		return chance;
+	}
+
+	return chance * (1.0 + boots->getAmplificationChance() / 100.0);
+}
+
+double Player::getOnslaughtChance() const {
+	double chance = equippedGemBonuses.onslaughtChance;
+	const auto &weapon = getInventoryItem(CONST_SLOT_LEFT);
+	if (weapon && weapon->getTier() > 0) {
+		chance += weapon->getFatalChance();
+	}
+
+	return applyBootsAmplification(chance);
+}
+
+double Player::getTranscendenceChance() const {
+	double chance = equippedGemBonuses.transcendenceChance;
+	const auto &legs = getInventoryItem(CONST_SLOT_LEGS);
+	if (legs && legs->getTier() > 0) {
+		chance += legs->getTranscendenceChance();
+	}
+
+	return applyBootsAmplification(chance);
 }
 
 ItemsTierCountList Player::getStoreInboxItemsId() const {
@@ -10251,20 +10292,9 @@ void Player::triggerTranscendence() {
 		return;
 	}
 
-	const auto &item = getInventoryItem(CONST_SLOT_LEGS);
-	if (item == nullptr) {
+	const double_t chance = getTranscendenceChance();
+	if (chance <= 0) {
 		return;
-	}
-
-	if (!item->getTier()) {
-		return;
-	}
-
-	double_t chance = item->getTranscendenceChance();
-	const auto &playerBoots = getInventoryItem(CONST_SLOT_FEET);
-	if (playerBoots && playerBoots->getTier()) {
-		double_t amplificationChange = playerBoots->getAmplificationChance() / 100;
-		chance *= 1 + amplificationChange;
 	}
 
 	const double_t randomChance = uniform_random(0, 10000) / 100.;
@@ -12861,6 +12891,31 @@ static void applyGemDefinitionToBonuses(const GemDefinition &definition, Equippe
 
 	if (definition.attribute == "mana") {
 		bonuses.manaBonus += static_cast<int32_t>(definition.value);
+		return;
+	}
+
+	if (definition.attribute == "onslaught") {
+		bonuses.onslaughtChance += definition.value;
+		return;
+	}
+
+	if (definition.attribute == "transcendence") {
+		bonuses.transcendenceChance += definition.value;
+		return;
+	}
+
+	static const std::unordered_map<std::string, CombatType_t> resistanceCombatTypeByAttribute = {
+		{ "resistPhysical", COMBAT_PHYSICALDAMAGE },
+		{ "resistFire", COMBAT_FIREDAMAGE },
+		{ "resistIce", COMBAT_ICEDAMAGE },
+		{ "resistEnergy", COMBAT_ENERGYDAMAGE },
+		{ "resistEarth", COMBAT_EARTHDAMAGE },
+		{ "resistDeath", COMBAT_DEATHDAMAGE },
+		{ "resistHoly", COMBAT_HOLYDAMAGE },
+	};
+
+	if (const auto resistance = resistanceCombatTypeByAttribute.find(definition.attribute); resistance != resistanceCombatTypeByAttribute.end()) {
+		bonuses.absorbPercent[combatTypeToIndex(resistance->second)] += definition.value;
 		return;
 	}
 

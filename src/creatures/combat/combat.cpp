@@ -2594,15 +2594,9 @@ void Combat::applyExtensions(const std::shared_ptr<Creature> &caster, const std:
 
 		// Bonus Fatal - Tier
 		bool canApplyFatal = false;
-		if (const auto &playerWeapon = player->getInventoryItem(CONST_SLOT_LEFT); playerWeapon && playerWeapon->getTier() > 0) {
-			double fatalChance = playerWeapon->getFatalChance();
-			if (const auto &playerBoots = player->getInventoryItem(CONST_SLOT_FEET); playerBoots && playerBoots->getTier() > 0) {
-				double amplifiedChance = playerBoots->getAmplificationChance();
-				fatalChance *= (amplifiedChance / 100.0) + 1.0;
-			}
-
-			double randomRoll = uniform_random(1, 100) / 1.0;
-			canApplyFatal = (fatalChance > 0 && randomRoll < fatalChance);
+		if (const double fatalChance = player->getOnslaughtChance(); fatalChance > 0) {
+			const double randomRoll = uniform_random(0, 10000) / 100.0;
+			canApplyFatal = randomRoll < fatalChance;
 		}
 
 		// Bonus Low Blow Charm

@@ -226,6 +226,9 @@ struct EquippedGemBonuses {
 	uint16_t attackSpeed = 0;
 	int32_t healthBonus = 0;
 	int32_t manaBonus = 0;
+	double onslaughtChance = 0;
+	double transcendenceChance = 0;
+	std::array<double, COMBAT_COUNT> absorbPercent {};
 	std::map<skills_t, uint8_t> skillBonus;
 
 	void reset() {
@@ -234,11 +237,14 @@ struct EquippedGemBonuses {
 		attackSpeed = 0;
 		healthBonus = 0;
 		manaBonus = 0;
+		onslaughtChance = 0;
+		transcendenceChance = 0;
+		absorbPercent.fill(0);
 		skillBonus.clear();
 	}
 };
 
-static constexpr uint8_t GEM_BAG_SLOTS = 9;
+static constexpr uint8_t GEM_BAG_SLOTS = 12;
 
 using MuteCountMap = std::map<uint32_t, uint32_t>;
 
@@ -348,6 +354,8 @@ public:
 	bool isMountsModified() const;
 
 	uint16_t getDodgeChance() const;
+	double getOnslaughtChance() const;
+	double getTranscendenceChance() const;
 
 	bool isRandomMounted() const;
 	void setRandomMount(bool randomizeMount);
@@ -2016,7 +2024,8 @@ private:
 	void calculateDamageReductionFromItem(std::array<double_t, COMBAT_COUNT> &combatReductionMap, const std::shared_ptr<Item> &item) const;
 	void updateDamageReductionFromItemImbuement(std::array<double_t, COMBAT_COUNT> &combatReductionMap, const std::shared_ptr<Item> &item, uint16_t combatTypeIndex) const;
 	void updateDamageReductionFromItemAbility(std::array<double_t, COMBAT_COUNT> &combatReductionMap, const std::shared_ptr<Item> &item, uint16_t combatTypeIndex) const;
-	double_t calculateDamageReduction(double_t currentTotal, int16_t resistance) const;
+	double_t calculateDamageReduction(double_t currentTotal, double_t resistance) const;
+	double applyBootsAmplification(double chance) const;
 
 	void removeEmptyRewards();
 	bool hasOtherRewardContainerOpen(const std::shared_ptr<Container> &container) const;
