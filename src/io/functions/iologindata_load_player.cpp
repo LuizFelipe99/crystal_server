@@ -1183,5 +1183,5 @@ void IOLoginDataLoad::loadPlayerGemBag(const std::shared_ptr<Player> &player) {
 		player->setGemBagSlotDirect(slotIndex, itemId);
 	} while (result->next());
 
-	player->recalculateGemBonuses();
+	player->recalculateAttributeBonuses();
 }

@@ -44,15 +44,15 @@
 	<gem id="62071" type="critDamage" attribute="critDamage" value="30" />
 
 	<!-- attackspeed gems -->
-	<gem id="62106" type="attackSpeed" attribute="attackSpeed" value="50" />
-	<gem id="62113" type="attackSpeed" attribute="attackSpeed" value="60" />
-	<gem id="62014" type="attackSpeed" attribute="attackSpeed" value="80" />
-	<gem id="62020" type="attackSpeed" attribute="attackSpeed" value="100" />
-	<gem id="62026" type="attackSpeed" attribute="attackSpeed" value="120" />
-	<gem id="62032" type="attackSpeed" attribute="attackSpeed" value="140" />
-	<gem id="62038" type="attackSpeed" attribute="attackSpeed" value="160" />
-	<gem id="62044" type="attackSpeed" attribute="attackSpeed" value="180" />
-	<gem id="62050" type="attackSpeed" attribute="attackSpeed" value="250" />
+	<gem id="62106" type="attackSpeed" attribute="attackSpeedPercent" value="2.5" />
+	<gem id="62113" type="attackSpeed" attribute="attackSpeedPercent" value="3" />
+	<gem id="62014" type="attackSpeed" attribute="attackSpeedPercent" value="4" />
+	<gem id="62020" type="attackSpeed" attribute="attackSpeedPercent" value="5" />
+	<gem id="62026" type="attackSpeed" attribute="attackSpeedPercent" value="6" />
+	<gem id="62032" type="attackSpeed" attribute="attackSpeedPercent" value="7" />
+	<gem id="62038" type="attackSpeed" attribute="attackSpeedPercent" value="8" />
+	<gem id="62044" type="attackSpeed" attribute="attackSpeedPercent" value="9" />
+	<gem id="62050" type="attackSpeed" attribute="attackSpeedPercent" value="12.5" />
 
 	<!-- onslaught (fatal hit chance, %) gems: replace id="000" with the real item id and uncomment -->
 	<!-- <gem id="000" type="onslaught" attribute="onslaught" value="0.3" /> level 1 -->
@@ -158,7 +158,8 @@
 <!-- attribute	Efeito	Escala no XML
 critChance		Chance de crítico	value em % (ex: 50 = 50%)
 critDamage		Dano extra em crítico	value em %
-attackSpeed		Velocidade de ataque	value direto (unidade nativa do attackSpeed)
+attackSpeed		Velocidade de ataque	value em ms (tira X ms do tempo entre ataques)
+attackSpeedPercent	Velocidade de ataque	value em % (aceita decimal; reduz o tempo entre ataques em X%)
 health			HP máximo	value direto (pontos de HP)
 mana			MP máximo	value direto (pontos de MP)
 magicLevel		Magic level	value direto (pontos)

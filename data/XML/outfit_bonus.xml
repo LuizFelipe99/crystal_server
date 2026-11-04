@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Bonus de colecao: cada outfit que o jogador possui soma os bonus listados aqui (addons nao importam e nao precisa estar usando).
+Outfits que nao estiverem neste arquivo nao dao bonus. Um mesmo nome pode ter varias linhas para dar mais de um bonus.
+O bonus vale para os dois sexos. Quando o nome muda entre feminino e masculino, use alias com o outro nome (ex.: Norsewoman / Norseman).
+
+attribute       efeito                                                   value
+onslaught       chance de Onslaught (fatal)                              % (aceita decimal)
+transcendence   chance de Transcendence                                  % (aceita decimal)
+critChance      chance de critico                                        % (aceita decimal)
+critDamage      dano extra de critico                                    % (aceita decimal)
+allSkills       fist, club, sword, axe, distance, shielding e magic      pontos (aceita decimal, soma e arredonda para baixo)
+sword / axe / club / distance / fist / shield / magicLevel   skill especifica   pontos (aceita decimal, soma e arredonda para baixo)
+dodge           chance de Ruse (esquiva)                                 % (aceita decimal)
+resistAll       resistencia a fisico, fogo, gelo, energia, terra, morte e sagrado   %
+resistPhysical / resistFire / resistIce / resistEnergy / resistEarth / resistDeath / resistHoly   %
+healthPercent   vida maxima                                              % (aceita decimal)
+manaPercent     mana maxima                                              % (aceita decimal)
+health / mana   vida / mana maxima fixa                                  pontos
+attackSpeedPercent  velocidade de ataque                                 % (aceita decimal)
+attackSpeed     velocidade de ataque fixa                                ms
+-->
+<outfits>
+	<outfit name="Pirate" attribute="onslaught" value="0.1667" />
+	<outfit name="Assassin" attribute="resistAll" value="0.2667" />
+	<outfit name="Beggar" attribute="transcendence" value="0.1" />
+	<outfit name="Shaman" attribute="dodge" value="0.1333" />
+	<outfit name="Norsewoman" alias="Norseman" attribute="critDamage" value="1" />
+	<outfit name="Nightmare" attribute="healthPercent" value="0.4286" />
+	<outfit name="Jester" attribute="attackSpeedPercent" value="0.1667" />
+	<outfit name="Brotherhood" attribute="manaPercent" value="0.4286" />
+	<outfit name="Demon Hunter" attribute="allSkills" value="0.3637" />
+	<outfit name="Yalaharian" attribute="resistAll" value="0.2667" />
+	<outfit name="Newly Wed" attribute="onslaught" value="0.1667" />
+	<outfit name="Warmaster" attribute="dodge" value="0.1333" />
+	<outfit name="Wayfarer" attribute="transcendence" value="0.1" />
+	<outfit name="Afflicted" attribute="healthPercent" value="0.4286" />
+	<outfit name="Elementalist" attribute="critDamage" value="1" />
+	<outfit name="Deepling" attribute="manaPercent" value="0.4286" />
+	<outfit name="Insectoid" attribute="attackSpeedPercent" value="0.1667" />
+	<outfit name="Entrepreneur" attribute="resistAll" value="0.2667" />
+	<outfit name="Crystal Warlord" attribute="allSkills" value="0.3637" />
+	<outfit name="Soil Guardian" attribute="dodge" value="0.1333" />
+	<outfit name="Demon" attribute="onslaught" value="0.1667" />
+	<outfit name="Cave Explorer" attribute="healthPercent" value="0.4286" />
+	<outfit name="Dream Warden" attribute="transcendence" value="0.1" />
+	<outfit name="Glooth Engineer" attribute="manaPercent" value="0.4286" />
+	<outfit name="Jersey" attribute="critDamage" value="1" />
+	<outfit name="Champion" attribute="resistAll" value="0.2667" />
+	<outfit name="Conjurer" attribute="attackSpeedPercent" value="0.1667" />
+	<outfit name="Beastmaster" attribute="dodge" value="0.1333" />
+	<outfit name="Chaos Acolyte" attribute="allSkills" value="0.3637" />
+	<outfit name="Death Herald" attribute="healthPercent" value="0.4286" />
+	<outfit name="Ranger" attribute="onslaught" value="0.1667" />
+	<outfit name="Ceremonial Garb" attribute="manaPercent" value="0.4286" />
+	<outfit name="Puppeteer" attribute="transcendence" value="0.1" />
+	<outfit name="Spirit Caller" attribute="resistAll" value="0.2667" />
+	<outfit name="Evoker" attribute="critDamage" value="1" />
+	<outfit name="Seaweaver" attribute="dodge" value="0.1333" />
+	<outfit name="Recruiter" attribute="attackSpeedPercent" value="0.1667" />
+	<outfit name="Sea Dog" attribute="healthPercent" value="0.4286" />
+	<outfit name="Royal Pumpkin" attribute="allSkills" value="0.3637" />
+	<outfit name="Rift Warrior" attribute="manaPercent" value="0.4286" />
+	<outfit name="Winter Warden" attribute="onslaught" value="0.1667" />
+	<outfit name="Philosopher" attribute="resistAll" value="0.2667" />
+	<outfit name="Arena Champion" attribute="transcendence" value="0.1" />
+	<outfit name="Lupine Warden" attribute="dodge" value="0.1333" />
+	<outfit name="Grove Keeper" attribute="critDamage" value="1" />
+	<outfit name="Festive" attribute="healthPercent" value="0.4286" />
+	<outfit name="Pharaoh" attribute="attackSpeedPercent" value="0.1667" />
+	<outfit name="Trophy Hunter" attribute="manaPercent" value="0.4286" />
+	<outfit name="Retro Warrior" attribute="allSkills" value="0.3637" />
+	<outfit name="Retro Summoner" attribute="resistAll" value="0.2667" />
+	<outfit name="Retro Noblewoman" alias="Retro Nobleman" attribute="onslaught" value="0.1667" />
+	<outfit name="Retro Mage" attribute="dodge" value="0.1333" />
+	<outfit name="Retro Knight" attribute="transcendence" value="0.1" />
+	<outfit name="Retro Hunter" attribute="healthPercent" value="0.4286" />
+	<outfit name="Retro Citizen" attribute="critDamage" value="1" />
+	<outfit name="Herbalist" attribute="manaPercent" value="0.4286" />
+	<outfit name="Sun Priest" attribute="attackSpeedPercent" value="0.1667" />
+	<outfit name="Makeshift Warrior" attribute="resistAll" value="0.2667" />
+	<outfit name="Siege Master" attribute="allSkills" value="0.3637" />
+	<outfit name="Mercenary" attribute="dodge" value="0.1333" />
+	<outfit name="Battle Mage" attribute="onslaught" value="0.1667" />
+	<outfit name="Discoverer" attribute="healthPercent" value="0.4286" />
+	<outfit name="Sinister Archer" attribute="transcendence" value="0.1" />
+	<outfit name="Pumpkin Mummy" attribute="manaPercent" value="0.4286" />
+	<outfit name="Dream Warrior" attribute="critDamage" value="1" />
+	<outfit name="Percht Raider" attribute="resistAll" value="0.2667" />
+	<outfit name="Owl Keeper" attribute="attackSpeedPercent" value="0.1667" />
+	<outfit name="Guidon Bearer" attribute="dodge" value="0.1333" />
+	<outfit name="Void Master" attribute="allSkills" value="0.3637" />
+	<outfit name="Veteran Paladin" attribute="healthPercent" value="0.4286" />
+	<outfit name="Lion of War" attribute="onslaught" value="0.1667" />
+	<outfit name="Golden" attribute="manaPercent" value="0.4286" />
+	<outfit name="Hand of the Inquisition" attribute="transcendence" value="0.1" />
+	<outfit name="Breezy Garb" attribute="resistAll" value="0.2667" />
+	<outfit name="Orcsoberfest Garb" attribute="critDamage" value="1" />
+	<outfit name="Poltergeist" attribute="dodge" value="0.1333" />
+	<outfit name="Herder" attribute="attackSpeedPercent" value="0.1667" />
+	<outfit name="Falconer" attribute="healthPercent" value="0.4286" />
+	<outfit name="Dragon Slayer" attribute="allSkills" value="0.3637" />
+	<outfit name="Trailblazer" attribute="manaPercent" value="0.4286" />
+	<outfit name="Revenant" attribute="onslaught" value="0.1667" />
+	<outfit name="Jouster" attribute="resistAll" value="0.2667" />
+	<outfit name="Moth Cape" attribute="transcendence" value="0.1" />
+	<outfit name="Rascoohan" attribute="dodge" value="0.1333" />
+	<outfit name="Merry Garb" attribute="critDamage" value="1" />
+	<outfit name="Rune Master" attribute="healthPercent" value="0.4286" />
+	<outfit name="Citizen of Issavi" attribute="attackSpeedPercent" value="0.1667" />
+	<outfit name="Forest Warden" attribute="manaPercent" value="0.4286" />
+	<outfit name="Royal Bounacean Advisor" attribute="allSkills" value="0.3637" />
+	<outfit name="Dragon Knight" attribute="resistAll" value="0.2667" />
+	<outfit name="Arbalester" attribute="onslaught" value="0.1667" />
+	<outfit name="Royal Costume" attribute="dodge" value="0.1333" />
+	<outfit name="Formal Dress" attribute="transcendence" value="0.1" />
+	<outfit name="Ghost Blade" attribute="healthPercent" value="0.4286" />
+	<outfit name="Nordic Chieftain" attribute="critDamage" value="1" />
+	<outfit name="Fire-Fighter" attribute="manaPercent" value="0.4286" />
+	<outfit name="Fencer" attribute="attackSpeedPercent" value="0.1667" />
+	<outfit name="Shadowlotus Disciple" attribute="resistAll" value="0.2667" />
+	<outfit name="Ancient Aucar" attribute="allSkills" value="0.3637" />
+	<outfit name="Frost Tracer" attribute="dodge" value="0.1333" />
+	<outfit name="Armoured Archer" attribute="onslaught" value="0.1667" />
+	<outfit name="Decaying Defender" attribute="healthPercent" value="0.4286" />
+	<outfit name="Darklight Evoker" attribute="transcendence" value="0.1" />
+	<outfit name="Flamefury Mage" attribute="manaPercent" value="0.4286" />
+	<outfit name="Doom Knight" attribute="critDamage" value="1" />
+	<outfit name="Draccoon Herald" attribute="resistAll" value="0.2667" />
+	<outfit name="Celestial Avenger" attribute="attackSpeedPercent" value="0.1667" />
+	<outfit name="Blade Dancer" attribute="dodge" value="0.1333" />
+	<outfit name="Rootwalker" attribute="allSkills" value="0.3637" />
+	<outfit name="Beekeeper" attribute="healthPercent" value="0.4286" />
+	<outfit name="Fiend Slayer" attribute="onslaught" value="0.1667" />
+	<outfit name="Field Surgeon" attribute="manaPercent" value="0.4286" />
+	<outfit name="Winged Druid" attribute="transcendence" value="0.1" />
+	<outfit name="Martial Artist" attribute="resistAll" value="0.2667" />
+	<outfit name="Necromancer" attribute="critDamage" value="1" />
+	<outfit name="Illuminator" attribute="dodge" value="0.1333" />
+	<outfit name="Bat Knight" attribute="attackSpeedPercent" value="0.1667" />
+</outfits>

@@ -9602,6 +9602,9 @@ double ProtocolGame::getForgeSkillStat(Slots_t slot, bool applyAmplification /*=
 	if (slot == CONST_SLOT_LEGS) {
 		skill += gemBonuses.transcendenceChance;
 	}
+	if (slot == CONST_SLOT_ARMOR) {
+		skill += gemBonuses.dodgeChance;
+	}
 
 	if (applyAmplification) {
 		const auto &boots = player->getInventoryItem(CONST_SLOT_FEET);

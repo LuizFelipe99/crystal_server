@@ -1,4 +1,4 @@
-local RANDOM_OUTFIT_ITEM_ID = 64484
+local RANDOM_OUTFIT_ITEM_ID = 60331
 
 local grantableOutfits = {
     { outfitName = "Mage", maleLookType = 130, femaleLookType = 138 }, -- ferumbras hat

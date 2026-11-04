@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Bonus de colecao: cada montaria que o jogador possui soma os bonus listados aqui (addons nao importam e nao precisa estar usando).
+Montarias que nao estiverem neste arquivo nao dao bonus. Um mesmo nome pode ter varias linhas para dar mais de um bonus.
+
+attribute       efeito                                                   value
+onslaught       chance de Onslaught (fatal)                              % (aceita decimal)
+transcendence   chance de Transcendence                                  % (aceita decimal)
+critChance      chance de critico                                        % (aceita decimal)
+critDamage      dano extra de critico                                    % (aceita decimal)
+allSkills       fist, club, sword, axe, distance, shielding e magic      pontos (aceita decimal, soma e arredonda para baixo)
+sword / axe / club / distance / fist / shield / magicLevel   skill especifica   pontos (aceita decimal, soma e arredonda para baixo)
+dodge           chance de Ruse (esquiva)                                 % (aceita decimal)
+resistAll       resistencia a fisico, fogo, gelo, energia, terra, morte e sagrado   %
+resistPhysical / resistFire / resistIce / resistEnergy / resistEarth / resistDeath / resistHoly   %
+healthPercent   vida maxima                                              % (aceita decimal)
+manaPercent     mana maxima                                              % (aceita decimal)
+health / mana   vida / mana maxima fixa                                  pontos
+attackSpeedPercent  velocidade de ataque                                 % (aceita decimal)
+attackSpeed     velocidade de ataque fixa                                ms
+-->
+<mounts>
+	<mount name="Widow Queen" attribute="onslaught" value="0.12" />
+	<mount name="Racing Bird" attribute="resistAll" value="0.1935" />
+	<mount name="War Bear" attribute="transcendence" value="0.072" />
+	<mount name="Black Sheep" attribute="dodge" value="0.0968" />
+	<mount name="Midnight Panther" attribute="critDamage" value="0.72" />
+	<mount name="Draptor" attribute="healthPercent" value="0.3" />
+	<mount name="Titanica" attribute="attackSpeedPercent" value="0.125" />
+	<mount name="Tin Lizzard" attribute="manaPercent" value="0.3" />
+	<mount name="Blazebringer" attribute="allSkills" value="0.25" />
+	<mount name="Rapid Boar" attribute="resistAll" value="0.1935" />
+	<mount name="Stampor" attribute="onslaught" value="0.12" />
+	<mount name="Undead Cavebear" attribute="dodge" value="0.0968" />
+	<mount name="Donkey" attribute="transcendence" value="0.072" />
+	<mount name="Tiger Slug" attribute="healthPercent" value="0.3" />
+	<mount name="Uniwheel" attribute="critDamage" value="0.72" />
+	<mount name="Crystal Wolf" attribute="manaPercent" value="0.3" />
+	<mount name="War Horse" attribute="attackSpeedPercent" value="0.125" />
+	<mount name="Kingly Deer" attribute="resistAll" value="0.1935" />
+	<mount name="Tamed Panda" attribute="allSkills" value="0.25" />
+	<mount name="Dromedary" attribute="dodge" value="0.0968" />
+	<mount name="Scorpion King" attribute="onslaught" value="0.12" />
+	<mount name="Rented Horse" attribute="healthPercent" value="0.3" />
+	<mount name="Armoured War Horse" attribute="transcendence" value="0.072" />
+	<mount name="Shadow Draptor" attribute="manaPercent" value="0.3" />
+	<mount name="Rented Horse (Gray)" attribute="critDamage" value="0.72" />
+	<mount name="Rented Horse (Brown)" attribute="resistAll" value="0.1935" />
+	<mount name="Lady Bug" attribute="attackSpeedPercent" value="0.125" />
+	<mount name="Manta Ray" attribute="dodge" value="0.0968" />
+	<mount name="Ironblight" attribute="allSkills" value="0.25" />
+	<mount name="Magma Crawler" attribute="healthPercent" value="0.3" />
+	<mount name="Dragonling" attribute="onslaught" value="0.12" />
+	<mount name="Gnarlhound" attribute="manaPercent" value="0.3" />
+	<mount name="Crimson Ray" attribute="transcendence" value="0.072" />
+	<mount name="Steelbeak" attribute="resistAll" value="0.1935" />
+	<mount name="Water Buffalo" attribute="critDamage" value="0.72" />
+	<mount name="Tombstinger" attribute="dodge" value="0.0968" />
+	<mount name="Platesaurian" attribute="attackSpeedPercent" value="0.125" />
+	<mount name="Ursagrodon" attribute="healthPercent" value="0.3" />
+	<mount name="The Hellgrip" attribute="allSkills" value="0.25" />
+	<mount name="Noble Lion" attribute="manaPercent" value="0.3" />
+	<mount name="Desert King" attribute="onslaught" value="0.12" />
+	<mount name="Shock Head" attribute="resistAll" value="0.1935" />
+	<mount name="Walker" attribute="transcendence" value="0.072" />
+	<mount name="Azudocus" attribute="dodge" value="0.0968" />
+	<mount name="Carpacosaurus" attribute="critDamage" value="0.72" />
+	<mount name="Death Crawler" attribute="healthPercent" value="0.3" />
+	<mount name="Flamesteed" attribute="attackSpeedPercent" value="0.125" />
+	<mount name="Jade Lion" attribute="manaPercent" value="0.3" />
+	<mount name="Jade Pincer" attribute="allSkills" value="0.25" />
+	<mount name="Nethersteed" attribute="resistAll" value="0.1935" />
+	<mount name="Tempest" attribute="onslaught" value="0.12" />
+	<mount name="Winter King" attribute="dodge" value="0.0968" />
+	<mount name="Doombringer" attribute="transcendence" value="0.072" />
+	<mount name="Woodland Prince" attribute="healthPercent" value="0.3" />
+	<mount name="Hailstorm Fury" attribute="critDamage" value="0.72" />
+	<mount name="Siegebreaker" attribute="manaPercent" value="0.3" />
+	<mount name="Poisonbane" attribute="attackSpeedPercent" value="0.125" />
+	<mount name="Blackpelt" attribute="resistAll" value="0.1935" />
+	<mount name="Golden Dragonfly" attribute="allSkills" value="0.25" />
+	<mount name="Steel Bee" attribute="dodge" value="0.0968" />
+	<mount name="Copper Fly" attribute="onslaught" value="0.12" />
+	<mount name="Tundra Rambler" attribute="healthPercent" value="0.3" />
+	<mount name="Highland Yak" attribute="transcendence" value="0.072" />
+	<mount name="Glacier Vagabond" attribute="manaPercent" value="0.3" />
+	<mount name="Flying Divan" attribute="critDamage" value="0.72" />
+	<mount name="Magic Carpet" attribute="resistAll" value="0.1935" />
+	<mount name="Floating Kashmir" attribute="attackSpeedPercent" value="0.125" />
+	<mount name="Ringtail Waccoon" attribute="dodge" value="0.0968" />
+	<mount name="Night Waccoon" attribute="allSkills" value="0.25" />
+	<mount name="Emerald Waccoon" attribute="healthPercent" value="0.3" />
+	<mount name="Glooth Glider" attribute="onslaught" value="0.12" />
+	<mount name="Shadow Hart" attribute="manaPercent" value="0.3" />
+	<mount name="Black Stag" attribute="transcendence" value="0.072" />
+	<mount name="Emperor Deer" attribute="resistAll" value="0.1935" />
+	<mount name="Flitterkatzen" attribute="critDamage" value="0.72" />
+	<mount name="Venompaw" attribute="dodge" value="0.0968" />
+	<mount name="Batcat" attribute="attackSpeedPercent" value="0.125" />
+	<mount name="Sea Devil" attribute="healthPercent" value="0.3" />
+	<mount name="Coralripper" attribute="allSkills" value="0.25" />
+	<mount name="Plumfish" attribute="manaPercent" value="0.3" />
+	<mount name="Gorongra" attribute="onslaught" value="0.12" />
+	<mount name="Noctungra" attribute="resistAll" value="0.1935" />
+	<mount name="Silverneck" attribute="transcendence" value="0.072" />
+	<mount name="Slagsnare" attribute="dodge" value="0.0968" />
+	<mount name="Nightstinger" attribute="critDamage" value="0.72" />
+	<mount name="Razorcreep" attribute="healthPercent" value="0.3" />
+	<mount name="Rift Runner" attribute="attackSpeedPercent" value="0.125" />
+	<mount name="Nightdweller" attribute="manaPercent" value="0.3" />
+	<mount name="Frostflare" attribute="allSkills" value="0.25" />
+	<mount name="Cinderhoof" attribute="resistAll" value="0.1935" />
+	<mount name="Mouldpincer" attribute="onslaught" value="0.12" />
+	<mount name="Bloodcurl" attribute="dodge" value="0.0968" />
+	<mount name="Leafscuttler" attribute="transcendence" value="0.072" />
+	<mount name="Sparkion" attribute="healthPercent" value="0.3" />
+	<mount name="Swamp Snapper" attribute="critDamage" value="0.72" />
+	<mount name="Mould Shell" attribute="manaPercent" value="0.3" />
+	<mount name="Reed Lurker" attribute="attackSpeedPercent" value="0.125" />
+	<mount name="Neon Sparkid" attribute="resistAll" value="0.1935" />
+	<mount name="Vortexion" attribute="allSkills" value="0.25" />
+	<mount name="Ivory Fang" attribute="dodge" value="0.0968" />
+	<mount name="Shadow Claw" attribute="onslaught" value="0.12" />
+	<mount name="Snow Pelt" attribute="healthPercent" value="0.3" />
+	<mount name="Jackalope" attribute="transcendence" value="0.072" />
+	<mount name="Dreadhare" attribute="manaPercent" value="0.3" />
+	<mount name="Wolpertinger" attribute="critDamage" value="0.72" />
+	<mount name="Stone Rhino" attribute="resistAll" value="0.1935" />
+	<mount name="Gold Sphinx" attribute="attackSpeedPercent" value="0.125" />
+	<mount name="Emerald Sphinx" attribute="dodge" value="0.0968" />
+	<mount name="Shadow Sphinx" attribute="allSkills" value="0.25" />
+	<mount name="Jungle Saurian" attribute="healthPercent" value="0.3" />
+	<mount name="Ember Saurian" attribute="onslaught" value="0.12" />
+	<mount name="Lagoon Saurian" attribute="manaPercent" value="0.3" />
+	<mount name="Blazing Unicorn" attribute="transcendence" value="0.072" />
+	<mount name="Arctic Unicorn" attribute="resistAll" value="0.1935" />
+	<mount name="Prismatic unicorn" attribute="critDamage" value="0.72" />
+	<mount name="Cranium Spider" attribute="dodge" value="0.0968" />
+	<mount name="Cave Tarantula" attribute="attackSpeedPercent" value="0.125" />
+	<mount name="Gloom Widow" attribute="healthPercent" value="0.3" />
+	<mount name="Mole" attribute="allSkills" value="0.25" />
+	<mount name="Marsh Toad" attribute="manaPercent" value="0.3" />
+	<mount name="Sanguine Frog" attribute="onslaught" value="0.12" />
+	<mount name="Toxic Toad" attribute="resistAll" value="0.1935" />
+	<mount name="Ebony Tiger" attribute="transcendence" value="0.072" />
+	<mount name="Feral Tiger" attribute="dodge" value="0.0968" />
+	<mount name="Jungle Tiger" attribute="critDamage" value="0.72" />
+	<mount name="Fleeting Knowledge" attribute="healthPercent" value="0.3" />
+	<mount name="Tawny Owl" attribute="attackSpeedPercent" value="0.125" />
+	<mount name="Snowy Owl" attribute="manaPercent" value="0.3" />
+	<mount name="Boreal Owl" attribute="allSkills" value="0.25" />
+	<mount name="Lacewing Moth" attribute="resistAll" value="0.1935" />
+	<mount name="Hibernal Moth" attribute="onslaught" value="0.12" />
+	<mount name="Cold Percht Sleigh" attribute="dodge" value="0.0968" />
+	<mount name="Bright Percht Sleigh" attribute="transcendence" value="0.072" />
+	<mount name="Dark Percht Sleigh" attribute="healthPercent" value="0.3" />
+	<mount name="Festive Snowman" attribute="critDamage" value="0.72" />
+	<mount name="Muffled Snowman" attribute="manaPercent" value="0.3" />
+	<mount name="Caped Snowman" attribute="attackSpeedPercent" value="0.125" />
+	<mount name="Rabbit Rickshaw" attribute="resistAll" value="0.1935" />
+	<mount name="Bunny Dray" attribute="allSkills" value="0.25" />
+	<mount name="Cony Cart" attribute="dodge" value="0.0968" />
+	<mount name="River Crocovile" attribute="onslaught" value="0.12" />
+	<mount name="Swamp Crocovile" attribute="healthPercent" value="0.3" />
+	<mount name="Nightmarish Crocovile" attribute="transcendence" value="0.072" />
+	<mount name="Gryphon" attribute="manaPercent" value="0.3" />
+	<mount name="Jousting Eagle" attribute="critDamage" value="0.72" />
+	<mount name="Cerberus Champion" attribute="resistAll" value="0.1935" />
+	<mount name="Cold Percht Sleigh Variant" attribute="attackSpeedPercent" value="0.125" />
+	<mount name="Bright Percht Sleigh Variant" attribute="dodge" value="0.0968" />
+	<mount name="Dark Percht Sleigh Variant" attribute="allSkills" value="0.25" />
+	<mount name="Cold Percht Sleigh Final" attribute="healthPercent" value="0.3" />
+	<mount name="Bright Percht Sleigh Final" attribute="onslaught" value="0.12" />
+	<mount name="Dark Percht Sleigh Final" attribute="manaPercent" value="0.3" />
+	<mount name="Battle Badger" attribute="transcendence" value="0.072" />
+	<mount name="Ether Badger" attribute="resistAll" value="0.1935" />
+	<mount name="Zaoan Badger" attribute="critDamage" value="0.72" />
+	<mount name="Blue Rolling Barrel" attribute="dodge" value="0.0968" />
+	<mount name="Red Rolling Barrel" attribute="attackSpeedPercent" value="0.125" />
+	<mount name="Green Rolling Barrel" attribute="healthPercent" value="0.3" />
+	<mount name="Floating Sage" attribute="allSkills" value="0.25" />
+	<mount name="Floating Scholar" attribute="manaPercent" value="0.3" />
+	<mount name="Floating Augur" attribute="onslaught" value="0.12" />
+	<mount name="Haze" attribute="resistAll" value="0.1935" />
+	<mount name="Antelope" attribute="transcendence" value="0.072" />
+	<mount name="Snow Strider" attribute="dodge" value="0.0968" />
+	<mount name="Dusk Pryer" attribute="critDamage" value="0.72" />
+	<mount name="Dawn Strayer" attribute="healthPercent" value="0.3" />
+	<mount name="Phantasmal Jade" attribute="attackSpeedPercent" value="0.125" />
+	<mount name="Savanna Ostrich" attribute="manaPercent" value="0.3" />
+	<mount name="Coral Rhea" attribute="allSkills" value="0.25" />
+	<mount name="Eventide Nandu" attribute="resistAll" value="0.1935" />
+	<mount name="Voracious Hyaena" attribute="onslaught" value="0.12" />
+	<mount name="Cunning Hyaena" attribute="dodge" value="0.0968" />
+	<mount name="Scruffy Hyaena" attribute="transcendence" value="0.072" />
+	<mount name="White Lion" attribute="healthPercent" value="0.3" />
+	<mount name="Krakoloss" attribute="critDamage" value="0.72" />
+	<mount name="Merry Mammoth" attribute="manaPercent" value="0.3" />
+	<mount name="Holiday Mammoth" attribute="attackSpeedPercent" value="0.125" />
+	<mount name="Festive Mammoth" attribute="resistAll" value="0.1935" />
+	<mount name="Void Watcher" attribute="allSkills" value="0.25" />
+	<mount name="Rune Watcher" attribute="dodge" value="0.0968" />
+	<mount name="Rift Watcher" attribute="onslaught" value="0.12" />
+	<mount name="Phant" attribute="healthPercent" value="0.3" />
+	<mount name="Shellodon" attribute="transcendence" value="0.072" />
+	<mount name="Singeing Steed" attribute="manaPercent" value="0.3" />
+	<mount name="Hyacinth" attribute="critDamage" value="0.72" />
+	<mount name="Peony" attribute="resistAll" value="0.1935" />
+	<mount name="Dandelion" attribute="attackSpeedPercent" value="0.125" />
+	<mount name="Rustwurm" attribute="dodge" value="0.0968" />
+	<mount name="Bogwurm" attribute="allSkills" value="0.25" />
+	<mount name="Gloomwurm" attribute="healthPercent" value="0.3" />
+	<mount name="Emerald Raven" attribute="onslaught" value="0.12" />
+	<mount name="Mystic Raven" attribute="manaPercent" value="0.3" />
+	<mount name="Radiant Raven" attribute="transcendence" value="0.072" />
+	<mount name="Gloothomotive" attribute="resistAll" value="0.1935" />
+	<mount name="Topaz Shrine" attribute="critDamage" value="0.72" />
+	<mount name="Jade Shrine" attribute="dodge" value="0.0968" />
+	<mount name="Obsidian Shrine" attribute="attackSpeedPercent" value="0.125" />
+	<mount name="Poppy ibex" attribute="healthPercent" value="0.3" />
+	<mount name="Mint ibex" attribute="allSkills" value="0.25" />
+	<mount name="Cinnamon ibex" attribute="manaPercent" value="0.3" />
+	<mount name="Giant Beaver" attribute="onslaught" value="0.12" />
+	<mount name="Noxious Ripptor" attribute="resistAll" value="0.1935" />
+	<mount name="Parade Horse" attribute="transcendence" value="0.072" />
+	<mount name="Jousting Horse" attribute="dodge" value="0.0968" />
+	<mount name="Tourney Horse" attribute="critDamage" value="0.72" />
+	<mount name="Mutated Abomination" attribute="healthPercent" value="0.3" />
+	<mount name="Tangerine Flecked Koi" attribute="attackSpeedPercent" value="0.125" />
+	<mount name="Brass Speckled Koi" attribute="manaPercent" value="0.3" />
+	<mount name="Ink Spotted Koi" attribute="allSkills" value="0.25" />
+	<mount name="Frostbringer" attribute="resistAll" value="0.1935" />
+	<mount name="Winterstride" attribute="onslaught" value="0.12" />
+	<mount name="Icebreacher" attribute="dodge" value="0.0968" />
+	<mount name="Boisterous Bull" attribute="transcendence" value="0.072" />
+	<mount name="Surly Steer" attribute="healthPercent" value="0.3" />
+	<mount name="Obstinate Ox" attribute="critDamage" value="0.72" />
+	<mount name="Darkfire Devourer" attribute="manaPercent" value="0.3" />
+	<mount name="Spirit of Purity" attribute="attackSpeedPercent" value="0.125" />
+	<mount name="Foxmouse" attribute="resistAll" value="0.1935" />
+	<mount name="Doom Skull" attribute="allSkills" value="0.25" />
+	<mount name="Magma Skull" attribute="dodge" value="0.0968" />
+	<mount name="Corpsefire Skull" attribute="onslaught" value="0.12" />
+	<mount name="Mystic Jaguar" attribute="healthPercent" value="0.3" />
+	<mount name="Gorgon Hydra" attribute="transcendence" value="0.072" />
+	<mount name="Dawnbringer Pegasus" attribute="manaPercent" value="0.3" />
+	<mount name="Wrathfire Pegasus" attribute="critDamage" value="0.72" />
+	<mount name="Skybreaker Pegasus" attribute="resistAll" value="0.1935" />
+	<mount name="Pegasus" attribute="attackSpeedPercent" value="0.125" />
+	<mount name="Glacier Wyrm" attribute="dodge" value="0.0968" />
+	<mount name="Bog Tyrant" attribute="allSkills" value="0.25" />
+	<mount name="Crimson Fang" attribute="healthPercent" value="0.3" />
+	<mount name="Bumblebee" attribute="onslaught" value="0.12" />
+	<mount name="Primal Demonosaur" attribute="manaPercent" value="0.3" />
+	<mount name="Night Locust" attribute="transcendence" value="0.072" />
+	<mount name="Leaf Locust" attribute="resistAll" value="0.1935" />
+	<mount name="Pearl Locust" attribute="critDamage" value="0.72" />
+	<mount name="Satin Moth" attribute="dodge" value="0.0968" />
+	<mount name="Pallbearer" attribute="attackSpeedPercent" value="0.125" />
+	<mount name="Hellish Demonosaur" attribute="healthPercent" value="0.3" />
+	<mount name="Ancient Demonosaur" attribute="allSkills" value="0.25" />
+	<mount name="Corpse Phoenix" attribute="manaPercent" value="0.3" />
+	<mount name="Death Phoenix" attribute="onslaught" value="0.12" />
+	<mount name="Soul Phoenix" attribute="resistAll" value="0.1935" />
+	<mount name="White Gloom Maw" attribute="transcendence" value="0.072" />
+	<mount name="Gloom Maw" attribute="dodge" value="0.0968" />
+	<mount name="Battle Werewolf" attribute="critDamage" value="0.72" />
+</mounts>

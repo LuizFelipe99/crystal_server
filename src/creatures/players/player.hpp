@@ -228,8 +228,12 @@ struct EquippedGemBonuses {
 	int32_t manaBonus = 0;
 	double onslaughtChance = 0;
 	double transcendenceChance = 0;
+	double dodgeChance = 0;
+	double healthPercent = 0;
+	double manaPercent = 0;
+	double attackSpeedPercent = 0;
 	std::array<double, COMBAT_COUNT> absorbPercent {};
-	std::map<skills_t, uint8_t> skillBonus;
+	std::map<skills_t, double> skillBonus;
 
 	void reset() {
 		critHitChance = 0;
@@ -239,6 +243,10 @@ struct EquippedGemBonuses {
 		manaBonus = 0;
 		onslaughtChance = 0;
 		transcendenceChance = 0;
+		dodgeChance = 0;
+		healthPercent = 0;
+		manaPercent = 0;
+		attackSpeedPercent = 0;
 		absorbPercent.fill(0);
 		skillBonus.clear();
 	}
@@ -1139,7 +1147,9 @@ public:
 	uint8_t countGemTypeSocketed(const std::string &gemType, uint8_t excludingSlot) const;
 	bool socketGem(uint8_t slotIndex, uint16_t itemId);
 	bool unsocketGem(uint8_t slotIndex);
-	void recalculateGemBonuses();
+	void recalculateAttributeBonuses();
+	void applyOutfitCollectionBonuses(EquippedGemBonuses &bonuses) const;
+	void applyMountCollectionBonuses(EquippedGemBonuses &bonuses) const;
 	void setGemBagSlotDirect(uint8_t slotIndex, uint16_t itemId);
 
 	bool canExiva(const std::string &spellParam) const;

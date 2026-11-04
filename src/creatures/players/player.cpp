@@ -79,9 +79,11 @@
 #include "creatures/players/proficiencies/proficiencies.hpp"
 #include "creatures/players/proficiencies/proficiencies_definitions.hpp"
 #include "creatures/players/gembag/gem_definitions.hpp"
+#include "creatures/players/collection/collection_bonus_definitions.hpp"
 #include "utils/tools.hpp"
 
-static void applyGemDefinitionToBonuses(const GemDefinition &definition, EquippedGemBonuses &bonuses);
+static void applyAttributeBonus(const std::string &attribute, double value, EquippedGemBonuses &bonuses);
+static constexpr double SKILL_BONUS_ROUNDING_TOLERANCE = 0.0001;
 
 MuteCountMap Player::muteCountMap;
 
@@ -6951,6 +6953,7 @@ void Player::addOutfit(uint16_t lookType, uint8_t addons) {
 
 	setOutfitsModified(true);
 	outfitsMap.emplace_back(lookType, addons);
+	recalculateAttributeBonuses();
 }
 
 bool Player::removeOutfit(uint16_t lookType) {
@@ -6959,6 +6962,7 @@ bool Player::removeOutfit(uint16_t lookType) {
 		if (entry.lookType == lookType) {
 			outfitsMap.erase(it);
 			setOutfitsModified(true);
+			recalculateAttributeBonuses();
 			return true;
 		}
 	}
@@ -7362,6 +7366,7 @@ uint32_t Player::getAttackSpeed() const {
 
 	uint32_t attackSpeed = vocation->getAttackSpeed() - modifiers;
 	attackSpeed -= equippedGemBonuses.attackSpeed;
+	attackSpeed = static_cast<uint32_t>(attackSpeed * (1.0 - equippedGemBonuses.attackSpeedPercent / 100.0));
 	return attackSpeed;
 }
 
@@ -7453,6 +7458,10 @@ uint32_t Player::getMagicLevel() const {
 		magic += it->second;
 	}
 
+	if (auto it = equippedGemBonuses.skillBonus.find(SKILL_MAGLEVEL); it != equippedGemBonuses.skillBonus.end()) {
+		magic += static_cast<uint32_t>(it->second + SKILL_BONUS_ROUNDING_TOLERANCE);
+	}
+
 	return magic;
 }
 
@@ -7484,13 +7493,15 @@ uint32_t Player::getLoyaltyMagicLevel() const {
 }
 
 int32_t Player::getMaxHealth() const {
-	return std::max<int32_t>(1, healthMax + varStats[STAT_MAXHITPOINTS] + m_wheelPlayer->getStat(WheelStat_t::HEALTH) + equippedGemBonuses.healthBonus);
-
+	const int32_t flatMaxHealth = healthMax + varStats[STAT_MAXHITPOINTS] + m_wheelPlayer->getStat(WheelStat_t::HEALTH) + equippedGemBonuses.healthBonus;
+	const auto percentBonus = static_cast<int32_t>(flatMaxHealth * equippedGemBonuses.healthPercent / 100.0);
+	return std::max<int32_t>(1, flatMaxHealth + percentBonus);
 }
 
 uint32_t Player::getMaxMana() const {
-	return std::max<int32_t>(0, manaMax + varStats[STAT_MAXMANAPOINTS] + m_wheelPlayer->getStat(WheelStat_t::MANA) + equippedGemBonuses.manaBonus);
-
+	const int32_t flatMaxMana = manaMax + varStats[STAT_MAXMANAPOINTS] + m_wheelPlayer->getStat(WheelStat_t::MANA) + equippedGemBonuses.manaBonus;
+	const auto percentBonus = static_cast<int32_t>(flatMaxMana * equippedGemBonuses.manaPercent / 100.0);
+	return std::max<int32_t>(0, flatMaxMana + percentBonus);
 }
 
 bool Player::hasExtraSwing() {
@@ -7569,7 +7580,7 @@ uint16_t Player::getSkillLevel(skills_t skill) const {
 	}
 
 	if (auto it = equippedGemBonuses.skillBonus.find(skill); it != equippedGemBonuses.skillBonus.end()) {
-		skillLevel += it->second;
+		skillLevel += static_cast<int32_t>(it->second + SKILL_BONUS_ROUNDING_TOLERANCE);
 	}
 
 	return std::min<uint16_t>(std::numeric_limits<uint16_t>::max(), std::max<uint16_t>(0, static_cast<uint16_t>(skillLevel)));
@@ -8088,6 +8099,7 @@ bool Player::tameMount(uint16_t mountId) {
 
 	setMountsModified(true);
 	mountsMap.emplace(mountId);
+	recalculateAttributeBonuses();
 	return true;
 }
 
@@ -8103,6 +8115,7 @@ bool Player::untameMount(uint16_t mountId) {
 
 	setMountsModified(true);
 	mountsMap.erase(mountId);
+	recalculateAttributeBonuses();
 
 	if (getCurrentMount() == mountId) {
 		if (isMounted()) {
@@ -11920,19 +11933,13 @@ bool Player::hasPermittedConditionInPZ() const {
 }
 
 uint16_t Player::getDodgeChance() const {
+	double chance = equippedGemBonuses.dodgeChance;
 	const auto &playerArmor = getInventoryItem(CONST_SLOT_ARMOR);
-	if (!playerArmor || !playerArmor->getTier()) {
-		return 0;
+	if (playerArmor && playerArmor->getTier() > 0) {
+		chance += playerArmor->getDodgeChance();
 	}
 
-	double chance = playerArmor->getDodgeChance();
-	const auto &playerBoots = getInventoryItem(CONST_SLOT_FEET);
-	if (playerBoots && playerBoots->getTier()) {
-		double amplification = playerBoots->getAmplificationChance() / 100.0;
-		chance *= (1.0 + amplification);
-	}
-
-	uint16_t finalChance = static_cast<uint16_t>(chance * 100.0);
+	auto finalChance = static_cast<uint16_t>(applyBootsAmplification(chance) * 100.0);
 	finalChance += m_wheelPlayer->getStat(WheelStat_t::DODGE);
 	return finalChance;
 }
@@ -12806,7 +12813,7 @@ bool Player::socketGem(uint8_t slotIndex, uint16_t itemId) {
 	}
 
 	gemBag[slotIndex] = itemId;
-	recalculateGemBonuses();
+	recalculateAttributeBonuses();
 	return true;
 }
 
@@ -12832,7 +12839,7 @@ bool Player::unsocketGem(uint8_t slotIndex) {
 	}
 
 	gemBag[slotIndex] = 0;
-	recalculateGemBonuses();
+	recalculateAttributeBonuses();
 	return true;
 }
 
@@ -12848,7 +12855,7 @@ EquippedGemBonuses &Player::getEquippedGemBonuses() {
 	return equippedGemBonuses;
 }
 
-void Player::recalculateGemBonuses() {
+void Player::recalculateAttributeBonuses() {
 	equippedGemBonuses.reset();
 
 	for (const uint16_t gemItemId : gemBag) {
@@ -12861,46 +12868,159 @@ void Player::recalculateGemBonuses() {
 			continue;
 		}
 
-		applyGemDefinitionToBonuses(*definition, equippedGemBonuses);
+		applyAttributeBonus(definition->attribute, definition->value, equippedGemBonuses);
 	}
+
+	applyOutfitCollectionBonuses(equippedGemBonuses);
+	applyMountCollectionBonuses(equippedGemBonuses);
 
 	sendStats();
 	sendSkills();
 }
 
-static void applyGemDefinitionToBonuses(const GemDefinition &definition, EquippedGemBonuses &bonuses) {
-	if (definition.attribute == "critChance") {
-		bonuses.critHitChance += static_cast<uint16_t>(definition.value * 100.0f);
+static std::shared_ptr<Outfit> findOutfitByLookTypeInAnySex(uint16_t lookType) {
+	for (const auto sex : { PLAYERSEX_FEMALE, PLAYERSEX_MALE }) {
+		for (const auto &outfit : Outfits::getInstance().getOutfits(sex)) {
+			if (outfit->lookType == lookType) {
+				return outfit;
+			}
+		}
+	}
+
+	return nullptr;
+}
+
+static void applyCollectionBonusList(const CollectionBonusList &collectionBonuses, EquippedGemBonuses &bonuses) {
+	for (const auto &collectionBonus : collectionBonuses) {
+		applyAttributeBonus(collectionBonus.attribute, collectionBonus.value, bonuses);
+	}
+}
+
+void Player::applyOutfitCollectionBonuses(EquippedGemBonuses &bonuses) const {
+	std::unordered_set<const CollectionBonusList*> countedBonusLists;
+
+	for (const auto &outfitEntry : outfitsMap) {
+		const auto &outfit = findOutfitByLookTypeInAnySex(outfitEntry.lookType);
+		if (!outfit || outfit->unlocked) {
+			continue;
+		}
+
+		const CollectionBonusList* collectionBonuses = g_collectionBonusDefinitions().getOutfitBonuses(outfit->name);
+		if (collectionBonuses == nullptr) {
+			continue;
+		}
+
+		if (!countedBonusLists.insert(collectionBonuses).second) {
+			continue;
+		}
+
+		applyCollectionBonusList(*collectionBonuses, bonuses);
+	}
+}
+
+void Player::applyMountCollectionBonuses(EquippedGemBonuses &bonuses) const {
+	for (const uint16_t mountId : mountsMap) {
+		const auto &mount = g_game().mounts->getMountByID(mountId);
+		if (!mount) {
+			continue;
+		}
+
+		const CollectionBonusList* collectionBonuses = g_collectionBonusDefinitions().getMountBonuses(mount->name);
+		if (collectionBonuses == nullptr) {
+			continue;
+		}
+
+		applyCollectionBonusList(*collectionBonuses, bonuses);
+	}
+}
+
+static constexpr std::array<CombatType_t, 7> RESIST_ALL_COMBAT_TYPES = {
+	COMBAT_PHYSICALDAMAGE,
+	COMBAT_FIREDAMAGE,
+	COMBAT_ICEDAMAGE,
+	COMBAT_ENERGYDAMAGE,
+	COMBAT_EARTHDAMAGE,
+	COMBAT_DEATHDAMAGE,
+	COMBAT_HOLYDAMAGE,
+};
+
+static constexpr std::array<skills_t, 7> ALL_SKILLS_TYPES = {
+	SKILL_FIST,
+	SKILL_CLUB,
+	SKILL_SWORD,
+	SKILL_AXE,
+	SKILL_DISTANCE,
+	SKILL_SHIELD,
+	SKILL_MAGLEVEL,
+};
+
+static void applyAttributeBonus(const std::string &attribute, double value, EquippedGemBonuses &bonuses) {
+	if (attribute == "critChance") {
+		bonuses.critHitChance += static_cast<uint16_t>(value * 100.0);
 		return;
 	}
 
-	if (definition.attribute == "critDamage") {
-		bonuses.critExtraDamage += static_cast<uint16_t>(definition.value * 100.0f);
+	if (attribute == "critDamage") {
+		bonuses.critExtraDamage += static_cast<uint16_t>(value * 100.0);
 		return;
 	}
 
-	if (definition.attribute == "attackSpeed") {
-		bonuses.attackSpeed += static_cast<uint16_t>(definition.value);
+	if (attribute == "attackSpeed") {
+		bonuses.attackSpeed += static_cast<uint16_t>(value);
 		return;
 	}
 
-	if (definition.attribute == "health") {
-		bonuses.healthBonus += static_cast<int32_t>(definition.value);
+	if (attribute == "attackSpeedPercent") {
+		bonuses.attackSpeedPercent += value;
 		return;
 	}
 
-	if (definition.attribute == "mana") {
-		bonuses.manaBonus += static_cast<int32_t>(definition.value);
+	if (attribute == "health") {
+		bonuses.healthBonus += static_cast<int32_t>(value);
 		return;
 	}
 
-	if (definition.attribute == "onslaught") {
-		bonuses.onslaughtChance += definition.value;
+	if (attribute == "mana") {
+		bonuses.manaBonus += static_cast<int32_t>(value);
 		return;
 	}
 
-	if (definition.attribute == "transcendence") {
-		bonuses.transcendenceChance += definition.value;
+	if (attribute == "healthPercent") {
+		bonuses.healthPercent += value;
+		return;
+	}
+
+	if (attribute == "manaPercent") {
+		bonuses.manaPercent += value;
+		return;
+	}
+
+	if (attribute == "onslaught") {
+		bonuses.onslaughtChance += value;
+		return;
+	}
+
+	if (attribute == "transcendence") {
+		bonuses.transcendenceChance += value;
+		return;
+	}
+
+	if (attribute == "dodge") {
+		bonuses.dodgeChance += value;
+		return;
+	}
+
+	if (attribute == "resistAll") {
+		for (const CombatType_t combatType : RESIST_ALL_COMBAT_TYPES) {
+			bonuses.absorbPercent[combatTypeToIndex(combatType)] += value;
+		}
+		return;
+	}
+
+	if (attribute == "allSkills") {
+		for (const skills_t skillType : ALL_SKILLS_TYPES) {
+			bonuses.skillBonus[skillType] += value;
+		}
 		return;
 	}
 
@@ -12914,34 +13034,34 @@ static void applyGemDefinitionToBonuses(const GemDefinition &definition, Equippe
 		{ "resistHoly", COMBAT_HOLYDAMAGE },
 	};
 
-	if (const auto resistance = resistanceCombatTypeByAttribute.find(definition.attribute); resistance != resistanceCombatTypeByAttribute.end()) {
-		bonuses.absorbPercent[combatTypeToIndex(resistance->second)] += definition.value;
+	if (const auto resistance = resistanceCombatTypeByAttribute.find(attribute); resistance != resistanceCombatTypeByAttribute.end()) {
+		bonuses.absorbPercent[combatTypeToIndex(resistance->second)] += value;
 		return;
 	}
 
 	skills_t skillType = SKILL_NONE;
-	if (definition.attribute == "magicLevel") {
+	if (attribute == "magicLevel") {
 		skillType = SKILL_MAGLEVEL;
-	} else if (definition.attribute == "shield") {
+	} else if (attribute == "shield") {
 		skillType = SKILL_SHIELD;
-	} else if (definition.attribute == "sword") {
+	} else if (attribute == "sword") {
 		skillType = SKILL_SWORD;
-	} else if (definition.attribute == "axe") {
+	} else if (attribute == "axe") {
 		skillType = SKILL_AXE;
-	} else if (definition.attribute == "club") {
+	} else if (attribute == "club") {
 		skillType = SKILL_CLUB;
-	} else if (definition.attribute == "distance") {
+	} else if (attribute == "distance") {
 		skillType = SKILL_DISTANCE;
-	} else if (definition.attribute == "fist") {
+	} else if (attribute == "fist") {
 		skillType = SKILL_FIST;
 	}
 
 	if (skillType == SKILL_NONE) {
-		g_logger().warn("[applyGemDefinitionToBonuses] Unknown gem attribute '{}' for gem type '{}', bonus ignored", definition.attribute, definition.type);
+		g_logger().warn("[applyAttributeBonus] Unknown attribute '{}', bonus ignored", attribute);
 		return;
 	}
 
-	bonuses.skillBonus[skillType] += static_cast<uint8_t>(definition.value);
+	bonuses.skillBonus[skillType] += value;
 }
 
 bool Player::canExiva(const std::string &spellParam) const {
