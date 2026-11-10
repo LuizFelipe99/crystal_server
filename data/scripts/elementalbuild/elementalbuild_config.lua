@@ -21,6 +21,7 @@ ElementalBuildConfig = {
                 { itemId = 3385, clientId = 3385, name = "Crown Helmet", amount = 20 },
                 { itemId = 3373, clientId = 3373, name = "Strange Helmet", amount = 20 },
                 { itemId = 3416, clientId = 3416, name = "Dragon Shield", amount = 20 },
+                { itemId = 60863, clientId = 60863, name = "Upgrade Build Stone", amount = 1 },
             }
         },
         [2] = {
@@ -33,6 +34,7 @@ ElementalBuildConfig = {
                 { itemId = 3344, clientId = 3344, name = "Beastslayer Axe", amount = 20 },
                 { itemId = 3318, clientId = 3318, name = "Knight Axe", amount = 20 },
                 { itemId = 3369, clientId = 3369, name = "Warrior Helmet", amount = 20 },
+                { itemId = 60863, clientId = 60863, name = "Upgrade Build Stone", amount = 1 },
             }
         },
         [3] = {
@@ -45,6 +47,7 @@ ElementalBuildConfig = {
                 { itemId = 21175,clientId = 21175, name = "Mino Shield",   amount = 20  },
                 { itemId = 3280, clientId = 3280, name = "Fire Sword",   amount = 20  },
                 { itemId = 3370, clientId = 3370, name = "Knight Armor",   amount = 20  },
+                { itemId = 60863, clientId = 60863, name = "Upgrade Build Stone", amount = 1 },
             }
         },
         [4] = {
@@ -57,6 +60,7 @@ ElementalBuildConfig = {
                 { itemId = 824, clientId = 824, name = "Glacier Robe",   amount = 20  },
                 { itemId = 8072, clientId = 8072, name = "Spellbook of Enlightenment",   amount = 20  },
                 { itemId = 3324, clientId = 3324, name = "Skull Staff",   amount = 20  },
+                { itemId = 60863, clientId = 60863, name = "Upgrade Build Stone", amount = 1 },
             }
         },
         [5] = {
@@ -69,6 +73,7 @@ ElementalBuildConfig = {
                 { itemId = 826, clientId = 826, name = "Magma Coat",   amount = 20  },
                 { itemId = 827, clientId = 827, name = "Magma Monocle",   amount = 20  },
                 { itemId = 817, clientId = 817, name = "Magma Amulet",   amount = 20  },
+                { itemId = 60863, clientId = 60863, name = "Upgrade Build Stone", amount = 1 },
             }
         },
         [6] = {
@@ -81,6 +86,7 @@ ElementalBuildConfig = {
                 { itemId = 811, clientId = 811, name = "Terra Mantle",   amount = 20  },
                 { itemId = 830, clientId = 830, name = "Terra Hood",   amount = 20  },
                 { itemId = 814, clientId = 814, name = "Terra Amulet",   amount = 20  },
+                { itemId = 60863, clientId = 60863, name = "Upgrade Build Stone", amount = 1 },
             }
         },
         [7] = {
@@ -93,6 +99,7 @@ ElementalBuildConfig = {
                 { itemId = 825, clientId = 825, name = "Lightning Robe",   amount = 20  },
                 { itemId = 828, clientId = 828, name = "Lightning Headband",   amount = 20  },
                 { itemId = 816, clientId = 816, name = "Lightning Pendant",   amount = 20  },
+                { itemId = 60863, clientId = 60863, name = "Upgrade Build Stone", amount = 1 },
             }
         },
         [8] = {
@@ -105,6 +112,7 @@ ElementalBuildConfig = {
                 { itemId = 10386, clientId = 10386, name = "Zaoan Shoes",   amount = 20  },
                 { itemId = 7452, clientId = 7452, name = "Spiked Squelcher",   amount = 20  },
                 { itemId = 21981, clientId = 21981, name = "Oriental Shoes",   amount = 20  },
+                { itemId = 60863, clientId = 60863, name = "Upgrade Build Stone", amount = 1 },
             }
         },
         [9] = {
@@ -117,6 +125,7 @@ ElementalBuildConfig = {
                 { itemId = 3382, clientId = 3382, name = "Crown Legs",   amount = 20  },
                 { itemId = 3419, clientId = 3419, name = "Crown Shield",   amount = 20  },
                 { itemId = 3572, clientId = 3572, name = "Scarf ",   amount = 20  },
+                { itemId = 60863, clientId = 60863, name = "Upgrade Build Stone", amount = 1 },
             }
         },
         [10] = {
@@ -129,6 +138,7 @@ ElementalBuildConfig = {
                 { itemId = 3428, clientId = 3428, name = "Tower Shield",   amount = 20  },
                 { itemId = 3420, clientId = 3420, name = "Demon Shield",   amount = 20  },
                 { itemId = 22726, clientId = 22726, name = "Rift Shield",   amount = 20  },
+                { itemId = 60863, clientId = 60863, name = "Upgrade Build Stone", amount = 1 },
             }
         },
     },

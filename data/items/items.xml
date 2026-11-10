@@ -86390,4 +86390,7 @@
 	<item id="62050" article="a" name="attackspeed stone nivel 9">
 		<attribute key="description" value="Increases your attackspeed in 250ms" />
 	</item>
+	<item id="60863" article="a" name="upgrade build stone">
+		<attribute key="description" value="Use para liberar o ponto de build" />
+	</item>
 </items>
