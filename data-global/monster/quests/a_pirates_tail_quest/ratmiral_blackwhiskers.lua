@@ -22,7 +22,6 @@ monster.manaCost = 0
 
 monster.events = {
 	"ratmiralDeath",
-	"ratmiralHealth",
 }
 
 monster.changeTarget = {
