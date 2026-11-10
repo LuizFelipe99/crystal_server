@@ -48,6 +48,14 @@ local function markMissionCompleted(player, missionId)
     player:setStorageValue(ElementalBuildStorage.missionStatus(missionId), ELEMENTALBUILD_MISSION_COMPLETED)
 end
 
+local function missionGoldCost(missionId)
+    return missionId * ElementalBuildConfig.goldCostPerMission
+end
+
+local function playerTotalGold(player)
+    return player:getMoney() + player:getBankBalance()
+end
+
 local function playerHasAllMissionItems(player, mission)
     for _, item in ipairs(mission.items) do
         if player:getItemCount(item.itemId) < item.amount then
@@ -76,6 +84,15 @@ local function buildMissionItemsPayload(player, mission, missionId)
             total    = item.amount,
         }
     end
+
+    local goldCost = missionGoldCost(missionId)
+    itemsPayload[#itemsPayload + 1] = {
+        clientId = ElementalBuildConfig.goldDisplayClientId,
+        name     = "Gold (backpack + bank)",
+        progress = completed and goldCost or math.min(playerTotalGold(player), goldCost),
+        total    = goldCost,
+        isGold   = true,
+    }
 
     return itemsPayload
 end
@@ -220,6 +237,18 @@ local function handleDeliver(player, missionId)
 
     if not playerHasAllMissionItems(player, mission) then
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You don't have all required items.")
+        sendMissionResult(player, false, missionId)
+        return
+    end
+
+    local goldCost = missionGoldCost(missionId)
+    if playerTotalGold(player) < goldCost then
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need " .. FormatNumber(goldCost) .. " gold (backpack + bank) to complete this mission.")
+        sendMissionResult(player, false, missionId)
+        return
+    end
+
+    if not player:removeMoneyBank(goldCost) then
         sendMissionResult(player, false, missionId)
         return
     end
