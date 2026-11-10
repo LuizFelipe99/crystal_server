@@ -86184,9 +86184,9 @@
 		<attribute key="weight" value="1500" />
 	</item>
 
-	<item id="60313" article="a" name="elemental bonus bag">
+	<item id="60313" article="an" name="attribute gem bag">
 		<attribute key="primarytype" value="valuables" />
-		<attribute key="description" value="It contains the most powerful gems between nv 1-2" />
+		<attribute key="description" value="Contains a random level 1 attribute stone." />
 		<attribute key="weight" value="1500" />
 	</item>
 

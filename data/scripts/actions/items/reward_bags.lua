@@ -149,6 +149,13 @@ local rewardBags = {
 		{ id = 60482, name = "platinum ruby crafter nv. 1" },
 		{ id = 60489, name = "platinum ruby crafter nv. 2" },
 	},
+	[ATTRIBUTE_GEM_BAG] = {
+		{ id = 62108, name = "health stone nivel 1" },
+		{ id = 62105, name = "mana stone nivel 1" },
+		{ id = 62107, name = "critical chance stone nivel 1" },
+		{ id = 62111, name = "critical damage stone nivel 1" },
+		{ id = 62106, name = "attackspeed stone nivel 1" },
+	},
 }
 
 local randomItems = Action()
