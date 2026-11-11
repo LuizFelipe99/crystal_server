@@ -402,11 +402,6 @@ local function removeSearingFire(position)
 	if tile then
 		local fire = tile:getItemById(SoulWarQuest.searingFireId)
 		if fire then
-			local monster = Creature("Goshnar's Spite")
-			if monster then
-				monster:addDefense(SoulWarQuest.goshnarsSpiteIncreaseDefense)
-				logger.debug("Found Goshnar's Spite on boss zone, adding defense.")
-			end
 			fire:remove()
 		end
 	end
@@ -429,7 +424,6 @@ function goshnarSpiteFire.onThink(interval)
 end
 
 goshnarSpiteFire:interval(SoulWarQuest.timeToCreateSearingFire * 1000)
-goshnarSpiteFire:register()
 
 local goshnarSpiteSoulFire = MoveEvent()
 
