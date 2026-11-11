@@ -246,7 +246,7 @@ local function checkBeforeStamp(source, item, attribute, value)
 	if previous == nil then
 		local current = attribute == "uid" and item:getAttribute(ITEM_ATTRIBUTE_UNIQUEID) or item:getAttribute(ITEM_ATTRIBUTE_ACTIONID)
 		if current and current > 0 and current ~= value then
-			logger.warn("[{}] - {} {} is stored inside the world.otbm, on item {} at {}, but the startup tables set {}. Fix one of them.", source, attributeName(attribute), current, itemId, position:toString(), value)
+			logger.debug("[{}] - {} {} is stored inside the world.otbm, on item {} at {}, replaced by {} from the startup tables.", source, attributeName(attribute), current, itemId, position:toString(), value)
 		end
 	elseif previous.value ~= value then
 		-- Two entries claiming the same item, and the loser simply never happens.
