@@ -6365,8 +6365,6 @@ int PlayerFunctions::luaPlayerSetWeeklyDeliveryUnknowns(lua_State* L) {
 	return 1;
 }
 
-}
-
 int PlayerFunctions::luaPlayerGetElementalBuildAvailablePoints(lua_State* L) {
 	const auto &player = Lua::getUserdataShared<Player>(L, 1);
 	if (!player) {
