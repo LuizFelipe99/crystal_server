@@ -245,8 +245,8 @@ local function checkBeforeStamp(source, item, attribute, value)
 
 	if previous == nil then
 		local current = attribute == "uid" and item:getAttribute(ITEM_ATTRIBUTE_UNIQUEID) or item:getAttribute(ITEM_ATTRIBUTE_ACTIONID)
-		if current and current > 0 then
-			logger.warn("[{}] - {} {} is stored inside the world.otbm, on item {} at {}. Declare it in data-global/startup/tables/ and clear it in the map editor.", source, attributeName(attribute), current, itemId, position:toString())
+		if current and current > 0 and current ~= value then
+			logger.warn("[{}] - {} {} is stored inside the world.otbm, on item {} at {}, but the startup tables set {}. Fix one of them.", source, attributeName(attribute), current, itemId, position:toString(), value)
 		end
 	elseif previous.value ~= value then
 		-- Two entries claiming the same item, and the loser simply never happens.
@@ -378,7 +378,7 @@ function loadMapContainers(tablename)
 		loaded = loaded + 1
 		if container:getSize() > 0 then
 			-- Filling it now would stack a second copy on top of what is already there.
-			logger.warn("[loadMapContainers] - Container {} at {} already holds {} item(s), stored inside the world.otbm. Clear it in the map editor: the contents are declared in data-global/startup/tables/container_*.lua.", value.itemId, tile:getPosition():toString(), container:getSize())
+			logger.debug("[loadMapContainers] - Container {} at {} already holds {} item(s) from the world.otbm, skipping the startup contents.", value.itemId, tile:getPosition():toString(), container:getSize())
 		else
 			created = created + fillContainer(container, value.contents)
 		end

@@ -77,17 +77,17 @@ void MapStoredAttributes::report(const std::filesystem::path &mapPath) {
 
 	const std::string mapName = mapPath.filename().string();
 
-	g_logger().warn("[{}] - the map file still stores {} action id(s), {} unique id(s) and {} filled "
+	g_logger().debug("[{}] - the map file still stores {} action id(s), {} unique id(s) and {} filled "
 	                "container(s). Declare them in data-global/startup/tables/ and clear them in the "
 	                "map editor, otherwise nobody reading the tables can tell they exist.",
 	                mapName, mapStored.actionIds, mapStored.uniqueIds, mapStored.filledContainers);
 
 	for (const auto &example : mapStored.examples) {
-		g_logger().warn("[{}] - {} on item {} at {}, {}, {}", mapName, example.finding, example.itemId, example.x, example.y, example.z);
+		g_logger().debug("[{}] - {} on item {} at {}, {}, {}", mapName, example.finding, example.itemId, example.x, example.y, example.z);
 	}
 
 	if (const size_t hidden = mapStored.total() - mapStored.examples.size(); hidden > 0) {
-		g_logger().warn("[{}] - and {} more not listed here.", mapName, hidden);
+		g_logger().debug("[{}] - and {} more not listed here.", mapName, hidden);
 	}
 }
 
