@@ -397,34 +397,6 @@ end
 weepingSoulCorpse:id(SoulWarQuest.weepingSoulCorpseId)
 weepingSoulCorpse:register()
 
-local function removeSearingFire(position)
-	local tile = Tile(position)
-	if tile then
-		local fire = tile:getItemById(SoulWarQuest.searingFireId)
-		if fire then
-			fire:remove()
-		end
-	end
-end
-
-local goshnarSpiteFire = GlobalEvent("CreateGoshnarSpiteFire")
-
-function goshnarSpiteFire.onThink(interval)
-	local randomIndex = math.random(#SoulWarQuest.goshnarsSpiteFirePositions) -- Choose a random index
-	local firePosition = SoulWarQuest.goshnarsSpiteFirePositions[randomIndex] -- Get the corresponding position
-	local tile = Tile(firePosition)
-	if tile then
-		local fire = Game.createItem(SoulWarQuest.searingFireId, 1, firePosition)
-		if fire then
-			addEvent(removeSearingFire, SoulWarQuest.timeToRemoveSearingFire * 1000, firePosition)
-		end
-	end
-
-	return true
-end
-
-goshnarSpiteFire:interval(SoulWarQuest.timeToCreateSearingFire * 1000)
-
 local goshnarSpiteSoulFire = MoveEvent()
 
 function goshnarSpiteSoulFire.onStepIn(creature, item, position, fromPosition)
