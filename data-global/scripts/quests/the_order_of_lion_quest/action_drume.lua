@@ -1,15 +1,8 @@
 local config = {
-	lionPosition = {
-		Position(32444, 32512, 7),
-		Position(32449, 32516, 7),
-		Position(32444, 32520, 7),
-	},
-	usurperPosition = {
-		Position(32450, 32520, 7),
-		Position(32444, 32516, 7),
-		Position(32448, 32512, 7),
-	},
+	bossName = "Drume",
+	bossPosition = Position(32444, 32516, 7),
 	firstPlayerPosition = Position(32457, 32508, 6),
+	playerTilesCount = 5,
 	centerPosition = Position(32439, 32523, 7),
 	exitPosition = Position(32453, 32503, 7),
 	newPosition = Position(32453, 32510, 7),
@@ -20,9 +13,12 @@ local config = {
 
 local currentEvent = nil
 
-local function clearRoomDrume(centerPosition, rangeX, rangeY)
-	local spectators = Game.getSpectators(centerPosition, false, false, rangeX, rangeX, rangeY, rangeY)
-	for _, spectator in pairs(spectators) do
+local function getRoomSpectators(onlyPlayers)
+	return Game.getSpectators(config.centerPosition, false, onlyPlayers, config.rangeX, config.rangeX, config.rangeY, config.rangeY)
+end
+
+local function clearRoomDrume()
+	for _, spectator in pairs(getRoomSpectators(false)) do
 		if spectator:isMonster() then
 			spectator:remove()
 		end
@@ -34,96 +30,78 @@ local function clearRoomDrume(centerPosition, rangeX, rangeY)
 	currentEvent = nil
 end
 
+local function collectWaitingPlayers()
+	local waitingPlayers = {}
+	for tileIndex = 0, config.playerTilesCount - 1 do
+		local tile = Tile(Position(config.firstPlayerPosition.x + tileIndex, config.firstPlayerPosition.y, config.firstPlayerPosition.z))
+		local topCreature = tile and tile:getTopCreature()
+		if topCreature and topCreature:isPlayer() then
+			table.insert(waitingPlayers, topCreature)
+		end
+	end
+	return waitingPlayers
+end
+
+local function isPlayerWaiting(player, waitingPlayers)
+	for _, waitingPlayer in pairs(waitingPlayers) do
+		if waitingPlayer:getId() == player:getId() then
+			return true
+		end
+	end
+	return false
+end
+
+local function findPlayerOnCooldown(waitingPlayers)
+	for _, waitingPlayer in pairs(waitingPlayers) do
+		if not waitingPlayer:canFightBoss(config.bossName) then
+			return waitingPlayer
+		end
+	end
+	return nil
+end
+
+local function cancelWithMessage(player, message)
+	player:sendCancelMessage(message)
+	player:getPosition():sendMagicEffect(CONST_ME_POFF)
+	return true
+end
+
 local drumeAction = Action()
 function drumeAction.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if player:getPosition() ~= config.firstPlayerPosition then
-		return false
+	local waitingPlayers = collectWaitingPlayers()
+	if not isPlayerWaiting(player, waitingPlayers) then
+		return cancelWithMessage(player, "You need to stand on the tiles in front of the rope to start the fight.")
 	end
 
-	if player:getStorageValue(Storage.Quest.U12_40.TheOrderOfTheLion.KesarMission) < 4 then
-		return true
+	if #getRoomSpectators(true) ~= 0 then
+		return cancelWithMessage(player, "There's someone already in the skirmish.")
 	end
 
-	local spectators = Game.getSpectators(config.centerPosition, false, true, config.rangeX, config.rangeX, config.rangeY, config.rangeY)
-	if #spectators ~= 0 then
-		player:sendCancelMessage("There's someone already in the skirmish.")
-		player:getPosition():sendMagicEffect(CONST_ME_POFF)
-		return true
+	local playerOnCooldown = findPlayerOnCooldown(waitingPlayers)
+	if playerOnCooldown then
+		return cancelWithMessage(player, playerOnCooldown:getName() .. " has already fought Drume recently.")
 	end
 
-	local tempPos, tempTile, tempCreature
-	local players = {}
-	for x = config.firstPlayerPosition.x, config.firstPlayerPosition.x + 4 do
-		tempPos = Position(x, config.firstPlayerPosition.y, config.firstPlayerPosition.z)
-		tempTile = Tile(tempPos)
-		if tempTile then
-			tempCreature = tempTile:getTopCreature()
-			if tempCreature and tempCreature:isPlayer() then
-				table.insert(players, tempCreature)
-			end
-		end
-	end
-	if #players == 0 then
-		return false
-	end
+	clearRoomDrume()
 
-	for _, pi in pairs(players) do
-		if pi:getStorageValue(Storage.Quest.U12_40.TheOrderOfTheLion.KesarMission) < 4 then
-			return true
-		end
+	local boss = Game.createMonster(config.bossName, config.bossPosition, false, true)
+	if not boss then
+		return cancelWithMessage(player, "There was an error, contact an admin.")
 	end
+	boss:registerEvent("DrumeKill")
 
-	for _, pi in pairs(players) do
-		if not pi:canFightBoss("Drume") then
-			player:sendCancelMessage("Someone of your team has already fought in the skirmish in the last twenty hours.")
-			player:getPosition():sendMagicEffect(CONST_ME_POFF)
-			return true
-		end
-	end
-
-	local spectators = Game.getSpectators(config.centerPosition, false, false, config.rangeX, config.rangeX, config.rangeY, config.rangeY)
-	for _, creature in pairs(spectators) do
-		if creature:isMonster() then
-			creature:remove()
-		end
-	end
-
-	local totalLion = 0
-	local totalUsurper = 0
-	local tempMonster
-	for _, pos in pairs(config.lionPosition) do
-		tempMonster = Game.createMonster("Lion Commander", pos)
-		if not tempMonster then
-			player:sendCancelMessage("There was an error, contact an admin.")
-			player:getPosition():sendMagicEffect(CONST_ME_POFF)
-			return true
-		end
-		totalLion = totalLion + 1
-	end
-	for _, pos in pairs(config.usurperPosition) do
-		tempMonster = Game.createMonster("Usurper Commander", pos)
-		if not tempMonster then
-			player:sendCancelMessage("There was an error, contact an admin.")
-			player:getPosition():sendMagicEffect(CONST_ME_POFF)
-			return true
-		end
-		totalUsurper = totalUsurper + 1
-	end
-
-	for _, pi in pairs(players) do
-		pi:setBossCooldown("Drume", os.time() + (configManager.getNumber(configKeys.BOSS_DEFAULT_TIME_TO_FIGHT_AGAIN)))
-		pi:teleportTo(config.newPosition)
-		pi:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have " .. config.timeToKill .. " minutes to defeat Drume.")
+	for _, waitingPlayer in pairs(waitingPlayers) do
+		waitingPlayer:setBossCooldown(config.bossName, os.time() + configManager.getNumber(configKeys.BOSS_DEFAULT_TIME_TO_FIGHT_AGAIN))
+		waitingPlayer:teleportTo(config.newPosition)
+		waitingPlayer:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have " .. config.timeToKill .. " minutes to defeat Drume.")
 	end
 
 	if currentEvent then
 		stopEvent(currentEvent)
 	end
-	currentEvent = addEvent(clearRoomDrume, config.timeToKill * 60 * 1000, config.centerPosition, config.rangeX, config.rangeY)
+	currentEvent = addEvent(clearRoomDrume, config.timeToKill * 60 * 1000)
 	config.newPosition:sendMagicEffect(CONST_ME_TELEPORT)
 	toPosition:sendMagicEffect(CONST_ME_POFF)
-	Game.setStorageValue(GlobalStorage.TheOrderOfTheLion.Drume.TotalLionCommanders, totalLion)
-	Game.setStorageValue(GlobalStorage.TheOrderOfTheLion.Drume.TotalUsurperCommanders, totalUsurper)
 	return true
 end
 
