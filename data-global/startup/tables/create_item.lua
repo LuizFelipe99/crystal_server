@@ -1,9 +1,4 @@
 CreateItemOnMap = {
-	[4285] = {
-		itemPos = {
-			{ x = 32953, y = 31473, z = 4 },
-		},
-	},
 	[429] = {
 		itemPos = {
 			{ x = 32373, y = 32800, z = 7 },
@@ -129,9 +124,10 @@ CreateItemOnMap = {
 			{ x = 32944, y = 31195, z = 13 },
 		},
 	},
-	[4285] = { -- pile of bones (deep crystal reward)
+	[4285] = { -- pile of bones (deep crystal reward, blood brothers goblet)
 		itemPos = {
 			{ x = 32693, y = 31565, z = 13 },
+			{ x = 32953, y = 31473, z = 4 },
 		},
 	},
 	-- The Explorer Society - dwarven pickaxe in 6 locals
