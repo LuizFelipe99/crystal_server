@@ -15,7 +15,6 @@ monster.outfit = {
 
 monster.events = {
 	"SoulWarBossesDeath",
-	"GoshnarsCrueltyBuff",
 }
 
 monster.health = 300000
@@ -134,15 +133,6 @@ monster.immunities = {
 	{ type = "invisible", condition = true },
 	{ type = "bleed", condition = false },
 }
-
-local firstTime = 0
-mType.onThink = function(monster, interval)
-	firstTime = firstTime + interval
-	-- Run only 15 seconds before creation
-	if firstTime >= 15000 then
-		monster:goshnarsDefenseIncrease("greedy-maw-action")
-	end
-end
 
 mType.onDisappear = function(monster, creature)
 	if creature:getName() == "Goshnar's Cruelty" then
