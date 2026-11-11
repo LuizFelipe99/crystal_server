@@ -1557,6 +1557,10 @@ LootShopConfigTable = {
 }
 
 local garbage = {
+	"darklight obsidian axe",
+	"burst arrow",
+	"meat",
+	"cheese",
 	"Spatial Warp Almanac",
 	"assassin star",
 	"big bone",

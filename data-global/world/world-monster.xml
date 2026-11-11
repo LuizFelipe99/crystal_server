@@ -50724,6 +50724,46 @@
 	<monster centerx="31780" centery="33252" centerz="7" radius="1">
 		<monster name="Infernal Demon" x="0" y="0" z="7" spawntime="60" direction="2" />
 	</monster>
+	<monster centerx="31711" centery="33259" centerz="7" radius="1">
+		<monster name="Scarlett Etzel" x="-1" y="0" z="7" spawntime="120" direction="2" />
+		<monster name="Grand Master Oberon" x="1" y="0" z="7" spawntime="120" direction="2" />
+	</monster>
+	<monster centerx="31716" centery="33259" centerz="7" radius="1">
+		<monster name="Ratmiral Blackwhiskers" x="0" y="0" z="7" spawntime="120" direction="2" />
+	</monster>
+	<monster centerx="31718" centery="33259" centerz="7" radius="1">
+		<monster name="Faceless Bane" x="0" y="0" z="7" spawntime="120" direction="2" />
+	</monster>
+	<monster centerx="31726" centery="33259" centerz="7" radius="1">
+		<monster name="Count Vlarkorth" x="0" y="0" z="7" spawntime="120" direction="2" />
+	</monster>
+	<monster centerx="31728" centery="33259" centerz="7" radius="1">
+		<monster name="Duke Krule" x="0" y="0" z="7" spawntime="120" direction="2" />
+	</monster>
+	<monster centerx="31730" centery="33259" centerz="7" radius="1">
+		<monster name="Earl Osam" x="0" y="0" z="7" spawntime="120" direction="2" />
+	</monster>
+	<monster centerx="31732" centery="33259" centerz="7" radius="1">
+		<monster name="Lord Azaram" x="0" y="0" z="7" spawntime="120" direction="2" />
+	</monster>
+	<monster centerx="31734" centery="33259" centerz="7" radius="1">
+		<monster name="Sir Baeloc" x="0" y="0" z="7" spawntime="120" direction="2" />
+	</monster>
+	<monster centerx="31726" centery="33265" centerz="7" radius="1">
+		<monster name="Drume" x="0" y="0" z="7" spawntime="120" />
+	</monster>
+	<monster centerx="31728" centery="33265" centerz="7" radius="1">
+		<monster name="Malofur Mangrinder" x="0" y="0" z="7" spawntime="120" />
+	</monster>
+	<monster centerx="31730" centery="33265" centerz="7" radius="1">
+		<monster name="Obujos" x="0" y="0" z="7" spawntime="120" />
+	</monster>
+	<monster centerx="31732" centery="33265" centerz="7" radius="1">
+		<monster name="Tanjis" x="0" y="0" z="7" spawntime="120" />
+	</monster>
+	<monster centerx="31734" centery="33265" centerz="7" radius="1">
+		<monster name="Brokul" x="0" y="0" z="7" spawntime="120" />
+	</monster>
 	<monster centerx="31604" centery="33308" centerz="7" radius="1">
 		<monster name="Diremaw" x="0" y="0" z="7" spawntime="60" />
 	</monster>

@@ -3,7 +3,6 @@ local RANDOM_OUTFIT_ITEM_ID = 64484
 local grantableOutfits = {
     { outfitName = "Citizen", maleLookType = 128, femaleLookType = 136 },
     { outfitName = "Hunter", maleLookType = 129, femaleLookType = 137 },
-    { outfitName = "Mage", maleLookType = 130, femaleLookType = 138 }, -- remover para golden box
     { outfitName = "Knight", maleLookType = 131, femaleLookType = 139 },
     { outfitName = "Noblewoman", maleLookType = 132, femaleLookType = 140 },
     { outfitName = "Summoner", maleLookType = 133, femaleLookType = 141 },

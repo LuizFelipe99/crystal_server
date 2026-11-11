@@ -1776,6 +1776,9 @@
 	<npc centerx="32401" centery="32232" centerz="7" radius="1">
 		<npc name="Pig" x="0" y="0" z="7" spawntime="60" />
 	</npc>
+	<npc centerx="32359" centery="32234" centerz="7" radius="1">
+		<npc name="Xodet" x="0" y="0" z="7" spawntime="60" />
+	</npc>
 	<npc centerx="32342" centery="32235" centerz="7" radius="1">
 		<npc name="Elane" x="0" y="0" z="7" spawntime="60" />
 	</npc>
@@ -2153,6 +2156,12 @@
 	</npc>
 	<npc centerx="32194" centery="32974" centerz="7" radius="1">
 		<npc name="Meraya" x="0" y="0" z="7" spawntime="60" />
+	</npc>
+	<npc centerx="31772" centery="33266" centerz="7" radius="1">
+		<npc name="The Lootmonger" x="0" y="0" z="7" spawntime="60" />
+	</npc>
+	<npc centerx="31782" centery="33266" centerz="7" radius="1">
+		<npc name="Xodet" x="0" y="0" z="7" spawntime="60" />
 	</npc>
 	<npc centerx="33198" centery="31060" centerz="8" radius="1">
 		<npc name="Rebel" x="0" y="0" z="8" spawntime="60" />
