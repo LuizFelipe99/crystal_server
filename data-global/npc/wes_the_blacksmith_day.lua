@@ -135,14 +135,14 @@ npcConfig.shop = {
 	{ itemName = "longsword", clientId = 3285, buy = 160, sell = 51 },
 	{ itemName = "mace", clientId = 3286, buy = 90, sell = 30 },
 	{ itemName = "morning star", clientId = 3282, buy = 430, sell = 100 },
-	{ itemName = "nunchaku", clientId = 3347, buy = 405, sell = 135 },
+	{ itemName = "nunchaku", clientId = 50182, buy = 405, sell = 135 },
 	{ itemName = "orcish axe", clientId = 3316, sell = 350 },
 	{ itemName = "plate armor", clientId = 3357, buy = 1200, sell = 400 },
 	{ itemName = "plate legs", clientId = 3557, sell = 115 },
 	{ itemName = "plate shield", clientId = 3410, buy = 125, sell = 45 },
 	{ itemName = "rapier", clientId = 3272, buy = 15, sell = 5 },
 	{ itemName = "sabre", clientId = 3273, buy = 35, sell = 12 },
-	{ itemName = "sai", clientId = 10389, buy = 540, sell = 180 },
+	{ itemName = "sai", clientId = 50183, buy = 540, sell = 180 },
 	{ itemName = "scale armor", clientId = 3377, buy = 260, sell = 75 },
 	{ itemName = "short sword", clientId = 3294, buy = 26, sell = 10 },
 	{ itemName = "sickle", clientId = 3293, buy = 7, sell = 3 },
@@ -174,5 +174,8 @@ npcType.onSellItem = function(npc, player, itemId, subtype, amount, ignore, name
 end
 -- On check npc shop message (look item)
 npcType.onCheckItem = function(npc, player, clientId, subType) end
+
+-- Dialog options (interactive icons in the NPC conversation window)
+npcType:addDialogOptions("trade", "bye")
 
 npcType:register(npcConfig)

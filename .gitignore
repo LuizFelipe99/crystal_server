@@ -371,7 +371,6 @@ tasks.json
 config.lua
 client_assertions.txt
 .env
-data-global/world/world.otbm
 
 # Extensions
 *.ini
@@ -399,3 +398,7 @@ cmake-build-*
 data-global/world/ORIGINAL/world.otbm
 data-global/world - Copia/
 data-global/
+/data/logs
+
+# macOS
+.DS_Store

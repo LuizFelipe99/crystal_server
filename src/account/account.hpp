@@ -17,7 +17,6 @@
 
 #pragma once
 
-struct AccountInfo;
 #include "account/account_info.hpp"
 
 class Account {
@@ -52,6 +51,7 @@ public:
 	 * @return AccountErrors_t AccountErrors_t::Ok(0) Success, otherwise Fail.
 	 */
 	uint8_t removeCoins(const uint8_t &type, const uint32_t &amount, const std::string &detail = "REMOVE Coins");
+	uint8_t removeCoins(const uint8_t &primaryType, const uint8_t &secondaryType, const uint32_t &amount, const std::string &detail = "REMOVE Coins");
 
 	/**
 	 * @brief Registers a coin transaction.
@@ -123,7 +123,7 @@ public:
 
 	uint32_t getHouseBidId() const;
 
-	std::tuple<phmap::flat_hash_map<std::string, uint64_t>, uint8_t> getAccountPlayers() const;
+	std::tuple<phmap::flat_hash_map<std::string, Character>, uint8_t> getAccountPlayers() const;
 
 	// Old protocol compat
 	void setProtocolCompat(bool toggle);
