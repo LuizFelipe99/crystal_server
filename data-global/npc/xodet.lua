@@ -25,6 +25,8 @@ npcConfig.flags = {
 
 local itemsTable = {
 	["potions"] = {
+		{ itemName = "distilled superior mana potion", clientId = 53163, buy = 381 },
+		{ itemName = "distilled ultimate mana potion", clientId = 53164, buy = 732 },
 		{ itemName = "empty potion flask", clientId = 283, sell = 5 },
 		{ itemName = "empty potion flask", clientId = 284, sell = 5 },
 		{ itemName = "empty potion flask", clientId = 285, sell = 5 },
@@ -35,6 +37,7 @@ local itemsTable = {
 		{ itemName = "mana potion", clientId = 268, buy = 56 },
 		{ itemName = "strong health potion", clientId = 236, buy = 115 },
 		{ itemName = "strong mana potion", clientId = 237, buy = 108 },
+		{ itemName = "superior mana potion", clientId = 53162, buy = 254 },
 		{ itemName = "supreme health potion", clientId = 23375, buy = 650 },
 		{ itemName = "ultimate health potion", clientId = 7643, buy = 379 },
 		{ itemName = "ultimate mana potion", clientId = 23373, buy = 488 },
@@ -87,8 +90,10 @@ local itemsTable = {
 		{ itemName = "drill bolt", clientId = 16142, buy = 12 },
 		{ itemName = "earth arrow", clientId = 774, buy = 5 },
 		{ itemName = "envenomed arrow", clientId = 16143, buy = 12 },
+		{ itemName = "firestorm arrow", clientId = 53169, buy = 75 },
 		{ itemName = "flaming arrow", clientId = 763, buy = 5 },
 		{ itemName = "flash arrow", clientId = 761, buy = 5 },
+		{ itemName = "froststorm arrow", clientId = 53171, buy = 75 },
 		{ itemName = "infernal bolt", clientId = 6528, buy = 13 },
 		{ itemName = "onyx arrow", clientId = 7365, buy = 7 },
 		{ itemName = "piercing bolt", clientId = 7363, buy = 5 },
@@ -96,10 +101,13 @@ local itemsTable = {
 		{ itemName = "prismatic bolt", clientId = 16141, buy = 20 },
 		{ itemName = "quiver", clientId = 35562, buy = 400 },
 		{ itemName = "red quiver", clientId = 35849, buy = 400 },
+		{ itemName = "shatterstorm arrow", clientId = 53168, buy = 45 },
 		{ itemName = "shiver arrow", clientId = 762, buy = 5 },
 		{ itemName = "sniper arrow", clientId = 7364, buy = 5 },
 		{ itemName = "spectral bolt", clientId = 35902, buy = 70 },
 		{ itemName = "tarsal arrow", clientId = 14251, buy = 6 },
+		{ itemName = "terrastorm arrow", clientId = 53170, buy = 75 },
+		{ itemName = "thunderstorm arrow", clientId = 53172, buy = 75 },
 		{ itemName = "vortex bolt", clientId = 14252, buy = 6 },
 	},
 	["wands"] = {
