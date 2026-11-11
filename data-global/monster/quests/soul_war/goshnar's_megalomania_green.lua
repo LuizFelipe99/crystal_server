@@ -32,7 +32,6 @@ monster.changeTarget = {
 }
 
 monster.events = {
-	"GoshnarsHatredBuff",
 	"MegalomaniaDeath",
 }
 
@@ -138,16 +137,7 @@ monster.immunities = {
 	{ type = "bleed", condition = false },
 }
 
-local intervalBetweenExecutions = 10000
-
 local zone = Zone.getByName("boss.goshnar's-megalomania-purple")
-local zonePositions = zone:getPositions()
-
-mType.onThink = function(monsterCallback, interval)
-	monsterCallback:onThinkGoshnarTormentCounter(interval, 36, intervalBetweenExecutions, SoulWarQuest.levers.goshnarsMegalomania.boss.position)
-	monsterCallback:onThinkMegalomaniaWhiteTiles(interval, zonePositions, 8000)
-	monsterCallback:goshnarsDefenseIncrease("cleansed-sanity-action")
-end
 
 mType.onDisappear = function(monster, creature)
 	creature:removeGoshnarsMegalomaniaMonsters(zone)
