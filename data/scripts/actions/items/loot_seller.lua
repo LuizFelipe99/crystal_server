@@ -12,7 +12,7 @@ end
 logger.info("The price list for the Loot Seller has been updated, with "..count.." items.")
 
 local conf = {
-    toggleLogger = true, -- if send terminal message when player use the item
+    toggleLogger = false, -- if send terminal message when player use the item
     itemSellerId = 60257, -- register the item
     exhaust = 30,
     lootPouchId = 23721, -- pouchId
