@@ -3112,15 +3112,6 @@ ChestUnique = {
 		questName = "dark-essence",
 	},
 	-- Shadows of Yalahar Quest Mision 10
-	[6335] = {
-		useKV = true,
-		itemId = 2469,
-		itemPos = { x = 32629, y = 32446, z = 10 },
-		reward = { { 9237, 1 } }, -- shadow orb
-		weight = 4.00,
-		questName = "shadow-orb",
-	},
-	-- Shadows of Yalahar Quest Mision 10
 	[6336] = {
 		useKV = true,
 		itemId = 3634,
@@ -3486,7 +3477,7 @@ ChestUnique = {
 	},
 	[14052] = {
 		itemId = 4285,
-		itemPos = { x = 32964, y = 31471, z = 2 },
+		itemPos = { x = 32953, y = 31473, z = 4 },
 	},
 	-- The Outlaw Camp Quest (Bright Sword Quest)
 	[14091] = {

@@ -1,4 +1,9 @@
 CreateItemOnMap = {
+	[4285] = {
+		itemPos = {
+			{ x = 32953, y = 31473, z = 4 },
+		},
+	},
 	[429] = {
 		itemPos = {
 			{ x = 32373, y = 32800, z = 7 },
