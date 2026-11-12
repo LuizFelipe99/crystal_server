@@ -449,8 +449,16 @@ SoulWarQuest = {
 		},
 		goshnarsMegalomania = {
 			boss = {
-				name = "Goshnar's Megalomania Green",
+				name = "Goshnar's Megalomania Purple",
 				position = Position(33710, 31634, 14),
+				createFunction = function()
+					local megalomania = Game.createMonster("Goshnar's Megalomania Green", Position(33710, 31634, 14), true, true)
+					if not megalomania then
+						return false
+					end
+					megalomania:registerEvent("BossLeverOnDeath")
+					return true
+				end,
 			},
 			requiredLevel = 250,
 			playerPositions = {
