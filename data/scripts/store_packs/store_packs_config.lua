@@ -27,7 +27,7 @@ StorePacksConfig = {
 			price = 3000,
 			items = {
 				{ itemId = 39546, count = 3 },
-				{ itemId = 36725, count = 3 },
+				{ itemId = 36725, count = 6 },
 				{ itemId = 60312, count = 10 },
 				{ itemId = 60313, count = 10 },
 				{ itemId = 60606, count = 10, name = "all resilience" },
@@ -39,6 +39,8 @@ StorePacksConfig = {
 				{ itemId = 60331, count = 5, name = "golden addon casket" },
 				{ itemId = 18339, count = 2 },
 				{ itemId = 61348, count = 1 },
+				{ itemId = 37110, count = 10 },
+				{ itemId = 60445, count = 4, name = "prey wildcard" },
 			},
 		},
 		{
