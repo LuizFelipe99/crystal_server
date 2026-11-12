@@ -51,6 +51,7 @@
 #include "enums/player_icons.hpp"
 #include "enums/player_cyclopedia.hpp"
 #include "game/game.hpp"
+#include "items/forge_tier_wildcard.hpp"
 #include "game/modal_window/modal_window.hpp"
 #include "game/scheduling/dispatcher.hpp"
 #include "game/scheduling/save_manager.hpp"
@@ -10591,6 +10592,11 @@ void Player::triggerTranscendence() {
 
 // Forge system
 void Player::forgeFuseItems(ForgeAction_t actionType, uint16_t firstItemId, uint8_t tier, uint16_t secondItemId, bool success, bool reduceTierLoss, bool convergence, uint8_t bonus, uint8_t coreCount) {
+	if (!ForgeTierWildcard::canFuse(firstItemId, secondItemId, tier, convergence)) {
+		sendForgeError(RETURNVALUE_NOTPOSSIBLE);
+		return;
+	}
+
 	if (getFreeBackpackSlots() == 0) {
 		sendCancelMessage(RETURNVALUE_NOTENOUGHROOM);
 		return;
@@ -10855,6 +10861,11 @@ void Player::forgeFuseItems(ForgeAction_t actionType, uint16_t firstItemId, uint
 }
 
 void Player::forgeTransferItemTier(ForgeAction_t actionType, uint16_t donorItemId, uint8_t tier, uint16_t receiveItemId, bool convergence) {
+	if (!ForgeTierWildcard::canTransfer(donorItemId, receiveItemId, tier, convergence)) {
+		sendForgeError(RETURNVALUE_NOTPOSSIBLE);
+		return;
+	}
+
 	if (getFreeBackpackSlots() == 0) {
 		sendCancelMessage(RETURNVALUE_NOTENOUGHROOM);
 		return;

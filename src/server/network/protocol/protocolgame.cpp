@@ -57,6 +57,7 @@
 #include "io/ioprey.hpp"
 #include "io/iobountytasks.hpp"
 #include "io/ioweeklytasks.hpp"
+#include "items/forge_tier_wildcard.hpp"
 #include "items/items_classification.hpp"
 #include "items/weapons/weapons.hpp"
 #include "lua/creature/creatureevent.hpp"
@@ -6527,17 +6528,37 @@ void ProtocolGame::sendOpenForge() {
 				if ((slotPosition & SLOTP_TWO_HAND) != 0) {
 					slotPosition = SLOTP_HAND;
 				}
-				getForgeInfoMap(item, convergenceFusionItemsMap[slotPosition]);
+				if (!ForgeTierWildcard::isWildcard(item->getID())) {
+					getForgeInfoMap(item, convergenceFusionItemsMap[slotPosition]);
+				}
 				getForgeInfoMap(item, convergenceTransferItemsMap[item->getClassification()]);
 			}
 		}
 	}
 
-	// Checking size of map to send in the addByte (total fusion items count)
+	const auto wildcardIterator = fusionItemsMap.find(ITEM_TRANSFER_TIER_STONE);
+	const auto hasWildcardAtTier = [&](uint8_t tier) {
+		return wildcardIterator != fusionItemsMap.end() && wildcardIterator->second.contains(tier);
+	};
+	const auto hasOtherItemAtTier = [&](uint8_t tier) {
+		return std::ranges::any_of(fusionItemsMap, [tier](const auto &entry) {
+			return !ForgeTierWildcard::isWildcard(entry.first) && entry.second.contains(tier);
+		});
+	};
+	const auto isFusionCandidate = [&](uint16_t itemId, uint8_t tier, uint16_t count) {
+		if (count >= 2) {
+			return true;
+		}
+		if (ForgeTierWildcard::isWildcard(itemId)) {
+			return hasOtherItemAtTier(tier);
+		}
+		return hasWildcardAtTier(tier);
+	};
+
 	uint8_t fusionTotalItemsCount = 0;
 	for (const auto &[itemId, tierAndCountMap] : fusionItemsMap) {
 		for (const auto &[itemTier, itemCount] : tierAndCountMap) {
-			if (itemCount >= 2) {
+			if (isFusionCandidate(itemId, itemTier, itemCount)) {
 				fusionTotalItemsCount++;
 			}
 		}
@@ -6554,7 +6575,7 @@ void ProtocolGame::sendOpenForge() {
 	msg.add<uint16_t>(fusionTotalItemsCount);
 	for (const auto &[itemId, tierAndCountMap] : fusionItemsMap) {
 		for (const auto &[itemTier, itemCount] : tierAndCountMap) {
-			if (itemCount >= 2) {
+			if (isFusionCandidate(itemId, itemTier, itemCount)) {
 				msg.addByte(0x01); // Number of friend items?
 				msg.add<uint16_t>(itemId);
 				msg.addByte(itemTier);
@@ -6625,35 +6646,36 @@ void ProtocolGame::sendOpenForge() {
 				msg.add<uint16_t>(donorItemCount);
 			}
 
-			uint16_t receiveTierTotalItemCount = 0;
-			for (const auto &[iteratorItemId, unusedTierAndCountMap] : receiveTierItemMap) {
-				// Let's access the itemType to check the item's (receiver of tier) classification level
-				const ItemType &receiveType = Item::items[iteratorItemId];
+			const auto canReceiveFromDonor = [&](uint16_t receiveItemId) {
+				if (receiveItemId == itemId) {
+					return false;
+				}
+				if (ForgeTierWildcard::isWildcard(itemId) || ForgeTierWildcard::isWildcard(receiveItemId)) {
+					return true;
+				}
+				const ItemType &receiveType = Item::items[receiveItemId];
 				auto receiveSlotPosition = receiveType.slotPosition;
 				if ((receiveSlotPosition & SLOTP_TWO_HAND) != 0) {
 					receiveSlotPosition = SLOTP_HAND;
 				}
-				if (donorType.upgradeClassification == receiveType.upgradeClassification && donorSlotPosition == receiveSlotPosition) {
+				return donorType.upgradeClassification == receiveType.upgradeClassification && donorSlotPosition == receiveSlotPosition;
+			};
+
+			uint16_t receiveTierTotalItemCount = 0;
+			for (const auto &[iteratorItemId, unusedTierAndCountMap] : receiveTierItemMap) {
+				if (canReceiveFromDonor(iteratorItemId)) {
 					receiveTierTotalItemCount++;
 				}
 			}
 
-			// Total count of item (receiver of tier)
 			msg.add<uint16_t>(receiveTierTotalItemCount);
-			if (receiveTierTotalItemCount > 0) {
-				for (const auto &[receiveItemId, receiveTierAndCountMap] : receiveTierItemMap) {
-					// Let's access the itemType to check the item's (receiver of tier) classification level
-					const ItemType &receiveType = Item::items[receiveItemId];
-					auto receiveSlotPosition = receiveType.slotPosition;
-					if ((receiveSlotPosition & SLOTP_TWO_HAND) != 0) {
-						receiveSlotPosition = SLOTP_HAND;
-					}
-					if (donorType.upgradeClassification == receiveType.upgradeClassification && donorSlotPosition == receiveSlotPosition) {
-						for (const auto &[receiveItemTier, receiveItemCount] : receiveTierAndCountMap) {
-							msg.add<uint16_t>(receiveItemId);
-							msg.add<uint16_t>(receiveItemCount);
-						}
-					}
+			for (const auto &[receiveItemId, receiveTierAndCountMap] : receiveTierItemMap) {
+				if (!canReceiveFromDonor(receiveItemId)) {
+					continue;
+				}
+				for (const auto &[receiveItemTier, receiveItemCount] : receiveTierAndCountMap) {
+					msg.add<uint16_t>(receiveItemId);
+					msg.add<uint16_t>(receiveItemCount);
 				}
 			}
 		}
