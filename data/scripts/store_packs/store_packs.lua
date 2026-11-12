@@ -13,9 +13,34 @@ local function findPack(packId)
 	return nil
 end
 
-local function buildPackItemsPayload(pack)
+local function orderPackItems(pack, knownItemOrder)
+	local orderedItems = {}
+	for index, packItem in ipairs(pack.items) do
+		orderedItems[#orderedItems + 1] = { packItem = packItem, rank = knownItemOrder[packItem.itemId] or math.huge, position = index }
+	end
+	table.sort(orderedItems, function(left, right)
+		if left.rank == right.rank then
+			return left.position < right.position
+		end
+		return left.rank < right.rank
+	end)
+	return orderedItems
+end
+
+local function registerItemOrder(orderedItems, knownItemOrder, nextRank)
+	for _, entry in ipairs(orderedItems) do
+		if not knownItemOrder[entry.packItem.itemId] then
+			knownItemOrder[entry.packItem.itemId] = nextRank
+			nextRank = nextRank + 1
+		end
+	end
+	return nextRank
+end
+
+local function buildPackItemsPayload(orderedItems)
 	local itemsPayload = {}
-	for _, packItem in ipairs(pack.items) do
+	for _, entry in ipairs(orderedItems) do
+		local packItem = entry.packItem
 		local itemType = ItemType(packItem.itemId)
 		itemsPayload[#itemsPayload + 1] = {
 			clientId = packItem.itemId,
@@ -28,13 +53,17 @@ end
 
 local function buildPacksPayload()
 	local packsPayload = {}
+	local knownItemOrder = {}
+	local nextRank = 1
 	for _, pack in ipairs(StorePacksConfig.packs) do
+		local orderedItems = orderPackItems(pack, knownItemOrder)
+		nextRank = registerItemOrder(orderedItems, knownItemOrder, nextRank)
 		packsPayload[#packsPayload + 1] = {
 			id = pack.id,
 			name = pack.name,
 			banner = pack.banner,
 			price = pack.price,
-			items = buildPackItemsPayload(pack),
+			items = buildPackItemsPayload(orderedItems),
 		}
 	end
 	return packsPayload
