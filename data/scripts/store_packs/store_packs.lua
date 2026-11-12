@@ -20,7 +20,7 @@ local function buildPackItemsPayload(pack)
 		itemsPayload[#itemsPayload + 1] = {
 			clientId = packItem.itemId,
 			count = packItem.count,
-			name = itemType:getName(),
+			name = packItem.name or itemType:getName(),
 		}
 	end
 	return itemsPayload
