@@ -7,6 +7,7 @@ local ELEMENTAL_BUILD_DAMAGE_RATIO = ElementalBuildConfig.damageRatio
 
 local VALID_COMBAT_TYPES = ElementalBuildConfig.validCombatTypes
 local requestThrottle = RequestThrottle.new(300)
+local missionDetailThrottle = RequestThrottle.new(50)
 
 local function buildElementsPayload()
     local elementsPayload = {}
@@ -106,28 +107,46 @@ local function buildCurrentMissionId(player)
     return nil
 end
 
+local function countDeliveredMissionItems(itemsPayload)
+    local deliveredCount = 0
+    for _, item in ipairs(itemsPayload) do
+        if item.progress >= item.total then
+            deliveredCount = deliveredCount + 1
+        end
+    end
+    return deliveredCount
+end
+
+local function buildMissionSummary(player, missionId, currentMissionId)
+    local mission = ElementalBuildConfig.missions[missionId]
+    local completed = isMissionCompleted(player, missionId)
+    local isCurrent = missionId == currentMissionId
+    local summary = {
+        id        = missionId,
+        name      = mission.name,
+        itemCount = #mission.items + 1,
+        completed = completed,
+        isCurrent = isCurrent,
+        isLocked  = not completed and not isCurrent,
+    }
+
+    if isCurrent then
+        summary.deliveredCount = countDeliveredMissionItems(buildMissionItemsPayload(player, mission, missionId))
+    end
+    return summary
+end
+
 local function buildMissionListPayload(player)
     local missionList    = {}
     local completedCount = 0
     local currentMissionId = buildCurrentMissionId(player)
 
-    for missionId, mission in ipairs(ElementalBuildConfig.missions) do
-        local completed = isMissionCompleted(player, missionId)
-
-        if completed then
+    for missionId in ipairs(ElementalBuildConfig.missions) do
+        local summary = buildMissionSummary(player, missionId, currentMissionId)
+        if summary.completed then
             completedCount = completedCount + 1
         end
-
-        missionList[#missionList + 1] = {
-            id          = missionId,
-            name        = mission.name,
-            description = mission.description,
-            points      = mission.points,
-            items       = buildMissionItemsPayload(player, mission, missionId),
-            completed   = completed,
-            isCurrent   = missionId == currentMissionId,
-            isLocked    = not completed and missionId ~= currentMissionId,
-        }
+        missionList[#missionList + 1] = summary
     end
 
     return missionList, completedCount
@@ -227,7 +246,34 @@ local function sendFullState(player)
         missions        = missionList,
         completedCount  = completedCount,
         totalCount      = #ElementalBuildConfig.missions,
-        dropSources     = buildDropSources(),
+    }))
+end
+
+local function buildMissionDropSources(mission)
+    local allDropSources = buildDropSources()
+    local missionDropSources = {}
+    for _, item in ipairs(mission.items) do
+        local itemKey = tostring(item.clientId)
+        missionDropSources[itemKey] = allDropSources[tostring(item.itemId)]
+    end
+    return missionDropSources
+end
+
+local function sendMissionDetail(player, missionId)
+    local mission = ElementalBuildConfig.missions[missionId]
+    if not mission then
+        return
+    end
+
+    local detail = buildMissionSummary(player, missionId, buildCurrentMissionId(player))
+    detail.description = mission.description
+    detail.points = mission.points
+    detail.items = buildMissionItemsPayload(player, mission, missionId)
+
+    player:sendExtendedOpcode(ELEMENTALBUILD_OPCODE, json.encode({
+        action      = "missionDetail",
+        mission     = detail,
+        dropSources = buildMissionDropSources(mission),
     }))
 end
 
@@ -353,6 +399,13 @@ elementalBuildEvent:onExtendedOpcode(function(player, opcode, buffer)
     local data, _, err = json.decode(buffer)
 
     if err or not data or not data.action then
+        return true
+    end
+
+    if data.action == "missionDetail" then
+        if not missionDetailThrottle:isThrottled(player) then
+            sendMissionDetail(player, tonumber(data.missionId))
+        end
         return true
     end
 
