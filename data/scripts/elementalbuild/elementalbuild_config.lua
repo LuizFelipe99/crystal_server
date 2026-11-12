@@ -273,6 +273,136 @@ ElementalBuildConfig = {
                 { itemId = 60863, clientId = 60863, name = "Upgrade Build Stone", amount = 1 },
             }
         },
+        [21] = {
+            name        = "Infernal Ranks",
+            description = "Climb the infernal hierarchy, from diabolic imps and furies up to the mighty juggernauts.",
+            points      = 1,
+            items       = {
+                { itemId = 3471, clientId = 3471, name = "Cleaver", amount = 20 },
+                { itemId = 7456, clientId = 7456, name = "Noble Axe", amount = 10 },
+                { itemId = 5021, clientId = 5021, name = "Orichalcum Pearl", amount = 20 },
+                { itemId = 7413, clientId = 7413, name = "Titan Axe", amount = 10 },
+                { itemId = 9058, clientId = 9058, name = "Gold Ingot", amount = 10 },
+                { itemId = 60863, clientId = 60863, name = "Upgrade Build Stone", amount = 1 },
+            }
+        },
+        [22] = {
+            name        = "Dragon Hoard",
+            description = "Raid the lairs of dragons, frost dragons and ghastly dragons and seize their hoard.",
+            points      = 1,
+            items       = {
+                { itemId = 11457, clientId = 11457, name = "Dragon's Tail", amount = 30 },
+                { itemId = 5920, clientId = 5920, name = "Green Dragon Scale", amount = 10 },
+                { itemId = 2903, clientId = 2903, name = "Golden Mug", amount = 20 },
+                { itemId = 10449, clientId = 10449, name = "Ghastly Dragon Head", amount = 20 },
+                { itemId = 10450, clientId = 10450, name = "Undead Heart", amount = 50 },
+                { itemId = 60863, clientId = 60863, name = "Upgrade Build Stone", amount = 1 },
+            }
+        },
+        [23] = {
+            name        = "Elemental Fury",
+            description = "Tame the raw elements, from earth elementals and massive fire elementals to the sulphur spouters.",
+            points      = 1,
+            items       = {
+                { itemId = 10305, clientId = 10305, name = "Lump of Earth", amount = 50 },
+                { itemId = 3030, clientId = 3030, name = "Small Ruby", amount = 30 },
+                { itemId = 3071, clientId = 3071, name = "Wand of Inferno", amount = 10 },
+                { itemId = 39376, clientId = 39376, name = "Sulphur Powder", amount = 30 },
+                { itemId = 14042, clientId = 14042, name = "Warrior's Shield", amount = 3 },
+                { itemId = 60863, clientId = 60863, name = "Upgrade Build Stone", amount = 1 },
+            }
+        },
+        [24] = {
+            name        = "Rotten Roots",
+            description = "Cut through haunted treelings, hideous fungi and the ancient rootthing amber shapers.",
+            points      = 1,
+            items       = {
+                { itemId = 9683, clientId = 9683, name = "Haunted Piece of Wood", amount = 30 },
+                { itemId = 16140, clientId = 16140, name = "Hideous Chunk", amount = 30 },
+                { itemId = 814, clientId = 814, name = "Terra Amulet", amount = 10 },
+                { itemId = 48510, clientId = 48510, name = "Demon Root", amount = 10 },
+                { itemId = 48413, clientId = 48413, name = "Amber Sickle", amount = 10 },
+                { itemId = 60863, clientId = 60863, name = "Upgrade Build Stone", amount = 1 },
+            }
+        },
+        [25] = {
+            name        = "Rogues and Usurpers",
+            description = "Bring down hunters, warlocks and the usurper knights who betrayed the Order of the Lion.",
+            points      = 1,
+            items       = {
+                { itemId = 11469, clientId = 11469, name = "Hunter's Quiver", amount = 20 },
+                { itemId = 5875, clientId = 5875, name = "Sniper Gloves", amount = 3 },
+                { itemId = 3062, clientId = 3062, name = "Mind Stone", amount = 10 },
+                { itemId = 34162, clientId = 34162, name = "Lion Cloak Patch", amount = 30 },
+                { itemId = 34160, clientId = 34160, name = "Lion Crest", amount = 20 },
+                { itemId = 60863, clientId = 60863, name = "Upgrade Build Stone", amount = 1 },
+            }
+        },
+        [26] = {
+            name        = "Living Stone",
+            description = "Shatter stone golems, war golems and orewalkers and salvage the ore from their bodies.",
+            points      = 1,
+            items       = {
+                { itemId = 10315, clientId = 10315, name = "Sulphurous Stone", amount = 30 },
+                { itemId = 5880, clientId = 5880, name = "Iron Ore", amount = 10 },
+                { itemId = 7428, clientId = 7428, name = "Bonebreaker", amount = 3 },
+                { itemId = 16133, clientId = 16133, name = "Pulverized Ore", amount = 30 },
+                { itemId = 16135, clientId = 16135, name = "Vein of Ore", amount = 30 },
+                { itemId = 60863, clientId = 60863, name = "Upgrade Build Stone", amount = 1 },
+            }
+        },
+        [27] = {
+            name        = "Scales and Wings",
+            description = "Hunt lizard templars, lizard chosen and the mercurial menaces of the swamps.",
+            points      = 1,
+            items       = {
+                { itemId = 5876, clientId = 5876, name = "Lizard Leather", amount = 10 },
+                { itemId = 10410, clientId = 10410, name = "Cursed Shoulder Spikes", amount = 30 },
+                { itemId = 11673, clientId = 11673, name = "Scale of Corruption", amount = 20 },
+                { itemId = 39395, clientId = 39395, name = "Mercurial Wing", amount = 30 },
+                { itemId = 3017, clientId = 3017, name = "Silver Brooch", amount = 5 },
+                { itemId = 60863, clientId = 60863, name = "Upgrade Build Stone", amount = 1 },
+            }
+        },
+        [28] = {
+            name        = "Giant Slayer",
+            description = "Topple cyclopes, behemoths and the hulking prehemoths that roam the wild lands.",
+            points      = 1,
+            items       = {
+                { itemId = 9657, clientId = 9657, name = "Cyclops Toe", amount = 30 },
+                { itemId = 11447, clientId = 11447, name = "Battle Stone", amount = 30 },
+                { itemId = 5893, clientId = 5893, name = "Perfect Behemoth Fang", amount = 10 },
+                { itemId = 39382, clientId = 39382, name = "Prehemoth Horns", amount = 30 },
+                { itemId = 39383, clientId = 39383, name = "Prehemoth Claw", amount = 30 },
+                { itemId = 60863, clientId = 60863, name = "Upgrade Build Stone", amount = 1 },
+            }
+        },
+        [29] = {
+            name        = "Restless Dead",
+            description = "Put vampires, lost souls and undead dragons back into their graves for good.",
+            points      = 1,
+            items       = {
+                { itemId = 9685, clientId = 9685, name = "Vampire Teeth", amount = 30 },
+                { itemId = 11449, clientId = 11449, name = "Blood Preservation", amount = 20 },
+                { itemId = 10316, clientId = 10316, name = "Unholy Bone", amount = 50 },
+                { itemId = 7407, clientId = 7407, name = "Haunted Blade", amount = 5 },
+                { itemId = 5925, clientId = 5925, name = "Hardened Bone", amount = 30 },
+                { itemId = 60863, clientId = 60863, name = "Upgrade Build Stone", amount = 1 },
+            }
+        },
+        [30] = {
+            name        = "Moonlit Hunt",
+            description = "Track werewolves, werepanthers and white weretigers under the light of the full moon.",
+            points      = 1,
+            items       = {
+                { itemId = 10317, clientId = 10317, name = "Werewolf Fur", amount = 30 },
+                { itemId = 5897, clientId = 5897, name = "Wolf Paw", amount = 20 },
+                { itemId = 43731, clientId = 43731, name = "Werepanther Claw", amount = 30 },
+                { itemId = 43730, clientId = 43730, name = "Weretiger Tooth", amount = 30 },
+                { itemId = 22083, clientId = 22083, name = "Moonlight Crystals", amount = 20 },
+                { itemId = 60863, clientId = 60863, name = "Upgrade Build Stone", amount = 1 },
+            }
+        },
     },
 
     validCombatTypes = {
