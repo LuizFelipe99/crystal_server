@@ -449,11 +449,8 @@ SoulWarQuest = {
 		},
 		goshnarsMegalomania = {
 			boss = {
-				name = "Goshnar's Megalomania Purple",
+				name = "Goshnar's Megalomania Green",
 				position = Position(33710, 31634, 14),
-			},
-			monsters = {
-				{ name = "Aspect of Power", pos = { x = 33710, y = 31635, z = 14 } },
 			},
 			requiredLevel = 250,
 			playerPositions = {
