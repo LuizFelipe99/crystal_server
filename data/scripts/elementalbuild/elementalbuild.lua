@@ -133,6 +133,87 @@ local function buildMissionListPayload(player)
     return missionList, completedCount
 end
 
+local MAX_DROP_SOURCES_PER_ITEM = 4
+local LOOT_CHANCE_SCALE = 1000
+local cachedDropSources = nil
+
+local function collectMissionItemIds()
+    local missionItemIds = {}
+    for _, mission in ipairs(ElementalBuildConfig.missions) do
+        for _, item in ipairs(mission.items) do
+            missionItemIds[item.itemId] = true
+        end
+    end
+    return missionItemIds
+end
+
+local function isRegularCreature(monsterType)
+    if monsterType:raceId() == 0 then
+        return false
+    end
+    if monsterType:isRewardBoss() then
+        return false
+    end
+    return monsterType:bossRaceId() == 0
+end
+
+local function registerLootChances(lootList, missionItemIds, monsterName, sourcesByItemId)
+    for _, lootEntry in ipairs(lootList) do
+        if missionItemIds[lootEntry.itemId] and lootEntry.chance > 0 then
+            local itemSources = sourcesByItemId[lootEntry.itemId] or {}
+            local previousChance = itemSources[monsterName] or 0
+            itemSources[monsterName] = math.max(previousChance, lootEntry.chance)
+            sourcesByItemId[lootEntry.itemId] = itemSources
+        end
+        registerLootChances(lootEntry.childLoot or {}, missionItemIds, monsterName, sourcesByItemId)
+    end
+end
+
+local function formatLootChance(chance)
+    local percent = string.format("%.2f", chance / LOOT_CHANCE_SCALE):gsub("0+$", ""):gsub("%.$", "")
+    return percent .. "%"
+end
+
+local function rankDropSources(itemSources)
+    local rankedSources = {}
+    for monsterName, chance in pairs(itemSources) do
+        rankedSources[#rankedSources + 1] = { name = monsterName, chance = chance }
+    end
+    table.sort(rankedSources, function(left, right)
+        if left.chance == right.chance then
+            return left.name < right.name
+        end
+        return left.chance > right.chance
+    end)
+
+    local formattedSources = {}
+    for index = 1, math.min(MAX_DROP_SOURCES_PER_ITEM, #rankedSources) do
+        local source = rankedSources[index]
+        formattedSources[index] = source.name .. " (" .. formatLootChance(source.chance) .. ")"
+    end
+    return formattedSources
+end
+
+local function buildDropSources()
+    if cachedDropSources then
+        return cachedDropSources
+    end
+
+    local missionItemIds = collectMissionItemIds()
+    local sourcesByItemId = {}
+    for _, monsterType in pairs(Game.getMonsterTypes()) do
+        if isRegularCreature(monsterType) then
+            registerLootChances(monsterType:getLoot() or {}, missionItemIds, monsterType:name(), sourcesByItemId)
+        end
+    end
+
+    cachedDropSources = {}
+    for itemId, itemSources in pairs(sourcesByItemId) do
+        cachedDropSources[tostring(itemId)] = rankDropSources(itemSources)
+    end
+    return cachedDropSources
+end
+
 local function sendFullState(player)
     local missionList, completedCount = buildMissionListPayload(player)
 
@@ -146,6 +227,7 @@ local function sendFullState(player)
         missions        = missionList,
         completedCount  = completedCount,
         totalCount      = #ElementalBuildConfig.missions,
+        dropSources     = buildDropSources(),
     }))
 end
 
