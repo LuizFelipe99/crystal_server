@@ -77,6 +77,7 @@ private:
 	static int luaItemMoveToSlot(lua_State* L);
 
 	static int luaItemGetDescription(lua_State* L);
+	static int luaItemGetDescriptions(lua_State* L);
 
 	static int luaItemHasProperty(lua_State* L);
 

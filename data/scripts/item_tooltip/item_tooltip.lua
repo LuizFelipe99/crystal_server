@@ -31,13 +31,51 @@ local function buildCompactDescription(item)
 	return capitalizeFirstLetter(description)
 end
 
-local function sendItemTooltip(player, request, description)
+local HIDDEN_FIELD_LABELS = {
+	["Tradeable"] = true,
+	["Tradeable In Market"] = true,
+	["Weight"] = true,
+	["Total Weight"] = true,
+}
+
+local function hasSpecialDescription(item)
+	local specialDescription = item:getAttribute(ITEM_ATTRIBUTE_DESCRIPTION)
+	return type(specialDescription) == "string" and specialDescription ~= ""
+end
+
+local function isVisibleField(item, label)
+	if HIDDEN_FIELD_LABELS[label] then
+		return false
+	end
+	if label == "Description" then
+		return hasSpecialDescription(item)
+	end
+	return true
+end
+
+local function buildTooltipFields(item)
+	if not item.getDescriptions then
+		return nil
+	end
+
+	local fields = {}
+	for _, description in ipairs(item:getDescriptions() or {}) do
+		if isVisibleField(item, description.label) then
+			fields[#fields + 1] = { label = description.label, value = description.value }
+		end
+	end
+	return fields
+end
+
+local function sendItemTooltip(player, request, item)
 	player:sendExtendedOpcode(ITEM_TOOLTIP_OPCODE, json.encode({
 		x = request.x,
 		y = request.y,
 		z = request.z,
 		itemId = request.itemId,
-		description = description,
+		name = capitalizeFirstLetter(item:getName()),
+		fields = buildTooltipFields(item),
+		description = buildCompactDescription(item),
 	}))
 end
 
@@ -54,7 +92,7 @@ local function handleTooltipRequest(player, request)
 		return
 	end
 
-	sendItemTooltip(player, request, buildCompactDescription(item))
+	sendItemTooltip(player, request, item)
 end
 
 local itemTooltipEvent = CreatureEvent("ItemTooltipOpcode")

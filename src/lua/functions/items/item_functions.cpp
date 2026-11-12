@@ -88,6 +88,7 @@ void ItemFunctions::init(lua_State* L) {
 	Lua::registerMethod(L, "Item", "moveToSlot", ItemFunctions::luaItemMoveToSlot);
 
 	Lua::registerMethod(L, "Item", "getDescription", ItemFunctions::luaItemGetDescription);
+	Lua::registerMethod(L, "Item", "getDescriptions", ItemFunctions::luaItemGetDescriptions);
 
 	Lua::registerMethod(L, "Item", "hasProperty", ItemFunctions::luaItemHasProperty);
 
@@ -899,6 +900,27 @@ int ItemFunctions::luaItemGetDescription(lua_State* L) {
 		Lua::pushString(L, item->getDescription(distance));
 	} else {
 		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int ItemFunctions::luaItemGetDescriptions(lua_State* L) {
+	// item:getDescriptions()
+	const auto &item = Lua::getUserdataShared<Item>(L, 1);
+	if (!item) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	const auto descriptions = Item::getDescriptions(Item::items[item->getID()], item);
+	lua_createtable(L, static_cast<int>(descriptions.size()), 0);
+
+	int index = 0;
+	for (const auto &[label, value] : descriptions) {
+		lua_createtable(L, 0, 2);
+		Lua::setField(L, "label", label);
+		Lua::setField(L, "value", value);
+		lua_rawseti(L, -2, ++index);
 	}
 	return 1;
 }
