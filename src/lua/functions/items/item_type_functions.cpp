@@ -72,6 +72,8 @@ void ItemTypeFunctions::init(lua_State* L) {
 	Lua::registerMethod(L, "ItemType", "getWeaponType", ItemTypeFunctions::luaItemTypeGetWeaponType);
 
 	Lua::registerMethod(L, "ItemType", "getElementType", ItemTypeFunctions::luaItemTypeGetElementType);
+	Lua::registerMethod(L, "ItemType", "getCombatType", ItemTypeFunctions::luaItemTypeGetCombatType);
+	Lua::registerMethod(L, "ItemType", "getShootType", ItemTypeFunctions::luaItemTypeGetShootType);
 	Lua::registerMethod(L, "ItemType", "getElementDamage", ItemTypeFunctions::luaItemTypeGetElementDamage);
 
 	Lua::registerMethod(L, "ItemType", "getTransformEquipId", ItemTypeFunctions::luaItemTypeGetTransformEquipId);
@@ -584,6 +586,30 @@ int ItemTypeFunctions::luaItemTypeGetClassification(lua_State* L) {
 	} else {
 		lua_pushnil(L);
 	}
+	return 1;
+}
+
+int ItemTypeFunctions::luaItemTypeGetCombatType(lua_State* L) {
+	// itemType:getCombatType()
+	const auto* itemType = Lua::getUserdata<const ItemType>(L, 1);
+	if (!itemType) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	lua_pushnumber(L, itemType->combatType);
+	return 1;
+}
+
+int ItemTypeFunctions::luaItemTypeGetShootType(lua_State* L) {
+	// itemType:getShootType()
+	const auto* itemType = Lua::getUserdata<const ItemType>(L, 1);
+	if (!itemType) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	lua_pushnumber(L, itemType->shootType);
 	return 1;
 }
 

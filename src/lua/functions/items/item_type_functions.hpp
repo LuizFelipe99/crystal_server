@@ -72,6 +72,8 @@ private:
 	static int luaItemTypeGetWeaponType(lua_State* L);
 
 	static int luaItemTypeGetElementType(lua_State* L);
+	static int luaItemTypeGetCombatType(lua_State* L);
+	static int luaItemTypeGetShootType(lua_State* L);
 	static int luaItemTypeGetElementDamage(lua_State* L);
 
 	static int luaItemTypeGetTransformEquipId(lua_State* L);

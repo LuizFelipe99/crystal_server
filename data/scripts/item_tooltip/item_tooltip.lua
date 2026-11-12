@@ -67,6 +67,64 @@ local function buildTooltipFields(item)
 	return fields
 end
 
+local ELEMENT_KEY_BY_COMBAT_TYPE = {
+	[COMBAT_PHYSICALDAMAGE] = "physical",
+	[COMBAT_ENERGYDAMAGE] = "energy",
+	[COMBAT_EARTHDAMAGE] = "earth",
+	[COMBAT_FIREDAMAGE] = "fire",
+	[COMBAT_ICEDAMAGE] = "ice",
+	[COMBAT_HOLYDAMAGE] = "holy",
+	[COMBAT_DEATHDAMAGE] = "death",
+}
+
+local ELEMENT_KEY_BY_SHOOT_TYPE = {
+	[CONST_ANI_ENERGY] = "energy",
+	[CONST_ANI_ENERGYBALL] = "energy",
+	[CONST_ANI_EARTH] = "earth",
+	[CONST_ANI_SMALLEARTH] = "earth",
+	[CONST_ANI_FIRE] = "fire",
+	[CONST_ANI_ICE] = "ice",
+	[CONST_ANI_SMALLICE] = "ice",
+	[CONST_ANI_HOLY] = "holy",
+	[CONST_ANI_SMALLHOLY] = "holy",
+	[CONST_ANI_DEATH] = "death",
+	[CONST_ANI_SUDDENDEATH] = "death",
+}
+
+local ELEMENTLESS_WEAPON_TYPES = {
+	[WEAPON_NONE] = true,
+	[WEAPON_SHIELD] = true,
+}
+
+local function resolveWandElement(itemType)
+	if not itemType.getCombatType then
+		return nil
+	end
+
+	local combatElement = ELEMENT_KEY_BY_COMBAT_TYPE[itemType:getCombatType()]
+	if combatElement then
+		return combatElement
+	end
+	return ELEMENT_KEY_BY_SHOOT_TYPE[itemType:getShootType()]
+end
+
+local function resolveItemElement(item)
+	local itemType = item:getType()
+	local weaponType = itemType:getWeaponType()
+	if ELEMENTLESS_WEAPON_TYPES[weaponType] then
+		return nil
+	end
+
+	if weaponType == WEAPON_WAND then
+		return resolveWandElement(itemType)
+	end
+
+	if (itemType:getElementDamage() or 0) > 0 then
+		return ELEMENT_KEY_BY_COMBAT_TYPE[itemType:getElementType()] or "physical"
+	end
+	return "physical"
+end
+
 local function sendItemTooltip(player, request, item)
 	player:sendExtendedOpcode(ITEM_TOOLTIP_OPCODE, json.encode({
 		x = request.x,
@@ -74,6 +132,7 @@ local function sendItemTooltip(player, request, item)
 		z = request.z,
 		itemId = request.itemId,
 		name = capitalizeFirstLetter(item:getName()),
+		element = resolveItemElement(item),
 		fields = buildTooltipFields(item),
 		description = buildCompactDescription(item),
 	}))
