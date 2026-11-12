@@ -139,6 +139,17 @@ local function refreshStoreBalance(player)
 	end
 end
 
+local function announcePurchase(buyer, pack)
+	local announcement = json.encode({
+		action = "announcement",
+		playerName = buyer:getName(),
+		packName = pack.name,
+	})
+	for _, onlinePlayer in ipairs(Game.getPlayers()) do
+		onlinePlayer:sendExtendedOpcode(STORE_PACKS_OPCODE, announcement)
+	end
+end
+
 local function handlePurchase(player, packId)
 	local pack = findPack(packId)
 	if not pack then
@@ -167,6 +178,7 @@ local function handlePurchase(player, packId)
 	player:getPosition():sendMagicEffect(CONST_ME_GIFT_WRAPS)
 	logger.info("[StorePacks] {} bought {} for {} transferable coins", player:getName(), pack.name, pack.price)
 	sendPurchaseResult(player, true, "You bought the " .. pack.name .. ". The items were sent to your store inbox.")
+	announcePurchase(player, pack)
 end
 
 local storePacksEvent = CreatureEvent("StorePacksOpcode")
