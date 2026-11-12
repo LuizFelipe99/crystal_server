@@ -38,9 +38,15 @@ local HIDDEN_FIELD_LABELS = {
 	["Total Weight"] = true,
 }
 
-local function hasSpecialDescription(item)
-	local specialDescription = item:getAttribute(ITEM_ATTRIBUTE_DESCRIPTION)
-	return type(specialDescription) == "string" and specialDescription ~= ""
+local function isFilledText(text)
+	return type(text) == "string" and text ~= ""
+end
+
+local function hasDescription(item)
+	if isFilledText(item:getAttribute(ITEM_ATTRIBUTE_DESCRIPTION)) then
+		return true
+	end
+	return isFilledText(item:getType():getDescription())
 end
 
 local function isVisibleField(item, label)
@@ -48,7 +54,7 @@ local function isVisibleField(item, label)
 		return false
 	end
 	if label == "Description" then
-		return hasSpecialDescription(item)
+		return hasDescription(item)
 	end
 	return true
 end
