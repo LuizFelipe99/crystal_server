@@ -2195,7 +2195,7 @@ void ProtocolGame::parseSay(NetworkMessage &msg) {
 }
 
 void ProtocolGame::parseFightModes(NetworkMessage &msg) {
-	// uint8_t rawFightMode = msg.getByte(); // 1 - offensive, 2 - balanced, 3 - defensive -- FIGHT MODE DEPRECATED FROM 15.25
+	msg.skipBytes(1);
 	uint8_t rawChaseMode = msg.getByte(); // 0 - stand while fightning, 1 - chase opponent
 	uint8_t rawSecureMode = msg.getByte(); // 0 - can't attack unmarked, 1 - can attack unmarked
 
