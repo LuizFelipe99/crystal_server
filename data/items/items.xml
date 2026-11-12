@@ -88553,4 +88553,9 @@
 	<item id="60863" article="a" name="upgrade build stone">
 		<attribute key="description" value="Use para liberar o ponto de build" />
 	</item>
+	<item id="60556" article="a" name="transfer tier stone">
+		<attribute key="primarytype" value="valuables" />
+		<attribute key="description" value="Stores the tier of an item so it can be transferred to any other item you desire. It works as a wildcard for tier transfers." />
+		<attribute key="weight" value="100" />
+	</item>
 </items>
