@@ -17,6 +17,9 @@ local config = {
 		to = Position(33053, 32410, 15),
 	},
 	exit = Position(34106, 32052, 13),
+	onUseExtra = function(player)
+		return RottenBloodBakragoreRequirement.check(player)
+	end,
 }
 
 local lever = BossLever(config)

@@ -30,11 +30,6 @@ end
 exit_putrefactory:aid(34101)
 exit_putrefactory:register()
 
-local config = {
-	storageKey = Storage.Quest.U13_20.RottenBlood.PutrefactoryTask,
-	requiredTicks = 100,
-}
-
 local enter_lever_Ichgahal = Action()
 
 function enter_lever_Ichgahal.onUse(creature, item, position, fromPosition)
@@ -44,21 +39,8 @@ function enter_lever_Ichgahal.onUse(creature, item, position, fromPosition)
 	end
 
 	local teleportPosition = Position(32972, 32336, 15)
-	local playerPos = player:getPosition()
-
-	local ticks = player:getStorageValue(config.storageKey)
-	if ticks < 0 then
-		ticks = 0
-	end
-
-	if ticks >= config.requiredTicks then
-		player:teleportTo(teleportPosition, true)
-		teleportPosition:sendMagicEffect(CONST_ME_ENERGYHIT)
-	else
-		player:sendCancelMessage("You need to reach 100 points to enter.")
-		playerPos:sendMagicEffect(CONST_ME_POFF)
-	end
-
+	player:teleportTo(teleportPosition, true)
+	teleportPosition:sendMagicEffect(CONST_ME_ENERGYHIT)
 	return true
 end
 
