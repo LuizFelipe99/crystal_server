@@ -54,16 +54,27 @@
 	<gem id="62044" type="attackSpeed" attribute="attackSpeedPercent" value="9" />
 	<gem id="62050" type="attackSpeed" attribute="attackSpeedPercent" value="12.5" />
 
-	<!-- onslaught (fatal hit chance, %) gems: replace id="000" with the real item id and uncomment -->
-	<!-- <gem id="000" type="onslaught" attribute="onslaught" value="0.3" /> level 1 -->
-	<!-- <gem id="000" type="onslaught" attribute="onslaught" value="0.5" /> level 2 -->
-	<!-- <gem id="000" type="onslaught" attribute="onslaught" value="0.8" /> level 3 -->
-	<!-- <gem id="000" type="onslaught" attribute="onslaught" value="1.0" /> level 4 -->
-	<!-- <gem id="000" type="onslaught" attribute="onslaught" value="1.3" /> level 5 -->
-	<!-- <gem id="000" type="onslaught" attribute="onslaught" value="1.6" /> level 6 -->
-	<!-- <gem id="000" type="onslaught" attribute="onslaught" value="2.0" /> level 7 -->
-	<!-- <gem id="000" type="onslaught" attribute="onslaught" value="2.5" /> level 8 -->
-	<!-- <gem id="000" type="onslaught" attribute="onslaught" value="3.0" /> level 9 -->
+	<!-- onslaught (fatal hit chance, %) gems -->
+	<gem id="64504" type="onslaught" attribute="onslaught" value="0.3" />
+	<gem id="64505" type="onslaught" attribute="onslaught" value="0.5" />
+	<gem id="64506" type="onslaught" attribute="onslaught" value="0.8" />
+	<gem id="64507" type="onslaught" attribute="onslaught" value="1.0" />
+	<gem id="64508" type="onslaught" attribute="onslaught" value="1.3" />
+	<gem id="64509" type="onslaught" attribute="onslaught" value="1.6" />
+	<gem id="64510" type="onslaught" attribute="onslaught" value="2.0" />
+	<gem id="64511" type="onslaught" attribute="onslaught" value="2.5" />
+	<gem id="64512" type="onslaught" attribute="onslaught" value="3.0" />
+
+	<!-- dodge (ruse chance, %) gems -->
+	<gem id="64495" type="dodge" attribute="dodge" value="0.3" />
+	<gem id="64496" type="dodge" attribute="dodge" value="0.5" />
+	<gem id="64497" type="dodge" attribute="dodge" value="0.8" />
+	<gem id="64498" type="dodge" attribute="dodge" value="1.0" />
+	<gem id="64499" type="dodge" attribute="dodge" value="1.3" />
+	<gem id="64500" type="dodge" attribute="dodge" value="1.6" />
+	<gem id="64501" type="dodge" attribute="dodge" value="2.0" />
+	<gem id="64502" type="dodge" attribute="dodge" value="2.5" />
+	<gem id="64503" type="dodge" attribute="dodge" value="3.0" />
 
 	<!-- transcendence (avatar chance, %) gems -->
 	<gem id="64486" type="transcendence" attribute="transcendence" value="0.3" />
@@ -170,6 +181,7 @@ club			Skill de club	value direto (pontos)
 distance		Skill de distance	value direto (pontos)
 fist			Skill de fist fighting	value direto (pontos) 
 onslaught		Chance de Onslaught (fatal)	value em % (aceita decimal, ex: 0.5 = 0.5%); soma com o tier da arma
+dodge			Chance de Ruse (dodge)	value em % (aceita decimal); soma com o tier da armadura
 transcendence	Chance de Transcendence	value em % (aceita decimal); soma com o tier da legs
 resistPhysical	Resistencia fisica	value em %
 resistFire		Resistencia a fogo	value em %
