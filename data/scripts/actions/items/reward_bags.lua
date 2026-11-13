@@ -150,11 +150,22 @@ local rewardBags = {
 		{ id = 60489, name = "platinum ruby crafter nv. 2" },
 	},
 	[ATTRIBUTE_GEM_BAG] = {
+		{ id = 62101, name = "health stone fragment", minCount = 1, maxCount = 3 },
+		{ id = 62098, name = "mana stone fragment", minCount = 1, maxCount = 3 },
+		{ id = 62100, name = "critical chance stone fragment", minCount = 1, maxCount = 3 },
+		{ id = 62104, name = "critical damage stone fragment", minCount = 1, maxCount = 3 },
+		{ id = 62099, name = "attackspeed stone fragment", minCount = 1, maxCount = 3 },
+		{ id = 64513, name = "transcendence stone fragment", minCount = 1, maxCount = 3 },
+		{ id = 64514, name = "dodge stone fragment", minCount = 1, maxCount = 3 },
+		{ id = 64515, name = "onslaught stone fragment", minCount = 1, maxCount = 3 },
 		{ id = 62108, name = "health stone nivel 1" },
 		{ id = 62105, name = "mana stone nivel 1" },
 		{ id = 62107, name = "critical chance stone nivel 1" },
 		{ id = 62111, name = "critical damage stone nivel 1" },
 		{ id = 62106, name = "attackspeed stone nivel 1" },
+		{ id = 64486, name = "transcendence stone nivel 1" },
+		{ id = 64495, name = "dodge stone nivel 1" },
+		{ id = 64504, name = "onslaught stone nivel 1" },
 	},
 }
 
@@ -168,11 +179,13 @@ function randomItems.onUse(player, item, fromPosition, target, toPosition, isHot
 
 	local randomIndex = math.random(1, #rewardBag)
 	local rewardItem = rewardBag[randomIndex]
-	player:addItem(rewardItem.id, 1)
-	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You received a " .. rewardItem.name .. ".")
+	local rewardCount = math.random(rewardItem.minCount or 1, rewardItem.maxCount or 1)
+	local rewardLabel = rewardCount > 1 and (rewardCount .. "x " .. rewardItem.name) or ("a " .. rewardItem.name)
+	player:addItem(rewardItem.id, rewardCount)
+	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You received " .. rewardLabel .. ".")
 
-	local text = player:getName() .. " received a " .. rewardItem.name .. " from a " .. item:getName() .. "."
-	Webhook.sendMessage(":game_die: " .. player:getMarkdownLink() .. " received a **" .. rewardItem.name .. "** from a _" .. item:getName() .. "_.")
+	local text = player:getName() .. " received " .. rewardLabel .. " from a " .. item:getName() .. "."
+	Webhook.sendMessage(":game_die: " .. player:getMarkdownLink() .. " received **" .. rewardLabel .. "** from a _" .. item:getName() .. "_.")
 	Broadcast(text, function(targetPlayer)
 		return targetPlayer ~= player
 	end)

@@ -869,7 +869,7 @@ return {
         resultDescription = "Grants +500 health when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 75,
         ingredients = {
             { itemName = "attribute gem material", clientId = 62101, amount = 3 },
         }
@@ -980,7 +980,7 @@ return {
         resultDescription = "Grants +500 mana when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 75,
         ingredients = {
             { itemName = "attribute gem material", clientId = 62098, amount = 3 },
         }
@@ -1091,7 +1091,7 @@ return {
         resultDescription = "Grants +1% critical hit chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 75,
         ingredients = {
             { itemName = "attribute gem material", clientId = 62100, amount = 3 },
         }
@@ -1203,7 +1203,7 @@ return {
         resultDescription = "Grants +50 attack speed when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 75,
         ingredients = {
             { itemName = "attribute gem material", clientId = 62099, amount = 3 },
         }
@@ -1315,7 +1315,7 @@ return {
         resultDescription = "Grants +5% critical hit damage when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 75,
         ingredients = {
             { itemName = "attribute gem material", clientId = 62104, amount = 3 },
         }
@@ -1423,7 +1423,7 @@ return {
         resultDescription = "Grants +0.3% transcendence chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 75,
         ingredients = {
             { itemName = "attribute gem material", clientId = 64513, amount = 3 },
         }
@@ -1531,7 +1531,7 @@ return {
         resultDescription = "Grants +0.3% dodge chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 75,
         ingredients = {
             { itemName = "attribute gem material", clientId = 64514, amount = 3 },
         }
@@ -1639,7 +1639,7 @@ return {
         resultDescription = "Grants +0.3% onslaught chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 75,
         ingredients = {
             { itemName = "attribute gem material", clientId = 64515, amount = 3 },
         }
