@@ -1416,5 +1416,329 @@ return {
             { itemName = "critical damage gem lv. 8", clientId = 62070, amount = 3 },
         }
     },
+    {
+        resultName = "Transcendence Gem Lv. 1",
+        resultClientId = 64486,
+        resultAmount = 1,
+        resultDescription = "Grants +0.3% transcendence chance when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 25,
+        ingredients = {
+            { itemName = "attribute gem material", clientId = 62104, amount = 3 },
+        }
+    },
+    {
+        resultName = "Transcendence Gem Lv. 2",
+        resultClientId = 64487,
+        resultAmount = 1,
+        resultDescription = "Grants +0.5% transcendence chance when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 25,
+        ingredients = {
+            { itemName = "transcendence gem lv. 1", clientId = 64486, amount = 3 },
+        }
+    },
+    {
+        resultName = "Transcendence Gem Lv. 3",
+        resultClientId = 64488,
+        resultAmount = 1,
+        resultDescription = "Grants +0.8% transcendence chance when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 25,
+        ingredients = {
+            { itemName = "transcendence gem lv. 2", clientId = 64487, amount = 3 },
+        }
+    },
+    {
+        resultName = "Transcendence Gem Lv. 4",
+        resultClientId = 64489,
+        resultAmount = 1,
+        resultDescription = "Grants +1.0% transcendence chance when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 25,
+        ingredients = {
+            { itemName = "transcendence gem lv. 3", clientId = 64488, amount = 3 },
+        }
+    },
+    {
+        resultName = "Transcendence Gem Lv. 5",
+        resultClientId = 64490,
+        resultAmount = 1,
+        resultDescription = "Grants +1.3% transcendence chance when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 25,
+        ingredients = {
+            { itemName = "transcendence gem lv. 4", clientId = 64489, amount = 3 },
+        }
+    },
+    {
+        resultName = "Transcendence Gem Lv. 6",
+        resultClientId = 64491,
+        resultAmount = 1,
+        resultDescription = "Grants +1.6% transcendence chance when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 10000000,
+        successChance = 10,
+        ingredients = {
+            { itemName = "transcendence gem lv. 5", clientId = 64490, amount = 3 },
+        }
+    },
+    {
+        resultName = "Transcendence Gem Lv. 7",
+        resultClientId = 64492,
+        resultAmount = 1,
+        resultDescription = "Grants +2.0% transcendence chance when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 10000000,
+        successChance = 10,
+        ingredients = {
+            { itemName = "transcendence gem lv. 6", clientId = 64491, amount = 3 },
+        }
+    },
+    {
+        resultName = "Transcendence Gem Lv. 8",
+        resultClientId = 64493,
+        resultAmount = 1,
+        resultDescription = "Grants +2.5% transcendence chance when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 10000000,
+        successChance = 10,
+        ingredients = {
+            { itemName = "transcendence gem lv. 7", clientId = 64492, amount = 3 },
+        }
+    },
+    {
+        resultName = "Transcendence Gem Lv. 9",
+        resultClientId = 64494,
+        resultAmount = 1,
+        resultDescription = "Grants +3.0% transcendence chance when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 20000000,
+        successChance = 5,
+        ingredients = {
+            { itemName = "transcendence gem lv. 8", clientId = 64493, amount = 3 },
+        }
+    },
+    {
+        resultName = "Dodge Gem Lv. 1",
+        resultClientId = 64495,
+        resultAmount = 1,
+        resultDescription = "Grants +0.3% dodge chance when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 25,
+        ingredients = {
+            { itemName = "attribute gem material", clientId = 62104, amount = 3 },
+        }
+    },
+    {
+        resultName = "Dodge Gem Lv. 2",
+        resultClientId = 64496,
+        resultAmount = 1,
+        resultDescription = "Grants +0.5% dodge chance when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 25,
+        ingredients = {
+            { itemName = "dodge gem lv. 1", clientId = 64495, amount = 3 },
+        }
+    },
+    {
+        resultName = "Dodge Gem Lv. 3",
+        resultClientId = 64497,
+        resultAmount = 1,
+        resultDescription = "Grants +0.8% dodge chance when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 25,
+        ingredients = {
+            { itemName = "dodge gem lv. 2", clientId = 64496, amount = 3 },
+        }
+    },
+    {
+        resultName = "Dodge Gem Lv. 4",
+        resultClientId = 64498,
+        resultAmount = 1,
+        resultDescription = "Grants +1.0% dodge chance when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 25,
+        ingredients = {
+            { itemName = "dodge gem lv. 3", clientId = 64497, amount = 3 },
+        }
+    },
+    {
+        resultName = "Dodge Gem Lv. 5",
+        resultClientId = 64499,
+        resultAmount = 1,
+        resultDescription = "Grants +1.3% dodge chance when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 25,
+        ingredients = {
+            { itemName = "dodge gem lv. 4", clientId = 64498, amount = 3 },
+        }
+    },
+    {
+        resultName = "Dodge Gem Lv. 6",
+        resultClientId = 64500,
+        resultAmount = 1,
+        resultDescription = "Grants +1.6% dodge chance when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 10000000,
+        successChance = 10,
+        ingredients = {
+            { itemName = "dodge gem lv. 5", clientId = 64499, amount = 3 },
+        }
+    },
+    {
+        resultName = "Dodge Gem Lv. 7",
+        resultClientId = 64501,
+        resultAmount = 1,
+        resultDescription = "Grants +2.0% dodge chance when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 10000000,
+        successChance = 10,
+        ingredients = {
+            { itemName = "dodge gem lv. 6", clientId = 64500, amount = 3 },
+        }
+    },
+    {
+        resultName = "Dodge Gem Lv. 8",
+        resultClientId = 64502,
+        resultAmount = 1,
+        resultDescription = "Grants +2.5% dodge chance when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 10000000,
+        successChance = 10,
+        ingredients = {
+            { itemName = "dodge gem lv. 7", clientId = 64501, amount = 3 },
+        }
+    },
+    {
+        resultName = "Dodge Gem Lv. 9",
+        resultClientId = 64503,
+        resultAmount = 1,
+        resultDescription = "Grants +3.0% dodge chance when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 20000000,
+        successChance = 5,
+        ingredients = {
+            { itemName = "dodge gem lv. 8", clientId = 64502, amount = 3 },
+        }
+    },
+    {
+        resultName = "Onslaught Gem Lv. 1",
+        resultClientId = 64504,
+        resultAmount = 1,
+        resultDescription = "Grants +0.3% onslaught chance when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 25,
+        ingredients = {
+            { itemName = "attribute gem material", clientId = 62104, amount = 3 },
+        }
+    },
+    {
+        resultName = "Onslaught Gem Lv. 2",
+        resultClientId = 64505,
+        resultAmount = 1,
+        resultDescription = "Grants +0.5% onslaught chance when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 25,
+        ingredients = {
+            { itemName = "onslaught gem lv. 1", clientId = 64504, amount = 3 },
+        }
+    },
+    {
+        resultName = "Onslaught Gem Lv. 3",
+        resultClientId = 64506,
+        resultAmount = 1,
+        resultDescription = "Grants +0.8% onslaught chance when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 25,
+        ingredients = {
+            { itemName = "onslaught gem lv. 2", clientId = 64505, amount = 3 },
+        }
+    },
+    {
+        resultName = "Onslaught Gem Lv. 4",
+        resultClientId = 64507,
+        resultAmount = 1,
+        resultDescription = "Grants +1.0% onslaught chance when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 25,
+        ingredients = {
+            { itemName = "onslaught gem lv. 3", clientId = 64506, amount = 3 },
+        }
+    },
+    {
+        resultName = "Onslaught Gem Lv. 5",
+        resultClientId = 64508,
+        resultAmount = 1,
+        resultDescription = "Grants +1.3% onslaught chance when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 25,
+        ingredients = {
+            { itemName = "onslaught gem lv. 4", clientId = 64507, amount = 3 },
+        }
+    },
+    {
+        resultName = "Onslaught Gem Lv. 6",
+        resultClientId = 64509,
+        resultAmount = 1,
+        resultDescription = "Grants +1.6% onslaught chance when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 10000000,
+        successChance = 10,
+        ingredients = {
+            { itemName = "onslaught gem lv. 5", clientId = 64508, amount = 3 },
+        }
+    },
+    {
+        resultName = "Onslaught Gem Lv. 7",
+        resultClientId = 64510,
+        resultAmount = 1,
+        resultDescription = "Grants +2.0% onslaught chance when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 10000000,
+        successChance = 10,
+        ingredients = {
+            { itemName = "onslaught gem lv. 6", clientId = 64509, amount = 3 },
+        }
+    },
+    {
+        resultName = "Onslaught Gem Lv. 8",
+        resultClientId = 64511,
+        resultAmount = 1,
+        resultDescription = "Grants +2.5% onslaught chance when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 10000000,
+        successChance = 10,
+        ingredients = {
+            { itemName = "onslaught gem lv. 7", clientId = 64510, amount = 3 },
+        }
+    },
+    {
+        resultName = "Onslaught Gem Lv. 9",
+        resultClientId = 64512,
+        resultAmount = 1,
+        resultDescription = "Grants +3.0% onslaught chance when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 20000000,
+        successChance = 5,
+        ingredients = {
+            { itemName = "onslaught gem lv. 8", clientId = 64511, amount = 3 },
+        }
+    },
 
 }
