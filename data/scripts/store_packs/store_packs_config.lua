@@ -19,6 +19,7 @@ StorePacksConfig = {
 				{ itemId = 60606, count = 5, name = "all resilience" },
 				{ itemId = 60605, count = 5, name = "all amplification" },
 				{ itemId = 60556, count = 1 },
+				{ itemId = 60661, count = 1 },
 			},
 		},
 		{
@@ -43,6 +44,7 @@ StorePacksConfig = {
 				{ itemId = 37110, count = 10 },
 				{ itemId = 60445, count = 4, name = "prey wildcard" },
 				{ itemId = 60556, count = 3 },
+				{ itemId = 60659, count = 1 },
 			},
 		},
 		{
@@ -73,6 +75,7 @@ StorePacksConfig = {
 				{ itemId = 60413, count = 1 },
 				{ itemId = 60412, count = 1 },
 				{ itemId = 60556, count = 6 },
+				{ itemId = 60660, count = 3 },
 			},
 		},
 	},
