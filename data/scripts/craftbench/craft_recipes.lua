@@ -1425,7 +1425,7 @@ return {
         goldCost = 3000000,
         successChance = 25,
         ingredients = {
-            { itemName = "attribute gem material", clientId = 62104, amount = 3 },
+            { itemName = "attribute gem material", clientId = 64513, amount = 3 },
         }
     },
     {
@@ -1533,7 +1533,7 @@ return {
         goldCost = 3000000,
         successChance = 25,
         ingredients = {
-            { itemName = "attribute gem material", clientId = 62104, amount = 3 },
+            { itemName = "attribute gem material", clientId = 64514, amount = 3 },
         }
     },
     {
@@ -1641,7 +1641,7 @@ return {
         goldCost = 3000000,
         successChance = 25,
         ingredients = {
-            { itemName = "attribute gem material", clientId = 62104, amount = 3 },
+            { itemName = "attribute gem material", clientId = 64515, amount = 3 },
         }
     },
     {

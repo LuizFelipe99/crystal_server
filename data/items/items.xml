@@ -88608,6 +88608,17 @@
 	<item id="64512" article="a" name="onslaught stone nivel 9">
 		<attribute key="description" value="Increases your onslaught chance in 3.0%" />
 	</item>
+
+	<!-- gem fragments -->
+	<item id="64513" article="a" name="transcendence stone fragment">
+		<attribute key="description" value="Material used to craft transcendence gems." />
+	</item>
+	<item id="64514" article="a" name="dodge stone fragment">
+		<attribute key="description" value="Material used to craft dodge gems." />
+	</item>
+	<item id="64515" article="a" name="onslaught stone fragment">
+		<attribute key="description" value="Material used to craft onslaught gems." />
+	</item>
 	
 	<!-- attackspeed gem -->
 	<item id="62106" article="a" name="attackspeed stone nivel 1">
