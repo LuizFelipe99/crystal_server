@@ -1,14 +1,7 @@
 local config = {
 	entrance = Position(32953, 32398, 9),
-	noAccess = Position(32955, 32398, 9),
 	destination = Position(34070, 31975, 14),
 }
-
-local function getDamage(currentHealth)
-	local damage = math.max(math.floor(currentHealth * 0.20), 1)
-	local newHealth = currentHealth - damage
-	return newHealth > 10 and damage or 0
-end
 
 local accessBlood = MoveEvent()
 function accessBlood.onStepIn(creature, item, position, fromPosition)
@@ -20,14 +13,6 @@ function accessBlood.onStepIn(creature, item, position, fromPosition)
 	if player:getLevel() < 250 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need at least level 250 to enter.")
 		player:teleportTo(fromPosition, true)
-		return false
-	end
-
-	local access = player:kv():scoped("rotten-blood-quest"):get("access") or 0
-	if access < 4 then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You offerings to this sanguine master of this realm have been insufficient. You can not pass.")
-		player:teleportTo(config.noAccess, true)
-		player:addHealth(-getDamage(player:getHealth()), COMBAT_PHYSICALDAMAGE)
 		return false
 	end
 
