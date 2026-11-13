@@ -88553,6 +88553,21 @@
 	<item id="60863" article="a" name="upgrade build stone">
 		<attribute key="description" value="Use para liberar o ponto de build" />
 	</item>
+	<item id="60661" article="a" name="lesser experience elixir">
+		<attribute key="primarytype" value="valuables" />
+		<attribute key="description" value="Grants 10% bonus experience from monsters for 1 hour while you are online. Only one experience elixir can be active at a time." />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="60659" article="a" name="experience elixir">
+		<attribute key="primarytype" value="valuables" />
+		<attribute key="description" value="Grants 20% bonus experience from monsters for 1 hour while you are online. Only one experience elixir can be active at a time." />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="60660" article="a" name="greater experience elixir">
+		<attribute key="primarytype" value="valuables" />
+		<attribute key="description" value="Grants 30% bonus experience from monsters for 1 hour while you are online. Only one experience elixir can be active at a time." />
+		<attribute key="weight" value="100" />
+	</item>
 	<item id="60556" article="a" name="transfer tier stone">
 		<attribute key="primarytype" value="valuables" />
 		<attribute key="description" value="Stores the tier of an item so it can be transferred to any other item you desire. It works as a wildcard for tier transfers." />

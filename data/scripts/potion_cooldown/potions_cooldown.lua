@@ -12,11 +12,18 @@ local function calculateReuseCooldownRemaining(player, concoction)
     return math.max(0, cooldownExpiresAt - os.time())
 end
 
+local function calculateEffectRemaining(player, concoction)
+    if not concoction.config.showsEffectTime then
+        return 0
+    end
+    return math.max(0, concoction:timeLeft(player))
+end
+
 local function buildActivePotionCooldownsForPlayer(player)
     local activeCooldowns = {}
 
     for _, concoction in ipairs(Concoction.getAll()) do
-        local remainingSeconds = calculateReuseCooldownRemaining(player, concoction)
+        local remainingSeconds = math.max(calculateReuseCooldownRemaining(player, concoction), calculateEffectRemaining(player, concoction))
 
         if remainingSeconds > 0 then
             activeCooldowns[#activeCooldowns + 1] = {
