@@ -14,7 +14,7 @@ function RottenBloodBakragoreRequirement.getMissingBosses(player)
 	local missingBosses = {}
 	for _, bossName in ipairs(RottenBloodBakragoreRequirement.requiredBosses) do
 		if not defeatedScope:get(bossName) then
-			table.insert(missingBosses, bossName:titleCase())
+			missingBosses[#missingBosses + 1] = (bossName:titleCase())
 		end
 	end
 	return missingBosses
