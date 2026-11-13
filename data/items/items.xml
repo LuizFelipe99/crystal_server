@@ -88521,6 +88521,35 @@
 	<item id="62071" article="a" name="critical damage stone nivel 9">
 		<attribute key="description" value="Increases your critical damage ins 30%" />
 	</item>
+
+	<!-- transcendence gems -->
+	<item id="64486" article="a" name="transcendence stone nivel 1">
+		<attribute key="description" value="Increases your transcendence chance in 0.3%" />
+	</item>
+	<item id="64487" article="a" name="transcendence stone nivel 2">
+		<attribute key="description" value="Increases your transcendence chance in 0.5%" />
+	</item>
+	<item id="64488" article="a" name="transcendence stone nivel 3">
+		<attribute key="description" value="Increases your transcendence chance in 0.8%" />
+	</item>
+	<item id="64489" article="a" name="transcendence stone nivel 4">
+		<attribute key="description" value="Increases your transcendence chance in 1.0%" />
+	</item>
+	<item id="64490" article="a" name="transcendence stone nivel 5">
+		<attribute key="description" value="Increases your transcendence chance in 1.3%" />
+	</item>
+	<item id="64491" article="a" name="transcendence stone nivel 6">
+		<attribute key="description" value="Increases your transcendence chance in 1.6%" />
+	</item>
+	<item id="64492" article="a" name="transcendence stone nivel 7">
+		<attribute key="description" value="Increases your transcendence chance in 2.0%" />
+	</item>
+	<item id="64493" article="a" name="transcendence stone nivel 8">
+		<attribute key="description" value="Increases your transcendence chance in 2.5%" />
+	</item>
+	<item id="64494" article="a" name="transcendence stone nivel 9">
+		<attribute key="description" value="Increases your transcendence chance in 3.0%" />
+	</item>
 	
 	<!-- attackspeed gem -->
 	<item id="62106" article="a" name="attackspeed stone nivel 1">
