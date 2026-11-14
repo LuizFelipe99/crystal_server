@@ -198,31 +198,7 @@ local function ensureSummons(monster)
 	end
 end
 
-mType.onThink = function(monster, interval)
-	accumulatedTime = accumulatedTime + interval
-	ensureSummons(monster)
-
-	if accumulatedTime >= summonInterval then
-		for _, summon in ipairs(activeSummons) do
-			local creature = Creature(summon)
-			if creature then
-				creature:remove()
-			end
-		end
-		activeSummons = {}
-
-		for _, monsterData in ipairs(aditionalMonsters) do
-			local summonPosition = getRandomPosition(monster:getPosition())
-			local summon = Game.createMonster(monsterData.name, summonPosition)
-			if summon then
-				table.insert(activeSummons, summon:getId())
-			end
-		end
-
-		accumulatedTime = 0
-		summonInterval = math.random(8000, 9000)
-	end
-end
+mType.onThink = function(monster, interval) end
 
 mType.onAppear = function(monster, creature)
 	if monster:getType():isRewardBoss() then
@@ -232,33 +208,7 @@ end
 
 mType.onDisappear = function(monster, creature) end
 
-mType.onMove = function(_, creature, fromPos, toPos)
-	local tile = Tile(toPos)
-	if not tile then
-		return
-	end
-
-	local item = tile:getTopDownItem()
-	local itemId = item and item:getId() or 0
-
-	if itemId == 43294 or itemId == 43295 or itemId == 43296 then
-		return
-	end
-
-	if not creature or not creature:isMonster() or creature:getName():lower() ~= "ichgahal" then
-		return
-	end
-
-	local newItem = Game.createItem(43294, 1, toPos)
-	if newItem then
-		addEvent(function()
-			local decayItem = Tile(toPos):getItemById(43294)
-			if decayItem then
-				decayItem:transform(43295)
-			end
-		end, 5000)
-	end
-end
+mType.onMove = function(_, creature, fromPos, toPos) end
 
 mType.onSay = function(monster, creature, type, message) end
 
