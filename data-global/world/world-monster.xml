@@ -51242,6 +51242,9 @@
 		<monster name="Scarlett Etzel" x="-1" y="0" z="7" spawntime="120" direction="2" />
 		<monster name="Grand Master Oberon" x="1" y="0" z="7" spawntime="120" direction="2" />
 	</monster>
+	<monster centerx="31714" centery="33259" centerz="7" radius="1">
+		<monster name="The Brainstealer" x="0" y="0" z="7" spawntime="90" direction="2" />
+	</monster>
 	<monster centerx="31716" centery="33259" centerz="7" radius="1">
 		<monster name="Ratmiral Blackwhiskers" x="0" y="0" z="7" spawntime="120" direction="2" />
 	</monster>
@@ -51263,6 +51266,21 @@
 	<monster centerx="31734" centery="33259" centerz="7" radius="1">
 		<monster name="Sir Baeloc" x="0" y="0" z="7" spawntime="120" direction="2" />
 	</monster>
+	<monster centerx="31710" centery="33265" centerz="7" radius="1">
+		<monster name="The Pale Worm" x="0" y="0" z="7" spawntime="90" />
+	</monster>
+	<monster centerx="31712" centery="33265" centerz="7" radius="1">
+		<monster name="The Dread Maiden" x="0" y="0" z="7" spawntime="90" />
+	</monster>
+	<monster centerx="31714" centery="33265" centerz="7" radius="1">
+		<monster name="The Fear Feaster" x="0" y="0" z="7" spawntime="90" />
+	</monster>
+	<monster centerx="31716" centery="33265" centerz="7" radius="1">
+		<monster name="The Unwelcome" x="0" y="0" z="7" spawntime="90" />
+	</monster>
+	<monster centerx="31718" centery="33265" centerz="7" radius="1">
+		<monster name="Timira the Many-Headed" x="0" y="0" z="7" spawntime="90" />
+	</monster>
 	<monster centerx="31726" centery="33265" centerz="7" radius="1">
 		<monster name="Drume" x="0" y="0" z="7" spawntime="120" />
 	</monster>
@@ -51278,7 +51296,42 @@
 	<monster centerx="31734" centery="33265" centerz="7" radius="1">
 		<monster name="Brokul" x="0" y="0" z="7" spawntime="120" />
 	</monster>
-
+	<monster centerx="31720" centery="33267" centerz="7" radius="1">
+		<monster name="Chagorz" x="0" y="0" z="7" spawntime="90" direction="1" />
+	</monster>
+	<monster centerx="31725" centery="33267" centerz="7" radius="1">
+		<monster name="Goshnar's Cruelty" x="0" y="0" z="7" spawntime="90" direction="3" />
+	</monster>
+	<monster centerx="31720" centery="33269" centerz="7" radius="1">
+		<monster name="Vemiath" x="0" y="0" z="7" spawntime="90" direction="1" />
+	</monster>
+	<monster centerx="31725" centery="33269" centerz="7" radius="1">
+		<monster name="Goshnar's Greed" x="0" y="0" z="7" spawntime="90" direction="3" />
+	</monster>
+	<monster centerx="31720" centery="33271" centerz="7" radius="1">
+		<monster name="Murcion" x="0" y="0" z="7" spawntime="90" direction="1" />
+	</monster>
+	<monster centerx="31725" centery="33271" centerz="7" radius="1">
+		<monster name="Goshnar's Hatred" x="0" y="0" z="7" spawntime="90" direction="3" />
+	</monster>
+	<monster centerx="31720" centery="33273" centerz="7" radius="1">
+		<monster name="Ichgahal" x="0" y="0" z="7" spawntime="90" direction="1" />
+	</monster>
+	<monster centerx="31725" centery="33273" centerz="7" radius="1">
+		<monster name="Goshnar's Malice" x="0" y="0" z="7" spawntime="90" direction="3" />
+	</monster>
+	<monster centerx="31720" centery="33275" centerz="7" radius="1">
+		<monster name="Bakragore" x="0" y="0" z="7" spawntime="90" direction="1" />
+	</monster>
+	<monster centerx="31725" centery="33275" centerz="7" radius="1">
+		<monster name="Goshnar's Spite" x="0" y="0" z="7" spawntime="90" direction="3" />
+	</monster>
+	<monster centerx="31720" centery="33277" centerz="7" radius="1">
+		<monster name="King Zelos" x="0" y="0" z="7" spawntime="90" direction="1" />
+	</monster>
+	<monster centerx="31725" centery="33277" centerz="7" radius="1">
+		<monster name="Goshnar's Megalomania Green" x="0" y="0" z="7" spawntime="90" direction="3" />
+	</monster>
 	<monster centerx="31604" centery="33308" centerz="7" radius="1">
 		<monster name="Crypt Construct" x="0" y="0" z="7" spawntime="60" direction="1" />
 	</monster>
@@ -196783,24 +196836,5 @@
 		<monster name="Flamethrower" x="-3" y="4" z="15" spawntime="90" />
 		<monster name="Mahrdis" x="1" y="4" z="15" spawntime="90" />
 		<monster name="Flamethrower" x="4" y="4" z="15" spawntime="90" />
-	</monster>
-
-	<monster centerx="31725" centery="33267" centerz="7" radius="1">
-		<monster name="Goshnar's Cruelty" x="0" y="0" z="7" spawntime="90" />
-	</monster>
-	<monster centerx="31725" centery="33269" centerz="7" radius="1">
-		<monster name="Goshnar's Greed" x="0" y="0" z="7" spawntime="90" />
-	</monster>
-	<monster centerx="31725" centery="33271" centerz="7" radius="1">
-		<monster name="Goshnar's Hatred" x="0" y="0" z="7" spawntime="90" />
-	</monster>
-	<monster centerx="31725" centery="33273" centerz="7" radius="1">
-		<monster name="Goshnar's Malice" x="0" y="0" z="7" spawntime="90" />
-	</monster>
-	<monster centerx="31725" centery="33275" centerz="7" radius="1">
-		<monster name="Goshnar's Spite" x="0" y="0" z="7" spawntime="90" />
-	</monster>
-	<monster centerx="31725" centery="33277" centerz="7" radius="1">
-		<monster name="Goshnar's Megalomania Green" x="0" y="0" z="7" spawntime="90" />
 	</monster>
 </monsters>
