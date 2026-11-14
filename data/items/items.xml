@@ -88622,31 +88622,31 @@
 	
 	<!-- attackspeed gem -->
 	<item id="62106" article="a" name="attackspeed stone nivel 1">
-		<attribute key="description" value="Increases your attackspeed in 50ms" />
+		<attribute key="description" value="Increases your attack speed in 3%" />
 	</item>
 	<item id="62113" article="a" name="attackspeed stone nivel 2">
-		<attribute key="description" value="Increases your attackspeed in 60ms" />
+		<attribute key="description" value="Increases your attack speed in 3.6%" />
 	</item>
 	<item id="62014" article="a" name="attackspeed stone nivel 3">
-		<attribute key="description" value="Increases your attackspeed in 80ms" />
+		<attribute key="description" value="Increases your attack speed in 4.8%" />
 	</item>
 	<item id="62020" article="a" name="attackspeed stone nivel 4">
-		<attribute key="description" value="Increases your attackspeed in 100ms" />
+		<attribute key="description" value="Increases your attack speed in 6%" />
 	</item>
 	<item id="62026" article="a" name="attackspeed stone nivel 5">
-		<attribute key="description" value="Increases your attackspeed in 120ms" />
+		<attribute key="description" value="Increases your attack speed in 7.2%" />
 	</item>
 	<item id="62032" article="a" name="attackspeed stone nivel 6">
-		<attribute key="description" value="Increases your attackspeed in 140ms" />
+		<attribute key="description" value="Increases your attack speed in 8.4%" />
 	</item>
 	<item id="62038" article="a" name="attackspeed stone nivel 7">
-		<attribute key="description" value="Increases your attackspeed in 160ms" />
+		<attribute key="description" value="Increases your attack speed in 9.6%" />
 	</item>
 	<item id="62044" article="a" name="attackspeed stone nivel 8">
-		<attribute key="description" value="Increases your attackspeed in 180ms" />
+		<attribute key="description" value="Increases your attack speed in 10.8%" />
 	</item>
 	<item id="62050" article="a" name="attackspeed stone nivel 9">
-		<attribute key="description" value="Increases your attackspeed in 250ms" />
+		<attribute key="description" value="Increases your attack speed in 15%" />
 	</item>
 	<item id="60863" article="a" name="upgrade build stone">
 		<attribute key="description" value="Use para liberar o ponto de build" />
