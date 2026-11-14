@@ -188,31 +188,7 @@ local function ensureSummons(monster)
 	end
 end
 
-mType.onThink = function(monster, interval)
-	accumulatedTime = accumulatedTime + interval
-	ensureSummons(monster)
-
-	if accumulatedTime >= summonInterval then
-		for _, summon in ipairs(activeSummons) do
-			local creature = Creature(summon)
-			if creature then
-				creature:remove()
-			end
-		end
-		activeSummons = {}
-
-		for _, monsterData in ipairs(aditionalMonsters) do
-			local summonPosition = getRandomPosition(monster:getPosition())
-			local summon = Game.createMonster(monsterData.name, summonPosition)
-			if summon then
-				table.insert(activeSummons, summon:getId())
-			end
-		end
-
-		accumulatedTime = 0
-		summonInterval = math.random(8000, 9000)
-	end
-end
+mType.onThink = function(monster, interval) end
 
 mType.onAppear = function(monster, creature)
 	if monster:getType():isRewardBoss() then
@@ -222,56 +198,7 @@ end
 
 mType.onDisappear = function(monster, creature) end
 
-mType.onMove = function(_, creature, fromPos, toPos)
-	local tile = Tile(toPos)
-	if not tile then
-		return
-	end
-
-	local item = tile:getTopDownItem()
-	local itemId = item and item:getId() or 0
-
-	if itemId == 42851 or itemId == 42853 then
-		if creature and creature:isMonster() and creature:getName():lower() == "murcion" then
-			local currentHealth = creature:getHealth()
-			local maxHealth = creature:getMaxHealth()
-			local healAmount = 15000
-
-			if currentHealth < maxHealth then
-				creature:addHealth(healAmount)
-				toPos:sendMagicEffect(CONST_ME_MAGIC_GREEN)
-			end
-		end
-		return
-	end
-
-	if not creature or not creature:isMonster() or creature:getName():lower() ~= "murcion" then
-		return
-	end
-
-	local spore = Game.createItem(42851, 1, toPos)
-	if spore then
-		addEvent(function(position)
-			local tile = Tile(position)
-			if tile then
-				local item42851 = tile:getItemById(42851)
-				if item42851 then
-					item42851:transform(42853)
-
-					addEvent(function(pos)
-						local t = Tile(pos)
-						if t then
-							local item42853 = t:getItemById(42853)
-							if item42853 then
-								item42853:remove()
-							end
-						end
-					end, 3000, position)
-				end
-			end
-		end, 4000, toPos)
-	end
-end
+mType.onMove = function(_, creature, fromPos, toPos) end
 
 mType.onSay = function(monster, creature, type, message) end
 
