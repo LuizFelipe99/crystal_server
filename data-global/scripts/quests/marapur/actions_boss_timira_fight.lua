@@ -30,6 +30,9 @@ local timiraFightConfig = {
 }
 
 local fightZone = Zone("fight.timira.encounterZone")
+local trialZone = Zone("fight.timira.trialZone")
+trialZone:addArea({ x = 33777, y = 32673, z = 10 }, { x = 33801, y = 32700, z = 10 })
+trialZone:addArea({ x = 33784, y = 32701, z = 9 }, { x = 33802, y = 32711, z = 9 })
 local firstStageZone = Zone("fight.timira.encounterZone.firstStage")
 local secondStageZone = Zone("fight.timira.encounterZone.secondStage")
 local bossZone = Zone("fight.timira.encounterZone.bossStage")
@@ -242,7 +245,7 @@ end
 
 local nagaSpawner = GlobalEvent("self.timira.spawner.onThink")
 function nagaSpawner.onThink(interval, lastExecution)
-	if next(fightZone:getPlayers()) == nil then
+	if next(trialZone:getPlayers()) == nil then
 		return true
 	end
 
@@ -274,7 +277,7 @@ function sparklingWater.onThink(interval, lastExecution)
 		return true
 	end
 
-	if next(fightZone:getPlayers()) == nil then
+	if next(trialZone:getPlayers()) == nil then
 		return true
 	end
 
