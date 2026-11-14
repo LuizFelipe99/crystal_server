@@ -76,6 +76,7 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ id = 60057, chance = 30000 },
 	{ id = 3043, chance = 100000, minCount = 1, maxCount = 3 }, -- crystal coin
 	{ id = 3035, chance = 55000, minCount = 1, maxCount = 39 }, -- platinum coin
 	{ id = 7642, chance = 40000, minCount = 1, maxCount = 19 }, -- great spirit potion

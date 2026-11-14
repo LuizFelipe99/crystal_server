@@ -72,6 +72,7 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ id = 60057, chance = 30000 },
 	{ name = "crystal coin", chance = 96080, maxCount = 2 },
 	{ name = "white gem", chance = 52940, maxCount = 2 },
 	{ name = "moonstone", chance = 52940, maxCount = 2 },

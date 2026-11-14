@@ -77,6 +77,7 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ id = 60057, chance = 30000 },
 	{ id = 43895, chance = 360, unique = true }, ---bag you covet
 	{ name = "crystal coin", chance = 100000, maxCount = 91 },
 	{ name = "ultimate spirit potion", chance = 7169, maxCount = 153 },

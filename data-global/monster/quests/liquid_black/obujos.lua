@@ -74,6 +74,7 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ id = 60057, chance = 30000 },
 	{ name = "deepling axe", chance = 50000 },
 	{ name = "depth scutum", chance = 50000 },
 	{ name = "ornate legs", chance = 6500, unique = true },

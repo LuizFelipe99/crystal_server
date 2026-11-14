@@ -76,6 +76,7 @@ monster.summon = {
 }
 
 monster.loot = {
+	{ id = 60057, chance = 30000 },
 	{ name = "platinum coin", minCount = 1, maxCount = 5, chance = 100000 },
 	{ name = "crystal coin", minCount = 0, maxCount = 2, chance = 50000 },
 	{ name = "supreme health potion", minCount = 0, maxCount = 6, chance = 35000 },

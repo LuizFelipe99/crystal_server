@@ -76,6 +76,7 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ id = 60057, chance = 30000 },
 	{ id = 3039, chance = 16670 }, -- red gem
 	{ name = "blue gem", chance = 2630 },
 	{ name = "book backpack", chance = 880 },
