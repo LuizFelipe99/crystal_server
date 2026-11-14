@@ -275,96 +275,7 @@ local function initializeBoss()
 	startTeleportCycle()
 end
 
-mType.onThink = function(monster, interval)
-	if not bossInitialized then
-		initializeBoss()
-		bossInitialized = true
-	end
-
-	if not RottenBloodMechanics.areMechanicsDisabled("Chagorz") then
-		accumulatedTime = accumulatedTime + interval
-		checkTime = checkTime + interval
-		ensureSummons(monster)
-	end
-
-	if accumulatedTime >= summonInterval then
-		-- heavy abuse of AI deleted the content here
-	end
-
-	if checkTime >= checkInterval then
-		checkTime = 0
-		local spectators = Game.getSpectators(monster:getPosition(), false, true, 16, 16, 16, 16)
-
-		for _, player in ipairs(spectators) do
-			if player:isPlayer() then
-				local cid = player:getId()
-				local currentPos = player:getPosition()
-				local tile = Tile(currentPos)
-				local tileItem = tile and tile:getItemByType(ITEM_TYPE_MAGICFIELD)
-				local damage = 0
-
-				if not playerTracking[cid] then
-					playerTracking[cid] = {
-						lastPos = { x = currentPos.x, y = currentPos.y, z = currentPos.z },
-						iconCount = 0,
-					}
-					if player.setIcon then
-						player:setIcon("agony-stacks", CreatureIconCategory_Quests, CreatureIconQuests_RedCross, 0)
-					end
-				end
-
-				local data = playerTracking[cid]
-				local samePosition = (currentPos.x == data.lastPos.x and currentPos.y == data.lastPos.y and currentPos.z == data.lastPos.z)
-
-				if samePosition then
-					if data.iconCount <= 20 then
-						data.iconCount = math.max(data.iconCount + 1, 0)
-					elseif data.iconCount > 21 then
-						data.iconCount = 21
-					end
-
-					if data.iconCount > 0 and data.iconCount < 15 then
-						damage = damage + math.floor(player:getMaxHealth() * 0.03)
-						if player.setIcon then
-							player:setIcon("agony-stacks", CreatureIconCategory_Quests, CreatureIconQuests_RedCross, data.iconCount)
-						end
-					elseif data.iconCount >= 15 and data.iconCount < 20 then
-						damage = damage + math.floor(player:getMaxHealth() * 0.07)
-						if player.setIcon then
-							player:setIcon("agony-stacks", CreatureIconCategory_Quests, CreatureIconQuests_RedCross, data.iconCount)
-						end
-					elseif data.iconCount >= 20 then
-						damage = damage + math.floor(player:getMaxHealth() * 0.15)
-						if player.setIcon then
-							player:setIcon("agony-stacks", CreatureIconCategory_Quests, CreatureIconQuests_RedCross, data.iconCount)
-						end
-					else
-					end
-				else
-					if data.iconCount > 0 then
-						data.iconCount = data.iconCount - 1
-					else
-						data.iconCount = data.iconCount
-					end
-					if player.setIcon then
-						player:setIcon("agony-stacks", CreatureIconCategory_Quests, CreatureIconQuests_RedCross, data.iconCount)
-					end
-				end
-				data.lastPos.x = currentPos.x
-				data.lastPos.y = currentPos.y
-				data.lastPos.z = currentPos.z
-
-				if tileItem then
-					-- heavy abuse of AI deleted the content here
-				end
-
-				if damage > 0 then
-					doTargetCombatHealth(monster, player, COMBAT_AGONYDAMAGE, -damage, -damage, CONST_ME_AGONY)
-				end
-			end
-		end
-	end
-end
+mType.onThink = function(monster, interval) end
 
 mType.onAppear = function(monster, creature)
 	if monster:getType():isRewardBoss() then
@@ -374,48 +285,7 @@ end
 
 mType.onDisappear = function(monster, creature) end
 
-mType.onMove = function(_, creature, fromPos, toPos)
-	if not creature or not creature:isPlayer() or creature:isInGhostMode() then
-		return
-	end
-
-	local tile = Tile(toPos)
-	if not tile then
-		return
-	end
-
-	local item = tile:getTopDownItem()
-	local itemId = item and item:getId() or 0
-
-	if itemId == 43589 or itemId == 43590 or itemId == 43625 then
-		return
-	end
-
-	local newItem = Game.createItem(43589, 1, toPos)
-	if newItem then
-		addEvent(function()
-			local tile = Tile(toPos)
-			local decayItem = tile and tile:getItemById(43589)
-			if decayItem then
-				decayItem:transform(43590)
-
-				addEvent(function()
-					local updatedItem = tile and tile:getItemById(43590)
-					if updatedItem then
-						updatedItem:transform(43625)
-
-						addEvent(function()
-							local finalItem = tile and tile:getItemById(43625)
-							if finalItem then
-								finalItem:remove()
-							end
-						end, 3000)
-					end
-				end, 3000)
-			end
-		end, 1000)
-	end
-end
+mType.onMove = function(_, creature, fromPos, toPos) end
 
 mType.onSay = function(monster, creature, type, message) end
 
