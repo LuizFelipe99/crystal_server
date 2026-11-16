@@ -11,12 +11,12 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-	lookType = 128,
-	lookHead = 114,
-	lookBody = 94,
-	lookLegs = 114,
-	lookFeet = 114,
-	lookAddons = 3,
+	lookType = 2101,
+	lookHead = 0,
+	lookBody = 0,
+	lookLegs = 0,
+	lookFeet = 0,
+	lookAddons = 0,
 }
 
 npcConfig.flags = {
@@ -28,7 +28,7 @@ local TOPIC_AWAITING_DELIVERY = 1
 
 local craftUnlockRequirements = {
 	{ itemId = 5878, name = "minotaur leather", amount = 20 },
-	{ itemId = 5880, name = "iron ore", amount = 30 },
+	{ itemId = 5880, name = "iron ore", amount = 10 },
 	{ itemId = 60057, name = "boss token", amount = 5 },
 }
 
