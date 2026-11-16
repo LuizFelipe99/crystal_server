@@ -1,6 +1,7 @@
 return {
     {
         resultName = "Spiritthorn Helmet",
+        requiresAdvancedUnlock = true,
         resultClientId = 39148,
         resultAmount = 1,
         resultDescription = "",
@@ -27,6 +28,7 @@ return {
     },
     {
         resultName = "Spiritthorn Armor",
+        requiresAdvancedUnlock = true,
         resultClientId = 39147,
         resultAmount = 1,
         resultDescription = "",
@@ -79,6 +81,7 @@ return {
     },
     {
         resultName = "Pair of Soulwalkers",
+        requiresAdvancedUnlock = true,
         resultClientId = 34097,
         resultAmount = 1,
         resultDescription = "",
@@ -107,6 +110,7 @@ return {
     },
     {
         resultName = "Soulcutter",
+        requiresAdvancedUnlock = true,
         resultClientId = 34082,
         resultAmount = 1,
         resultDescription = "",
@@ -121,6 +125,7 @@ return {
     },
     {
         resultName = "Soulshredder",
+        requiresAdvancedUnlock = true,
         resultClientId = 34083,
         resultAmount = 1,
         resultDescription = "",
@@ -149,6 +154,7 @@ return {
     },
     {
         resultName = "Soulbiter",
+        requiresAdvancedUnlock = true,
         resultClientId = 34084,
         resultAmount = 1,
         resultDescription = "",
@@ -163,6 +169,7 @@ return {
     },
     {
         resultName = "Souleater",
+        requiresAdvancedUnlock = true,
         resultClientId = 34085,
         resultAmount = 1,
         resultDescription = "",
@@ -191,6 +198,7 @@ return {
     },
     {
         resultName = "Soulcrusher",
+        requiresAdvancedUnlock = true,
         resultClientId = 34086,
         resultAmount = 1,
         resultDescription = "",
@@ -205,6 +213,7 @@ return {
     },
     {
         resultName = "Soulmaimer",
+        requiresAdvancedUnlock = true,
         resultClientId = 34087,
         resultAmount = 1,
         resultDescription = "",
@@ -312,6 +321,7 @@ return {
     },
     {
         resultName = "Alicorn Headguard",
+        requiresAdvancedUnlock = true,
         resultClientId = 39149,
         resultAmount = 1,
         resultDescription = "",
@@ -326,6 +336,7 @@ return {
     },
     {
         resultName = "Alicorn Quiver",
+        requiresAdvancedUnlock = true,
         resultClientId = 39150,
         resultAmount = 1,
         resultDescription = "",
@@ -339,6 +350,7 @@ return {
     },
     {
         resultName = "Soulshell",
+        requiresAdvancedUnlock = true,
         resultClientId = 34094,
         resultAmount = 1,
         resultDescription = "",
@@ -376,6 +388,7 @@ return {
     },
     {
         resultName = "Pair of Soulstalkers",
+        requiresAdvancedUnlock = true,
         resultClientId = 34098,
         resultAmount = 1,
         resultDescription = "",
@@ -402,6 +415,7 @@ return {
     },
     {
         resultName = "Soulpiercer",
+        requiresAdvancedUnlock = true,
         resultClientId = 34089,
         resultAmount = 1,
         resultDescription = "",
@@ -416,6 +430,7 @@ return {
     },
     {
         resultName = "Soulbleeder",
+        requiresAdvancedUnlock = true,
         resultClientId = 34088,
         resultAmount = 1,
         resultDescription = "",
@@ -470,6 +485,7 @@ return {
     },
     {
         resultName = "Arboreal Crown",
+        requiresAdvancedUnlock = true,
         resultClientId = 39153,
         resultAmount = 1,
         resultDescription = "",
@@ -499,6 +515,7 @@ return {
     },
     {
         resultName = "Arboreal Tome",
+        requiresAdvancedUnlock = true,
         resultClientId = 39154,
         resultAmount = 1,
         resultDescription = "",
@@ -525,6 +542,7 @@ return {
     },
     {
         resultName = "Soulshroud",
+        requiresAdvancedUnlock = true,
         resultClientId = 34096,
         resultAmount = 1,
         resultDescription = "",
@@ -553,6 +571,7 @@ return {
     },
     {
         resultName = "Soulstrider",
+        requiresAdvancedUnlock = true,
         resultClientId = 34093,
         resultAmount = 1,
         resultDescription = "",
@@ -581,6 +600,7 @@ return {
     },
     {
         resultName = "Soulhexer",
+        requiresAdvancedUnlock = true,
         resultClientId = 34091,
         resultAmount = 1,
         resultDescription = "",
@@ -621,6 +641,7 @@ return {
     },
     {
         resultName = "Arcanomancer Regalia",
+        requiresAdvancedUnlock = true,
         resultClientId = 39151,
         resultAmount = 1,
         resultDescription = "",
@@ -635,6 +656,7 @@ return {
     },
     {
         resultName = "Arcanomancer Folio",
+        requiresAdvancedUnlock = true,
         resultClientId = 39152,
         resultAmount = 1,
         resultDescription = "",
@@ -662,6 +684,7 @@ return {
     },
     {
         resultName = "Soulmantle",
+        requiresAdvancedUnlock = true,
         resultClientId = 34095,
         resultAmount = 1,
         resultDescription = "",
@@ -676,6 +699,7 @@ return {
     },
     {
         resultName = "Soulshanks",
+        requiresAdvancedUnlock = true,
         resultClientId = 34092,
         resultAmount = 1,
         resultDescription = "",
@@ -704,6 +728,7 @@ return {
     },
     {
         resultName = "Soultainter",
+        requiresAdvancedUnlock = true,
         resultClientId = 34090,
         resultAmount = 1,
         resultDescription = "",
@@ -756,6 +781,7 @@ return {
     },
     {
         resultName = "Soulgarb",
+        requiresAdvancedUnlock = true,
         resultClientId = 50254,
         resultAmount = 1,
         resultDescription = "",
@@ -795,6 +821,7 @@ return {
     },
     {
         resultName = "Soulsoles",
+        requiresAdvancedUnlock = true,
         resultClientId = 50240,
         resultAmount = 1,
         resultDescription = "",
@@ -821,6 +848,7 @@ return {
     },
     {
         resultName = "Soulkamas",
+        requiresAdvancedUnlock = true,
         resultClientId = 50159,
         resultAmount = 1,
         resultDescription = "",
@@ -912,6 +940,7 @@ return {
     },
     {
         resultName = "Health Gem Lv. 5",
+        requiresAdvancedUnlock = true,
         resultClientId = 62025,
         resultAmount = 1,
         resultDescription = "Grants +1429 health when socketed.",
@@ -924,6 +953,7 @@ return {
     },
     {
         resultName = "Health Gem Lv. 6",
+        requiresAdvancedUnlock = true,
         resultClientId = 62031,
         resultAmount = 1,
         resultDescription = "Grants +1857 health when socketed.",
@@ -936,6 +966,7 @@ return {
     },
     {
         resultName = "Health Gem Lv. 7",
+        requiresAdvancedUnlock = true,
         resultClientId = 62037,
         resultAmount = 1,
         resultDescription = "Grants +2414 health when socketed.",
@@ -948,6 +979,7 @@ return {
     },
     {
         resultName = "Health Gem Lv. 8",
+        requiresAdvancedUnlock = true,
         resultClientId = 62043,
         resultAmount = 1,
         resultDescription = "Grants +3138 health when socketed.",
@@ -960,6 +992,7 @@ return {
     },
     {
         resultName = "Health Gem Lv. 9",
+        requiresAdvancedUnlock = true,
         resultClientId = 62049,
         resultAmount = 1,
         resultDescription = "Grants +4079 health when socketed.",
@@ -1023,6 +1056,7 @@ return {
     },
     {
         resultName = "Mana Gem Lv. 5",
+        requiresAdvancedUnlock = true,
         resultClientId = 62029,
         resultAmount = 1,
         resultDescription = "Grants +1429 mana when socketed.",
@@ -1035,6 +1069,7 @@ return {
     },
     {
         resultName = "Mana Gem Lv. 6",
+        requiresAdvancedUnlock = true,
         resultClientId = 62035,
         resultAmount = 1,
         resultDescription = "Grants +1857 mana when socketed.",
@@ -1047,6 +1082,7 @@ return {
     },
     {
         resultName = "Mana Gem Lv. 7",
+        requiresAdvancedUnlock = true,
         resultClientId = 62041,
         resultAmount = 1,
         resultDescription = "Grants +2414 mana when socketed.",
@@ -1059,6 +1095,7 @@ return {
     },
     {
         resultName = "Mana Gem Lv. 8",
+        requiresAdvancedUnlock = true,
         resultClientId = 62047,
         resultAmount = 1,
         resultDescription = "Grants +3138 mana when socketed.",
@@ -1071,6 +1108,7 @@ return {
     },
     {
         resultName = "Mana Gem Lv. 9",
+        requiresAdvancedUnlock = true,
         resultClientId = 62053,
         resultAmount = 1,
         resultDescription = "Grants +4079 mana when socketed.",
@@ -1134,6 +1172,7 @@ return {
     },
     {
         resultName = "Critical Chance Gem Lv. 5",
+        requiresAdvancedUnlock = true,
         resultClientId = 62027,
         resultAmount = 1,
         resultDescription = "Grants +5% critical hit chance when socketed.",
@@ -1146,6 +1185,7 @@ return {
     },
     {
         resultName = "Critical Chance Gem Lv. 6",
+        requiresAdvancedUnlock = true,
         resultClientId = 62033,
         resultAmount = 1,
         resultDescription = "Grants +6% critical hit chance when socketed.",
@@ -1158,6 +1198,7 @@ return {
     },
     {
         resultName = "Critical Chance Gem Lv. 7",
+        requiresAdvancedUnlock = true,
         resultClientId = 62039,
         resultAmount = 1,
         resultDescription = "Grants +7% critical hit chance when socketed.",
@@ -1170,6 +1211,7 @@ return {
     },
     {
         resultName = "Critical Chance Gem Lv. 8",
+        requiresAdvancedUnlock = true,
         resultClientId = 62045,
         resultAmount = 1,
         resultDescription = "Grants +8% critical hit chance when socketed.",
@@ -1182,6 +1224,7 @@ return {
     },
     {
         resultName = "Critical Chance Gem Lv. 9",
+        requiresAdvancedUnlock = true,
         resultClientId = 62051,
         resultAmount = 1,
         resultDescription = "Grants +10% critical hit chance when socketed.",
@@ -1246,6 +1289,7 @@ return {
     },
     {
         resultName = "Attack Speed Gem Lv. 5",
+        requiresAdvancedUnlock = true,
         resultClientId = 62026,
         resultAmount = 1,
         resultDescription = "Grants +7.2% attack speed when socketed.",
@@ -1258,6 +1302,7 @@ return {
     },
     {
         resultName = "Attack Speed Gem Lv. 6",
+        requiresAdvancedUnlock = true,
         resultClientId = 62032,
         resultAmount = 1,
         resultDescription = "Grants +8.4% attack speed when socketed.",
@@ -1270,6 +1315,7 @@ return {
     },
     {
         resultName = "Attack Speed Gem Lv. 7",
+        requiresAdvancedUnlock = true,
         resultClientId = 62038,
         resultAmount = 1,
         resultDescription = "Grants +9.6% attack speed when socketed.",
@@ -1282,6 +1328,7 @@ return {
     },
     {
         resultName = "Attack Speed Gem Lv. 8",
+        requiresAdvancedUnlock = true,
         resultClientId = 62044,
         resultAmount = 1,
         resultDescription = "Grants +10.8% attack speed when socketed.",
@@ -1294,6 +1341,7 @@ return {
     },
     {
         resultName = "Attack Speed Gem Lv. 9",
+        requiresAdvancedUnlock = true,
         resultClientId = 62050,
         resultAmount = 1,
         resultDescription = "Grants +15% attack speed when socketed.",
@@ -1358,6 +1406,7 @@ return {
     },
     {
         resultName = "Critical Damage Gem Lv. 5",
+        requiresAdvancedUnlock = true,
         resultClientId = 62067,
         resultAmount = 1,
         resultDescription = "Grants +17% critical hit damage when socketed.",
@@ -1370,6 +1419,7 @@ return {
     },
     {
         resultName = "Critical Damage Gem Lv. 6",
+        requiresAdvancedUnlock = true,
         resultClientId = 62068,
         resultAmount = 1,
         resultDescription = "Grants +20% critical hit damage when socketed.",
@@ -1382,6 +1432,7 @@ return {
     },
     {
         resultName = "Critical Damage Gem Lv. 7",
+        requiresAdvancedUnlock = true,
         resultClientId = 62069,
         resultAmount = 1,
         resultDescription = "Grants +22% critical hit damage when socketed.",
@@ -1394,6 +1445,7 @@ return {
     },
     {
         resultName = "Critical Damage Gem Lv. 8",
+        requiresAdvancedUnlock = true,
         resultClientId = 62070,
         resultAmount = 1,
         resultDescription = "Grants +24% critical hit damage when socketed.",
@@ -1406,6 +1458,7 @@ return {
     },
     {
         resultName = "Critical Damage Gem Lv. 9",
+        requiresAdvancedUnlock = true,
         resultClientId = 62071,
         resultAmount = 1,
         resultDescription = "Grants +30% critical hit damage when socketed.",
@@ -1466,6 +1519,7 @@ return {
     },
     {
         resultName = "Transcendence Gem Lv. 5",
+        requiresAdvancedUnlock = true,
         resultClientId = 64490,
         resultAmount = 1,
         resultDescription = "Grants +1.3% transcendence chance when socketed.",
@@ -1478,6 +1532,7 @@ return {
     },
     {
         resultName = "Transcendence Gem Lv. 6",
+        requiresAdvancedUnlock = true,
         resultClientId = 64491,
         resultAmount = 1,
         resultDescription = "Grants +1.6% transcendence chance when socketed.",
@@ -1490,6 +1545,7 @@ return {
     },
     {
         resultName = "Transcendence Gem Lv. 7",
+        requiresAdvancedUnlock = true,
         resultClientId = 64492,
         resultAmount = 1,
         resultDescription = "Grants +2.0% transcendence chance when socketed.",
@@ -1502,6 +1558,7 @@ return {
     },
     {
         resultName = "Transcendence Gem Lv. 8",
+        requiresAdvancedUnlock = true,
         resultClientId = 64493,
         resultAmount = 1,
         resultDescription = "Grants +2.5% transcendence chance when socketed.",
@@ -1514,6 +1571,7 @@ return {
     },
     {
         resultName = "Transcendence Gem Lv. 9",
+        requiresAdvancedUnlock = true,
         resultClientId = 64494,
         resultAmount = 1,
         resultDescription = "Grants +3.0% transcendence chance when socketed.",
@@ -1574,6 +1632,7 @@ return {
     },
     {
         resultName = "Dodge Gem Lv. 5",
+        requiresAdvancedUnlock = true,
         resultClientId = 64499,
         resultAmount = 1,
         resultDescription = "Grants +1.3% dodge chance when socketed.",
@@ -1586,6 +1645,7 @@ return {
     },
     {
         resultName = "Dodge Gem Lv. 6",
+        requiresAdvancedUnlock = true,
         resultClientId = 64500,
         resultAmount = 1,
         resultDescription = "Grants +1.6% dodge chance when socketed.",
@@ -1598,6 +1658,7 @@ return {
     },
     {
         resultName = "Dodge Gem Lv. 7",
+        requiresAdvancedUnlock = true,
         resultClientId = 64501,
         resultAmount = 1,
         resultDescription = "Grants +2.0% dodge chance when socketed.",
@@ -1610,6 +1671,7 @@ return {
     },
     {
         resultName = "Dodge Gem Lv. 8",
+        requiresAdvancedUnlock = true,
         resultClientId = 64502,
         resultAmount = 1,
         resultDescription = "Grants +2.5% dodge chance when socketed.",
@@ -1622,6 +1684,7 @@ return {
     },
     {
         resultName = "Dodge Gem Lv. 9",
+        requiresAdvancedUnlock = true,
         resultClientId = 64503,
         resultAmount = 1,
         resultDescription = "Grants +3.0% dodge chance when socketed.",
@@ -1682,6 +1745,7 @@ return {
     },
     {
         resultName = "Onslaught Gem Lv. 5",
+        requiresAdvancedUnlock = true,
         resultClientId = 64508,
         resultAmount = 1,
         resultDescription = "Grants +1.3% onslaught chance when socketed.",
@@ -1694,6 +1758,7 @@ return {
     },
     {
         resultName = "Onslaught Gem Lv. 6",
+        requiresAdvancedUnlock = true,
         resultClientId = 64509,
         resultAmount = 1,
         resultDescription = "Grants +1.6% onslaught chance when socketed.",
@@ -1706,6 +1771,7 @@ return {
     },
     {
         resultName = "Onslaught Gem Lv. 7",
+        requiresAdvancedUnlock = true,
         resultClientId = 64510,
         resultAmount = 1,
         resultDescription = "Grants +2.0% onslaught chance when socketed.",
@@ -1718,6 +1784,7 @@ return {
     },
     {
         resultName = "Onslaught Gem Lv. 8",
+        requiresAdvancedUnlock = true,
         resultClientId = 64511,
         resultAmount = 1,
         resultDescription = "Grants +2.5% onslaught chance when socketed.",
@@ -1730,6 +1797,7 @@ return {
     },
     {
         resultName = "Onslaught Gem Lv. 9",
+        requiresAdvancedUnlock = true,
         resultClientId = 64512,
         resultAmount = 1,
         resultDescription = "Grants +3.0% onslaught chance when socketed.",

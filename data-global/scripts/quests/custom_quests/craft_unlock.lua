@@ -1,19 +1,45 @@
-local CRAFT_UNLOCK_STORAGE = 91003
-local CHEST_UID = 30109
+local EASY_CRAFT_CHEST_UID = 30115
+local HARD_CRAFT_CHEST_UID = 30109
+
+local craftUnlockChests = {
+	[EASY_CRAFT_CHEST_UID] = {
+		grantedStorages = { CRAFT_UNLOCK_STORAGE },
+		unlockMessage = "You have unlocked access to the Craft Bench!",
+	},
+	[HARD_CRAFT_CHEST_UID] = {
+		grantedStorages = { CRAFT_UNLOCK_STORAGE, CRAFT_ADVANCED_UNLOCK_STORAGE },
+		unlockMessage = "You have unlocked the advanced Craft Bench recipes!",
+	},
+}
+
+local function hasClaimedChest(player, chestConfig)
+	local decisiveStorage = chestConfig.grantedStorages[#chestConfig.grantedStorages]
+	return player:getStorageValue(decisiveStorage) ~= -1
+end
 
 local craftUnlockQuest = Action()
 
 function craftUnlockQuest.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-    if player:getStorageValue(CRAFT_UNLOCK_STORAGE) ~= -1 then
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have already claimed this reward.")
-        return true
-    end
+	local chestConfig = craftUnlockChests[item:getUniqueId()]
+	if not chestConfig then
+		return false
+	end
 
-    player:setStorageValue(CRAFT_UNLOCK_STORAGE, 1)
-    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have unlocked access to the Craft Bench!")
-    toPosition:sendMagicEffect(CONST_ME_MAGIC_BLUE)
-    return true
+	if hasClaimedChest(player, chestConfig) then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have already claimed this reward.")
+		return true
+	end
+
+	for _, storage in ipairs(chestConfig.grantedStorages) do
+		player:setStorageValue(storage, 1)
+	end
+
+	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, chestConfig.unlockMessage)
+	toPosition:sendMagicEffect(CONST_ME_MAGIC_BLUE)
+	return true
 end
 
-craftUnlockQuest:uid(CHEST_UID)
+for chestUid in pairs(craftUnlockChests) do
+	craftUnlockQuest:uid(chestUid)
+end
 craftUnlockQuest:register()

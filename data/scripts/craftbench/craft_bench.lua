@@ -1,8 +1,8 @@
 local json = dofile("data/libs/dkjson.lua")
 
 local CRAFTBENCH_OPCODE = 13
-local CRAFT_UNLOCK_STORAGE = 91003
 local LOCKED_MESSAGE = "You need to complete the quest to access the Craft Bench."
+local ADVANCED_LOCKED_MESSAGE = "This recipe requires the hard crafting quest. Complete it to unlock advanced recipes."
 local requestThrottle = RequestThrottle.new(300)
 local PARTIAL_LOSS_CATEGORY = "atribute_gem"
 local PARTIAL_LOSS_MINIMUM = 0
@@ -108,6 +108,14 @@ end
 
 local function playerHasUnlocked(player, tabConfig)
     return player:getStorageValue(tabConfig.unlockStorage) ~= -1
+end
+
+local function isRecipeLockedForPlayer(player, recipe)
+    if not recipe.requiresAdvancedUnlock then
+        return false
+    end
+
+    return player:getStorageValue(CRAFT_ADVANCED_UNLOCK_STORAGE) == -1
 end
 
 local function findRecipeByIndex(tabConfig, index)
@@ -225,6 +233,7 @@ local function buildRecipeList(recipes, tabConfig, player)
         local requiredItems = getItemList(recipe, tabConfig.consumesKey)
         local hasRequiredItems = playerHasItems(player, requiredItems)
         local hasEnoughGoldForRecipe = totalGold >= (recipe.goldCost or 0)
+        local isLocked = isRecipeLockedForPlayer(player, recipe)
 
         result[#result + 1] = {
             index             = i,
@@ -238,7 +247,8 @@ local function buildRecipeList(recipes, tabConfig, player)
             successChance     = recipe.successChance or 100,
             hasRequiredItems  = hasRequiredItems,
             hasEnoughGold     = hasEnoughGoldForRecipe,
-            canExecute        = hasRequiredItems and hasEnoughGoldForRecipe,
+            canExecute        = hasRequiredItems and hasEnoughGoldForRecipe and not isLocked,
+            locked            = isLocked or nil,
             resultOwned       = (not consumesIngredients) and player:getItemCount(recipe.resultClientId) or nil,
             ingredients       = ingredientList
         }
@@ -298,6 +308,12 @@ local function handleExecute(player, tabName, recipeIndex)
     local recipe = findRecipeByIndex(tabConfig, recipeIndex)
 
     if not recipe then
+        return
+    end
+
+    if isRecipeLockedForPlayer(player, recipe) then
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, ADVANCED_LOCKED_MESSAGE)
+        sendExecutionResult(player, tabName, tabConfig, false, ADVANCED_LOCKED_MESSAGE)
         return
     end
 
