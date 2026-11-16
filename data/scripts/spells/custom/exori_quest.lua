@@ -1,3 +1,7 @@
+if not CUSTOM_LEVEL_600_SPELLS_RELEASED then
+	return
+end
+
 local SPELL_UNLOCK_STORAGE = 91004
 
 local combat = Combat()
@@ -38,7 +42,7 @@ spell:id(298)
 spell:name("Max Berserk")
 spell:words("max exori")
 spell:castSound(SOUND_EFFECT_TYPE_SPELL_BERSERK)
-spell:level(35)
+spell:level(600)
 spell:mana(175)
 spell:isPremium(true)
 spell:needWeapon(true)

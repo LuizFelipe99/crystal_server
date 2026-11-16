@@ -1,3 +1,7 @@
+if not CUSTOM_LEVEL_600_SPELLS_RELEASED then
+	return
+end
+
 local SPELL_UNLOCK_STORAGE = 91004
 
 local combat = Combat()
