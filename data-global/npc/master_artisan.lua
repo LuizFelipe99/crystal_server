@@ -119,6 +119,7 @@ local function receiveDelivery(npc, creature, player)
 	player:setStorageValue(CRAFT_UNLOCK_STORAGE, 1)
 	player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have unlocked access to the Craft Bench!")
+	player:sendQuestProgress("Craft Bench", true)
 	npcHandler:say("Well done. The Craft Bench is now open to you. Return stronger and seek the {hard} trial to unlock the advanced recipes.", npc, creature)
 end
 

@@ -4,6 +4,7 @@ local craftUnlockChests = {
 	[HARD_CRAFT_CHEST_UID] = {
 		grantedStorages = { CRAFT_UNLOCK_STORAGE, CRAFT_ADVANCED_UNLOCK_STORAGE },
 		unlockMessage = "You have unlocked the advanced Craft Bench recipes!",
+		bannerQuestName = "Advanced Crafting",
 	},
 }
 
@@ -30,6 +31,7 @@ function craftUnlockQuest.onUse(player, item, fromPosition, target, toPosition, 
 	end
 
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, chestConfig.unlockMessage)
+	player:sendQuestProgress(chestConfig.bannerQuestName, true)
 	toPosition:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 	return true
 end
