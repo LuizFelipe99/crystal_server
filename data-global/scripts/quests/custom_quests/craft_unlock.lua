@@ -1,11 +1,6 @@
-local EASY_CRAFT_CHEST_UID = 30115
 local HARD_CRAFT_CHEST_UID = 30109
 
 local craftUnlockChests = {
-	[EASY_CRAFT_CHEST_UID] = {
-		grantedStorages = { CRAFT_UNLOCK_STORAGE },
-		unlockMessage = "You have unlocked access to the Craft Bench!",
-	},
 	[HARD_CRAFT_CHEST_UID] = {
 		grantedStorages = { CRAFT_UNLOCK_STORAGE, CRAFT_ADVANCED_UNLOCK_STORAGE },
 		unlockMessage = "You have unlocked the advanced Craft Bench recipes!",
