@@ -51152,61 +51152,61 @@
 		<monster name="Toad" x="1" y="2" z="7" spawntime="90" />
 	</monster>
 	<monster centerx="31613" centery="33223" centerz="7" radius="1">
-		<monster name="Orc Warrior" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Orc Warrior" x="0" y="0" z="7" spawntime="60" direction="1" />
 	</monster>
 	<monster centerx="31619" centery="33223" centerz="7" radius="1">
-		<monster name="Werehyaena" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Werehyaena" x="0" y="0" z="7" spawntime="60" direction="3" />
 	</monster>
 	<monster centerx="31613" centery="33226" centerz="7" radius="1">
-		<monster name="Stonerefiner" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Stonerefiner" x="0" y="0" z="7" spawntime="60" direction="1" />
 	</monster>
 	<monster centerx="31619" centery="33226" centerz="7" radius="1">
-		<monster name="Glooth Bandit" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Glooth Bandit" x="0" y="0" z="7" spawntime="60" direction="3" />
 	</monster>
 	<monster centerx="31613" centery="33229" centerz="7" radius="1">
-		<monster name="Hydra" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Hydra" x="0" y="0" z="7" spawntime="60" direction="1" />
 	</monster>
 	<monster centerx="31619" centery="33229" centerz="7" radius="1">
-		<monster name="Demon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Demon" x="0" y="0" z="7" spawntime="60" direction="3" />
 	</monster>
 	<monster centerx="31613" centery="33232" centerz="7" radius="1">
-		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" direction="1" />
 	</monster>
 	<monster centerx="31619" centery="33232" centerz="7" radius="1">
-		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" direction="3" />
 	</monster>
 	<monster centerx="31613" centery="33235" centerz="7" radius="1">
-		<monster name="Skeleton Warrior" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Skeleton Warrior" x="0" y="0" z="7" spawntime="60" direction="1" />
 	</monster>
 	<monster centerx="31619" centery="33235" centerz="7" radius="1">
-		<monster name="Nightmare" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Nightmare" x="0" y="0" z="7" spawntime="60" direction="3" />
 	</monster>
 	<monster centerx="31613" centery="33238" centerz="7" radius="1">
-		<monster name="Ghoul" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Ghoul" x="0" y="0" z="7" spawntime="60" direction="1" />
 	</monster>
 	<monster centerx="31619" centery="33238" centerz="7" radius="1">
-		<monster name="Rotworm" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Rotworm" x="0" y="0" z="7" spawntime="60" direction="3" />
 	</monster>
 	<monster centerx="31598" centery="33244" centerz="7" radius="1">
-		<monster name="Nomad" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Nomad" x="0" y="0" z="7" spawntime="60" direction="2" />
 	</monster>
 	<monster centerx="31601" centery="33244" centerz="7" radius="1">
-		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" direction="2" />
 	</monster>
 	<monster centerx="31604" centery="33244" centerz="7" radius="1">
-		<monster name="Frost Dragon" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Frost Dragon" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</monster>
+	<monster centerx="31607" centery="33244" centerz="7" radius="1">
+		<monster name="Spiky Carnivor" x="0" y="0" z="7" spawntime="60" direction="2" />
 	</monster>
 	<monster centerx="31625" centery="33244" centerz="7" radius="1">
-		<monster name="Minotaur" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Minotaur" x="0" y="0" z="7" spawntime="60" direction="2" />
 	</monster>
 	<monster centerx="31628" centery="33244" centerz="7" radius="1">
-		<monster name="Elf" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Elf" x="0" y="0" z="7" spawntime="60" direction="2" />
 	</monster>
 	<monster centerx="31631" centery="33244" centerz="7" radius="1">
-		<monster name="Frazzlemaw" x="0" y="0" z="7" spawntime="60" />
-	</monster>
-	<monster centerx="31634" centery="33244" centerz="7" radius="1">
-		<monster name="Spiky Carnivor" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Frazzlemaw" x="0" y="0" z="7" spawntime="60" direction="2" />
 	</monster>
 	<monster centerx="31598" centery="33250" centerz="7" radius="1">
 		<monster name="Wyrm" x="0" y="0" z="7" spawntime="60" />
@@ -51339,10 +51339,10 @@
 		<monster name="Crypt Fiend" x="0" y="0" z="7" spawntime="60" direction="3" />
 	</monster>
 	<monster centerx="31678" centery="33308" centerz="7" radius="1">
-		<monster name="Diremaw" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Diremaw" x="0" y="0" z="7" spawntime="60" direction="1" />
 	</monster>
 	<monster centerx="31684" centery="33308" centerz="7" radius="1">
-		<monster name="Sphinx" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Sphinx" x="0" y="0" z="7" spawntime="60" direction="3" />
 	</monster>
 	<monster centerx="31604" centery="33311" centerz="7" radius="1">
 		<monster name="Juvenile Bashmu" x="0" y="0" z="7" spawntime="60" direction="1" />
@@ -51351,10 +51351,10 @@
 		<monster name="Young Goanna" x="0" y="0" z="7" spawntime="60" direction="3" />
 	</monster>
 	<monster centerx="31678" centery="33311" centerz="7" radius="1">
-		<monster name="Dark Torturer" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Dark Torturer" x="0" y="0" z="7" spawntime="60" direction="1" />
 	</monster>
 	<monster centerx="31684" centery="33311" centerz="7" radius="1">
-		<monster name="Weretiger" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Weretiger" x="0" y="0" z="7" spawntime="60" direction="3" />
 	</monster>
 	<monster centerx="31604" centery="33314" centerz="7" radius="1">
 		<monster name="candy floss elemental" x="0" y="0" z="7" spawntime="60" direction="1" />
@@ -51363,10 +51363,10 @@
 		<monster name="Hulking Carnisylvan" x="0" y="0" z="7" spawntime="60" direction="3" />
 	</monster>
 	<monster centerx="31678" centery="33314" centerz="7" radius="1">
-		<monster name="Juggernaut" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Juggernaut" x="0" y="0" z="7" spawntime="60" direction="1" />
 	</monster>
 	<monster centerx="31684" centery="33314" centerz="7" radius="1">
-		<monster name="Vexclaw" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Vexclaw" x="0" y="0" z="7" spawntime="60" direction="3" />
 	</monster>
 	<monster centerx="31604" centery="33317" centerz="7" radius="1">
 		<monster name="Mega Dragon" x="0" y="0" z="7" spawntime="60" direction="1" />
@@ -51375,10 +51375,10 @@
 		<monster name="Iks Chuka" x="0" y="0" z="7" spawntime="60" direction="3" />
 	</monster>
 	<monster centerx="31678" centery="33317" centerz="7" radius="1">
-		<monster name="True Dawnfire Asura" x="0" y="0" z="7" spawntime="60" />
+		<monster name="True Dawnfire Asura" x="0" y="0" z="7" spawntime="60" direction="1" />
 	</monster>
 	<monster centerx="31684" centery="33317" centerz="7" radius="1">
-		<monster name="Naga Warrior" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Naga Warrior" x="0" y="0" z="7" spawntime="60" direction="3" />
 	</monster>
 	<monster centerx="31589" centery="33323" centerz="7" radius="1">
 		<monster name="Bony Sea Devil" x="0" y="0" z="7" spawntime="60" direction="2" />
@@ -51405,28 +51405,28 @@
 		<monster name="Blemished Spawn" x="0" y="0" z="7" spawntime="60" direction="2" />
 	</monster>
 	<monster centerx="31663" centery="33323" centerz="7" radius="1">
-		<monster name="Lion Knight" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Lion Knight" x="0" y="0" z="7" spawntime="60" direction="2" />
 	</monster>
 	<monster centerx="31666" centery="33323" centerz="7" radius="1">
-		<monster name="Cobra Scout" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Cobra Scout" x="0" y="0" z="7" spawntime="60" direction="2" />
 	</monster>
 	<monster centerx="31669" centery="33323" centerz="7" radius="1">
-		<monster name="Falcon Knight" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Falcon Knight" x="0" y="0" z="7" spawntime="60" direction="2" />
 	</monster>
 	<monster centerx="31672" centery="33323" centerz="7" radius="1">
-		<monster name="Dawnfire Asura" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Dawnfire Asura" x="0" y="0" z="7" spawntime="60" direction="2" />
 	</monster>
 	<monster centerx="31690" centery="33323" centerz="7" radius="1">
-		<monster name="Girtablilu Warrior" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Girtablilu Warrior" x="0" y="0" z="7" spawntime="60" direction="2" />
 	</monster>
 	<monster centerx="31693" centery="33323" centerz="7" radius="1">
-		<monster name="Crazed Winter Rearguard" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Crazed Winter Rearguard" x="0" y="0" z="7" spawntime="60" direction="2" />
 	</monster>
 	<monster centerx="31696" centery="33323" centerz="7" radius="1">
-		<monster name="Crazed Summer Vanguard" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Crazed Summer Vanguard" x="0" y="0" z="7" spawntime="60" direction="2" />
 	</monster>
 	<monster centerx="31699" centery="33323" centerz="7" radius="1">
-		<monster name="Guzzlemaw" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Guzzlemaw" x="0" y="0" z="7" spawntime="60" direction="2" />
 	</monster>
 	<monster centerx="31589" centery="33329" centerz="7" radius="1">
 		<monster name="Many Faces" x="0" y="0" z="7" spawntime="60" />
