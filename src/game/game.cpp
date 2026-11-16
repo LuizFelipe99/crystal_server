@@ -3358,9 +3358,19 @@ void Game::playerQuickLootCorpse(const std::shared_ptr<Player> &player, const st
 	player->lastQuickLootNotification = OTSYS_TIME();
 }
 
-std::shared_ptr<Container> Game::findManagedContainer(const std::shared_ptr<Player> &player, bool &fallbackConsumed, ObjectCategory_t category, bool isLootContainer) {
+std::shared_ptr<Container> Game::findManagedContainer(const std::shared_ptr<Player> &player, bool &fallbackConsumed, ObjectCategory_t category, bool isLootContainer, bool alwaysFallbackToMainBackpack /* = false*/) {
 	auto lootContainer = player->getManagedContainer(category, isLootContainer);
-	if (!lootContainer && player->quickLootFallbackToMainContainer && !fallbackConsumed) {
+	if (lootContainer || fallbackConsumed) {
+		return lootContainer;
+	}
+
+	if (alwaysFallbackToMainBackpack && !player->quickLootFallbackToMainContainer) {
+		const auto &mainBackpackItem = player->getInventoryItem(CONST_SLOT_BACKPACK);
+		fallbackConsumed = true;
+		return mainBackpackItem ? mainBackpackItem->getContainer() : nullptr;
+	}
+
+	if (player->quickLootFallbackToMainContainer) {
 		auto fallbackItem = player->getInventoryItem(CONST_SLOT_BACKPACK);
 		auto mainBackpack = fallbackItem ? fallbackItem->getContainer() : nullptr;
 
@@ -3451,7 +3461,7 @@ ReturnValue Game::processLootItems(const std::shared_ptr<Player> &player, std::s
 	return ret;
 }
 
-ReturnValue Game::internalCollectManagedItems(const std::shared_ptr<Player> &player, const std::shared_ptr<Item> &item, ObjectCategory_t category, bool isLootContainer /* = true*/) {
+ReturnValue Game::internalCollectManagedItems(const std::shared_ptr<Player> &player, const std::shared_ptr<Item> &item, ObjectCategory_t category, bool isLootContainer /* = true*/, bool alwaysFallbackToMainBackpack /* = false*/) {
 	if (!player || !item) {
 		return RETURNVALUE_NOTPOSSIBLE;
 	}
@@ -3491,7 +3501,7 @@ ReturnValue Game::internalCollectManagedItems(const std::shared_ptr<Player> &pla
 	}
 
 	bool fallbackConsumed = false;
-	std::shared_ptr<Container> lootContainer = findManagedContainer(player, fallbackConsumed, category, isLootContainer);
+	std::shared_ptr<Container> lootContainer = findManagedContainer(player, fallbackConsumed, category, isLootContainer, alwaysFallbackToMainBackpack);
 	if (!lootContainer) {
 		return RETURNVALUE_NOTPOSSIBLE;
 	}
@@ -3527,7 +3537,7 @@ ReturnValue Game::collectRewardChestItems(const std::shared_ptr<Player> &player,
 		}
 
 		ObjectCategory_t category = getObjectCategory(item);
-		if (internalCollectManagedItems(player, item, category) == RETURNVALUE_NOERROR) {
+		if (internalCollectManagedItems(player, item, category, true, true) == RETURNVALUE_NOERROR) {
 			movedRewardItems++;
 		}
 	}
