@@ -70,6 +70,7 @@ monster.voices = {
 
 monster.loot = {
 	{ id = 60057, chance = 30000 },
+	{ id = 60313, chance = 3000 },
 	{ id = 3115, chance = 30000, maxCount = 1 }, -- bone
 	{ name = "brass shield", chance = 30000, maxCount = 1 },
 	{ name = "spatial warp almanac", chance = 25000, maxCount = 1 },

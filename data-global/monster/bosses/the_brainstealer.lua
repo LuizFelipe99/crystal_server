@@ -57,6 +57,7 @@ monster.flags = {
 
 monster.loot = {
 	{ id = 60057, chance = 30000 },
+	{ id = 60313, chance = 3000 },
 	{ name = "platinum coin", mincount = 10, maxcount = 50, chance = 100000 },
 	{ name = "crystal coin", mincount = 1, maxcount = 5, chance = 100000 },
 	{ name = "violet gem", chance = 50000 },

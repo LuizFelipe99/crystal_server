@@ -82,6 +82,7 @@ monster.voices = {
 
 monster.loot = {
 	{ id = 60057, chance = 30000 },
+	{ id = 60313, chance = 3000 },
 	{ id = 43895, chance = 360, unique = true }, ---bag you covet
 	{ name = "berserk potion", chance = 22758, minCount = 24, maxCount = 31 },
 	{ id = 3041, chance = 14702, minCount = 0, maxCount = 1 }, -- blue gem,

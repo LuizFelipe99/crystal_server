@@ -82,6 +82,7 @@ monster.summon = {}
 
 monster.loot = {
 	{ id = 60057, chance = 30000 },
+	{ id = 60313, chance = 3000 },
 	{ id = 43895, chance = 360, unique = true }, ---bag you covet
 	{ name = "crystal coin", chance = 28852, maxCount = 99 },
 	{ name = "ultimate mana potion", chance = 21337, maxCount = 211 },

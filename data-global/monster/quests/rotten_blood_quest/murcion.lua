@@ -72,6 +72,7 @@ monster.voices = {}
 
 monster.loot = {
 	{ id = 60057, chance = 30000 },
+	{ id = 60313, chance = 3000 },
 	{ name = "crystal coin", chance = 29000, maxCount = 82 },
 	{ name = "supreme health potion", chance = 27500, maxCount = 28 },
 	{ name = "ultimate mana potion", chance = 27500, maxCount = 194 },

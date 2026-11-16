@@ -78,6 +78,7 @@ monster.voices = {
 
 monster.loot = {
 	{ id = 60057, chance = 30000 },
+	{ id = 60313, chance = 3000 },
 	{ id = 23544, chance = 22220 }, -- collar of red plasma
 	{ id = 23529, chance = 13890 }, --  ring of blue plasma
 	{ id = 23531, chance = 8330 }, -- ring of green plasma
