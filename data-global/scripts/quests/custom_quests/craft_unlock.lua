@@ -5,12 +5,12 @@ local craftUnlockQuest = Action()
 
 function craftUnlockQuest.onUse(player, item, fromPosition, target, toPosition, isHotkey)
     if player:getStorageValue(CRAFT_UNLOCK_STORAGE) ~= -1 then
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Voce ja resgatou essa recompensa.")
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have already claimed this reward.")
         return true
     end
 
     player:setStorageValue(CRAFT_UNLOCK_STORAGE, 1)
-    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Voce desbloqueou acesso ao Craft Bench!")
+    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have unlocked access to the Craft Bench!")
     toPosition:sendMagicEffect(CONST_ME_MAGIC_BLUE)
     return true
 end
