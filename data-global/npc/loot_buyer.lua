@@ -94,6 +94,7 @@ npcHandler:addModule(FocusModule:new(), npcConfig.name, true, true, true)
 npcConfig.shop = {
 	{ itemName = "talon", clientId = 3034, sell = 320 },
 	{ itemName = "all loot", clientId = 23721, sell = 1 },
+	{ itemName = "organic acid", clientId = 43778, sell = 10 },
 	{ itemName = "cowbell", clientId = 21204, sell = 210 },
 	{ itemName = "execowtioner mask", clientId = 21201, sell = 240 },
 	{ itemName = "giant pacifier", clientId = 21199, sell = 170 },
