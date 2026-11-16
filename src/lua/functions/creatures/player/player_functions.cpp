@@ -308,6 +308,7 @@ void PlayerFunctions::init(lua_State* L) {
 	Lua::registerMethod(L, "Player", "removeOutfit", PlayerFunctions::luaPlayerRemoveOutfit);
 	Lua::registerMethod(L, "Player", "removeOutfitAddon", PlayerFunctions::luaPlayerRemoveOutfitAddon);
 	Lua::registerMethod(L, "Player", "hasOutfit", PlayerFunctions::luaPlayerHasOutfit);
+	Lua::registerMethod(L, "Player", "getCollectionBonuses", PlayerFunctions::luaPlayerGetCollectionBonuses);
 	Lua::registerMethod(L, "Player", "sendOutfitWindow", PlayerFunctions::luaPlayerSendOutfitWindow);
 
 	Lua::registerMethod(L, "Player", "addMount", PlayerFunctions::luaPlayerAddMount);
@@ -3258,6 +3259,41 @@ int PlayerFunctions::luaPlayerHasOutfit(lua_State* L) {
 	} else {
 		lua_pushnil(L);
 	}
+	return 1;
+}
+
+int PlayerFunctions::luaPlayerGetCollectionBonuses(lua_State* L) {
+	// player:getCollectionBonuses()
+	const auto &player = Lua::getUserdataShared<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	std::vector<CollectionBonusSource> bonusSources = player->getOutfitCollectionBonusSources();
+	const std::vector<CollectionBonusSource> mountBonusSources = player->getMountCollectionBonusSources();
+	bonusSources.insert(bonusSources.end(), mountBonusSources.begin(), mountBonusSources.end());
+
+	lua_createtable(L, static_cast<int>(bonusSources.size()), 0);
+	int sourceIndex = 0;
+	for (const auto &bonusSource : bonusSources) {
+		lua_createtable(L, 0, 3);
+		Lua::setField(L, "type", bonusSource.sourceType);
+		Lua::setField(L, "name", bonusSource.sourceName);
+
+		lua_createtable(L, static_cast<int>(bonusSource.bonuses->size()), 0);
+		int bonusIndex = 0;
+		for (const auto &bonus : *bonusSource.bonuses) {
+			lua_createtable(L, 0, 2);
+			Lua::setField(L, "attribute", bonus.attribute);
+			Lua::setField(L, "value", bonus.value);
+			lua_rawseti(L, -2, ++bonusIndex);
+		}
+		lua_setfield(L, -2, "bonuses");
+
+		lua_rawseti(L, -2, ++sourceIndex);
+	}
+
 	return 1;
 }
 

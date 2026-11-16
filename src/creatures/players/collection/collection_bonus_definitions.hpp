@@ -11,6 +11,12 @@ struct CollectionBonusDefinition {
 
 using CollectionBonusList = std::vector<CollectionBonusDefinition>;
 
+struct CollectionBonusSource {
+	std::string sourceType;
+	std::string sourceName;
+	const CollectionBonusList* bonuses = nullptr;
+};
+
 struct CollectionBonusCatalog {
 	std::vector<CollectionBonusList> bonusLists;
 	std::unordered_map<std::string, size_t> bonusListIndexByName;

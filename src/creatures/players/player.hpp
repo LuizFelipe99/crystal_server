@@ -29,6 +29,7 @@
 #include "creatures/players/proficiencies/proficiencies.hpp"
 #include "creatures/players/proficiencies/proficiencies_definitions.hpp"
 #include "creatures/players/attached_effects/player_attached_effects.hpp"
+#include "creatures/players/collection/collection_bonus_definitions.hpp"
 
 #include "io/iobountytasks.hpp"
 #include "io/ioweeklytasks.hpp"
@@ -1209,6 +1210,8 @@ public:
 	void recalculateAttributeBonuses();
 	void applyOutfitCollectionBonuses(EquippedGemBonuses &bonuses) const;
 	void applyMountCollectionBonuses(EquippedGemBonuses &bonuses) const;
+	std::vector<CollectionBonusSource> getOutfitCollectionBonusSources() const;
+	std::vector<CollectionBonusSource> getMountCollectionBonusSources() const;
 	void setGemBagSlotDirect(uint8_t slotIndex, uint16_t itemId);
 
 	bool canExiva(const std::string &spellParam) const;

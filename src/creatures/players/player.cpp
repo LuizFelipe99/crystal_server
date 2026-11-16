@@ -13414,7 +13414,8 @@ static void applyCollectionBonusList(const CollectionBonusList &collectionBonuse
 	}
 }
 
-void Player::applyOutfitCollectionBonuses(EquippedGemBonuses &bonuses) const {
+std::vector<CollectionBonusSource> Player::getOutfitCollectionBonusSources() const {
+	std::vector<CollectionBonusSource> bonusSources;
 	std::unordered_set<const CollectionBonusList*> countedBonusLists;
 
 	for (const auto &outfitEntry : outfitsMap) {
@@ -13432,11 +13433,15 @@ void Player::applyOutfitCollectionBonuses(EquippedGemBonuses &bonuses) const {
 			continue;
 		}
 
-		applyCollectionBonusList(*collectionBonuses, bonuses);
+		bonusSources.push_back({ "outfit", outfit->name, collectionBonuses });
 	}
+
+	return bonusSources;
 }
 
-void Player::applyMountCollectionBonuses(EquippedGemBonuses &bonuses) const {
+std::vector<CollectionBonusSource> Player::getMountCollectionBonusSources() const {
+	std::vector<CollectionBonusSource> bonusSources;
+
 	for (const uint16_t mountId : mountsMap) {
 		const auto &mount = g_game().mounts->getMountByID(mountId);
 		if (!mount) {
@@ -13448,7 +13453,21 @@ void Player::applyMountCollectionBonuses(EquippedGemBonuses &bonuses) const {
 			continue;
 		}
 
-		applyCollectionBonusList(*collectionBonuses, bonuses);
+		bonusSources.push_back({ "mount", mount->name, collectionBonuses });
+	}
+
+	return bonusSources;
+}
+
+void Player::applyOutfitCollectionBonuses(EquippedGemBonuses &bonuses) const {
+	for (const auto &bonusSource : getOutfitCollectionBonusSources()) {
+		applyCollectionBonusList(*bonusSource.bonuses, bonuses);
+	}
+}
+
+void Player::applyMountCollectionBonuses(EquippedGemBonuses &bonuses) const {
+	for (const auto &bonusSource : getMountCollectionBonusSources()) {
+		applyCollectionBonusList(*bonusSource.bonuses, bonuses);
 	}
 }
 
