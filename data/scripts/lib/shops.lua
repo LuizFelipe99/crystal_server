@@ -1554,6 +1554,13 @@ LootShopConfigTable = {
 		{ itemName = "orange mushroom", clientId = 3726, sell = 150 },
 		{ itemName = "wood mushroom", clientId = 3727, sell = 15 },
 	},
+	["cleanup"] = {
+		{ itemName = "organic acid", clientId = 43778, sell = 10 },
+		{ itemName = "crimson sword", clientId = 7385, sell = 10 },
+		{ itemName = "ice cube", clientId = 7441, sell = 10 },
+		{ itemName = "unstable darklight matter", clientId = 43779, sell = 10 },
+		{ itemName = "yellow darklight matter", clientId = 43780, sell = 10 },
+	},
 }
 
 local garbage = {
