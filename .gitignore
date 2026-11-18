@@ -395,9 +395,11 @@ database_backup
 
 # CLION
 cmake-build-*
-data-global/world/ORIGINAL/world.otbm
+data-global/world/ORIGINAL/
 data-global/world - Copia/
-data-global/
+data-global/world/*.otbm
+data-global/world/*.7z
+*.tar
 /data/logs
 
 # macOS
