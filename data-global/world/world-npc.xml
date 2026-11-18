@@ -1848,6 +1848,9 @@
 	<npc centerx="33530" centery="32238" centerz="7" radius="1">
 		<npc name="Peaceful Pooka" x="0" y="0" z="7" spawntime="60" />
 	</npc>
+	<npc centerx="32374" centery="32239" centerz="7" radius="1">
+		<npc name="Master Artisan" x="0" y="0" z="7" spawntime="60" />
+	</npc>
 	<npc centerx="33450" centery="32246" centerz="7" radius="1">
 		<npc name="Gerimor" x="0" y="0" z="7" spawntime="60" />
 	</npc>
@@ -3149,8 +3152,5 @@
 	</npc>
 	<npc centerx="33587" centery="32966" centerz="15" radius="1">
 		<npc name="Gnomish Operative (Raiders)" x="0" y="0" z="15" spawntime="60" />
-	</npc>
-	<npc centerx="32374" centery="32239" centerz="7" radius="1">
-		<npc name="Master Artisan" x="0" y="0" z="7" spawntime="60" />
 	</npc>
 </npcs>

@@ -51476,14 +51476,283 @@
 	<monster centerx="31699" centery="33329" centerz="7" radius="1">
 		<monster name="Cursed Book" x="0" y="0" z="7" spawntime="60" />
 	</monster>
+	<monster centerx="31857" centery="33411" centerz="7" radius="1">
+		<monster name="Renegade Knight" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31871" centery="33411" centerz="7" radius="1">
+		<monster name="Blood Priest" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31863" centery="33413" centerz="7" radius="1">
+		<monster name="Renegade Knight" x="0" y="-1" z="7" spawntime="31744" />
+		<monster name="Renegade Knight" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31868" centery="33415" centerz="7" radius="1">
+		<monster name="Blood Priest" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31850" centery="33416" centerz="7" radius="1">
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31862" centery="33417" centerz="7" radius="1">
+		<monster name="Vicious Squire" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31859" centery="33418" centerz="7" radius="1">
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31883" centery="33423" centerz="7" radius="1">
+		<monster name="Renegade Knight" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31895" centery="33423" centerz="7" radius="1">
+		<monster name="Vicious Squire" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31873" centery="33426" centerz="7" radius="1">
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31849" centery="33427" centerz="7" radius="1">
+		<monster name="Vicious Squire" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31868" centery="33427" centerz="7" radius="1">
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31861" centery="33430" centerz="7" radius="1">
+		<monster name="Vicious Squire" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31851" centery="33431" centerz="7" radius="1">
+		<monster name="Blood Priest" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31875" centery="33431" centerz="7" radius="1">
+		<monster name="Vicious Squire" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31883" centery="33431" centerz="7" radius="1">
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31846" centery="33432" centerz="7" radius="1">
+		<monster name="Vicious Squire" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31868" centery="33432" centerz="7" radius="1">
+		<monster name="Renegade Knight" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31885" centery="33434" centerz="7" radius="1">
+		<monster name="Renegade Knight" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31894" centery="33434" centerz="7" radius="1">
+		<monster name="Vicious Squire" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31871" centery="33436" centerz="7" radius="1">
+		<monster name="Blood Priest" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31883" centery="33436" centerz="7" radius="1">
+		<monster name="Vicious Squire" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31887" centery="33436" centerz="7" radius="1">
+		<monster name="Blood Priest" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31850" centery="33437" centerz="7" radius="1">
+		<monster name="Renegade Knight" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31847" centery="33444" centerz="7" radius="1">
+		<monster name="Vicious Squire" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31873" centery="33445" centerz="7" radius="1">
+		<monster name="Vicious Squire" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31876" centery="33445" centerz="7" radius="1">
+		<monster name="Renegade Knight" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31893" centery="33445" centerz="7" radius="1">
+		<monster name="Vicious Squire" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31825" centery="33446" centerz="7" radius="1">
+		<monster name="Renegade Knight" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31834" centery="33446" centerz="7" radius="1">
+		<monster name="Renegade Knight" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31812" centery="33447" centerz="7" radius="1">
+		<monster name="Renegade Knight" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31838" centery="33448" centerz="7" radius="1">
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31860" centery="33448" centerz="7" radius="1">
+		<monster name="Blood Priest" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31811" centery="33450" centerz="7" radius="1">
+		<monster name="Vicious Squire" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31817" centery="33450" centerz="7" radius="1">
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31825" centery="33450" centerz="7" radius="1">
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31844" centery="33452" centerz="7" radius="1">
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31885" centery="33452" centerz="7" radius="1">
+		<monster name="Blood Priest" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31896" centery="33453" centerz="7" radius="1">
+		<monster name="Renegade Knight" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31854" centery="33454" centerz="7" radius="1">
+		<monster name="Vicious Squire" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31813" centery="33455" centerz="7" radius="1">
+		<monster name="Renegade Knight" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31821" centery="33455" centerz="7" radius="1">
+		<monster name="Blood Priest" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31828" centery="33455" centerz="7" radius="1">
+		<monster name="Renegade Knight" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31891" centery="33455" centerz="7" radius="1">
+		<monster name="Vicious Squire" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31811" centery="33456" centerz="7" radius="1">
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31862" centery="33456" centerz="7" radius="1">
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31887" centery="33456" centerz="7" radius="1">
+		<monster name="Renegade Knight" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31833" centery="33458" centerz="7" radius="1">
+		<monster name="Blood Priest" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31860" centery="33458" centerz="7" radius="1">
+		<monster name="Renegade Knight" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31823" centery="33461" centerz="7" radius="1">
+		<monster name="Vicious Squire" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31877" centery="33462" centerz="7" radius="1">
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31839" centery="33463" centerz="7" radius="1">
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31868" centery="33463" centerz="7" radius="1">
+		<monster name="Blood Priest" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31812" centery="33465" centerz="7" radius="1">
+		<monster name="Renegade Knight" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31836" centery="33465" centerz="7" radius="1">
+		<monster name="Renegade Knight" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31844" centery="33465" centerz="7" radius="1">
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31817" centery="33466" centerz="7" radius="1">
+		<monster name="Blood Priest" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31824" centery="33466" centerz="7" radius="1">
+		<monster name="Renegade Knight" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31815" centery="33467" centerz="7" radius="1">
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31838" centery="33467" centerz="7" radius="1">
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31852" centery="33467" centerz="7" radius="1">
+		<monster name="Blood Priest" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31860" centery="33467" centerz="7" radius="1">
+		<monster name="Renegade Knight" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31858" centery="33468" centerz="7" radius="1">
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31892" centery="33469" centerz="7" radius="1">
+		<monster name="Vicious Squire" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31863" centery="33472" centerz="7" radius="1">
+		<monster name="Blood Priest" x="0" y="0" z="7" spawntime="60" />
+	</monster>
 	<monster centerx="31542" centery="33474" centerz="7" radius="1">
 		<monster name="Vemiath Guardian" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31830" centery="33474" centerz="7" radius="1">
+		<monster name="Vicious Squire" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31859" centery="33474" centerz="7" radius="1">
+		<monster name="Renegade Knight" x="0" y="0" z="7" spawntime="60" />
 	</monster>
 	<monster centerx="31547" centery="33475" centerz="7" radius="1">
 		<monster name="Darklight Construct" x="0" y="0" z="7" spawntime="60" />
 	</monster>
+	<monster centerx="31834" centery="33475" centerz="7" radius="1">
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31841" centery="33475" centerz="7" radius="1">
+		<monster name="Renegade Knight" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31844" centery="33476" centerz="7" radius="1">
+		<monster name="Renegade Knight" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31877" centery="33476" centerz="7" radius="1">
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31860" centery="33477" centerz="7" radius="1">
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31895" centery="33477" centerz="7" radius="1">
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31855" centery="33478" centerz="7" radius="1">
+		<monster name="Vicious Squire" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31886" centery="33478" centerz="7" radius="1">
+		<monster name="Blood Priest" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31902" centery="33478" centerz="7" radius="1">
+		<monster name="Vicious Squire" x="0" y="0" z="7" spawntime="60" />
+	</monster>
 	<monster centerx="31542" centery="33479" centerz="7" radius="1">
 		<monster name="Darklight Construct" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31824" centery="33480" centerz="7" radius="1">
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31868" centery="33480" centerz="7" radius="1">
+		<monster name="Blood Priest" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31886" centery="33480" centerz="7" radius="1">
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31828" centery="33482" centerz="7" radius="1">
+		<monster name="Renegade Knight" x="1" y="-1" z="7" spawntime="60" />
+		<monster name="Renegade Knight" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31835" centery="33482" centerz="7" radius="1">
+		<monster name="Blood Priest" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31843" centery="33483" centerz="7" radius="1">
+		<monster name="Vicious Squire" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31860" centery="33483" centerz="7" radius="1">
+		<monster name="Vicious Squire" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31892" centery="33486" centerz="7" radius="1">
+		<monster name="Vicious Squire" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31845" centery="33488" centerz="7" radius="1">
+		<monster name="Renegade Knight" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31853" centery="33489" centerz="7" radius="1">
+		<monster name="Renegade Knight" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31857" centery="33489" centerz="7" radius="1">
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31868" centery="33489" centerz="7" radius="1">
+		<monster name="Hero" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31873" centery="33489" centerz="7" radius="1">
+		<monster name="Renegade Knight" x="0" y="0" z="7" spawntime="60" />
 	</monster>
 	<monster centerx="31544" centery="33493" centerz="7" radius="1">
 		<monster name="Wandering Pillar" x="0" y="0" z="7" spawntime="60" />
@@ -110710,8 +110979,8 @@
 		<monster name="Rotworm" x="3" y="-1" z="10" spawntime="90" />
 		<monster name="Rotworm" x="-3" y="3" z="10" spawntime="90" />
 	</monster>
-	<monster centerx="33365" centery="31586" centerz="10" radius="1">
-		<monster name="Renegade Knight" x="0" y="0" z="10" spawntime="90" />
+	<monster centerx="33366" centery="31586" centerz="10" radius="1">
+		<monster name="Renegade Knight" x="-1" y="0" z="10" spawntime="90" />
 	</monster>
 	<monster centerx="33400" centery="31586" centerz="10" radius="1">
 		<monster name="Wereboar" x="0" y="0" z="10" spawntime="90" />
