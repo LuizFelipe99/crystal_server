@@ -8058,7 +8058,7 @@ bool Player::tameMount(uint16_t mountId) {
 	}
 
 	const auto mount = g_game().mounts->getMountByID(mountId);
-	if (hasMount(mount)) {
+	if (mountsMap.contains(mountId)) {
 		return false;
 	}
 
