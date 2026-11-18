@@ -3,6 +3,7 @@ local json = dofile("data/libs/dkjson.lua")
 local DAILY_UNLOCK_HOUR = 0
 local NEXT_DAY_UNLOCK_KEY = "next-day-unlock"
 local SEASON_ID_KEY = "season-id"
+local PRO_CLAIMS_MIGRATED_KEY = "pro-claims-migrated"
 local requestThrottle = RequestThrottle.new(300)
 
 local function battlePassStore(player)
@@ -45,10 +46,25 @@ local function describeWaitTime(remainingSeconds)
     return hours .. "h " .. minutes .. "m"
 end
 
+local function proClaimKey(dayNumber)
+    return "pro-claimed-" .. dayNumber
+end
+
+local function isProRewardClaimed(player, dayNumber)
+    return battlePassStore(player):get(proClaimKey(dayNumber)) == true
+end
+
+local function markProRewardClaimed(player, dayNumber)
+    battlePassStore(player):set(proClaimKey(dayNumber), true)
+end
+
 local function resetSeasonProgress(player)
+    local store = battlePassStore(player)
     for dayNumber = 1, BattlePassConfig.season.totalDays do
         player:setStorageValue(BattlePassStorage.dayStatus(dayNumber), -1)
+        store:remove(proClaimKey(dayNumber))
     end
+    store:remove(PRO_CLAIMS_MIGRATED_KEY)
     player:setStorageValue(BattlePassStorage.currentDay, -1)
     player:setStorageValue(BattlePassStorage.isVip, -1)
     battlePassStore(player):remove(NEXT_DAY_UNLOCK_KEY)
@@ -68,6 +84,24 @@ local function ensureCurrentSeason(player)
     end
 
     store:set(SEASON_ID_KEY, currentSeasonId)
+end
+
+local function migrateLegacyProClaims(player)
+    local store = battlePassStore(player)
+    if store:get(PRO_CLAIMS_MIGRATED_KEY) == true then
+        return
+    end
+
+    store:set(PRO_CLAIMS_MIGRATED_KEY, true)
+    if player:getStorageValue(BattlePassStorage.isVip) ~= 1 then
+        return
+    end
+
+    for dayNumber = 1, BattlePassConfig.season.totalDays do
+        if player:getStorageValue(BattlePassStorage.dayStatus(dayNumber)) >= BATTLEPASS_STATUS_CLAIMED then
+            markProRewardClaimed(player, dayNumber)
+        end
+    end
 end
 
 local function completeCurrentDay(player, currentDay)
@@ -119,23 +153,30 @@ local function resolveFreeRewardStatus(isCurrentDay, dayStatus, canDeliver)
     return "Claimed"
 end
 
-local function resolveProRewardStatus(isVip, isCurrentDay, dayStatus)
+local function isProRewardAvailable(dayStatus, proClaimed)
+    if proClaimed then
+        return false
+    end
+    return dayStatus == BATTLEPASS_STATUS_DELIVERED or dayStatus >= BATTLEPASS_STATUS_CLAIMED
+end
+
+local function resolveProRewardStatus(isVip, dayStatus, proClaimed)
     if not isVip then
         return "Be VIP"
     end
-    if not isCurrentDay then
-        return dayStatus >= BATTLEPASS_STATUS_CLAIMED and "Claimed" or "Locked"
+    if proClaimed then
+        return "Claimed"
     end
-    if dayStatus == BATTLEPASS_STATUS_PENDING then
-        return "Locked"
-    end
-    if dayStatus == BATTLEPASS_STATUS_DELIVERED then
+    if isProRewardAvailable(dayStatus, proClaimed) then
         return "Claim"
     end
-    return "Claimed"
+    return "Locked"
 end
 
 local function resolveDayStatusText(isCurrentDay, selectedDay, currentDay, canDeliver, canClaimPro, dayStatus, waitSeconds)
+    if canClaimPro then
+        return "Claim Pro Reward"
+    end
     if not isCurrentDay then
         return selectedDay > currentDay and "Complete previous days first" or "Completed"
     end
@@ -186,7 +227,8 @@ local function buildDayPreview(player, currentDay, selectedDay, isVip)
     local waitSeconds = secondsUntilNextDay(player)
     local itemCount   = isCurrentDay and player:getItemCount(mission.itemId) or 0
     local canDeliver  = isCurrentDay and dayStatus == BATTLEPASS_STATUS_PENDING and itemCount >= mission.amount and waitSeconds == 0
-    local canClaimPro = isCurrentDay and dayStatus == BATTLEPASS_STATUS_DELIVERED and isVip
+    local proClaimed  = isProRewardClaimed(player, selectedDay)
+    local canClaimPro = isVip and isProRewardAvailable(dayStatus, proClaimed)
 
     return {
         selectedDayLabel   = resolveDayLabel(selectedDay, currentDay),
@@ -198,7 +240,7 @@ local function buildDayPreview(player, currentDay, selectedDay, isVip)
         freeRewards        = mapRewardsToPayload(mission.freeRewards),
         freeRewardStatus   = resolveFreeRewardStatus(isCurrentDay, dayStatus, canDeliver),
         proRewards         = mapRewardsToPayload(mission.proRewards),
-        proRewardStatus    = resolveProRewardStatus(isVip, isCurrentDay, dayStatus),
+        proRewardStatus    = resolveProRewardStatus(isVip, dayStatus, proClaimed),
         dayStatusText      = resolveDayStatusText(isCurrentDay, selectedDay, currentDay, canDeliver, canClaimPro, dayStatus, waitSeconds),
         missionItemCount   = itemCount,
         missionAmount      = mission.amount,
@@ -208,8 +250,19 @@ local function buildDayPreview(player, currentDay, selectedDay, isVip)
     }
 end
 
+local function resolveDayCardLabel(player, dayNumber, currentDay, dayStatus, isVip)
+    if isVip and dayStatus >= BATTLEPASS_STATUS_CLAIMED and not isProRewardClaimed(player, dayNumber) then
+        return "PRO"
+    end
+    if dayStatus >= BATTLEPASS_STATUS_CLAIMED then
+        return "Done"
+    end
+    return dayNumber == currentDay and "Current" or "-"
+end
+
 local function buildDayList(player, currentDay, selectedDay)
     local dayList = {}
+    local isVip = player:getStorageValue(BattlePassStorage.isVip) == 1
 
     for dayNumber = 1, BattlePassConfig.season.totalDays do
         local mission = BattlePassConfig.missions[dayNumber]
@@ -220,8 +273,7 @@ local function buildDayList(player, currentDay, selectedDay)
                 itemId    = mission.itemId,
                 isCurrent = dayNumber == currentDay,
                 isDone    = dayStatus >= BATTLEPASS_STATUS_CLAIMED,
-                label     = dayStatus >= BATTLEPASS_STATUS_CLAIMED and "Done"
-                    or (dayNumber == currentDay and "Current" or "-")
+                label     = resolveDayCardLabel(player, dayNumber, currentDay, dayStatus, isVip)
             }
         end
     end
@@ -333,9 +385,10 @@ local function handleDeliver(player)
     sendStateToPlayer(player, currentDay)
 end
 
-local function handleClaimPro(player)
+local function handleClaimPro(player, requestedDay)
     local currentDay = math.max(1, player:getStorageValue(BattlePassStorage.currentDay))
-    local mission    = BattlePassConfig.missions[currentDay]
+    local claimDay   = tonumber(requestedDay) or currentDay
+    local mission    = BattlePassConfig.missions[claimDay]
     local isVip      = player:getStorageValue(BattlePassStorage.isVip) == 1
 
     if not mission then
@@ -347,18 +400,21 @@ local function handleClaimPro(player)
         return
     end
 
-    local dayStatus = resolveRawDayStatus(player, currentDay)
+    local dayStatus = resolveRawDayStatus(player, claimDay)
 
-    if dayStatus ~= BATTLEPASS_STATUS_DELIVERED then
+    if not isProRewardAvailable(dayStatus, isProRewardClaimed(player, claimDay)) then
         return
     end
 
+    markProRewardClaimed(player, claimDay)
     grantRewardList(player, mission.proRewards)
     player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Pro reward granted: " .. describeRewardList(mission.proRewards))
 
-    completeCurrentDay(player, currentDay)
+    if dayStatus == BATTLEPASS_STATUS_DELIVERED then
+        completeCurrentDay(player, claimDay)
+    end
 
-    sendStateToPlayer(player, currentDay)
+    sendStateToPlayer(player, claimDay)
 end
 
 local function onExtendedOpcodeReceived(player, opcode, buffer)
@@ -377,13 +433,14 @@ local function onExtendedOpcodeReceived(player, opcode, buffer)
     end
 
     ensureCurrentSeason(player)
+    migrateLegacyProClaims(player)
 
     if data.action == "request" then
         handleRequest(player, data.day)
     elseif data.action == "deliver" then
         handleDeliver(player)
     elseif data.action == "deliverPro" then
-        handleClaimPro(player)
+        handleClaimPro(player, data.day)
     end
 
     return true
@@ -399,6 +456,7 @@ battlepassLoginEvent:type("login")
 
 battlepassLoginEvent:onLogin(function(player)
     ensureCurrentSeason(player)
+    migrateLegacyProClaims(player)
     player:registerEvent("BattlePassOpcode")
     return true
 end)
