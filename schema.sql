@@ -932,6 +932,28 @@ CREATE TABLE IF NOT EXISTS `player_storage` (
         ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- Table structure `player_elemental_build`
+CREATE TABLE IF NOT EXISTS `player_elemental_build` (
+    `player_id` int(11) NOT NULL,
+    `combat_type` tinyint(3) UNSIGNED NOT NULL,
+    `points` int(11) NOT NULL DEFAULT '0',
+    CONSTRAINT `player_elemental_build_pk` PRIMARY KEY (`player_id`, `combat_type`),
+    CONSTRAINT `player_elemental_build_players_fk`
+        FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
+        ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Table structure `player_gem_bag`
+CREATE TABLE IF NOT EXISTS `player_gem_bag` (
+    `player_id` int(11) NOT NULL,
+    `slot_index` tinyint(3) UNSIGNED NOT NULL,
+    `item_id` smallint(5) UNSIGNED NOT NULL,
+    CONSTRAINT `player_gem_bag_pk` PRIMARY KEY (`player_id`, `slot_index`),
+    CONSTRAINT `player_gem_bag_players_fk`
+        FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
+        ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 -- Table structure `player_outfits`
 CREATE TABLE IF NOT EXISTS `player_outfits` (
     `player_id` int(11) NOT NULL DEFAULT '0',
