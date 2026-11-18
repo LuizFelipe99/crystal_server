@@ -5,6 +5,7 @@ local NEXT_DAY_UNLOCK_KEY = "next-day-unlock"
 local SEASON_ID_KEY = "season-id"
 local PRO_CLAIMS_MIGRATED_KEY = "pro-claims-migrated"
 local requestThrottle = RequestThrottle.new(300)
+local selectedDayByPlayerId = {}
 
 local function battlePassStore(player)
     return player:kv():scoped("battlepass")
@@ -342,6 +343,7 @@ local function sendStateToPlayer(player, selectedDay)
 end
 
 local function handleRequest(player, selectedDay)
+    selectedDayByPlayerId[player:getId()] = tonumber(selectedDay)
     sendStateToPlayer(player, selectedDay)
 end
 
@@ -387,7 +389,7 @@ end
 
 local function handleClaimPro(player, requestedDay)
     local currentDay = math.max(1, player:getStorageValue(BattlePassStorage.currentDay))
-    local claimDay   = tonumber(requestedDay) or currentDay
+    local claimDay   = tonumber(requestedDay) or selectedDayByPlayerId[player:getId()] or currentDay
     local mission    = BattlePassConfig.missions[claimDay]
     local isVip      = player:getStorageValue(BattlePassStorage.isVip) == 1
 
