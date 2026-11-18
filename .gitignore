@@ -406,3 +406,5 @@ data-global/world/bkp/
 
 # macOS
 .DS_Store
+
+data/items/appearance*_*.dat
