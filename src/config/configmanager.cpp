@@ -426,6 +426,7 @@ bool ConfigManager::load() {
 	loadIntConfig(L, TIBIADROME_CONCOCTION_DURATION, "tibiadromeConcoctionDuration", 1 * 60 * 60);
 	loadIntConfig(L, TRANSCENDENCE_AVATAR_DURATION, "transcendenceAvatarDuration", 7000);
 	loadIntConfig(L, UI_ACTIONS_DELAY_INTERVAL, "uiActionsDelay", 1000);
+	loadIntConfig(L, SHOP_ACTIONS_DELAY_INTERVAL, "shopActionsDelay", 100);
 	loadIntConfig(L, VIP_BONUS_EXP, "vipBonusExp", 0);
 	loadIntConfig(L, VIP_BONUS_LOOT, "vipBonusLoot", 0);
 	loadIntConfig(L, VIP_BONUS_SKILL, "vipBonusSkill", 0);

@@ -5693,7 +5693,7 @@ void Game::playerBuyItem(uint32_t playerId, uint16_t itemId, uint8_t count, uint
 		}
 	}
 
-	player->setNextExAction(OTSYS_TIME() + g_configManager().getNumber(UI_ACTIONS_DELAY_INTERVAL) - 10);
+	player->setNextExAction(OTSYS_TIME() + g_configManager().getNumber(SHOP_ACTIONS_DELAY_INTERVAL) - 10);
 	merchant->onPlayerBuyItem(player, it.id, count, amount, ignoreCap, inBackpacks);
 }
 
@@ -5728,7 +5728,7 @@ void Game::playerSellItem(uint32_t playerId, uint16_t itemId, uint8_t count, uin
 	}
 
 	merchant->onPlayerSellItem(player, it.id, count, amount, ignoreEquipped);
-	player->setNextExAction(OTSYS_TIME() + g_configManager().getNumber(UI_ACTIONS_DELAY_INTERVAL) - 10);
+	player->setNextExAction(OTSYS_TIME() + g_configManager().getNumber(SHOP_ACTIONS_DELAY_INTERVAL) - 10);
 }
 
 void Game::playerCloseShop(uint32_t playerId) {

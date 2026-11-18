@@ -467,6 +467,7 @@ pushWhenAttacking = false
 
 -- UI Exhaustation (client actions)
 uiActionsDelay = 500
+shopActionsDelay = 100
 marketActionsDelay = 1200
 imbueActionsDelay = 1500
 
