@@ -178,6 +178,7 @@ CREATE TABLE IF NOT EXISTS `players` (
     `world_id` int(3) UNSIGNED NOT NULL DEFAULT 1,
     `virtue` int(10) UNSIGNED NOT NULL DEFAULT '0',
     `harmony` int(10) UNSIGNED NOT NULL DEFAULT '0',
+    `elemental_build_points` int(11) NOT NULL DEFAULT '0',
     `weapon_proficiencies` mediumblob DEFAULT NULL,
     `charbazaar` tinyint(1) NOT NULL DEFAULT '0',
     `is_locked` tinyint(1) NOT NULL DEFAULT '0',
