@@ -527,6 +527,8 @@ maxMessageBuffer = 4
 allowWalkthrough = true
 coinPacketSize = 25
 coinImagesURL = "http://127.0.0.1/images/store/"
+storeCoinType = 1
+storeCombinedCoins = false
 classicAttackSpeed = false
 showScriptsLogInConsole = false
 -- time to suppress negative conditions after being affected by them (ms)

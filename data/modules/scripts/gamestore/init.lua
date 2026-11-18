@@ -954,7 +954,7 @@ function sendShowStoreOffers(playerId, category, redirectId)
 				msg:addU32(off.id)
 				msg:addU16(off.count or off.charges)
 				msg:addU32(xpBoostPrice or nameLockPrice or off.price)
-				msg:addByte(off.coinType or 0x00)
+				msg:addByte(GameStore.resolveOfferCoinType(off))
 
 				msg:addByte((off.disabledReadonIndex ~= nil) and 1 or 0)
 				if off.disabledReadonIndex ~= nil then
@@ -2088,6 +2088,18 @@ function Player.addTransferableCoinsBalance(self, coins, update)
 end
 
 --- Support Functions
+function GameStore.resolveOfferCoinType(offer)
+	if offer.coinType then
+		return offer.coinType
+	end
+
+	if configManager.getBoolean(configKeys.STORE_COMBINED_COINS) then
+		return GameStore.CoinType.Coin
+	end
+
+	return configManager.getNumber(configKeys.STORE_COIN_TYPE)
+end
+
 function GameStore.getStorePurchasableCoins(player)
 	if configManager.getBoolean(configKeys.STORE_COMBINED_COINS) then
 		return player:getTotalStoreCoins()
@@ -2299,7 +2311,7 @@ function sendHomePage(playerId)
 		msg:addU32(offer.id or 0) -- id
 		msg:addU16(0x1)
 		msg:addU32(offerPrice)
-		msg:addByte(offer.coinType or 0x00)
+		msg:addByte(GameStore.resolveOfferCoinType(offer))
 
 		msg:addByte((offer.disabledReadonIndex ~= nil) and 1 or 0)
 		if offer.disabledReadonIndex ~= nil then
