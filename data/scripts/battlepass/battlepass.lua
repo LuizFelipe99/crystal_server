@@ -125,61 +125,8 @@ local function mapRewardsToPayload(rewards)
     return payload
 end
 
-local REWARD_BACKPACK_ITEM_ID = 2854
-
-local function splitRewardIntoStacks(reward)
-    local rewardItemType = ItemType(reward.itemId)
-    local stackSize = rewardItemType:isStackable() and math.max(1, rewardItemType:getStackSize()) or 1
-    local stacks = {}
-    local remainingAmount = reward.amount
-    while remainingAmount > 0 do
-        local stackAmount = math.min(stackSize, remainingAmount)
-        stacks[#stacks + 1] = stackAmount
-        remainingAmount = remainingAmount - stackAmount
-    end
-    return stacks
-end
-
-local function packRewardsIntoBackpacks(rewards)
-    local backpacks = {}
-    local currentBackpack = nil
-
-    for _, reward in ipairs(rewards) do
-        for _, stackAmount in ipairs(splitRewardIntoStacks(reward)) do
-            if not currentBackpack or currentBackpack:getEmptySlots() == 0 then
-                currentBackpack = Game.createItem(REWARD_BACKPACK_ITEM_ID, 1)
-                backpacks[#backpacks + 1] = currentBackpack
-            end
-            currentBackpack:addItem(reward.itemId, stackAmount)
-        end
-    end
-
-    return backpacks
-end
-
-local function deliverRewardBackpack(player, backpack)
-    if player:addItemEx(backpack, false) == RETURNVALUE_NOERROR then
-        return true
-    end
-
-    local inbox = player:getInbox()
-    if inbox and inbox:addItemEx(backpack, INDEX_WHEREEVER, FLAG_NOLIMIT) == RETURNVALUE_NOERROR then
-        return false
-    end
-
-    player:addItemEx(backpack, true)
-    return true
-end
-
 local function grantRewardList(player, rewards)
-    local sentToInbox = false
-    for _, backpack in ipairs(packRewardsIntoBackpacks(rewards)) do
-        if not deliverRewardBackpack(player, backpack) then
-            sentToInbox = true
-        end
-    end
-
-    if sentToInbox then
+    if not RewardBackpack.deliver(player, rewards) then
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Battle Pass: you had no room, so your reward backpack was sent to your depot inbox.")
     end
 end
