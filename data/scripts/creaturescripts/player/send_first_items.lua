@@ -101,11 +101,26 @@ local config = {
 	},
 }
 
+local LOOT_POUCH_ITEM_ID = 23721
+
 local sendFirstItems = CreatureEvent("SendFirstItems")
 
+local function giveStarterLootPouch(player)
+	if player:getStoreInbox():getItemCountById(LOOT_POUCH_ITEM_ID) > 0 then
+		return
+	end
+	player:addItemStoreInbox(LOOT_POUCH_ITEM_ID, 1, false, true)
+end
+
 function sendFirstItems.onLogin(player)
+	if player:getLastLoginSaved() ~= 0 then
+		return true
+	end
+
+	giveStarterLootPouch(player)
+
 	local targetVocation = config[player:getVocation():getId()]
-	if not targetVocation or player:getLastLoginSaved() ~= 0 then
+	if not targetVocation then
 		return true
 	end
 
