@@ -245,6 +245,7 @@ local json = dofile("data/libs/dkjson.lua")
 
 local IMBUEMENT_SHOP_OPCODE = 23
 local TIER_NAMES = { "Basic", "Intricate", "Powerful" }
+local ALLOWED_QUANTITIES = { [1] = true, [2] = true, [5] = true }
 local requestThrottle = RequestThrottle.new(500)
 
 local function findKit(kitName)
@@ -297,7 +298,15 @@ local function handleCatalogRequest(player)
 	sendToPlayer(player, { action = "catalog", kits = buildCatalog(), balance = player:getMoney() + player:getBankBalance() })
 end
 
-local function handlePurchase(player, kitName, tierLevel)
+local function multiplyItems(items, quantity)
+	local multipliedItems = {}
+	for _, item in ipairs(items) do
+		multipliedItems[#multipliedItems + 1] = { itemId = item.itemId, amount = item.amount * quantity }
+	end
+	return multipliedItems
+end
+
+local function handlePurchase(player, kitName, tierLevel, requestedQuantity)
 	local kit = findKit(kitName)
 	if not kit then
 		return sendResult(player, false, "This imbuement kit does not exist.")
@@ -308,20 +317,26 @@ local function handlePurchase(player, kitName, tierLevel)
 		return sendResult(player, false, "This imbuement level does not exist.")
 	end
 
-	if player:getMoney() + player:getBankBalance() < tier.price then
-		return sendResult(player, false, string.format("You need %d gold to buy this kit.", tier.price))
+	local quantity = tonumber(requestedQuantity) or 1
+	if not ALLOWED_QUANTITIES[quantity] then
+		return sendResult(player, false, "Invalid quantity.")
 	end
 
-	if not player:removeMoneyBank(tier.price) then
+	local totalPrice = tier.price * quantity
+	if player:getMoney() + player:getBankBalance() < totalPrice then
+		return sendResult(player, false, string.format("You need %d gold to buy this.", totalPrice))
+	end
+
+	if not player:removeMoneyBank(totalPrice) then
 		return sendResult(player, false, "The payment could not be completed.")
 	end
 
-	local kitDescription = string.format("%s %s kit", TIER_NAMES[tier.level], kit.name)
-	if RewardBackpack.deliver(player, tier.items) then
-		return sendResult(player, true, string.format("You bought the %s for %d gold.", kitDescription, tier.price))
+	local kitDescription = string.format("%dx %s %s kit", quantity, TIER_NAMES[tier.level], kit.name)
+	if RewardBackpack.deliver(player, multiplyItems(tier.items, quantity)) then
+		return sendResult(player, true, string.format("You bought %s for %d gold.", kitDescription, totalPrice))
 	end
 
-	sendResult(player, true, string.format("You bought the %s for %d gold. You had no room, so it was sent to your depot inbox.", kitDescription, tier.price))
+	sendResult(player, true, string.format("You bought %s for %d gold. You had no room, so it was sent to your depot inbox.", kitDescription, totalPrice))
 end
 
 local function onExtendedOpcodeReceived(player, opcode, buffer)
@@ -341,7 +356,7 @@ local function onExtendedOpcodeReceived(player, opcode, buffer)
 	if data.action == "catalog" then
 		handleCatalogRequest(player)
 	elseif data.action == "buy" then
-		handlePurchase(player, data.kit, data.tier)
+		handlePurchase(player, data.kit, data.tier, data.quantity)
 	end
 	return true
 end
