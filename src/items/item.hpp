@@ -145,12 +145,22 @@ public:
 		return getAttribute<uint32_t>(ItemAttribute_t::CORPSEOWNER);
 	}
 
+	static constexpr std::string_view PLAYER_CORPSE_ATTRIBUTE_KEY = "playerCorpse";
+
 	void setRewardCorpse() {
 		setAttribute(ItemAttribute_t::CORPSEOWNER, static_cast<uint32_t>(std::numeric_limits<int32_t>::max()));
 	}
 
 	bool isRewardCorpse() const {
 		return getCorpseOwner() == static_cast<uint32_t>(std::numeric_limits<int32_t>::max());
+	}
+
+	void setPlayerCorpse() {
+		setCustomAttribute(std::string(PLAYER_CORPSE_ATTRIBUTE_KEY), true);
+	}
+
+	bool isPlayerCorpse() const {
+		return getCustomAttribute(std::string(PLAYER_CORPSE_ATTRIBUTE_KEY)) != nullptr;
 	}
 
 	void setShader(const std::string &shaderName);

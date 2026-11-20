@@ -440,6 +440,7 @@ public:
 	bool walkPlayerToCorpse(const std::shared_ptr<Player> &player, const Position &pos, uint16_t itemId, uint8_t stackPos, const std::shared_ptr<Item> &defaultItem, bool lootAllCorpses, bool autoLoot);
 	std::shared_ptr<Item> getItemToLoot(const std::shared_ptr<Player> &player, const Position &pos, uint8_t stackPos, uint16_t itemId, const std::shared_ptr<Item> &defaultItem);
 	std::shared_ptr<Container> getCorpseFromItem(const std::shared_ptr<Item> &item, const Position &pos);
+	bool isInsidePlayerCorpse(const std::shared_ptr<Container> &container);
 	bool isCorpseLootable(const std::shared_ptr<Player> &player, const std::shared_ptr<Container> &corpse);
 	bool isDirectLoot(const Position &pos, const std::shared_ptr<Container> &corpse);
 	void handleDirectLoot(const std::shared_ptr<Player> &player, const std::shared_ptr<Item> &item, const std::shared_ptr<Container> &corpse);

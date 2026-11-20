@@ -5964,11 +5964,32 @@ std::shared_ptr<Container> Game::getCorpseFromItem(const std::shared_ptr<Item> &
 	return corpse;
 }
 
+bool Game::isInsidePlayerCorpse(const std::shared_ptr<Container> &container) {
+	auto currentContainer = container;
+	while (currentContainer) {
+		if (currentContainer->isPlayerCorpse()) {
+			return true;
+		}
+
+		const auto &parent = currentContainer->getParent();
+		if (!parent) {
+			return false;
+		}
+
+		currentContainer = parent->getContainer();
+	}
+	return false;
+}
+
 bool Game::isCorpseLootable(const std::shared_ptr<Player> &player, const std::shared_ptr<Container> &corpse) {
 	if (!corpse) {
 		return false;
 	}
 	if (corpse->hasAttribute(ItemAttribute_t::UNIQUEID) || corpse->hasAttribute(ItemAttribute_t::ACTIONID)) {
+		return false;
+	}
+
+	if (isInsidePlayerCorpse(corpse)) {
 		return false;
 	}
 
@@ -6071,7 +6092,7 @@ void Game::playerLootAllCorpses(const std::shared_ptr<Player> &player, const Pos
 			}
 
 			std::shared_ptr<Container> tileCorpse = tileItem->getContainer();
-			if (!tileCorpse || !tileCorpse->isCorpse() || tileCorpse->hasAttribute(ItemAttribute_t::UNIQUEID) || tileCorpse->hasAttribute(ItemAttribute_t::ACTIONID)) {
+			if (!tileCorpse || !tileCorpse->isCorpse() || tileCorpse->isPlayerCorpse() || tileCorpse->hasAttribute(ItemAttribute_t::UNIQUEID) || tileCorpse->hasAttribute(ItemAttribute_t::ACTIONID)) {
 				continue;
 			}
 
@@ -6127,7 +6148,7 @@ void Game::playerSetManagedContainer(uint32_t playerId, ObjectCategory_t categor
 	}
 
 	if (container->getID() == ITEM_GOLD_POUCH && !isLootContainer) {
-		player->sendTextMessage(MESSAGE_FAILURE, "You can only set the gold pouch as a loot container.");
+		player->sendTextMessage(MESSAGE_FAILURE, "You can only set the loot pouch as a loot container.");
 		return;
 	}
 

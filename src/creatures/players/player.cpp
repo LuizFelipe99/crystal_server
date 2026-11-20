@@ -4510,6 +4510,7 @@ std::shared_ptr<Item> Player::getCorpse(const std::shared_ptr<Creature> &lastHit
 	}
 
 	corpse->setAttribute(ItemAttribute_t::DESCRIPTION, descriptionStream.str());
+	corpse->setPlayerCorpse();
 	return corpse;
 }
 

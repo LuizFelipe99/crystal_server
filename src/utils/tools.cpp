@@ -1370,7 +1370,7 @@ const char* getReturnMessage(ReturnValue value) {
 			return "You cannot move this item into your store inbox as it was not bought in the store.";
 
 		case RETURNVALUE_ITEMCANNOTBEMOVEDPOUCH:
-			return "This item cannot be moved there. You can only place gold, platinum and crystal coins in your gold pouch.";
+			return "This item cannot be moved there. You can only place gold, platinum and crystal coins in your loot pouch.";
 
 		case RETURNVALUE_ITEMCANNOTBEMOVEDTHERE:
 			return "This item cannot be moved there.";
