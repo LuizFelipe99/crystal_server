@@ -242,6 +242,23 @@ end
 
 local exhaust = {}
 
+local function isMovingIntoLootPouch(toPosition, toCylinder)
+	if not toCylinder or not toCylinder.isItem or not toCylinder:isItem() then
+		return false
+	end
+
+	if toCylinder:getId() == ITEM_GOLD_POUCH then
+		return true
+	end
+
+	if toCylinder:getId() ~= ITEM_STORE_INBOX then
+		return false
+	end
+
+	local targetItem = toCylinder:getItem(toPosition.z)
+	return targetItem ~= nil and targetItem:getId() == ITEM_GOLD_POUCH
+end
+
 function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, toCylinder)
 	if item:getActionId() == IMMOVABLE_ACTION_ID then
 		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
@@ -291,6 +308,11 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 	-- Handle move items to the ground
 	if toPosition.x ~= CONTAINER_POSITION then
 		return true
+	end
+
+	if item:isContainer() and isMovingIntoLootPouch(toPosition, toCylinder) then
+		self:sendTextMessage(MESSAGE_FAILURE, "You cannot put containers inside your loot pouch.")
+		return false
 	end
 
 	-- Check two-handed weapons
