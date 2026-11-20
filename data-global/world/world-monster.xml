@@ -119778,9 +119778,6 @@
 	<monster centerx="33101" centery="32256" centerz="10" radius="1">
 		<monster name="Noble Lion" x="0" y="0" z="10" spawntime="60" />
 	</monster>
-	<monster centerx="33118" centery="32256" centerz="10" radius="1">
-		<monster name="White Lion" x="0" y="0" z="10" spawntime="60" />
-	</monster>
 	<monster centerx="32525" centery="32257" centerz="10" radius="2">
 		<monster name="Orc" x="-1" y="-2" z="10" spawntime="90" />
 		<monster name="Orc" x="1" y="1" z="10" spawntime="90" />
