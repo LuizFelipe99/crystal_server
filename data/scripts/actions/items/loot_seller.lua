@@ -75,7 +75,8 @@ function itemSeller.onUse(player, item, fromPosition, target, toPosition, isHotk
             if itemsProcessed >= conf.maxValueSell then break end
             
             local currentItem = containerItems[i]
-            if not currentItem:isContainer() then
+            local isSaleBlocked = SellProtection and SellProtection.isProtected(player, currentItem:getId())
+            if not currentItem:isContainer() and not isSaleBlocked then
                 local itemId = currentItem:getId()
                 local sellData = sellingTable[itemId]
                 
