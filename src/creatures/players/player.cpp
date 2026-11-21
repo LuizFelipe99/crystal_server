@@ -10901,6 +10901,10 @@ void Player::forgeTransferItemTier(ForgeAction_t actionType, uint16_t donorItemI
 			return;
 		}
 	}
+	if (getMoney() + getBankBalance() < cost) {
+		sendForgeError(RETURNVALUE_CONTACTADMINISTRATOR);
+		return;
+	}
 	auto returnValue = g_game().internalRemoveItem(donorItem, 1);
 	if (returnValue != RETURNVALUE_NOERROR) {
 		g_logger().error("[Log 1] Failed to remove transfer item {} from player with name {}", donorItemId, getName());
@@ -10958,8 +10962,8 @@ void Player::forgeTransferItemTier(ForgeAction_t actionType, uint16_t donorItemI
 		return;
 	}
 
-	if (!removeItemCountById(ITEM_FORGE_CORE, coresAmount)) {
-		g_logger().error("[{}] Failed to remove item 'id: {}, count: {}' from player {}", __FUNCTION__, fmt::underlying(ITEM_FORGE_CORE), 1, getName());
+	if (coresAmount > 0 && !removeItemCountById(ITEM_FORGE_CORE, coresAmount)) {
+		g_logger().error("[{}] Failed to remove item 'id: {}, count: {}' from player {}", __FUNCTION__, fmt::underlying(ITEM_FORGE_CORE), coresAmount, getName());
 		sendForgeError(RETURNVALUE_CONTACTADMINISTRATOR);
 		return;
 	}
