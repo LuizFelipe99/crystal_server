@@ -11255,6 +11255,10 @@ void ProtocolGame::sendSereneProtocol(const bool isSerene) {
 }
 
 void ProtocolGame::sendStanceProtocol(const std::vector<uint16_t> &spellIds) {
+	if (isOTC || isOTCR) {
+		return;
+	}
+
 	NetworkMessage msg;
 	msg.addByte(0xC1);
 	msg.addByte(0x02);
