@@ -10678,13 +10678,7 @@ void Player::forgeFuseItems(ForgeAction_t actionType, uint16_t firstItemId, uint
 		sendForgeError(RETURNVALUE_CONTACTADMINISTRATOR);
 		return;
 	}
-	returnValue = g_game().internalAddItem(exaltationContainer, firstForgedItem, INDEX_WHEREEVER);
-	if (returnValue != RETURNVALUE_NOERROR) {
-		g_logger().error("[Log 1] Failed to add forge item {} from player with name {}", firstItemId, getName());
-		sendCancelMessage(getReturnMessage(returnValue));
-		sendForgeError(RETURNVALUE_CONTACTADMINISTRATOR);
-		return;
-	}
+	exaltationContainer->addItemBack(firstForgedItem);
 
 	if (convergence) {
 		firstForgedItem->setTier(tier + 1);
@@ -10722,13 +10716,7 @@ void Player::forgeFuseItems(ForgeAction_t actionType, uint16_t firstItemId, uint
 		}
 
 		secondForgedItem->setTier(tier);
-		returnValue = g_game().internalAddItem(exaltationContainer, secondForgedItem, INDEX_WHEREEVER);
-		if (returnValue != RETURNVALUE_NOERROR) {
-			g_logger().error("[Log 2] Failed to add forge item {} from player with name {}", secondItemId, getName());
-			sendCancelMessage(getReturnMessage(returnValue));
-			sendForgeError(RETURNVALUE_CONTACTADMINISTRATOR);
-			return;
-		}
+		exaltationContainer->addItemBack(secondForgedItem);
 
 		if (success) {
 			firstForgedItem->setTier(tier + 1);

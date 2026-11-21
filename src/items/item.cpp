@@ -382,6 +382,10 @@ bool Item::equals(const std::shared_ptr<Item> &compareItem) const {
 		return false;
 	}
 
+	if (getTier() != compareItem->getTier()) {
+		return false;
+	}
+
 	for (const auto &attribute : getAttributeVector()) {
 		if (attribute.getAttributeType() == ItemAttribute_t::STORE) {
 			continue;
