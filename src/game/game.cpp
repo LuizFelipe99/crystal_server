@@ -11626,31 +11626,27 @@ uint32_t Game::makeInfluencedMonster() {
 		return 0;
 	}
 
-	auto maxTries = forgeableMonsters.size();
-	uint16_t tries = 0;
+	const size_t maxTries = forgeableMonsters.size();
+	size_t tries = 0;
 	std::shared_ptr<Monster> monster = nullptr;
 	while (true) {
-		if (tries == maxTries) {
+		if (tries >= maxTries || forgeableMonsters.empty()) {
 			return 0;
 		}
 
 		tries++;
 
-		auto random = static_cast<uint32_t>(normal_random(0, static_cast<int32_t>(forgeableMonsters.size() - 1)));
+		auto random = static_cast<uint32_t>(uniform_random(0, static_cast<int32_t>(forgeableMonsters.size() - 1)));
 		auto monsterId = forgeableMonsters.at(random);
 		monster = getMonsterByID(monsterId);
 		if (monster == nullptr) {
+			forgeableMonsters.erase(forgeableMonsters.begin() + random);
 			continue;
 		}
 
 		// Avoiding replace forgeable monster with another
 		if (monster->getForgeStack() == 0) {
-			auto it = std::ranges::find(forgeableMonsters.begin(), forgeableMonsters.end(), monsterId);
-			if (it == forgeableMonsters.end()) {
-				monster = nullptr;
-				continue;
-			}
-			forgeableMonsters.erase(it);
+			forgeableMonsters.erase(forgeableMonsters.begin() + random);
 			break;
 		}
 	}
@@ -11920,14 +11916,15 @@ void Game::createFiendishMonsters() {
 }
 
 void Game::createInfluencedMonsters(bool scheduleEvent /* = true */) {
+	constexpr uint32_t maxConsecutiveFailures = 200;
 	uint32_t influencedLimit = getInfluencedLimit();
-	if (influencedMonsters.size() < influencedLimit) {
-		uint32_t toCreate = influencedLimit - static_cast<uint32_t>(influencedMonsters.size());
-		for (uint32_t i = 0; i < toCreate; ++i) {
-			if (makeInfluencedMonster() == 0) {
-				break;
-			}
+	uint32_t consecutiveFailures = 0;
+	while (influencedMonsters.size() < influencedLimit && !forgeableMonsters.empty() && consecutiveFailures < maxConsecutiveFailures) {
+		if (makeInfluencedMonster() == 0) {
+			++consecutiveFailures;
+			continue;
 		}
+		consecutiveFailures = 0;
 	}
 
 	if (scheduleEvent) {
