@@ -242,6 +242,16 @@ end
 
 local exhaust = {}
 
+local LOOT_POUCH_ALLOWED_COIN_IDS = {
+	[ITEM_GOLD_COIN] = true,
+	[ITEM_PLATINUM_COIN] = true,
+	[ITEM_CRYSTAL_COIN] = true,
+}
+
+local function isCoinItem(item)
+	return LOOT_POUCH_ALLOWED_COIN_IDS[item:getId()] == true
+end
+
 local function isMovingIntoLootPouch(toPosition, toCylinder)
 	if not toCylinder or not toCylinder.isItem or not toCylinder:isItem() then
 		return false
@@ -310,8 +320,9 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 		return true
 	end
 
-	if item:isContainer() and isMovingIntoLootPouch(toPosition, toCylinder) then
-		self:sendTextMessage(MESSAGE_FAILURE, "You cannot put containers inside your loot pouch.")
+	local isAlreadyInsidePouch = fromCylinder and fromCylinder.isItem and fromCylinder:isItem() and fromCylinder:getId() == ITEM_GOLD_POUCH
+	if not isAlreadyInsidePouch and not isCoinItem(item) and isMovingIntoLootPouch(toPosition, toCylinder) then
+		self:sendTextMessage(MESSAGE_FAILURE, "Items only enter your loot pouch through looting. You can still take them out.")
 		return false
 	end
 
