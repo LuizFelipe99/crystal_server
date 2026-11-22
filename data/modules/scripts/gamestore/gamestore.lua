@@ -6538,7 +6538,7 @@ GameStore.Categories = {
 				price = 25,
 				id = GameStore.SubActions.PREY_WILDCARD,
 				count = 5,
-				description = "<i>Use Prey Wildcards to reroll the bonus of an active prey, to lock your active prey or to select a prey of your choice.</i>\n\n{character}\n{info} added directly to Prey dialog\n{info} maximum amount that can be owned by character: 50",
+				description = "<i>Use Prey Wildcards to reroll the bonus of an active prey, to lock your active prey or to select a prey of your choice.</i>\n\n{character}\n{info} added directly to Prey dialog\n{info} maximum amount that can be owned by character: 200",
 				type = GameStore.OfferTypes.OFFER_TYPE_PREYBONUS,
 			},
 			{
@@ -6629,7 +6629,7 @@ GameStore.Categories = {
 				name = "Prey Wildcard",
 				price = 100,
 				count = 20,
-				description = "<i>Use Prey Wildcards to reroll the bonus of an active prey, to lock your active prey or to select a prey of your choice.</i>\n\n{character}\n{info} added directly to Prey dialog\n{info} maximum amount that can be owned by character: 50",
+				description = "<i>Use Prey Wildcards to reroll the bonus of an active prey, to lock your active prey or to select a prey of your choice.</i>\n\n{character}\n{info} added directly to Prey dialog\n{info} maximum amount that can be owned by character: 200",
 				type = GameStore.OfferTypes.OFFER_TYPE_PREYBONUS,
 			},
 			{
