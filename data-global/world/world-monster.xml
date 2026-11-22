@@ -51266,30 +51266,6 @@
 		<monster name="Seagull" x="5" y="1" z="7" spawntime="90" />
 		<monster name="Toad" x="1" y="2" z="7" spawntime="90" />
 	</monster>
-	<monster centerx="31617" centery="33067" centerz="7" radius="1">
-		<monster name="Diremaw" x="0" y="0" z="7" spawntime="60" direction="1" />
-	</monster>
-	<monster centerx="31625" centery="33067" centerz="7" radius="1">
-		<monster name="Sphinx" x="0" y="0" z="7" spawntime="60" direction="3" />
-	</monster>
-	<monster centerx="31617" centery="33072" centerz="7" radius="1">
-		<monster name="Dark Torturer" x="0" y="0" z="7" spawntime="60" direction="1" />
-	</monster>
-	<monster centerx="31625" centery="33072" centerz="7" radius="1">
-		<monster name="Weretiger" x="0" y="0" z="7" spawntime="60" direction="3" />
-	</monster>
-	<monster centerx="31617" centery="33077" centerz="7" radius="1">
-		<monster name="Juggernaut" x="0" y="0" z="7" spawntime="60" direction="1" />
-	</monster>
-	<monster centerx="31625" centery="33077" centerz="7" radius="1">
-		<monster name="Vexclaw" x="0" y="0" z="7" spawntime="60" direction="3" />
-	</monster>
-	<monster centerx="31617" centery="33082" centerz="7" radius="1">
-		<monster name="True Dawnfire Asura" x="0" y="0" z="7" spawntime="60" direction="1" />
-	</monster>
-	<monster centerx="31625" centery="33082" centerz="7" radius="1">
-		<monster name="Naga Warrior" x="0" y="0" z="7" spawntime="60" direction="3" />
-	</monster>
 	<monster centerx="31600" centery="33087" centerz="7" radius="1">
 		<monster name="Hulking Prehemoth" x="0" y="0" z="7" spawntime="60" direction="2" />
 	</monster>
@@ -51313,18 +51289,6 @@
 	</monster>
 	<monster centerx="31643" centery="33087" centerz="7" radius="1">
 		<monster name="Blemished Spawn" x="0" y="0" z="7" spawntime="60" direction="2" />
-	</monster>
-	<monster centerx="31701" centery="33091" centerz="7" radius="1">
-		<monster name="Crypt Construct" x="0" y="0" z="7" spawntime="60" direction="1" />
-	</monster>
-	<monster centerx="31707" centery="33091" centerz="7" radius="1">
-		<monster name="Crypt Fiend" x="0" y="0" z="7" spawntime="60" direction="3" />
-	</monster>
-	<monster centerx="31701" centery="33094" centerz="7" radius="1">
-		<monster name="Juvenile Bashmu" x="0" y="0" z="7" spawntime="60" direction="1" />
-	</monster>
-	<monster centerx="31707" centery="33094" centerz="7" radius="1">
-		<monster name="Young Goanna" x="0" y="0" z="7" spawntime="60" direction="3" />
 	</monster>
 	<monster centerx="31628" centery="33095" centerz="7" radius="1">
 		<monster name="Many Faces" x="0" y="0" z="7" spawntime="60" />
@@ -51353,14 +51317,6 @@
 	<monster centerx="31616" centery="33100" centerz="7" radius="1">
 		<monster name="Bloated Man-Maggot" x="0" y="0" z="7" spawntime="60" />
 	</monster>
-	<monster centerx="31686" centery="33108" centerz="7" radius="1" />
-	<monster centerx="31689" centery="33108" centerz="7" radius="1" />
-	<monster centerx="31692" centery="33108" centerz="7" radius="1" />
-	<monster centerx="31695" centery="33108" centerz="7" radius="1" />
-	<monster centerx="31713" centery="33110" centerz="7" radius="1" />
-	<monster centerx="31716" centery="33110" centerz="7" radius="1" />
-	<monster centerx="31719" centery="33110" centerz="7" radius="1" />
-	<monster centerx="31722" centery="33110" centerz="7" radius="1" />
 	<monster centerx="31617" centery="33140" centerz="7" radius="1">
 		<monster name="Diremaw" x="0" y="0" z="7" spawntime="60" direction="1" />
 	</monster>
@@ -51573,7 +51529,7 @@
 	</monster>
 	<monster centerx="31730" centery="33268" centerz="7" radius="4">
 		<monster name="Drume" x="-4" y="-3" z="7" spawntime="120" />
-		<monster name="Malofur Mangrinder" x="-2" y="-3" z="7" spawntime="120" />
+		<monster name="Alptramun" x="-2" y="-3" z="7" spawntime="60" />
 		<monster name="Obujos" x="0" y="-3" z="7" spawntime="120" />
 		<monster name="Tanjis" x="2" y="-3" z="7" spawntime="120" />
 		<monster name="Brokul" x="4" y="-3" z="7" spawntime="120" />
@@ -51593,142 +51549,6 @@
 		<monster name="Goshnar's Malice" x="-4" y="1" z="7" spawntime="90" direction="3" />
 		<monster name="Goshnar's Spite" x="-4" y="3" z="7" spawntime="90" direction="3" />
 		<monster name="Goshnar's Megalomania Green" x="-4" y="5" z="7" spawntime="90" direction="3" />
-	</monster>
-	<monster centerx="31604" centery="33308" centerz="7" radius="1">
-		<monster name="Crypt Construct" x="0" y="0" z="7" spawntime="60" direction="1" />
-	</monster>
-	<monster centerx="31610" centery="33308" centerz="7" radius="1">
-		<monster name="Crypt Fiend" x="0" y="0" z="7" spawntime="60" direction="3" />
-	</monster>
-	<monster centerx="31678" centery="33308" centerz="7" radius="1">
-		<monster name="Diremaw" x="0" y="0" z="7" spawntime="60" direction="1" />
-	</monster>
-	<monster centerx="31684" centery="33308" centerz="7" radius="1">
-		<monster name="Sphinx" x="0" y="0" z="7" spawntime="60" direction="3" />
-	</monster>
-	<monster centerx="31604" centery="33311" centerz="7" radius="1">
-		<monster name="Juvenile Bashmu" x="0" y="0" z="7" spawntime="60" direction="1" />
-	</monster>
-	<monster centerx="31610" centery="33311" centerz="7" radius="1">
-		<monster name="Young Goanna" x="0" y="0" z="7" spawntime="60" direction="3" />
-	</monster>
-	<monster centerx="31678" centery="33311" centerz="7" radius="1">
-		<monster name="Dark Torturer" x="0" y="0" z="7" spawntime="60" direction="1" />
-	</monster>
-	<monster centerx="31684" centery="33311" centerz="7" radius="1">
-		<monster name="Weretiger" x="0" y="0" z="7" spawntime="60" direction="3" />
-	</monster>
-	<monster centerx="31606" centery="33314" centerz="7" radius="1" />
-	<monster centerx="31608" centery="33314" centerz="7" radius="1" />
-	<monster centerx="31678" centery="33314" centerz="7" radius="1">
-		<monster name="Juggernaut" x="0" y="0" z="7" spawntime="60" direction="1" />
-	</monster>
-	<monster centerx="31684" centery="33314" centerz="7" radius="1">
-		<monster name="Vexclaw" x="0" y="0" z="7" spawntime="60" direction="3" />
-	</monster>
-	<monster centerx="31606" centery="33317" centerz="7" radius="1" />
-	<monster centerx="31608" centery="33317" centerz="7" radius="1" />
-	<monster centerx="31678" centery="33317" centerz="7" radius="1">
-		<monster name="True Dawnfire Asura" x="0" y="0" z="7" spawntime="60" direction="1" />
-	</monster>
-	<monster centerx="31684" centery="33317" centerz="7" radius="1">
-		<monster name="Naga Warrior" x="0" y="0" z="7" spawntime="60" direction="3" />
-	</monster>
-	<monster centerx="31589" centery="33323" centerz="7" radius="1">
-		<monster name="Bony Sea Devil" x="0" y="0" z="7" spawntime="60" direction="2" />
-	</monster>
-	<monster centerx="31592" centery="33323" centerz="7" radius="1">
-		<monster name="Emerald Tortoise" x="0" y="0" z="7" spawntime="60" direction="2" />
-	</monster>
-	<monster centerx="31595" centery="33323" centerz="7" radius="1">
-		<monster name="Noxious Ripptor" x="0" y="0" z="7" spawntime="60" direction="2" />
-	</monster>
-	<monster centerx="31598" centery="33323" centerz="7" radius="1">
-		<monster name="Sulphider" x="0" y="0" z="7" spawntime="60" direction="2" />
-	</monster>
-	<monster centerx="31616" centery="33323" centerz="7" radius="1">
-		<monster name="Hideous Fungus" x="0" y="0" z="7" spawntime="60" direction="2" />
-	</monster>
-	<monster centerx="31619" centery="33323" centerz="7" radius="1">
-		<monster name="Magma Crawler" x="0" y="0" z="7" spawntime="60" direction="2" />
-	</monster>
-	<monster centerx="31622" centery="33323" centerz="7" radius="1">
-		<monster name="Orewalker" x="0" y="0" z="7" spawntime="60" direction="2" />
-	</monster>
-	<monster centerx="31625" centery="33323" centerz="7" radius="1">
-		<monster name="Blemished Spawn" x="0" y="0" z="7" spawntime="60" direction="2" />
-	</monster>
-	<monster centerx="31663" centery="33323" centerz="7" radius="1">
-		<monster name="Lion Knight" x="0" y="0" z="7" spawntime="60" direction="2" />
-	</monster>
-	<monster centerx="31666" centery="33323" centerz="7" radius="1">
-		<monster name="Cobra Scout" x="0" y="0" z="7" spawntime="60" direction="2" />
-	</monster>
-	<monster centerx="31669" centery="33323" centerz="7" radius="1">
-		<monster name="Falcon Knight" x="0" y="0" z="7" spawntime="60" direction="2" />
-	</monster>
-	<monster centerx="31672" centery="33323" centerz="7" radius="1">
-		<monster name="Dawnfire Asura" x="0" y="0" z="7" spawntime="60" direction="2" />
-	</monster>
-	<monster centerx="31690" centery="33323" centerz="7" radius="1">
-		<monster name="Girtablilu Warrior" x="0" y="0" z="7" spawntime="60" direction="2" />
-	</monster>
-	<monster centerx="31693" centery="33323" centerz="7" radius="1">
-		<monster name="Crazed Winter Rearguard" x="0" y="0" z="7" spawntime="60" direction="2" />
-	</monster>
-	<monster centerx="31696" centery="33323" centerz="7" radius="1">
-		<monster name="Crazed Summer Vanguard" x="0" y="0" z="7" spawntime="60" direction="2" />
-	</monster>
-	<monster centerx="31699" centery="33323" centerz="7" radius="1">
-		<monster name="Guzzlemaw" x="0" y="0" z="7" spawntime="60" direction="2" />
-	</monster>
-	<monster centerx="31589" centery="33329" centerz="7" radius="1">
-		<monster name="Many Faces" x="0" y="0" z="7" spawntime="60" />
-	</monster>
-	<monster centerx="31592" centery="33329" centerz="7" radius="1">
-		<monster name="Cloak of Terror" x="0" y="0" z="7" spawntime="60" />
-	</monster>
-	<monster centerx="31595" centery="33329" centerz="7" radius="1">
-		<monster name="Infernal Demon" x="0" y="0" z="7" spawntime="60" />
-	</monster>
-	<monster centerx="31598" centery="33329" centerz="7" radius="1">
-		<monster name="Rotten Golem" x="0" y="0" z="7" spawntime="60" />
-	</monster>
-	<monster centerx="31616" centery="33329" centerz="7" radius="1">
-		<monster name="Rotten Man-Maggot" x="0" y="0" z="7" spawntime="60" />
-	</monster>
-	<monster centerx="31619" centery="33329" centerz="7" radius="1">
-		<monster name="Bloated Man-Maggot" x="0" y="0" z="7" spawntime="60" />
-	</monster>
-	<monster centerx="31622" centery="33329" centerz="7" radius="1">
-		<monster name="Darklight Source" x="0" y="0" z="7" spawntime="60" />
-	</monster>
-	<monster centerx="31625" centery="33329" centerz="7" radius="1">
-		<monster name="Wandering Pillar" x="0" y="0" z="7" spawntime="60" />
-	</monster>
-	<monster centerx="31663" centery="33329" centerz="7" radius="1">
-		<monster name="Werelion" x="0" y="0" z="7" spawntime="60" />
-	</monster>
-	<monster centerx="31666" centery="33329" centerz="7" radius="1">
-		<monster name="Gorger Inferniarch" x="0" y="0" z="7" spawntime="60" />
-	</monster>
-	<monster centerx="31669" centery="33329" centerz="7" radius="1">
-		<monster name="Lizard High Guard" x="0" y="0" z="7" spawntime="60" />
-	</monster>
-	<monster centerx="31672" centery="33329" centerz="7" radius="1">
-		<monster name="Priestess of the Wild Sun" x="0" y="0" z="7" spawntime="60" />
-	</monster>
-	<monster centerx="31690" centery="33329" centerz="7" radius="1">
-		<monster name="Burning Book" x="0" y="0" z="7" spawntime="60" />
-	</monster>
-	<monster centerx="31693" centery="33329" centerz="7" radius="1">
-		<monster name="Energetic Book" x="0" y="0" z="7" spawntime="60" />
-	</monster>
-	<monster centerx="31696" centery="33329" centerz="7" radius="1">
-		<monster name="Icecold Book" x="0" y="0" z="7" spawntime="60" />
-	</monster>
-	<monster centerx="31699" centery="33329" centerz="7" radius="1">
-		<monster name="Cursed Book" x="0" y="0" z="7" spawntime="60" />
 	</monster>
 	<monster centerx="31857" centery="33411" centerz="7" radius="1">
 		<monster name="Renegade Knight" x="0" y="0" z="7" spawntime="60" />
