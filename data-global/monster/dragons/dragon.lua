@@ -105,10 +105,10 @@ monster.loot = {
 	{ name = "wand of inferno", chance = 560 },
 	{ name = "small diamond", chance = 450 },
 	{ name = "serpent sword", chance = 230 },
-	{ name = "dragon hammer", chance = 230 },
+	{ name = "dragon hammer", chance = 1600 },
 	{ name = "dragonbone staff", chance = 170 },
 	{ name = "life crystal", chance = 170 },
-	{ name = "dragon shield", chance = 110 },
+	{ name = "dragon shield", chance = 1200 },
 }
 
 monster.attacks = {
