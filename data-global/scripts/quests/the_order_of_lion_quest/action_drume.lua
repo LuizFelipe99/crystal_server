@@ -1,6 +1,7 @@
 local config = {
 	bossName = "Drume",
 	bossPosition = Position(32444, 32516, 7),
+	ropePosition = Position(32456, 32508, 6),
 	firstPlayerPosition = Position(32457, 32508, 6),
 	playerTilesCount = 5,
 	centerPosition = Position(32439, 32523, 7),
@@ -106,4 +107,5 @@ function drumeAction.onUse(player, item, fromPosition, target, toPosition, isHot
 end
 
 drumeAction:aid(59601)
+drumeAction:position(config.ropePosition)
 drumeAction:register()
