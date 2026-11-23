@@ -106,6 +106,5 @@ function drumeAction.onUse(player, item, fromPosition, target, toPosition, isHot
 	return true
 end
 
-drumeAction:aid(59601)
 drumeAction:position(config.ropePosition)
 drumeAction:register()
