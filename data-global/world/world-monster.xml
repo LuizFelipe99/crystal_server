@@ -51317,6 +51317,9 @@
 	<monster centerx="31616" centery="33100" centerz="7" radius="1">
 		<monster name="Bloated Man-Maggot" x="0" y="0" z="7" spawntime="60" />
 	</monster>
+	<monster centerx="31625" centery="33100" centerz="7" radius="1">
+		<monster name="Brinebrute Inferniarch" x="0" y="0" z="7" spawntime="60" direction="3" />
+	</monster>
 	<monster centerx="31617" centery="33140" centerz="7" radius="1">
 		<monster name="Diremaw" x="0" y="0" z="7" spawntime="60" direction="1" />
 	</monster>
@@ -195258,17 +195261,6 @@
 	<monster centerx="32343" centery="32588" centerz="15" radius="3">
 		<monster name="Lost Basher" x="-3" y="-3" z="15" spawntime="90" />
 		<monster name="Lost Basher" x="1" y="1" z="15" spawntime="90" />
-	</monster>
-	<monster centerx="32476" centery="32588" centerz="15" radius="3">
-		<monster name="Squid Warden" x="-1" y="-3" z="15" spawntime="60" />
-		<monster name="Animated Feather" x="-1" y="1" z="15" spawntime="60" />
-	</monster>
-	<monster centerx="32483" centery="32588" centerz="15" radius="3">
-		<monster name="Flying Book" x="-3" y="-3" z="15" spawntime="60" />
-		<monster name="Animated Feather" x="1" y="-3" z="15" spawntime="60" />
-		<monster name="Squid Warden" x="3" y="-2" z="15" spawntime="60" />
-		<monster name="Ink Blob" x="-2" y="0" z="15" spawntime="60" />
-		<monster name="Icecold Book" x="2" y="2" z="15" spawntime="60" />
 	</monster>
 	<monster centerx="32560" centery="32588" centerz="15" radius="3">
 		<monster name="Icecold Book" x="2" y="-2" z="15" spawntime="60" />
