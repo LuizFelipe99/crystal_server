@@ -68195,7 +68195,7 @@
 	</item>
 	<item id="36725" name="stamina extension">
 		<attribute key="primarytype" value="liquids" />
-		<attribute key="description" value="Drinking this potion fills up stamina by one hour" />
+		<attribute key="description" value="Drinking this potion fills up stamina by three hours" />
 		<attribute key="weight" value="210" />
 	</item>
 	<item id="36726" article="a" name="charm upgrade">
