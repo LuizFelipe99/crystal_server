@@ -479,7 +479,7 @@ partyListMaxDistance = 30
 
 -- Custom Map
 -- NOTE: toggleMapCustom set to true will load all maps in custom map folder
-toggleMapCustom = false
+toggleMapCustom = true
 
 -- Market
 -- NOTE: marketRefreshPricesInterval (in minutes, minimum is 1 minute)
