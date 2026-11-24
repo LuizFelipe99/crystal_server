@@ -36,7 +36,7 @@ npcConfig.shop = {
 	{ itemName = "attribute gem bag", clientId = 60313, buy = 30 },
 	{ itemName = "bag you desire", clientId = 34109, buy = 40 },
 	{ itemName = "primal bag", clientId = 39546, buy = 50 },
-	{ itemName = "upgrade build stone", clientId = 60863, buy = 90 },
+	{ itemName = "upgrade build stone", clientId = 60863, buy = 60 },
 }
 
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, ignore, inBackpacks, totalCost)
