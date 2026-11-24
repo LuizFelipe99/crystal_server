@@ -26,7 +26,7 @@ StorePacksConfig = {
 			id = 2,
 			name = "Champion Pack",
 			banner = "pack_2_arcane",
-			price = 3000,
+			price = 2000,
 			items = {
 				{ itemId = 39546, count = 3 },
 				{ itemId = 36725, count = 6 },
@@ -51,7 +51,7 @@ StorePacksConfig = {
 			id = 3,
 			name = "Royal Pack",
 			banner = "pack_3_royal",
-			price = 6000,
+			price = 3500,
 			items = {
 				{ itemId = 34109, count = 2 },
 				{ itemId = 36725, count = 9 },
@@ -76,6 +76,7 @@ StorePacksConfig = {
 				{ itemId = 60412, count = 1 },
 				{ itemId = 60556, count = 6 },
 				{ itemId = 60660, count = 3 },
+				{ itemId = 63365, count = 1, name = "ironlord backpack" },
 			},
 		},
 	},
