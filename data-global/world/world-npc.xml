@@ -2231,6 +2231,9 @@
 	<npc centerx="32194" centery="32974" centerz="7" radius="1">
 		<npc name="Meraya" x="0" y="0" z="7" spawntime="60" />
 	</npc>
+	<npc centerx="31722" centery="33255" centerz="7" radius="1">
+		<npc name="Kaelor" x="0" y="0" z="7" spawntime="60" />
+	</npc>
 	<npc centerx="31772" centery="33266" centerz="7" radius="1">
 		<npc name="The Lootmonger" x="0" y="0" z="7" spawntime="60" />
 	</npc>
@@ -3155,8 +3158,5 @@
 	</npc>
 	<npc centerx="33587" centery="32966" centerz="15" radius="1">
 		<npc name="Gnomish Operative (Raiders)" x="0" y="0" z="15" spawntime="60" />
-	</npc>
-	<npc centerx="31722" centery="33255" centerz="7" radius="1">
-		<npc name="Kaelor" x="0" y="0" z="7" spawntime="60" />
 	</npc>
 </npcs>
