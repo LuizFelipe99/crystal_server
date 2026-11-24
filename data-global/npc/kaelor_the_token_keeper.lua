@@ -33,6 +33,7 @@ npcConfig.shop = {
 	{ itemName = "all resilience", clientId = 60606, buy = 5 },
 	{ itemName = "all amplification", clientId = 60605, buy = 5 },
 	{ itemName = "experience elixir", clientId = 60659, buy = 15 },
+	{ itemName = "roulete coin", clientId = 63060, buy = 25 },
 	{ itemName = "attribute gem bag", clientId = 60313, buy = 30 },
 	{ itemName = "bag you desire", clientId = 34109, buy = 40 },
 	{ itemName = "primal bag", clientId = 39546, buy = 50 },
