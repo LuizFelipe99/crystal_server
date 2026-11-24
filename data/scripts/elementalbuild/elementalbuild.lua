@@ -57,32 +57,72 @@ local function playerTotalGold(player)
     return player:getMoney() + player:getBankBalance()
 end
 
-local function playerHasAllMissionItems(player, mission)
-    for _, item in ipairs(mission.items) do
-        if player:getItemCount(item.itemId) < item.amount then
+local function deliveredItemKey(missionId, itemIndex)
+    local cycleKey = ElementalBuildConfig.cycle.year * 100 + ElementalBuildConfig.cycle.month
+    return string.format("elementalbuild-delivered-%d-%d-%d", cycleKey, missionId, itemIndex)
+end
+
+local function getDeliveredAmount(player, missionId, itemIndex)
+    return tonumber(player:kv():get(deliveredItemKey(missionId, itemIndex))) or 0
+end
+
+local function setDeliveredAmount(player, missionId, itemIndex, amount)
+    player:kv():set(deliveredItemKey(missionId, itemIndex), amount)
+end
+
+local function getMissingAmount(player, missionId, itemIndex, item)
+    return math.max(0, item.amount - getDeliveredAmount(player, missionId, itemIndex))
+end
+
+local function isMissionFullyDelivered(player, missionId, mission)
+    for itemIndex, item in ipairs(mission.items) do
+        if getMissingAmount(player, missionId, itemIndex, item) > 0 then
             return false
         end
     end
     return true
 end
 
-local function removeAllMissionItems(player, mission)
-    for _, item in ipairs(mission.items) do
-        player:removeItem(item.itemId, item.amount)
+local function countEquippedItems(player, itemId)
+    local equippedCount = 0
+    for slot = CONST_SLOT_FIRST, CONST_SLOT_LAST do
+        local slotItem = player:getSlotItem(slot)
+        if slotItem and slotItem:getId() == itemId then
+            equippedCount = equippedCount + slotItem:getCount()
+        end
     end
+    return equippedCount
+end
+
+local function countDeliverableItems(player, itemId)
+    return math.max(0, player:getItemCount(itemId) - countEquippedItems(player, itemId))
+end
+
+local function deliverAvailableItems(player, missionId, mission)
+    local deliveredSomething = false
+    for itemIndex, item in ipairs(mission.items) do
+        local deliverableAmount = math.min(countDeliverableItems(player, item.itemId), getMissingAmount(player, missionId, itemIndex, item))
+        if deliverableAmount > 0 and player:removeItem(item.itemId, deliverableAmount, -1, true) then
+            setDeliveredAmount(player, missionId, itemIndex, getDeliveredAmount(player, missionId, itemIndex) + deliverableAmount)
+            deliveredSomething = true
+        end
+    end
+    return deliveredSomething
 end
 
 local function buildMissionItemsPayload(player, mission, missionId)
     local completed = isMissionCompleted(player, missionId)
     local itemsPayload = {}
 
-    for _, item in ipairs(mission.items) do
-        local progress = completed and item.amount or math.min(player:getItemCount(item.itemId), item.amount)
+    for itemIndex, item in ipairs(mission.items) do
+        local deliveredAmount = completed and item.amount or math.min(getDeliveredAmount(player, missionId, itemIndex), item.amount)
+        local availableAmount = completed and 0 or math.min(countDeliverableItems(player, item.itemId), item.amount - deliveredAmount)
         itemsPayload[#itemsPayload + 1] = {
-            clientId = item.clientId,
-            name     = item.name,
-            progress = progress,
-            total    = item.amount,
+            clientId  = item.clientId,
+            name      = item.name,
+            progress  = deliveredAmount,
+            available = availableAmount,
+            total     = item.amount,
         }
     end
 
@@ -350,22 +390,48 @@ local function handleInvest(player, pointsPayload)
     sendInvestResult(player, true)
 end
 
-local function handleDeliver(player, missionId)
+local function findDeliverableMission(player, missionId)
     local mission = ElementalBuildConfig.missions[missionId]
+    if not mission or isMissionCompleted(player, missionId) then
+        return nil
+    end
+    if buildCurrentMissionId(player) ~= missionId then
+        return nil
+    end
+    return mission
+end
 
+local function handleDeliverItems(player, missionId)
+    local mission = findDeliverableMission(player, missionId)
     if not mission then
         sendMissionResult(player, false, missionId)
         return
     end
 
-    if isMissionCompleted(player, missionId) then
+    if not deliverAvailableItems(player, missionId, mission) then
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have no missing mission items to deliver. Equipped items are not delivered.")
+        sendMissionResult(player, false, missionId)
+        sendMissionDetail(player, missionId)
+        return
+    end
+
+    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Items delivered to the mission.")
+    sendMissionResult(player, true, missionId)
+    sendMissionDetail(player, missionId)
+end
+
+local function handleDeliver(player, missionId)
+    local mission = findDeliverableMission(player, missionId)
+    if not mission then
         sendMissionResult(player, false, missionId)
         return
     end
 
-    if not playerHasAllMissionItems(player, mission) then
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You don't have all required items.")
+    deliverAvailableItems(player, missionId, mission)
+    if not isMissionFullyDelivered(player, missionId, mission) then
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You still need to deliver some mission items.")
         sendMissionResult(player, false, missionId)
+        sendMissionDetail(player, missionId)
         return
     end
 
@@ -381,7 +447,6 @@ local function handleDeliver(player, missionId)
         return
     end
 
-    removeAllMissionItems(player, mission)
     player:setElementalBuildAvailablePoints(player:getElementalBuildAvailablePoints() + mission.points)
     markMissionCompleted(player, missionId)
     player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Mission completed! You earned " .. mission.points .. " elemental build points.")
@@ -418,7 +483,9 @@ elementalBuildEvent:onExtendedOpcode(function(player, opcode, buffer)
     elseif data.action == "invest" then
         handleInvest(player, data.points)
     elseif data.action == "deliver" then
-        handleDeliver(player, data.missionId)
+        handleDeliver(player, tonumber(data.missionId))
+    elseif data.action == "deliverItems" then
+        handleDeliverItems(player, tonumber(data.missionId))
     end
 
     return true
