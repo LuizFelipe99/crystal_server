@@ -88,26 +88,26 @@
 	<gem id="64494" type="transcendence" attribute="transcendence" value="3.0" />
 
 	<!-- physical defense gems -->
-	<gem id="64516" type="resistPhysical" attribute="resistPhysical" value="0.3" />
-	<gem id="64517" type="resistPhysical" attribute="resistPhysical" value="0.5" />
-	<gem id="64518" type="resistPhysical" attribute="resistPhysical" value="0.8" />
-	<gem id="64519" type="resistPhysical" attribute="resistPhysical" value="1.0" />
-	<gem id="64520" type="resistPhysical" attribute="resistPhysical" value="1.3" />
-	<gem id="64521" type="resistPhysical" attribute="resistPhysical" value="1.6" />
-	<gem id="64522" type="resistPhysical" attribute="resistPhysical" value="2.0" />
-	<gem id="64523" type="resistPhysical" attribute="resistPhysical" value="2.5" />
-	<gem id="64524" type="resistPhysical" attribute="resistPhysical" value="3.0" />
+	<gem id="64516" type="resistPhysical" attribute="resistPhysical" value="0.5" />
+	<gem id="64517" type="resistPhysical" attribute="resistPhysical" value="0.8" />
+	<gem id="64518" type="resistPhysical" attribute="resistPhysical" value="1.2" />
+	<gem id="64519" type="resistPhysical" attribute="resistPhysical" value="1.6" />
+	<gem id="64520" type="resistPhysical" attribute="resistPhysical" value="2.0" />
+	<gem id="64521" type="resistPhysical" attribute="resistPhysical" value="2.5" />
+	<gem id="64522" type="resistPhysical" attribute="resistPhysical" value="3.5" />
+	<gem id="64523" type="resistPhysical" attribute="resistPhysical" value="4.5" />
+	<gem id="64524" type="resistPhysical" attribute="resistPhysical" value="6.0" />
 
-	<!-- fire resistance (%) gems: replace id="000" with the real item id and uncomment -->
-	<!-- <gem id="000" type="resistFire" attribute="resistFire" value="1" /> level 1 -->
-	<!-- <gem id="000" type="resistFire" attribute="resistFire" value="2" /> level 2 -->
-	<!-- <gem id="000" type="resistFire" attribute="resistFire" value="3" /> level 3 -->
-	<!-- <gem id="000" type="resistFire" attribute="resistFire" value="4" /> level 4 -->
-	<!-- <gem id="000" type="resistFire" attribute="resistFire" value="5" /> level 5 -->
-	<!-- <gem id="000" type="resistFire" attribute="resistFire" value="6" /> level 6 -->
-	<!-- <gem id="000" type="resistFire" attribute="resistFire" value="7" /> level 7 -->
-	<!-- <gem id="000" type="resistFire" attribute="resistFire" value="8" /> level 8 -->
-	<!-- <gem id="000" type="resistFire" attribute="resistFire" value="10" /> level 9 -->
+	<!-- fire defense gems -->
+	<gem id="64536" type="resistFire" attribute="resistFire" value="0.5" />
+	<gem id="64537" type="resistFire" attribute="resistFire" value="0.8" />
+	<gem id="64538" type="resistFire" attribute="resistFire" value="1.2" />
+	<gem id="64539" type="resistFire" attribute="resistFire" value="1.6" />
+	<gem id="64540" type="resistFire" attribute="resistFire" value="2.0" />
+	<gem id="64541" type="resistFire" attribute="resistFire" value="2.5" />
+	<gem id="64542" type="resistFire" attribute="resistFire" value="3.5" />
+	<gem id="64543" type="resistFire" attribute="resistFire" value="4.5" />
+	<gem id="64544" type="resistFire" attribute="resistFire" value="6.0" />
 
 	<!-- ice resistance (%) gems: replace id="000" with the real item id and uncomment -->
 	<!-- <gem id="000" type="resistIce" attribute="resistIce" value="1" /> level 1 -->
@@ -142,16 +142,16 @@
 	<!-- <gem id="000" type="resistEarth" attribute="resistEarth" value="8" /> level 8 -->
 	<!-- <gem id="000" type="resistEarth" attribute="resistEarth" value="10" /> level 9 -->
 
-	<!-- death resistance (%) gems: replace id="000" with the real item id and uncomment -->
-	<!-- <gem id="000" type="resistDeath" attribute="resistDeath" value="1" /> level 1 -->
-	<!-- <gem id="000" type="resistDeath" attribute="resistDeath" value="2" /> level 2 -->
-	<!-- <gem id="000" type="resistDeath" attribute="resistDeath" value="3" /> level 3 -->
-	<!-- <gem id="000" type="resistDeath" attribute="resistDeath" value="4" /> level 4 -->
-	<!-- <gem id="000" type="resistDeath" attribute="resistDeath" value="5" /> level 5 -->
-	<!-- <gem id="000" type="resistDeath" attribute="resistDeath" value="6" /> level 6 -->
-	<!-- <gem id="000" type="resistDeath" attribute="resistDeath" value="7" /> level 7 -->
-	<!-- <gem id="000" type="resistDeath" attribute="resistDeath" value="8" /> level 8 -->
-	<!-- <gem id="000" type="resistDeath" attribute="resistDeath" value="10" /> level 9 -->
+	<!-- death defense gems -->
+	<gem id="64526" type="resistDeath" attribute="resistDeath" value="0.5" />
+	<gem id="64527" type="resistDeath" attribute="resistDeath" value="0.8" />
+	<gem id="64528" type="resistDeath" attribute="resistDeath" value="1.2" />
+	<gem id="64529" type="resistDeath" attribute="resistDeath" value="1.6" />
+	<gem id="64530" type="resistDeath" attribute="resistDeath" value="2.0" />
+	<gem id="64531" type="resistDeath" attribute="resistDeath" value="2.5" />
+	<gem id="64532" type="resistDeath" attribute="resistDeath" value="3.5" />
+	<gem id="64533" type="resistDeath" attribute="resistDeath" value="4.5" />
+	<gem id="64534" type="resistDeath" attribute="resistDeath" value="6.0" />
 
 	<!-- holy resistance (%) gems: replace id="000" with the real item id and uncomment -->
 	<!-- <gem id="000" type="resistHoly" attribute="resistHoly" value="1" /> level 1 -->

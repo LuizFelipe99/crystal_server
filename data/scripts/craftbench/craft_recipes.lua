@@ -1812,7 +1812,7 @@ return {
         resultName = "Physical Defense Gem Lv. 1",
         resultClientId = 64516,
         resultAmount = 1,
-        resultDescription = "Grants +0.3% physical damage reduction when socketed.",
+        resultDescription = "Grants +0.5% physical damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
         successChance = 75,
@@ -1824,7 +1824,7 @@ return {
         resultName = "Physical Defense Gem Lv. 2",
         resultClientId = 64517,
         resultAmount = 1,
-        resultDescription = "Grants +0.5% physical damage reduction when socketed.",
+        resultDescription = "Grants +0.8% physical damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
         successChance = 25,
@@ -1836,7 +1836,7 @@ return {
         resultName = "Physical Defense Gem Lv. 3",
         resultClientId = 64518,
         resultAmount = 1,
-        resultDescription = "Grants +0.8% physical damage reduction when socketed.",
+        resultDescription = "Grants +1.2% physical damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
         successChance = 25,
@@ -1848,7 +1848,7 @@ return {
         resultName = "Physical Defense Gem Lv. 4",
         resultClientId = 64519,
         resultAmount = 1,
-        resultDescription = "Grants +1.0% physical damage reduction when socketed.",
+        resultDescription = "Grants +1.6% physical damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
         successChance = 25,
@@ -1861,7 +1861,7 @@ return {
         requiresAdvancedUnlock = true,
         resultClientId = 64520,
         resultAmount = 1,
-        resultDescription = "Grants +1.3% physical damage reduction when socketed.",
+        resultDescription = "Grants +2.0% physical damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
         successChance = 25,
@@ -1874,7 +1874,7 @@ return {
         requiresAdvancedUnlock = true,
         resultClientId = 64521,
         resultAmount = 1,
-        resultDescription = "Grants +1.6% physical damage reduction when socketed.",
+        resultDescription = "Grants +2.5% physical damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
         successChance = 10,
@@ -1887,7 +1887,7 @@ return {
         requiresAdvancedUnlock = true,
         resultClientId = 64522,
         resultAmount = 1,
-        resultDescription = "Grants +2.0% physical damage reduction when socketed.",
+        resultDescription = "Grants +3.5% physical damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
         successChance = 10,
@@ -1900,7 +1900,7 @@ return {
         requiresAdvancedUnlock = true,
         resultClientId = 64523,
         resultAmount = 1,
-        resultDescription = "Grants +2.5% physical damage reduction when socketed.",
+        resultDescription = "Grants +4.5% physical damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
         successChance = 10,
@@ -1913,12 +1913,238 @@ return {
         requiresAdvancedUnlock = true,
         resultClientId = 64524,
         resultAmount = 1,
-        resultDescription = "Grants +3.0% physical damage reduction when socketed.",
+        resultDescription = "Grants +6.0% physical damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 20000000,
         successChance = 5,
         ingredients = {
             { itemName = "physical defense gem lv. 8", clientId = 64523, amount = 3 },
+        }
+    },
+    {
+        resultName = "Death Defense Gem Lv. 1",
+        resultClientId = 64526,
+        resultAmount = 1,
+        resultDescription = "Grants +0.5% death damage reduction when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 75,
+        ingredients = {
+            { itemName = "attribute gem material", clientId = 64535, amount = 3 },
+        }
+    },
+    {
+        resultName = "Death Defense Gem Lv. 2",
+        resultClientId = 64527,
+        resultAmount = 1,
+        resultDescription = "Grants +0.8% death damage reduction when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 25,
+        ingredients = {
+            { itemName = "death defense gem lv. 1", clientId = 64526, amount = 3 },
+        }
+    },
+    {
+        resultName = "Death Defense Gem Lv. 3",
+        resultClientId = 64528,
+        resultAmount = 1,
+        resultDescription = "Grants +1.2% death damage reduction when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 25,
+        ingredients = {
+            { itemName = "death defense gem lv. 2", clientId = 64527, amount = 3 },
+        }
+    },
+    {
+        resultName = "Death Defense Gem Lv. 4",
+        resultClientId = 64529,
+        resultAmount = 1,
+        resultDescription = "Grants +1.6% death damage reduction when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 25,
+        ingredients = {
+            { itemName = "death defense gem lv. 3", clientId = 64528, amount = 3 },
+        }
+    },
+    {
+        resultName = "Death Defense Gem Lv. 5",
+        requiresAdvancedUnlock = true,
+        resultClientId = 64530,
+        resultAmount = 1,
+        resultDescription = "Grants +2.0% death damage reduction when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 25,
+        ingredients = {
+            { itemName = "death defense gem lv. 4", clientId = 64529, amount = 3 },
+        }
+    },
+    {
+        resultName = "Death Defense Gem Lv. 6",
+        requiresAdvancedUnlock = true,
+        resultClientId = 64531,
+        resultAmount = 1,
+        resultDescription = "Grants +2.5% death damage reduction when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 10000000,
+        successChance = 10,
+        ingredients = {
+            { itemName = "death defense gem lv. 5", clientId = 64530, amount = 3 },
+        }
+    },
+    {
+        resultName = "Death Defense Gem Lv. 7",
+        requiresAdvancedUnlock = true,
+        resultClientId = 64532,
+        resultAmount = 1,
+        resultDescription = "Grants +3.5% death damage reduction when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 10000000,
+        successChance = 10,
+        ingredients = {
+            { itemName = "death defense gem lv. 6", clientId = 64531, amount = 3 },
+        }
+    },
+    {
+        resultName = "Death Defense Gem Lv. 8",
+        requiresAdvancedUnlock = true,
+        resultClientId = 64533,
+        resultAmount = 1,
+        resultDescription = "Grants +4.5% death damage reduction when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 10000000,
+        successChance = 10,
+        ingredients = {
+            { itemName = "death defense gem lv. 7", clientId = 64532, amount = 3 },
+        }
+    },
+    {
+        resultName = "Death Defense Gem Lv. 9",
+        requiresAdvancedUnlock = true,
+        resultClientId = 64534,
+        resultAmount = 1,
+        resultDescription = "Grants +6.0% death damage reduction when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 20000000,
+        successChance = 5,
+        ingredients = {
+            { itemName = "death defense gem lv. 8", clientId = 64533, amount = 3 },
+        }
+    },
+    {
+        resultName = "Fire Defense Gem Lv. 1",
+        resultClientId = 64536,
+        resultAmount = 1,
+        resultDescription = "Grants +0.5% fire damage reduction when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 75,
+        ingredients = {
+            { itemName = "attribute gem material", clientId = 64545, amount = 3 },
+        }
+    },
+    {
+        resultName = "Fire Defense Gem Lv. 2",
+        resultClientId = 64537,
+        resultAmount = 1,
+        resultDescription = "Grants +0.8% fire damage reduction when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 25,
+        ingredients = {
+            { itemName = "fire defense gem lv. 1", clientId = 64536, amount = 3 },
+        }
+    },
+    {
+        resultName = "Fire Defense Gem Lv. 3",
+        resultClientId = 64538,
+        resultAmount = 1,
+        resultDescription = "Grants +1.2% fire damage reduction when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 25,
+        ingredients = {
+            { itemName = "fire defense gem lv. 2", clientId = 64537, amount = 3 },
+        }
+    },
+    {
+        resultName = "Fire Defense Gem Lv. 4",
+        resultClientId = 64539,
+        resultAmount = 1,
+        resultDescription = "Grants +1.6% fire damage reduction when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 25,
+        ingredients = {
+            { itemName = "fire defense gem lv. 3", clientId = 64538, amount = 3 },
+        }
+    },
+    {
+        resultName = "Fire Defense Gem Lv. 5",
+        requiresAdvancedUnlock = true,
+        resultClientId = 64540,
+        resultAmount = 1,
+        resultDescription = "Grants +2.0% fire damage reduction when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 25,
+        ingredients = {
+            { itemName = "fire defense gem lv. 4", clientId = 64539, amount = 3 },
+        }
+    },
+    {
+        resultName = "Fire Defense Gem Lv. 6",
+        requiresAdvancedUnlock = true,
+        resultClientId = 64541,
+        resultAmount = 1,
+        resultDescription = "Grants +2.5% fire damage reduction when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 10000000,
+        successChance = 10,
+        ingredients = {
+            { itemName = "fire defense gem lv. 5", clientId = 64540, amount = 3 },
+        }
+    },
+    {
+        resultName = "Fire Defense Gem Lv. 7",
+        requiresAdvancedUnlock = true,
+        resultClientId = 64542,
+        resultAmount = 1,
+        resultDescription = "Grants +3.5% fire damage reduction when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 10000000,
+        successChance = 10,
+        ingredients = {
+            { itemName = "fire defense gem lv. 6", clientId = 64541, amount = 3 },
+        }
+    },
+    {
+        resultName = "Fire Defense Gem Lv. 8",
+        requiresAdvancedUnlock = true,
+        resultClientId = 64543,
+        resultAmount = 1,
+        resultDescription = "Grants +4.5% fire damage reduction when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 10000000,
+        successChance = 10,
+        ingredients = {
+            { itemName = "fire defense gem lv. 7", clientId = 64542, amount = 3 },
+        }
+    },
+    {
+        resultName = "Fire Defense Gem Lv. 9",
+        requiresAdvancedUnlock = true,
+        resultClientId = 64544,
+        resultAmount = 1,
+        resultDescription = "Grants +6.0% fire damage reduction when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 20000000,
+        successChance = 5,
+        ingredients = {
+            { itemName = "fire defense gem lv. 8", clientId = 64543, amount = 3 },
         }
     },
 
