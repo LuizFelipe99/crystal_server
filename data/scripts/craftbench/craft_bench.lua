@@ -1,6 +1,8 @@
 local json = dofile("data/libs/dkjson.lua")
 
 local CRAFTBENCH_OPCODE = 13
+local CRAFTBENCH_CHUNK_SIZE = 32000
+local CRAFTBENCH_CHUNK_PREFIX = "CHUNK|"
 local LOCKED_MESSAGE = "You need to complete the quest to access the Craft Bench."
 local ADVANCED_LOCKED_MESSAGE = "This recipe requires the hard crafting quest. Complete it to unlock advanced recipes."
 local requestThrottle = RequestThrottle.new(300)
@@ -257,25 +259,40 @@ local function buildRecipeList(recipes, tabConfig, player)
     return result
 end
 
+local function sendCraftBenchPayload(player, payload)
+    local encodedPayload = json.encode(payload)
+    if #encodedPayload <= CRAFTBENCH_CHUNK_SIZE then
+        player:sendExtendedOpcode(CRAFTBENCH_OPCODE, encodedPayload)
+        return
+    end
+
+    local totalChunks = math.ceil(#encodedPayload / CRAFTBENCH_CHUNK_SIZE)
+    for chunkIndex = 1, totalChunks do
+        local chunkStart = (chunkIndex - 1) * CRAFTBENCH_CHUNK_SIZE + 1
+        local chunkBody = encodedPayload:sub(chunkStart, chunkStart + CRAFTBENCH_CHUNK_SIZE - 1)
+        player:sendExtendedOpcode(CRAFTBENCH_OPCODE, CRAFTBENCH_CHUNK_PREFIX .. totalChunks .. "|" .. chunkIndex .. "|" .. chunkBody)
+    end
+end
+
 local function sendTabData(player, tabName, tabConfig)
-    player:sendExtendedOpcode(CRAFTBENCH_OPCODE, json.encode({
+    sendCraftBenchPayload(player, {
         action    = "data",
         tab       = tabName,
         recipes   = buildRecipeList(tabConfig.recipes, tabConfig, player),
         resources = buildResourceSnapshot(player),
         materialGroups = buildMaterialGroups()
-    }))
+    })
 end
 
 local function sendExecutionResult(player, tabName, tabConfig, success, message)
-    player:sendExtendedOpcode(CRAFTBENCH_OPCODE, json.encode({
+    sendCraftBenchPayload(player, {
         action    = "result",
         tab       = tabName,
         success   = success,
         message   = message,
         recipes   = buildRecipeList(tabConfig.recipes, tabConfig, player),
         resources = buildResourceSnapshot(player)
-    }))
+    })
 end
 
 local function handleRequest(player, tabName)
