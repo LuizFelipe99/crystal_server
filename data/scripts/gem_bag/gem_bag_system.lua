@@ -101,6 +101,11 @@ function ExtendedEvent.onExtendedOpcode(player, opcode, buffer)
 		return
 	end
 
+	if actionData.action == "sync" then
+		player:sendExtendedOpcode(gemBagOpcode, json.encode(buildGemBagState(player)))
+		return
+	end
+
 	if requestThrottle:isThrottled(player) then
 		return
 	end
