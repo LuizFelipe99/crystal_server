@@ -87,16 +87,16 @@
 	<gem id="64493" type="transcendence" attribute="transcendence" value="2.5" />
 	<gem id="64494" type="transcendence" attribute="transcendence" value="3.0" />
 
-	<!-- physical resistance (%) gems: replace id="000" with the real item id and uncomment -->
-	<!-- <gem id="000" type="resistPhysical" attribute="resistPhysical" value="1" /> level 1 -->
-	<!-- <gem id="000" type="resistPhysical" attribute="resistPhysical" value="2" /> level 2 -->
-	<!-- <gem id="000" type="resistPhysical" attribute="resistPhysical" value="3" /> level 3 -->
-	<!-- <gem id="000" type="resistPhysical" attribute="resistPhysical" value="4" /> level 4 -->
-	<!-- <gem id="000" type="resistPhysical" attribute="resistPhysical" value="5" /> level 5 -->
-	<!-- <gem id="000" type="resistPhysical" attribute="resistPhysical" value="6" /> level 6 -->
-	<!-- <gem id="000" type="resistPhysical" attribute="resistPhysical" value="7" /> level 7 -->
-	<!-- <gem id="000" type="resistPhysical" attribute="resistPhysical" value="8" /> level 8 -->
-	<!-- <gem id="000" type="resistPhysical" attribute="resistPhysical" value="10" /> level 9 -->
+	<!-- physical defense gems -->
+	<gem id="64516" type="resistPhysical" attribute="resistPhysical" value="0.3" />
+	<gem id="64517" type="resistPhysical" attribute="resistPhysical" value="0.5" />
+	<gem id="64518" type="resistPhysical" attribute="resistPhysical" value="0.8" />
+	<gem id="64519" type="resistPhysical" attribute="resistPhysical" value="1.0" />
+	<gem id="64520" type="resistPhysical" attribute="resistPhysical" value="1.3" />
+	<gem id="64521" type="resistPhysical" attribute="resistPhysical" value="1.6" />
+	<gem id="64522" type="resistPhysical" attribute="resistPhysical" value="2.0" />
+	<gem id="64523" type="resistPhysical" attribute="resistPhysical" value="2.5" />
+	<gem id="64524" type="resistPhysical" attribute="resistPhysical" value="3.0" />
 
 	<!-- fire resistance (%) gems: replace id="000" with the real item id and uncomment -->
 	<!-- <gem id="000" type="resistFire" attribute="resistFire" value="1" /> level 1 -->

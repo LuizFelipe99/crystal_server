@@ -1808,5 +1808,118 @@ return {
             { itemName = "onslaught gem lv. 8", clientId = 64511, amount = 3 },
         }
     },
+    {
+        resultName = "Physical Defense Gem Lv. 1",
+        resultClientId = 64516,
+        resultAmount = 1,
+        resultDescription = "Grants +0.3% physical damage reduction when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 75,
+        ingredients = {
+            { itemName = "attribute gem material", clientId = 64525, amount = 3 },
+        }
+    },
+    {
+        resultName = "Physical Defense Gem Lv. 2",
+        resultClientId = 64517,
+        resultAmount = 1,
+        resultDescription = "Grants +0.5% physical damage reduction when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 25,
+        ingredients = {
+            { itemName = "physical defense gem lv. 1", clientId = 64516, amount = 3 },
+        }
+    },
+    {
+        resultName = "Physical Defense Gem Lv. 3",
+        resultClientId = 64518,
+        resultAmount = 1,
+        resultDescription = "Grants +0.8% physical damage reduction when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 25,
+        ingredients = {
+            { itemName = "physical defense gem lv. 2", clientId = 64517, amount = 3 },
+        }
+    },
+    {
+        resultName = "Physical Defense Gem Lv. 4",
+        resultClientId = 64519,
+        resultAmount = 1,
+        resultDescription = "Grants +1.0% physical damage reduction when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 25,
+        ingredients = {
+            { itemName = "physical defense gem lv. 3", clientId = 64518, amount = 3 },
+        }
+    },
+    {
+        resultName = "Physical Defense Gem Lv. 5",
+        requiresAdvancedUnlock = true,
+        resultClientId = 64520,
+        resultAmount = 1,
+        resultDescription = "Grants +1.3% physical damage reduction when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 3000000,
+        successChance = 25,
+        ingredients = {
+            { itemName = "physical defense gem lv. 4", clientId = 64519, amount = 3 },
+        }
+    },
+    {
+        resultName = "Physical Defense Gem Lv. 6",
+        requiresAdvancedUnlock = true,
+        resultClientId = 64521,
+        resultAmount = 1,
+        resultDescription = "Grants +1.6% physical damage reduction when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 10000000,
+        successChance = 10,
+        ingredients = {
+            { itemName = "physical defense gem lv. 5", clientId = 64520, amount = 3 },
+        }
+    },
+    {
+        resultName = "Physical Defense Gem Lv. 7",
+        requiresAdvancedUnlock = true,
+        resultClientId = 64522,
+        resultAmount = 1,
+        resultDescription = "Grants +2.0% physical damage reduction when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 10000000,
+        successChance = 10,
+        ingredients = {
+            { itemName = "physical defense gem lv. 6", clientId = 64521, amount = 3 },
+        }
+    },
+    {
+        resultName = "Physical Defense Gem Lv. 8",
+        requiresAdvancedUnlock = true,
+        resultClientId = 64523,
+        resultAmount = 1,
+        resultDescription = "Grants +2.5% physical damage reduction when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 10000000,
+        successChance = 10,
+        ingredients = {
+            { itemName = "physical defense gem lv. 7", clientId = 64522, amount = 3 },
+        }
+    },
+    {
+        resultName = "Physical Defense Gem Lv. 9",
+        requiresAdvancedUnlock = true,
+        resultClientId = 64524,
+        resultAmount = 1,
+        resultDescription = "Grants +3.0% physical damage reduction when socketed.",
+        vocation = "atribute_gem",
+        goldCost = 20000000,
+        successChance = 5,
+        ingredients = {
+            { itemName = "physical defense gem lv. 8", clientId = 64523, amount = 3 },
+        }
+    },
 
 }

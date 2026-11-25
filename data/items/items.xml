@@ -88619,6 +88619,38 @@
 	<item id="64515" article="a" name="onslaught stone fragment">
 		<attribute key="description" value="Material used to craft onslaught gems." />
 	</item>
+
+	<!-- physical defense gems -->
+	<item id="64516" article="a" name="physical defense stone nivel 1">
+		<attribute key="description" value="Reduces physical damage taken by 0.3%" />
+	</item>
+	<item id="64517" article="a" name="physical defense stone nivel 2">
+		<attribute key="description" value="Reduces physical damage taken by 0.5%" />
+	</item>
+	<item id="64518" article="a" name="physical defense stone nivel 3">
+		<attribute key="description" value="Reduces physical damage taken by 0.8%" />
+	</item>
+	<item id="64519" article="a" name="physical defense stone nivel 4">
+		<attribute key="description" value="Reduces physical damage taken by 1.0%" />
+	</item>
+	<item id="64520" article="a" name="physical defense stone nivel 5">
+		<attribute key="description" value="Reduces physical damage taken by 1.3%" />
+	</item>
+	<item id="64521" article="a" name="physical defense stone nivel 6">
+		<attribute key="description" value="Reduces physical damage taken by 1.6%" />
+	</item>
+	<item id="64522" article="a" name="physical defense stone nivel 7">
+		<attribute key="description" value="Reduces physical damage taken by 2.0%" />
+	</item>
+	<item id="64523" article="a" name="physical defense stone nivel 8">
+		<attribute key="description" value="Reduces physical damage taken by 2.5%" />
+	</item>
+	<item id="64524" article="a" name="physical defense stone nivel 9">
+		<attribute key="description" value="Reduces physical damage taken by 3.0%" />
+	</item>
+	<item id="64525" article="a" name="physical defense stone fragment">
+		<attribute key="description" value="Material used to craft physical defense gems." />
+	</item>
 	
 	<!-- attackspeed gem -->
 	<item id="62106" article="a" name="attackspeed stone nivel 1">

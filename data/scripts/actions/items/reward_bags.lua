@@ -158,6 +158,7 @@ local rewardBags = {
 		{ id = 64513, name = "transcendence stone fragment", minCount = 1, maxCount = 3 },
 		{ id = 64514, name = "dodge stone fragment", minCount = 1, maxCount = 3 },
 		{ id = 64515, name = "onslaught stone fragment", minCount = 1, maxCount = 3 },
+		{ id = 64525, name = "physical defense stone fragment", minCount = 1, maxCount = 3 },
 		{ id = 62108, name = "health stone nivel 1" },
 		{ id = 62105, name = "mana stone nivel 1" },
 		{ id = 62107, name = "critical chance stone nivel 1" },
