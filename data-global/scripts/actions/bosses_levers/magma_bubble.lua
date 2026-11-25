@@ -14,7 +14,6 @@ local config = {
 		to = Position(33672, 32921, 15),
 	},
 	exit = Position(33659, 32897, 14),
-	keepPlayersInside = true,
 }
 
 local lever = BossLever(config)

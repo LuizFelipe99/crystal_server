@@ -17,7 +17,6 @@ local config = {
 	},
 	disableCooldown = false,
 	exit = Position(33520, 32871, 15),
-	keepPlayersInside = true,
 }
 
 lever = BossLever(config)
