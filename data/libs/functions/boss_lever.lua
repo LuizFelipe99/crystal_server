@@ -75,6 +75,7 @@ setmetatable(BossLever, {
 			area = config.specPos,
 			monsters = config.monsters or {},
 			disableCooldown = config.disableCooldown,
+			keepPlayersInside = config.keepPlayersInside,
 			_position = nil,
 			_uid = nil,
 			_aid = nil,
@@ -273,6 +274,9 @@ function BossLever:onUse(player)
 		if self.timeoutEvent then
 			stopEvent(self.timeoutEvent)
 			self.timeoutEvent = nil
+		end
+		if self.keepPlayersInside then
+			return true
 		end
 		self.timeoutEvent = addEvent(function(zn)
 			zn:refresh()
