@@ -897,7 +897,7 @@ return {
         resultDescription = "Grants +500 health when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 75,
+        successChance = 80,
         ingredients = {
             { itemName = "attribute gem material", clientId = 62101, amount = 3 },
         }
@@ -909,7 +909,7 @@ return {
         resultDescription = "Grants +650 health when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 70,
         ingredients = {
             { itemName = "health gem lv. 1", clientId = 62108, amount = 3 },
         }
@@ -921,7 +921,7 @@ return {
         resultDescription = "Grants +845 health when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 60,
         ingredients = {
             { itemName = "health gem lv. 2", clientId = 62115, amount = 3 },
         }
@@ -933,7 +933,7 @@ return {
         resultDescription = "Grants +1099 health when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 50,
         ingredients = {
             { itemName = "health gem lv. 3", clientId = 62013, amount = 3 },
         }
@@ -946,7 +946,7 @@ return {
         resultDescription = "Grants +1429 health when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 40,
         ingredients = {
             { itemName = "health gem lv. 4", clientId = 62019, amount = 3 },
         }
@@ -959,9 +959,9 @@ return {
         resultDescription = "Grants +1857 health when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 30,
         ingredients = {
-            { itemName = "health gem lv. 5", clientId = 62025, amount = 3 },
+            { itemName = "health gem lv. 5", clientId = 62025, amount = 2 },
         }
     },
     {
@@ -972,9 +972,9 @@ return {
         resultDescription = "Grants +2414 health when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 25,
         ingredients = {
-            { itemName = "health gem lv. 6", clientId = 62031, amount = 3 },
+            { itemName = "health gem lv. 6", clientId = 62031, amount = 2 },
         }
     },
     {
@@ -985,9 +985,9 @@ return {
         resultDescription = "Grants +3138 health when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 20,
         ingredients = {
-            { itemName = "health gem lv. 7", clientId = 62037, amount = 3 },
+            { itemName = "health gem lv. 7", clientId = 62037, amount = 2 },
         }
     },
     {
@@ -998,9 +998,9 @@ return {
         resultDescription = "Grants +4079 health when socketed.",
         vocation = "atribute_gem",
         goldCost = 20000000,
-        successChance = 5,
+        successChance = 15,
         ingredients = {
-            { itemName = "health gem lv. 8", clientId = 62043, amount = 3 },
+            { itemName = "health gem lv. 8", clientId = 62043, amount = 2 },
         }
     },
     -- Adicionar estas entradas dentro da tabela retornada por craft_recipes.lua
@@ -1013,7 +1013,7 @@ return {
         resultDescription = "Grants +500 mana when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 75,
+        successChance = 80,
         ingredients = {
             { itemName = "attribute gem material", clientId = 62098, amount = 3 },
         }
@@ -1025,7 +1025,7 @@ return {
         resultDescription = "Grants +650 mana when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 70,
         ingredients = {
             { itemName = "mana gem lv. 1", clientId = 62105, amount = 3 },
         }
@@ -1037,7 +1037,7 @@ return {
         resultDescription = "Grants +845 mana when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 60,
         ingredients = {
             { itemName = "mana gem lv. 2", clientId = 62112, amount = 3 },
         }
@@ -1049,7 +1049,7 @@ return {
         resultDescription = "Grants +1099 mana when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 50,
         ingredients = {
             { itemName = "mana gem lv. 3", clientId = 62018, amount = 3 },
         }
@@ -1062,7 +1062,7 @@ return {
         resultDescription = "Grants +1429 mana when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 40,
         ingredients = {
             { itemName = "mana gem lv. 4", clientId = 62023, amount = 3 },
         }
@@ -1075,9 +1075,9 @@ return {
         resultDescription = "Grants +1857 mana when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 30,
         ingredients = {
-            { itemName = "mana gem lv. 5", clientId = 62029, amount = 3 },
+            { itemName = "mana gem lv. 5", clientId = 62029, amount = 2 },
         }
     },
     {
@@ -1088,9 +1088,9 @@ return {
         resultDescription = "Grants +2414 mana when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 25,
         ingredients = {
-            { itemName = "mana gem lv. 6", clientId = 62035, amount = 3 },
+            { itemName = "mana gem lv. 6", clientId = 62035, amount = 2 },
         }
     },
     {
@@ -1101,9 +1101,9 @@ return {
         resultDescription = "Grants +3138 mana when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 20,
         ingredients = {
-            { itemName = "mana gem lv. 7", clientId = 62041, amount = 3 },
+            { itemName = "mana gem lv. 7", clientId = 62041, amount = 2 },
         }
     },
     {
@@ -1114,9 +1114,9 @@ return {
         resultDescription = "Grants +4079 mana when socketed.",
         vocation = "atribute_gem",
         goldCost = 20000000,
-        successChance = 5,
+        successChance = 15,
         ingredients = {
-            { itemName = "mana gem lv. 8", clientId = 62047, amount = 3 },
+            { itemName = "mana gem lv. 8", clientId = 62047, amount = 2 },
         }
     },
     -- Adicionar estas entradas dentro da tabela retornada por craft_recipes.lua
@@ -1129,7 +1129,7 @@ return {
         resultDescription = "Grants +1% critical hit chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 75,
+        successChance = 80,
         ingredients = {
             { itemName = "attribute gem material", clientId = 62100, amount = 3 },
         }
@@ -1141,7 +1141,7 @@ return {
         resultDescription = "Grants +2% critical hit chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 70,
         ingredients = {
             { itemName = "critical chance gem lv. 1", clientId = 62107, amount = 3 },
         }
@@ -1153,7 +1153,7 @@ return {
         resultDescription = "Grants +3% critical hit chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 60,
         ingredients = {
             { itemName = "critical chance gem lv. 2", clientId = 62114, amount = 3 },
         }
@@ -1165,7 +1165,7 @@ return {
         resultDescription = "Grants +4% critical hit chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 50,
         ingredients = {
             { itemName = "critical chance gem lv. 3", clientId = 62015, amount = 3 },
         }
@@ -1178,7 +1178,7 @@ return {
         resultDescription = "Grants +5% critical hit chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 40,
         ingredients = {
             { itemName = "critical chance gem lv. 4", clientId = 62021, amount = 3 },
         }
@@ -1191,9 +1191,9 @@ return {
         resultDescription = "Grants +6% critical hit chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 30,
         ingredients = {
-            { itemName = "critical chance gem lv. 5", clientId = 62027, amount = 3 },
+            { itemName = "critical chance gem lv. 5", clientId = 62027, amount = 2 },
         }
     },
     {
@@ -1204,9 +1204,9 @@ return {
         resultDescription = "Grants +7% critical hit chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 25,
         ingredients = {
-            { itemName = "critical chance gem lv. 6", clientId = 62033, amount = 3 },
+            { itemName = "critical chance gem lv. 6", clientId = 62033, amount = 2 },
         }
     },
     {
@@ -1217,9 +1217,9 @@ return {
         resultDescription = "Grants +8% critical hit chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 20,
         ingredients = {
-            { itemName = "critical chance gem lv. 7", clientId = 62039, amount = 3 },
+            { itemName = "critical chance gem lv. 7", clientId = 62039, amount = 2 },
         }
     },
     {
@@ -1230,9 +1230,9 @@ return {
         resultDescription = "Grants +10% critical hit chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 20000000,
-        successChance = 5,
+        successChance = 15,
         ingredients = {
-            { itemName = "critical chance gem lv. 8", clientId = 62045, amount = 3 },
+            { itemName = "critical chance gem lv. 8", clientId = 62045, amount = 2 },
         }
     },
 
@@ -1246,7 +1246,7 @@ return {
         resultDescription = "Grants +3% attack speed when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 75,
+        successChance = 80,
         ingredients = {
             { itemName = "attribute gem material", clientId = 62099, amount = 3 },
         }
@@ -1258,7 +1258,7 @@ return {
         resultDescription = "Grants +3.6% attack speed when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 70,
         ingredients = {
             { itemName = "attack speed gem lv. 1", clientId = 62106, amount = 3 },
         }
@@ -1270,7 +1270,7 @@ return {
         resultDescription = "Grants +4.8% attack speed when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 60,
         ingredients = {
             { itemName = "attack speed gem lv. 2", clientId = 62113, amount = 3 },
         }
@@ -1282,7 +1282,7 @@ return {
         resultDescription = "Grants +6% attack speed when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 50,
         ingredients = {
             { itemName = "attack speed gem lv. 3", clientId = 62014, amount = 3 },
         }
@@ -1295,7 +1295,7 @@ return {
         resultDescription = "Grants +7.2% attack speed when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 40,
         ingredients = {
             { itemName = "attack speed gem lv. 4", clientId = 62020, amount = 3 },
         }
@@ -1308,9 +1308,9 @@ return {
         resultDescription = "Grants +8.4% attack speed when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 30,
         ingredients = {
-            { itemName = "attack speed gem lv. 5", clientId = 62026, amount = 3 },
+            { itemName = "attack speed gem lv. 5", clientId = 62026, amount = 2 },
         }
     },
     {
@@ -1321,9 +1321,9 @@ return {
         resultDescription = "Grants +9.6% attack speed when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 25,
         ingredients = {
-            { itemName = "attack speed gem lv. 6", clientId = 62032, amount = 3 },
+            { itemName = "attack speed gem lv. 6", clientId = 62032, amount = 2 },
         }
     },
     {
@@ -1334,9 +1334,9 @@ return {
         resultDescription = "Grants +10.8% attack speed when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 20,
         ingredients = {
-            { itemName = "attack speed gem lv. 7", clientId = 62038, amount = 3 },
+            { itemName = "attack speed gem lv. 7", clientId = 62038, amount = 2 },
         }
     },
     {
@@ -1347,9 +1347,9 @@ return {
         resultDescription = "Grants +15% attack speed when socketed.",
         vocation = "atribute_gem",
         goldCost = 20000000,
-        successChance = 5,
+        successChance = 15,
         ingredients = {
-            { itemName = "attack speed gem lv. 8", clientId = 62044, amount = 3 },
+            { itemName = "attack speed gem lv. 8", clientId = 62044, amount = 2 },
         }
     },
 
@@ -1363,7 +1363,7 @@ return {
         resultDescription = "Grants +5% critical hit damage when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 75,
+        successChance = 80,
         ingredients = {
             { itemName = "attribute gem material", clientId = 62104, amount = 3 },
         }
@@ -1375,7 +1375,7 @@ return {
         resultDescription = "Grants +8% critical hit damage when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 70,
         ingredients = {
             { itemName = "critical damage gem lv. 1", clientId = 62111, amount = 3 },
         }
@@ -1387,7 +1387,7 @@ return {
         resultDescription = "Grants +11% critical hit damage when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 60,
         ingredients = {
             { itemName = "critical damage gem lv. 2", clientId = 62118, amount = 3 },
         }
@@ -1399,7 +1399,7 @@ return {
         resultDescription = "Grants +14% critical hit damage when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 50,
         ingredients = {
             { itemName = "critical damage gem lv. 3", clientId = 62065, amount = 3 },
         }
@@ -1412,7 +1412,7 @@ return {
         resultDescription = "Grants +17% critical hit damage when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 40,
         ingredients = {
             { itemName = "critical damage gem lv. 4", clientId = 62066, amount = 3 },
         }
@@ -1425,9 +1425,9 @@ return {
         resultDescription = "Grants +20% critical hit damage when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 30,
         ingredients = {
-            { itemName = "critical damage gem lv. 5", clientId = 62067, amount = 3 },
+            { itemName = "critical damage gem lv. 5", clientId = 62067, amount = 2 },
         }
     },
     {
@@ -1438,9 +1438,9 @@ return {
         resultDescription = "Grants +22% critical hit damage when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 25,
         ingredients = {
-            { itemName = "critical damage gem lv. 6", clientId = 62068, amount = 3 },
+            { itemName = "critical damage gem lv. 6", clientId = 62068, amount = 2 },
         }
     },
     {
@@ -1451,9 +1451,9 @@ return {
         resultDescription = "Grants +24% critical hit damage when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 20,
         ingredients = {
-            { itemName = "critical damage gem lv. 7", clientId = 62069, amount = 3 },
+            { itemName = "critical damage gem lv. 7", clientId = 62069, amount = 2 },
         }
     },
     {
@@ -1464,9 +1464,9 @@ return {
         resultDescription = "Grants +30% critical hit damage when socketed.",
         vocation = "atribute_gem",
         goldCost = 20000000,
-        successChance = 5,
+        successChance = 15,
         ingredients = {
-            { itemName = "critical damage gem lv. 8", clientId = 62070, amount = 3 },
+            { itemName = "critical damage gem lv. 8", clientId = 62070, amount = 2 },
         }
     },
     {
@@ -1476,7 +1476,7 @@ return {
         resultDescription = "Grants +0.3% transcendence chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 75,
+        successChance = 80,
         ingredients = {
             { itemName = "attribute gem material", clientId = 64513, amount = 3 },
         }
@@ -1488,7 +1488,7 @@ return {
         resultDescription = "Grants +0.5% transcendence chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 70,
         ingredients = {
             { itemName = "transcendence gem lv. 1", clientId = 64486, amount = 3 },
         }
@@ -1500,7 +1500,7 @@ return {
         resultDescription = "Grants +0.8% transcendence chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 60,
         ingredients = {
             { itemName = "transcendence gem lv. 2", clientId = 64487, amount = 3 },
         }
@@ -1512,7 +1512,7 @@ return {
         resultDescription = "Grants +1.0% transcendence chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 50,
         ingredients = {
             { itemName = "transcendence gem lv. 3", clientId = 64488, amount = 3 },
         }
@@ -1525,7 +1525,7 @@ return {
         resultDescription = "Grants +1.3% transcendence chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 40,
         ingredients = {
             { itemName = "transcendence gem lv. 4", clientId = 64489, amount = 3 },
         }
@@ -1538,9 +1538,9 @@ return {
         resultDescription = "Grants +1.6% transcendence chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 30,
         ingredients = {
-            { itemName = "transcendence gem lv. 5", clientId = 64490, amount = 3 },
+            { itemName = "transcendence gem lv. 5", clientId = 64490, amount = 2 },
         }
     },
     {
@@ -1551,9 +1551,9 @@ return {
         resultDescription = "Grants +2.0% transcendence chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 25,
         ingredients = {
-            { itemName = "transcendence gem lv. 6", clientId = 64491, amount = 3 },
+            { itemName = "transcendence gem lv. 6", clientId = 64491, amount = 2 },
         }
     },
     {
@@ -1564,9 +1564,9 @@ return {
         resultDescription = "Grants +2.5% transcendence chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 20,
         ingredients = {
-            { itemName = "transcendence gem lv. 7", clientId = 64492, amount = 3 },
+            { itemName = "transcendence gem lv. 7", clientId = 64492, amount = 2 },
         }
     },
     {
@@ -1577,9 +1577,9 @@ return {
         resultDescription = "Grants +3.0% transcendence chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 20000000,
-        successChance = 5,
+        successChance = 15,
         ingredients = {
-            { itemName = "transcendence gem lv. 8", clientId = 64493, amount = 3 },
+            { itemName = "transcendence gem lv. 8", clientId = 64493, amount = 2 },
         }
     },
     {
@@ -1589,7 +1589,7 @@ return {
         resultDescription = "Grants +0.3% dodge chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 75,
+        successChance = 80,
         ingredients = {
             { itemName = "attribute gem material", clientId = 64514, amount = 3 },
         }
@@ -1601,7 +1601,7 @@ return {
         resultDescription = "Grants +0.5% dodge chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 70,
         ingredients = {
             { itemName = "dodge gem lv. 1", clientId = 64495, amount = 3 },
         }
@@ -1613,7 +1613,7 @@ return {
         resultDescription = "Grants +0.8% dodge chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 60,
         ingredients = {
             { itemName = "dodge gem lv. 2", clientId = 64496, amount = 3 },
         }
@@ -1625,7 +1625,7 @@ return {
         resultDescription = "Grants +1.0% dodge chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 50,
         ingredients = {
             { itemName = "dodge gem lv. 3", clientId = 64497, amount = 3 },
         }
@@ -1638,7 +1638,7 @@ return {
         resultDescription = "Grants +1.3% dodge chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 40,
         ingredients = {
             { itemName = "dodge gem lv. 4", clientId = 64498, amount = 3 },
         }
@@ -1651,9 +1651,9 @@ return {
         resultDescription = "Grants +1.6% dodge chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 30,
         ingredients = {
-            { itemName = "dodge gem lv. 5", clientId = 64499, amount = 3 },
+            { itemName = "dodge gem lv. 5", clientId = 64499, amount = 2 },
         }
     },
     {
@@ -1664,9 +1664,9 @@ return {
         resultDescription = "Grants +2.0% dodge chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 25,
         ingredients = {
-            { itemName = "dodge gem lv. 6", clientId = 64500, amount = 3 },
+            { itemName = "dodge gem lv. 6", clientId = 64500, amount = 2 },
         }
     },
     {
@@ -1677,9 +1677,9 @@ return {
         resultDescription = "Grants +2.5% dodge chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 20,
         ingredients = {
-            { itemName = "dodge gem lv. 7", clientId = 64501, amount = 3 },
+            { itemName = "dodge gem lv. 7", clientId = 64501, amount = 2 },
         }
     },
     {
@@ -1690,9 +1690,9 @@ return {
         resultDescription = "Grants +3.0% dodge chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 20000000,
-        successChance = 5,
+        successChance = 15,
         ingredients = {
-            { itemName = "dodge gem lv. 8", clientId = 64502, amount = 3 },
+            { itemName = "dodge gem lv. 8", clientId = 64502, amount = 2 },
         }
     },
     {
@@ -1702,7 +1702,7 @@ return {
         resultDescription = "Grants +0.3% onslaught chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 75,
+        successChance = 80,
         ingredients = {
             { itemName = "attribute gem material", clientId = 64515, amount = 3 },
         }
@@ -1714,7 +1714,7 @@ return {
         resultDescription = "Grants +0.5% onslaught chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 70,
         ingredients = {
             { itemName = "onslaught gem lv. 1", clientId = 64504, amount = 3 },
         }
@@ -1726,7 +1726,7 @@ return {
         resultDescription = "Grants +0.8% onslaught chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 60,
         ingredients = {
             { itemName = "onslaught gem lv. 2", clientId = 64505, amount = 3 },
         }
@@ -1738,7 +1738,7 @@ return {
         resultDescription = "Grants +1.0% onslaught chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 50,
         ingredients = {
             { itemName = "onslaught gem lv. 3", clientId = 64506, amount = 3 },
         }
@@ -1751,7 +1751,7 @@ return {
         resultDescription = "Grants +1.3% onslaught chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 40,
         ingredients = {
             { itemName = "onslaught gem lv. 4", clientId = 64507, amount = 3 },
         }
@@ -1764,9 +1764,9 @@ return {
         resultDescription = "Grants +1.6% onslaught chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 30,
         ingredients = {
-            { itemName = "onslaught gem lv. 5", clientId = 64508, amount = 3 },
+            { itemName = "onslaught gem lv. 5", clientId = 64508, amount = 2 },
         }
     },
     {
@@ -1777,9 +1777,9 @@ return {
         resultDescription = "Grants +2.0% onslaught chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 25,
         ingredients = {
-            { itemName = "onslaught gem lv. 6", clientId = 64509, amount = 3 },
+            { itemName = "onslaught gem lv. 6", clientId = 64509, amount = 2 },
         }
     },
     {
@@ -1790,9 +1790,9 @@ return {
         resultDescription = "Grants +2.5% onslaught chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 20,
         ingredients = {
-            { itemName = "onslaught gem lv. 7", clientId = 64510, amount = 3 },
+            { itemName = "onslaught gem lv. 7", clientId = 64510, amount = 2 },
         }
     },
     {
@@ -1803,9 +1803,9 @@ return {
         resultDescription = "Grants +3.0% onslaught chance when socketed.",
         vocation = "atribute_gem",
         goldCost = 20000000,
-        successChance = 5,
+        successChance = 15,
         ingredients = {
-            { itemName = "onslaught gem lv. 8", clientId = 64511, amount = 3 },
+            { itemName = "onslaught gem lv. 8", clientId = 64511, amount = 2 },
         }
     },
     {
@@ -1815,7 +1815,7 @@ return {
         resultDescription = "Grants +0.5% physical damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 75,
+        successChance = 80,
         ingredients = {
             { itemName = "attribute gem material", clientId = 64525, amount = 3 },
         }
@@ -1827,7 +1827,7 @@ return {
         resultDescription = "Grants +0.8% physical damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 70,
         ingredients = {
             { itemName = "physical defense gem lv. 1", clientId = 64516, amount = 3 },
         }
@@ -1839,7 +1839,7 @@ return {
         resultDescription = "Grants +1.2% physical damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 60,
         ingredients = {
             { itemName = "physical defense gem lv. 2", clientId = 64517, amount = 3 },
         }
@@ -1851,7 +1851,7 @@ return {
         resultDescription = "Grants +1.6% physical damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 50,
         ingredients = {
             { itemName = "physical defense gem lv. 3", clientId = 64518, amount = 3 },
         }
@@ -1864,7 +1864,7 @@ return {
         resultDescription = "Grants +2.0% physical damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 40,
         ingredients = {
             { itemName = "physical defense gem lv. 4", clientId = 64519, amount = 3 },
         }
@@ -1877,9 +1877,9 @@ return {
         resultDescription = "Grants +2.5% physical damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 30,
         ingredients = {
-            { itemName = "physical defense gem lv. 5", clientId = 64520, amount = 3 },
+            { itemName = "physical defense gem lv. 5", clientId = 64520, amount = 2 },
         }
     },
     {
@@ -1890,9 +1890,9 @@ return {
         resultDescription = "Grants +3.5% physical damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 25,
         ingredients = {
-            { itemName = "physical defense gem lv. 6", clientId = 64521, amount = 3 },
+            { itemName = "physical defense gem lv. 6", clientId = 64521, amount = 2 },
         }
     },
     {
@@ -1903,9 +1903,9 @@ return {
         resultDescription = "Grants +4.5% physical damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 20,
         ingredients = {
-            { itemName = "physical defense gem lv. 7", clientId = 64522, amount = 3 },
+            { itemName = "physical defense gem lv. 7", clientId = 64522, amount = 2 },
         }
     },
     {
@@ -1916,9 +1916,9 @@ return {
         resultDescription = "Grants +6.0% physical damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 20000000,
-        successChance = 5,
+        successChance = 15,
         ingredients = {
-            { itemName = "physical defense gem lv. 8", clientId = 64523, amount = 3 },
+            { itemName = "physical defense gem lv. 8", clientId = 64523, amount = 2 },
         }
     },
     {
@@ -1928,7 +1928,7 @@ return {
         resultDescription = "Grants +0.5% death damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 75,
+        successChance = 80,
         ingredients = {
             { itemName = "attribute gem material", clientId = 64535, amount = 3 },
         }
@@ -1940,7 +1940,7 @@ return {
         resultDescription = "Grants +0.8% death damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 70,
         ingredients = {
             { itemName = "death defense gem lv. 1", clientId = 64526, amount = 3 },
         }
@@ -1952,7 +1952,7 @@ return {
         resultDescription = "Grants +1.2% death damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 60,
         ingredients = {
             { itemName = "death defense gem lv. 2", clientId = 64527, amount = 3 },
         }
@@ -1964,7 +1964,7 @@ return {
         resultDescription = "Grants +1.6% death damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 50,
         ingredients = {
             { itemName = "death defense gem lv. 3", clientId = 64528, amount = 3 },
         }
@@ -1977,7 +1977,7 @@ return {
         resultDescription = "Grants +2.0% death damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 40,
         ingredients = {
             { itemName = "death defense gem lv. 4", clientId = 64529, amount = 3 },
         }
@@ -1990,9 +1990,9 @@ return {
         resultDescription = "Grants +2.5% death damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 30,
         ingredients = {
-            { itemName = "death defense gem lv. 5", clientId = 64530, amount = 3 },
+            { itemName = "death defense gem lv. 5", clientId = 64530, amount = 2 },
         }
     },
     {
@@ -2003,9 +2003,9 @@ return {
         resultDescription = "Grants +3.5% death damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 25,
         ingredients = {
-            { itemName = "death defense gem lv. 6", clientId = 64531, amount = 3 },
+            { itemName = "death defense gem lv. 6", clientId = 64531, amount = 2 },
         }
     },
     {
@@ -2016,9 +2016,9 @@ return {
         resultDescription = "Grants +4.5% death damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 20,
         ingredients = {
-            { itemName = "death defense gem lv. 7", clientId = 64532, amount = 3 },
+            { itemName = "death defense gem lv. 7", clientId = 64532, amount = 2 },
         }
     },
     {
@@ -2029,9 +2029,9 @@ return {
         resultDescription = "Grants +6.0% death damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 20000000,
-        successChance = 5,
+        successChance = 15,
         ingredients = {
-            { itemName = "death defense gem lv. 8", clientId = 64533, amount = 3 },
+            { itemName = "death defense gem lv. 8", clientId = 64533, amount = 2 },
         }
     },
     {
@@ -2041,7 +2041,7 @@ return {
         resultDescription = "Grants +0.5% fire damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 75,
+        successChance = 80,
         ingredients = {
             { itemName = "attribute gem material", clientId = 64545, amount = 3 },
         }
@@ -2053,7 +2053,7 @@ return {
         resultDescription = "Grants +0.8% fire damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 70,
         ingredients = {
             { itemName = "fire defense gem lv. 1", clientId = 64536, amount = 3 },
         }
@@ -2065,7 +2065,7 @@ return {
         resultDescription = "Grants +1.2% fire damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 60,
         ingredients = {
             { itemName = "fire defense gem lv. 2", clientId = 64537, amount = 3 },
         }
@@ -2077,7 +2077,7 @@ return {
         resultDescription = "Grants +1.6% fire damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 50,
         ingredients = {
             { itemName = "fire defense gem lv. 3", clientId = 64538, amount = 3 },
         }
@@ -2090,7 +2090,7 @@ return {
         resultDescription = "Grants +2.0% fire damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 3000000,
-        successChance = 25,
+        successChance = 40,
         ingredients = {
             { itemName = "fire defense gem lv. 4", clientId = 64539, amount = 3 },
         }
@@ -2103,9 +2103,9 @@ return {
         resultDescription = "Grants +2.5% fire damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 30,
         ingredients = {
-            { itemName = "fire defense gem lv. 5", clientId = 64540, amount = 3 },
+            { itemName = "fire defense gem lv. 5", clientId = 64540, amount = 2 },
         }
     },
     {
@@ -2116,9 +2116,9 @@ return {
         resultDescription = "Grants +3.5% fire damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 25,
         ingredients = {
-            { itemName = "fire defense gem lv. 6", clientId = 64541, amount = 3 },
+            { itemName = "fire defense gem lv. 6", clientId = 64541, amount = 2 },
         }
     },
     {
@@ -2129,9 +2129,9 @@ return {
         resultDescription = "Grants +4.5% fire damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 10000000,
-        successChance = 10,
+        successChance = 20,
         ingredients = {
-            { itemName = "fire defense gem lv. 7", clientId = 64542, amount = 3 },
+            { itemName = "fire defense gem lv. 7", clientId = 64542, amount = 2 },
         }
     },
     {
@@ -2142,9 +2142,9 @@ return {
         resultDescription = "Grants +6.0% fire damage reduction when socketed.",
         vocation = "atribute_gem",
         goldCost = 20000000,
-        successChance = 5,
+        successChance = 15,
         ingredients = {
-            { itemName = "fire defense gem lv. 8", clientId = 64543, amount = 3 },
+            { itemName = "fire defense gem lv. 8", clientId = 64543, amount = 2 },
         }
     },
 
