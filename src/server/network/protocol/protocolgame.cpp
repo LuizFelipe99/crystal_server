@@ -285,6 +285,11 @@ namespace {
 				damageModifiers[i] -= player->wheel()->getResistance(indexToCombatType(i));
 			}
 
+			const double gemAbsorbPercent = player->getEquippedGemBonuses().absorbPercent[i];
+			if (gemAbsorbPercent != 0) {
+				damageModifiers[i] = static_cast<uint16_t>(std::round(damageModifiers[i] * (1.0 - gemAbsorbPercent / 100.0)));
+			}
+
 			if (damageModifiers[i] != 10000) {
 				double clientModifier = (10000 - static_cast<int16_t>(damageModifiers[i])) / 10000.;
 				g_logger().debug("[{}] CombatType: {}, Damage Modifier: {}, Resulting Client Modifier: {}", __FUNCTION__, i, damageModifiers[i], clientModifier);
