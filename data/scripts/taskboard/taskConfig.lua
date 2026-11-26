@@ -40,7 +40,7 @@ local configMonsterTasks = {
 		difficulties = { "easy" },
 		baseKillsRequired = 100,
 		baseRewards = {
-			expReward = 121000,
+			expReward = 210000,
 			itemRewards = {
 				{ itemId = 3043, count = 3 }
 			}
@@ -53,7 +53,7 @@ local configMonsterTasks = {
 		difficulties = { "easy" },
 		baseKillsRequired = 300,
 		baseRewards = {
-			expReward = 133100,
+			expReward = 580000,
 			itemRewards = {
 				{ itemId = 3043, count = 3 }
 			}
@@ -79,7 +79,7 @@ local configMonsterTasks = {
 		difficulties = { "easy" },
 		baseKillsRequired = 100,
 		baseRewards = {
-			expReward = 161100,
+			expReward = 240000,
 			itemRewards = {
 				{ itemId = 3043, count = 5 }
 			}
@@ -105,7 +105,7 @@ local configMonsterTasks = {
 		difficulties = { "easy" },
 		baseKillsRequired = 300,
 		baseRewards = {
-			expReward = 194900,
+			expReward = 510000,
 			itemRewards = {
 				{ itemId = 3043, count = 5 }
 			}
@@ -118,7 +118,7 @@ local configMonsterTasks = {
 		difficulties = { "easy" },
 		baseKillsRequired = 100,
 		baseRewards = {
-			expReward = 214400,
+			expReward = 300000,
 			itemRewards = {
 				{ itemId = 3043, count = 3 }
 			}
@@ -131,7 +131,7 @@ local configMonsterTasks = {
 		difficulties = { "easy" },
 		baseKillsRequired = 300,
 		baseRewards = {
-			expReward = 235800,
+			expReward = 5300000,
 			itemRewards = {
 				{ itemId = 3043, count = 5 }
 			}
@@ -144,7 +144,7 @@ local configMonsterTasks = {
 		difficulties = { "medium" },
 		baseKillsRequired = 666,
 		baseRewards = {
-			expReward = 259400,
+			expReward = 80000000,
 			itemRewards = {
 				{ itemId = 3043, count = 50 },
 				{ itemId = 3388, count = 1 }
@@ -158,7 +158,7 @@ local configMonsterTasks = {
 		difficulties = { "easy" },
 		baseKillsRequired = 400,
 		baseRewards = {
-			expReward = 285300,
+			expReward = 11000000,
 			itemRewards = {
 				{ itemId = 3043, count = 10 },
 				{ itemId = 3322, count = 3 },
@@ -173,7 +173,7 @@ local configMonsterTasks = {
 		difficulties = { "easy" },
 		baseKillsRequired = 300,
 		baseRewards = {
-			expReward = 313800,
+			expReward = 27000000,
 			itemRewards = {
 				{ itemId = 3043, count = 10 }
 			}
@@ -186,7 +186,7 @@ local configMonsterTasks = {
 		difficulties = { "easy" },
 		baseKillsRequired = 200,
 		baseRewards = {
-			expReward = 345200,
+			expReward = 5700000,
 			itemRewards = {
 				{ itemId = 3043, count = 10 }
 			}
@@ -199,7 +199,7 @@ local configMonsterTasks = {
 		difficulties = { "easy" },
 		baseKillsRequired = 700,
 		baseRewards = {
-			expReward = 379700,
+			expReward = 27000000,
 			itemRewards = {
 				{ itemId = 3043, count = 12 }
 			}
@@ -212,7 +212,7 @@ local configMonsterTasks = {
 		difficulties = { "easy" },
 		baseKillsRequired = 500,
 		baseRewards = {
-			expReward = 417700,
+			expReward = 11000000,
 			itemRewards = {
 				{ itemId = 3043, count = 15 },
 				{ itemId = 3385, count = 1 },
@@ -228,7 +228,7 @@ local configMonsterTasks = {
 		difficulties = { "easy" },
 		baseKillsRequired = 650,
 		baseRewards = {
-			expReward = 459500,
+			expReward = 27000000,
 			itemRewards = {
 				{ itemId = 3043, count = 15 },
 				{ itemId = 3079, count = 1 }
@@ -242,7 +242,7 @@ local configMonsterTasks = {
 		difficulties = { "easy" },
 		baseKillsRequired = 600,
 		baseRewards = {
-			expReward = 505400,
+			expReward = 19000000,
 			itemRewards = {
 				{ itemId = 3043, count = 20 }
 			}
@@ -268,7 +268,7 @@ local configMonsterTasks = {
 		difficulties = { "easy" },
 		baseKillsRequired = 300,
 		baseRewards = {
-			expReward = 611600,
+			expReward = 10000000,
 			itemRewards = {
 				{ itemId = 3043, count = 20 }
 			}
@@ -281,7 +281,7 @@ local configMonsterTasks = {
 		difficulties = { "easy" },
 		baseKillsRequired = 450,
 		baseRewards = {
-			expReward = 672700,
+			expReward = 4500000,
 			itemRewards = {
 				{ itemId = 3043, count = 15 }
 			}
@@ -294,7 +294,7 @@ local configMonsterTasks = {
 		difficulties = { "easy" },
 		baseKillsRequired = 800,
 		baseRewards = {
-			expReward = 740000,
+			expReward = 35000000,
 			itemRewards = {
 				{ itemId = 3043, count = 30 }
 			}
@@ -307,7 +307,7 @@ local configMonsterTasks = {
 		difficulties = { "easy" },
 		baseKillsRequired = 400,
 		baseRewards = {
-			expReward = 814000,
+			expReward = 16000000,
 			itemRewards = {
 				{ itemId = 3043, count = 10 }
 			}
@@ -320,7 +320,7 @@ local configMonsterTasks = {
 		difficulties = { "medium" },
 		baseKillsRequired = 900,
 		baseRewards = {
-			expReward = 1350000,
+			expReward = 64000000,
 			itemRewards = {
 				{ itemId = 3043, count = 50 }
 			}
@@ -333,7 +333,7 @@ local configMonsterTasks = {
 		difficulties = { "medium" },
 		baseKillsRequired = 900,
 		baseRewards = {
-			expReward = 1350000,
+			expReward = 110000000,
 			itemRewards = {
 				{ itemId = 3043, count = 50 }
 			}
@@ -346,7 +346,7 @@ local configMonsterTasks = {
 		difficulties = { "medium" },
 		baseKillsRequired = 900,
 		baseRewards = {
-			expReward = 1350000,
+			expReward = 130000000,
 			itemRewards = {
 				{ itemId = 3043, count = 50 }
 			}
@@ -372,7 +372,7 @@ local configMonsterTasks = {
 		difficulties = { "medium" },
 		baseKillsRequired = 1000,
 		baseRewards = {
-			expReward = 1500000,
+			expReward = 45000000,
 			itemRewards = {
 				{ itemId = 3043, count = 60 }
 			}
@@ -385,7 +385,7 @@ local configMonsterTasks = {
 		difficulties = { "medium" },
 		baseKillsRequired = 600,
 		baseRewards = {
-			expReward = 900000,
+			expReward = 91000000,
 			itemRewards = {
 				{ itemId = 3043, count = 60 }
 			}
@@ -398,7 +398,7 @@ local configMonsterTasks = {
 		difficulties = { "medium" },
 		baseKillsRequired = 500,
 		baseRewards = {
-			expReward = 750000,
+			expReward = 130000000,
 			itemRewards = {
 				{ itemId = 3043, count = 40 }
 			}
@@ -411,7 +411,7 @@ local configMonsterTasks = {
 		difficulties = { "medium" },
 		baseKillsRequired = 600,
 		baseRewards = {
-			expReward = 900000,
+			expReward = 58000000,
 			itemRewards = {
 				{ itemId = 3043, count = 50 }
 			}
@@ -424,7 +424,7 @@ local configMonsterTasks = {
 		difficulties = { "medium" },
 		baseKillsRequired = 600,
 		baseRewards = {
-			expReward = 900000,
+			expReward = 61000000,
 			itemRewards = {
 				{ itemId = 3043, count = 50 }
 			}
@@ -437,7 +437,163 @@ local configMonsterTasks = {
 		difficulties = { "medium" },
 		baseKillsRequired = 600,
 		baseRewards = {
-			expReward = 900000,
+			expReward = 67000000,
+			itemRewards = {
+				{ itemId = 3043, count = 30 }
+			}
+		}
+	},
+	{
+		id = 34,
+		displayName = "Emerald Tortoise",
+		monsterNames = { "Emerald Tortoise" },
+		difficulties = { "hard" },
+		baseKillsRequired = 250,
+		baseRewards = {
+			expReward = 61000000,
+			itemRewards = {
+				{ itemId = 3043, count = 50 }
+			}
+		}
+	},
+	{
+		id = 35,
+		displayName = "Noxious Ripptor",
+		monsterNames = { "Noxious Ripptor" },
+		difficulties = { "hard" },
+		baseKillsRequired = 250,
+		baseRewards = {
+			expReward = 66000000,
+			itemRewards = {
+				{ itemId = 3043, count = 50 }
+			}
+		}
+	},
+	{
+		id = 36,
+		displayName = "Sulphider",
+		monsterNames = { "Sulphider" },
+		difficulties = { "hard" },
+		baseKillsRequired = 250,
+		baseRewards = {
+			expReward = 67000000,
+			itemRewards = {
+				{ itemId = 3043, count = 50 }
+			}
+		}
+	},
+	{
+		id = 37,
+		displayName = "Darklight Source",
+		monsterNames = { "Darklight Source" },
+		difficulties = { "hard" },
+		baseKillsRequired = 250,
+		baseRewards = {
+			expReward = 110000000,
+			itemRewards = {
+				{ itemId = 3043, count = 50 }
+			}
+		}
+	},
+	{
+		id = 38,
+		displayName = "Rotten Man-Maggot",
+		monsterNames = { "Rotten Man-Maggot" },
+		difficulties = { "hard" },
+		baseKillsRequired = 250,
+		baseRewards = {
+			expReward = 110000000,
+			itemRewards = {
+				{ itemId = 3043, count = 50 }
+			}
+		}
+	},
+	{
+		id = 39,
+		displayName = "Bony Sea Devil",
+		monsterNames = { "Bony Sea Devil" },
+		difficulties = { "hard" },
+		baseKillsRequired = 250,
+		baseRewards = {
+			expReward = 97000000,
+			itemRewards = {
+				{ itemId = 3043, count = 50 }
+			}
+		}
+	},
+	{
+		id = 40,
+		displayName = "Many Faces",
+		monsterNames = { "Many Faces" },
+		difficulties = { "hard" },
+		baseKillsRequired = 250,
+		baseRewards = {
+			expReward = 94000000,
+			itemRewards = {
+				{ itemId = 3043, count = 50 }
+			}
+		}
+	},
+	{
+		id = 41,
+		displayName = "Cloak of Terror",
+		monsterNames = { "Cloak of Terror" },
+		difficulties = { "hard" },
+		baseKillsRequired = 250,
+		baseRewards = {
+			expReward = 98000000,
+			itemRewards = {
+				{ itemId = 3043, count = 50 }
+			}
+		}
+	},
+	{
+		id = 42,
+		displayName = "Brachiodemon",
+		monsterNames = { "Brachiodemon" },
+		difficulties = { "hard" },
+		baseKillsRequired = 250,
+		baseRewards = {
+			expReward = 79000000,
+			itemRewards = {
+				{ itemId = 3043, count = 50 }
+			}
+		}
+	},
+	{
+		id = 43,
+		displayName = "Hideous Fungus",
+		monsterNames = { "Hideous Fungus" },
+		difficulties = { "hard" },
+		baseKillsRequired = 500,
+		baseRewards = {
+			expReward = 37000000,
+			itemRewards = {
+				{ itemId = 3043, count = 30 }
+			}
+		}
+	},
+	{
+		id = 44,
+		displayName = "Magma Crawler",
+		monsterNames = { "Magma Crawler" },
+		difficulties = { "hard" },
+		baseKillsRequired = 500,
+		baseRewards = {
+			expReward = 39000000,
+			itemRewards = {
+				{ itemId = 3043, count = 30 }
+			}
+		}
+	},
+	{
+		id = 45,
+		displayName = "Orewalker",
+		monsterNames = { "Orewalker" },
+		difficulties = { "hard" },
+		baseKillsRequired = 500,
+		baseRewards = {
+			expReward = 59000000,
 			itemRewards = {
 				{ itemId = 3043, count = 30 }
 			}
