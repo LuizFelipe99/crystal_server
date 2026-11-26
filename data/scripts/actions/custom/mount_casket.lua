@@ -1,12 +1,25 @@
 local MOUNT_CASKET_ITEM_ID = 64485
 local HIGHEST_MOUNT_ID_TO_SCAN = 255
 
+local exclusiveMountNames = {
+}
+
+local function isExclusiveMount(mountName)
+	local normalizedMountName = mountName:lower()
+	for _, exclusiveMountName in ipairs(exclusiveMountNames) do
+		if exclusiveMountName:lower() == normalizedMountName then
+			return true
+		end
+	end
+	return false
+end
+
 local function collectRegisteredMounts()
 	local registeredMounts = {}
 
 	for mountId = 1, HIGHEST_MOUNT_ID_TO_SCAN do
 		local mount = Mount(mountId)
-		if mount then
+		if mount and not isExclusiveMount(mount:getName()) then
 			registeredMounts[#registeredMounts + 1] = { id = mountId, name = mount:getName() }
 		end
 	end
