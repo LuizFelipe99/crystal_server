@@ -23,6 +23,7 @@
 #include "creatures/players/player.hpp"
 #include "game/game.hpp"
 #include "game/scheduling/dispatcher.hpp"
+#include "kv/kv.hpp"
 #include "lib/metrics/metrics.hpp"
 #include "lua/callbacks/creaturecallback.hpp"
 #include "lua/global/shared_object.hpp"
@@ -440,6 +441,17 @@ void Npc::onPlayerSellItem(const std::shared_ptr<Player> &player, uint16_t itemI
 	onPlayerSellItem(player, itemId, subType, amount, ignore, totalPrice);
 }
 
+namespace {
+	bool isSellProtectedItem(const std::shared_ptr<Player> &player, uint16_t itemId) {
+		const auto storedProtectedItems = player->kv()->get("sell-protection-items");
+		if (!storedProtectedItems.has_value()) {
+			return false;
+		}
+		const auto protectedItemIds = "," + storedProtectedItems->get<StringType>() + ",";
+		return protectedItemIds.find("," + std::to_string(itemId) + ",") != std::string::npos;
+	}
+}
+
 void Npc::onPlayerSellAllLoot(uint32_t playerId, uint16_t itemId, bool ignore, uint64_t totalPrice) {
 	const auto &player = g_game().getPlayerByID(playerId);
 	if (!player) {
@@ -591,6 +603,10 @@ void Npc::onPlayerSellItem(const std::shared_ptr<Player> &player, uint16_t itemI
 		g_dispatcher().scheduleEvent(
 			SCHEDULER_MINTICKS, [this, playerId = player->getID(), itemId, ignore] { onPlayerSellAllLoot(playerId, itemId, ignore, 0); }, __FUNCTION__
 		);
+		return;
+	}
+
+	if (isSellProtectedItem(player, itemId)) {
 		return;
 	}
 

@@ -4,7 +4,6 @@ local STORAGE_KEY = "sell-protection-items"
 local ITEM_ID_SEPARATOR = ","
 
 local json = dofile("data/libs/dkjson.lua")
-local persistThrottle = RequestThrottle.new(2000)
 local protectedItemIdsByPlayerGuid = {}
 local unsavedPlayerGuids = {}
 
@@ -91,9 +90,6 @@ local function onExtendedOpcodeReceived(player, opcode, buffer)
 	local playerGuid = player:getGuid()
 	protectedItemIdsByPlayerGuid[playerGuid] = buildProtectedItemSet(data.itemIds)
 	unsavedPlayerGuids[playerGuid] = true
-	if persistThrottle:isThrottled(player) then
-		return true
-	end
 	persistProtectedItemIds(player)
 	return true
 end
