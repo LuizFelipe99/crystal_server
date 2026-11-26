@@ -12,4 +12,5 @@
 	<!-- wing -->
 	<wing id="2" name="2 wings" />
 	<wing id="11" name="11 wings" /> 
+	<wing id="12" name="Golden Wings" />
 </attachedeffects>
