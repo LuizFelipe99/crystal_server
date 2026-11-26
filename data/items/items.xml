@@ -88777,4 +88777,9 @@
 		<attribute key="description" value="Use it to refill your forge dust up to your current dust limit." />
 		<attribute key="weight" value="100" />
 	</item>
+	<item id="60598" article="a" name="lasting exercise box">
+		<attribute key="primarytype" value="valuables" />
+		<attribute key="description" value="Use it to choose one lasting exercise weapon. The weapon is sent to your store inbox." />
+		<attribute key="weight" value="100" />
+	</item>
 </items>

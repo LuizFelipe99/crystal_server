@@ -21,6 +21,7 @@ StorePacksConfig = {
 				{ itemId = 60556, count = 1 },
 				{ itemId = 60661, count = 1 },
 				{ itemId = 60238, count = 3, name = "dust refiller" },
+				{ itemId = 60598, count = 2, name = "lasting exercise box" },
 			},
 		},
 		{
@@ -47,6 +48,7 @@ StorePacksConfig = {
 				{ itemId = 60556, count = 3 },
 				{ itemId = 60659, count = 1 },
 				{ itemId = 60238, count = 10, name = "dust refiller" },
+				{ itemId = 60598, count = 4, name = "lasting exercise box" },
 			},
 		},
 		{
@@ -80,6 +82,7 @@ StorePacksConfig = {
 				{ itemId = 60660, count = 3 },
 				{ itemId = 63365, count = 1, name = "ironlord backpack" },
 				{ itemId = 60238, count = 20, name = "dust refiller" },
+				{ itemId = 60598, count = 6, name = "lasting exercise box" },
 			},
 		},
 	},
