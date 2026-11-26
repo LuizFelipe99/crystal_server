@@ -88772,4 +88772,9 @@
 		<attribute key="description" value="Stores the tier of an item so it can be transferred to any other item you desire. It works as a wildcard for tier transfers." />
 		<attribute key="weight" value="100" />
 	</item>
+	<item id="60238" article="a" name="dust refiller">
+		<attribute key="primarytype" value="valuables" />
+		<attribute key="description" value="Use it to refill your forge dust up to your current dust limit." />
+		<attribute key="weight" value="100" />
+	</item>
 </items>
