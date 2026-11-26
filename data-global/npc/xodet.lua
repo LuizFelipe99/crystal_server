@@ -131,6 +131,8 @@ local itemsTable = {
 	},
 	["others"] = {
 		{ itemName = "spellwand", clientId = 651, sell = 299 },
+		{ itemName = "dust refiller", clientId = 60238, buy = 3000000 },
+		{ itemName = "prey wildcard", clientId = 60445, buy = 1000000 },
 	},
 	["shields"] = {
 		{ itemName = "spellbook", clientId = 3059, buy = 150 },
