@@ -10592,6 +10592,34 @@ void Player::triggerTranscendence() {
 }
 
 // Forge system
+namespace {
+	std::shared_ptr<Item> findForgeItemExcluding(const Player &player, uint16_t itemId, uint8_t tier, const std::shared_ptr<Item> &excludedItem) {
+		for (const auto &item : player.getAllInventoryItems(true)) {
+			if (item->hasImbuements() || item->getID() != itemId || item->getTier() != tier) {
+				continue;
+			}
+			if (item != excludedItem || item->getItemCount() >= 2) {
+				return item;
+			}
+		}
+		return nullptr;
+	}
+
+	const TierInfo* findForgeTierInfo(uint8_t classificationId, uint8_t tier) {
+		for (const auto* itemClassification : g_game().getItemsClassifications()) {
+			if (itemClassification->id != classificationId) {
+				continue;
+			}
+			const auto tierIterator = itemClassification->tiers.find(tier);
+			if (tierIterator == itemClassification->tiers.end()) {
+				return nullptr;
+			}
+			return &tierIterator->second;
+		}
+		return nullptr;
+	}
+}
+
 void Player::forgeFuseItems(ForgeAction_t actionType, uint16_t firstItemId, uint8_t tier, uint16_t secondItemId, bool success, bool reduceTierLoss, bool convergence, uint8_t bonus, uint8_t coreCount) {
 	if (!ForgeTierWildcard::canFuse(firstItemId, secondItemId, tier, convergence)) {
 		sendForgeError(RETURNVALUE_NOTPOSSIBLE);
@@ -10638,16 +10666,30 @@ void Player::forgeFuseItems(ForgeAction_t actionType, uint16_t firstItemId, uint
 		sendForgeError(RETURNVALUE_CONTACTADMINISTRATOR);
 		return;
 	}
+	const auto &secondForgingItem = findForgeItemExcluding(*this, secondItemId, tier, firstForgingItem);
+	if (!secondForgingItem) {
+		g_logger().error("[Log 2] Player with name {} failed to fuse item with id {}", getName(), secondItemId);
+		sendForgeError(RETURNVALUE_CONTACTADMINISTRATOR);
+		return;
+	}
+
+	const auto* fusionTierInfo = findForgeTierInfo(firstForgingItem->getClassification(), tier + 1);
+	if (!fusionTierInfo) {
+		g_logger().error("[{}] Failed to find tier {} for item {} in classification {}", __FUNCTION__, tier + 1, firstItemId, firstForgingItem->getClassification());
+		sendForgeError(RETURNVALUE_CONTACTADMINISTRATOR);
+		return;
+	}
+	const uint64_t fusionGoldCost = convergence ? fusionTierInfo->convergenceFusionPrice : fusionTierInfo->regularPrice;
+	const bool chargesFusionGold = convergence || !success || bonus != 3;
+	if (chargesFusionGold && getMoney() + getBankBalance() < fusionGoldCost) {
+		sendForgeError(RETURNVALUE_CONTACTADMINISTRATOR);
+		return;
+	}
+
 	auto returnValue = g_game().internalRemoveItem(firstForgingItem, 1);
 	if (returnValue != RETURNVALUE_NOERROR) {
 		g_logger().error("[Log 1] Failed to remove forge item {} from player with name {}", firstItemId, getName());
 		sendCancelMessage(getReturnMessage(returnValue));
-		sendForgeError(RETURNVALUE_CONTACTADMINISTRATOR);
-		return;
-	}
-	const auto &secondForgingItem = getForgeItemFromId(secondItemId, tier);
-	if (!secondForgingItem) {
-		g_logger().error("[Log 2] Player with name {} failed to fuse item with id {}", getName(), secondItemId);
 		sendForgeError(RETURNVALUE_CONTACTADMINISTRATOR);
 		return;
 	}
@@ -10685,20 +10727,7 @@ void Player::forgeFuseItems(ForgeAction_t actionType, uint16_t firstItemId, uint
 		history.dustCost = dustCost;
 		setForgeDusts(getForgeDusts() - dustCost);
 
-		uint64_t cost = 0;
-		for (const auto* itemClassification : g_game().getItemsClassifications()) {
-			if (itemClassification->id != firstForgingItem->getClassification()) {
-				continue;
-			}
-
-			for (const auto &[mapTier, mapPrice] : itemClassification->tiers) {
-				if (mapTier == firstForgingItem->getTier() + 1) {
-					cost = mapPrice.convergenceFusionPrice;
-					break;
-				}
-			}
-			break;
-		}
+		const uint64_t cost = fusionGoldCost;
 		if (!g_game().removeMoney(static_self_cast<Player>(), cost, 0, true)) {
 			g_logger().error("[{}] Failed to remove {} gold from player with name {}", __FUNCTION__, cost, getName());
 			sendForgeError(RETURNVALUE_CONTACTADMINISTRATOR);
@@ -10734,19 +10763,7 @@ void Player::forgeFuseItems(ForgeAction_t actionType, uint16_t firstItemId, uint
 				history.coresCost = coreCount;
 			}
 			if (bonus != 3) {
-				uint64_t cost = 0;
-				for (const auto* itemClassification : g_game().getItemsClassifications()) {
-					if (itemClassification->id != firstForgedItem->getClassification()) {
-						continue;
-					}
-					if (!itemClassification->tiers.contains(firstForgedItem->getTier())) {
-						g_logger().error("[{}] Failed to find tier {} for item {} in classification {}", __FUNCTION__, firstForgedItem->getTier(), firstForgedItem->getClassification(), itemClassification->id);
-						sendForgeError(RETURNVALUE_CONTACTADMINISTRATOR);
-						break;
-					}
-					cost = itemClassification->tiers.at(firstForgedItem->getTier()).regularPrice;
-					break;
-				}
+				const uint64_t cost = fusionGoldCost;
 				if (!g_game().removeMoney(static_self_cast<Player>(), cost, 0, true)) {
 					g_logger().error("[{}] Failed to remove {} gold from player with name {}", __FUNCTION__, cost, getName());
 					sendForgeError(RETURNVALUE_CONTACTADMINISTRATOR);
@@ -10762,7 +10779,7 @@ void Player::forgeFuseItems(ForgeAction_t actionType, uint16_t firstItemId, uint
 				}
 			} else if (bonus == 6) {
 				secondForgedItem->setTier(tier + 1);
-			} else if (bonus == 7 && tier + 2 <= firstForgedItem->getClassification()) {
+			} else if (bonus == 7 && tier + 2 <= ForgeTierWildcard::getMaxTier(firstItemId)) {
 				firstForgedItem->setTier(tier + 2);
 			}
 
@@ -10807,19 +10824,7 @@ void Player::forgeFuseItems(ForgeAction_t actionType, uint16_t firstItemId, uint
 				return;
 			}
 
-			uint64_t cost = 0;
-			for (const auto* itemClassification : g_game().getItemsClassifications()) {
-				if (itemClassification->id != firstForgingItem->getClassification()) {
-					continue;
-				}
-				if (!itemClassification->tiers.contains(firstForgingItem->getTier() + 1)) {
-					g_logger().error("[{}] Failed to find tier {} for item {} in classification {}", __FUNCTION__, firstForgingItem->getTier() + 1, firstForgingItem->getClassification(), itemClassification->id);
-					sendForgeError(RETURNVALUE_CONTACTADMINISTRATOR);
-					break;
-				}
-				cost = itemClassification->tiers.at(firstForgingItem->getTier() + 1).regularPrice;
-				break;
-			}
+			const uint64_t cost = fusionGoldCost;
 			if (!g_game().removeMoney(static_self_cast<Player>(), cost, 0, true)) {
 				g_logger().error("[{}] Failed to remove {} gold from player with name {}", __FUNCTION__, cost, getName());
 				sendForgeError(RETURNVALUE_CONTACTADMINISTRATOR);
@@ -10877,23 +10882,22 @@ void Player::forgeTransferItemTier(ForgeAction_t actionType, uint16_t donorItemI
 		sendForgeError(RETURNVALUE_CONTACTADMINISTRATOR);
 		return;
 	}
-	uint8_t coresAmount = 0;
-	uint64_t cost = 0;
-	for (const auto &itemClassification : g_game().getItemsClassifications()) {
-		if (itemClassification->id != donorItem->getClassification()) {
-			continue;
-		}
-		if (!itemClassification->tiers.contains(donorItem->getTier())) {
-			g_logger().error("[{}] Failed to find tier {} for item {} in classification {}", __FUNCTION__, donorItem->getTier(), donorItem->getClassification(), itemClassification->id);
-			sendForgeError(RETURNVALUE_CONTACTADMINISTRATOR);
-			break;
-		}
-		const uint8_t toTier = convergence ? donorItem->getTier() : donorItem->getTier() - 1;
-		auto tierPriecs = itemClassification->tiers.at(toTier);
-		cost = convergence ? tierPriecs.convergenceTransferPrice : tierPriecs.regularPrice;
-		coresAmount = tierPriecs.corePrice;
-		break;
+	const auto &receiveItem = getForgeItemFromId(receiveItemId, 0);
+	if (!receiveItem) {
+		g_logger().error("[Log 2] Player with name {} failed to transfer item with id {}", getName(), receiveItemId);
+		sendForgeError(RETURNVALUE_CONTACTADMINISTRATOR);
+		return;
 	}
+
+	const uint8_t resultTier = convergence ? tier : static_cast<uint8_t>(tier - 1);
+	const auto* transferTierInfo = findForgeTierInfo(donorItem->getClassification(), resultTier);
+	if (!transferTierInfo) {
+		g_logger().error("[{}] Failed to find tier {} for item {} in classification {}", __FUNCTION__, resultTier, donorItemId, donorItem->getClassification());
+		sendForgeError(RETURNVALUE_CONTACTADMINISTRATOR);
+		return;
+	}
+	const uint64_t cost = convergence ? transferTierInfo->convergenceTransferPrice : transferTierInfo->regularPrice;
+	const uint8_t coresAmount = transferTierInfo->corePrice;
 	if (coresAmount > 0) {
 		const auto &[sliverCountAvail, coreCountAvail] = getForgeSliversAndCores();
 		if (coreCountAvail < coresAmount) {
@@ -10913,12 +10917,6 @@ void Player::forgeTransferItemTier(ForgeAction_t actionType, uint16_t donorItemI
 		return;
 	}
 
-	const auto &receiveItem = getForgeItemFromId(receiveItemId, 0);
-	if (!receiveItem) {
-		g_logger().error("[Log 2] Player with name {} failed to transfer item with id {}", getName(), receiveItemId);
-		sendForgeError(RETURNVALUE_CONTACTADMINISTRATOR);
-		return;
-	}
 	if (returnValue = g_game().internalRemoveItem(receiveItem, 1);
 	    returnValue != RETURNVALUE_NOERROR) {
 		g_logger().error("[Log 2] Failed to remove transfer item {} from player with name {}", receiveItemId, getName());
@@ -10949,11 +10947,7 @@ void Player::forgeTransferItemTier(ForgeAction_t actionType, uint16_t donorItemI
 
 	setForgeDusts(getForgeDusts() - g_configManager().getNumber(configKey));
 
-	if (convergence) {
-		newReceiveItem->setTier(tier);
-	} else {
-		newReceiveItem->setTier(tier - 1);
-	}
+	newReceiveItem->setTier(resultTier);
 	returnValue = g_game().internalAddItem(exaltationContainer, newReceiveItem, INDEX_WHEREEVER);
 	if (returnValue != RETURNVALUE_NOERROR) {
 		g_logger().error("[Log 7] Failed to add forge item {} from player with name {}", receiveItemId, getName());
@@ -10990,7 +10984,7 @@ void Player::forgeTransferItemTier(ForgeAction_t actionType, uint16_t donorItemI
 	history.convergence = convergence;
 	registerForgeHistoryDescription(history);
 
-	sendForgeResult(actionType, donorItemId, tier, receiveItemId, convergence ? tier : tier - 1, true, 0, 0, convergence);
+	sendForgeResult(actionType, donorItemId, tier, receiveItemId, resultTier, true, 0, 0, convergence);
 }
 
 void Player::forgeResourceConversion(ForgeAction_t actionType) {
