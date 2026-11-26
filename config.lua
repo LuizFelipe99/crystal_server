@@ -108,8 +108,8 @@ serverMotd = "Welcome to the Crystal Server!"
 statusTimeout = 5 * 1000
 replaceKickOnLogin = true
 maxPacketsPerSecond = 25
-maxPlayersOnlinePerAccount = 1
-maxPlayersOutsidePZPerAccount = 1
+maxPlayersOnlinePerAccount = 4
+maxPlayersOutsidePZPerAccount = 4
 toggleMaxConnectionsByIP = false
 maxIPConnections = 3
 
