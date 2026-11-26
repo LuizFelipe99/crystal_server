@@ -229,7 +229,7 @@ TaskSystem = {
 	baseStorage = taskBaseStorage,
 	maximumTasks = 2,
 	countForParty = true,
-	maxDist = 7,
+	maxDist = 15,
 	players = {},
 	loadDatabase = function()
 		if (#TaskSystem.list > 0) then
@@ -427,31 +427,27 @@ TaskSystem = {
 		end
 	end,
 	progressTaskForKill = function(player, task, targetPosition)
-		local playerTaskIds = TaskSystem.getPlayerTaskIds(player)
-		if (not table.contains(playerTaskIds, task.id)) then
-			return
-		end
-
 		local party = player:getParty()
-		if (TaskSystem.countForParty and party and party:getMembers()) then
-			for _, member in pairs(party:getMembers()) do
-				local memberPosition = member:getPosition()
-
-				if (memberPosition.z == targetPosition.z and memberPosition:getDistance(targetPosition) <= TaskSystem.maxDist) then
-					TaskSystem.killForPlayer(member, task)
-				end
+		if not TaskSystem.countForParty or not party then
+			if table.contains(TaskSystem.getPlayerTaskIds(player), task.id) then
+				TaskSystem.killForPlayer(player, task)
 			end
-
-			local leaderPosition = party:getLeader():getPosition()
-
-			if (leaderPosition.z == targetPosition.z and leaderPosition:getDistance(targetPosition) <= TaskSystem.maxDist) then
-				TaskSystem.killForPlayer(party:getLeader(), task)
-			end
-
 			return
 		end
 
-		TaskSystem.killForPlayer(player, task)
+		local partyPlayers = party:getMembers() or {}
+		table.insert(partyPlayers, party:getLeader())
+
+		local creditedPlayerIds = {}
+		for _, partyPlayer in ipairs(partyPlayers) do
+			local partyPlayerId = partyPlayer:getId()
+			local partyPlayerPosition = partyPlayer:getPosition()
+			local isInRange = partyPlayer == player or (partyPlayerPosition.z == targetPosition.z and partyPlayerPosition:getDistance(targetPosition) <= TaskSystem.maxDist)
+			if not creditedPlayerIds[partyPlayerId] and isInRange and table.contains(TaskSystem.getPlayerTaskIds(partyPlayer), task.id) then
+				creditedPlayerIds[partyPlayerId] = true
+				TaskSystem.killForPlayer(partyPlayer, task)
+			end
+		end
 	end,
 	taskMatchesMonster = function(task, targetNameLower)
 		for _, monsterName in ipairs(task.monsterNames) do
