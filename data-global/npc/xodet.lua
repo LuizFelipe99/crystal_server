@@ -121,7 +121,7 @@ local itemsTable = {
 		{ itemName = "wand of dragonbreath", clientId = 3075, buy = 1000 },
 		{ itemName = "wand of vortex", clientId = 3074, buy = 500 },
 	},
-	["exercise weapons"] = {
+	["exercise"] = {
 		{ itemName = "durable exercise axe", clientId = 35280, buy = 1250000, count = 1800 },
 		{ itemName = "durable exercise bow", clientId = 35282, buy = 1250000, count = 1800 },
 		{ itemName = "durable exercise club", clientId = 35281, buy = 1250000, count = 1800 },
@@ -152,14 +152,56 @@ local itemsTable = {
 		{ itemName = "dust refiller", clientId = 60238, buy = 3000000 },
 		{ itemName = "prey wildcard", clientId = 60445, buy = 1000000 },
 	},
-	["shields"] = {
+	["spellbooks"] = {
 		{ itemName = "spellbook", clientId = 3059, buy = 150 },
 	},
 }
 
+local orderedCategoryNames = { "potions", "runes", "wands", "ammunition", "exercise", "spellbooks", "others" }
+
+local categoryAliases = {
+	["potion"] = "potions",
+	["rune"] = "runes",
+	["wand"] = "wands",
+	["rods"] = "wands",
+	["rod"] = "wands",
+	["ammo"] = "ammunition",
+	["arrows"] = "ammunition",
+	["bolts"] = "ammunition",
+	["exercise weapons"] = "exercise",
+	["exercise weapon"] = "exercise",
+	["spellbook"] = "spellbooks",
+	["shields"] = "spellbooks",
+	["other"] = "others",
+}
+
+local function resolveCategoryName(message)
+	local normalizedMessage = message:lower():gsub("^%s+", ""):gsub("%s+$", "")
+	if itemsTable[normalizedMessage] then
+		return normalizedMessage
+	end
+	return categoryAliases[normalizedMessage]
+end
+
+local function formatCategoryList(excludedCategoryName, separator)
+	local highlightedCategoryNames = {}
+	for _, categoryName in ipairs(orderedCategoryNames) do
+		if categoryName ~= excludedCategoryName then
+			table.insert(highlightedCategoryNames, "{" .. categoryName .. "}")
+		end
+	end
+
+	if #highlightedCategoryNames <= 1 then
+		return highlightedCategoryNames[1] or ""
+	end
+
+	local lastCategoryName = table.remove(highlightedCategoryNames)
+	return table.concat(highlightedCategoryNames, ", ") .. separator .. lastCategoryName
+end
+
 npcConfig.shop = {}
-for _, categoryTable in pairs(itemsTable) do
-	for _, itemTable in ipairs(categoryTable) do
+for _, categoryName in ipairs(orderedCategoryNames) do
+	for _, itemTable in ipairs(itemsTable[categoryName]) do
 		table.insert(npcConfig.shop, itemTable)
 	end
 end
@@ -204,7 +246,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		return false
 	end
 
-	local categoryTable = itemsTable[message:lower()]
+	local selectedCategoryName = resolveCategoryName(message)
 	local itemId = items[player:getVocation():getBaseId()]
 	if MsgContains(message, "first rod") or MsgContains(message, "first wand") then
 		if player:isMage() then
@@ -227,10 +269,9 @@ local function creatureSayCallback(npc, creature, type, message)
 	elseif MsgContains(message, "no") and npcHandler:getTopic(playerId) == 1 then
 		npcHandler:say("Ok then.", npc, creature)
 		npcHandler:setTopic(playerId, 0)
-	elseif categoryTable then
-		local remainingCategories = npc:getRemainingShopCategories(message:lower(), itemsTable)
-		npcHandler:say("Of course, just browse through my wares. You can also look at " .. remainingCategories .. ".", npc, player)
-		npc:openShopWindowTable(player, categoryTable)
+	elseif selectedCategoryName then
+		npcHandler:say("Here are my " .. selectedCategoryName .. ". You can also look at " .. formatCategoryList(selectedCategoryName, " or ") .. ", or say {trade} to see everything.", npc, player)
+		npc:openShopWindowTable(player, itemsTable[selectedCategoryName])
 	end
 	return true
 end
@@ -238,10 +279,10 @@ end
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:setMessage(
 	MESSAGE_GREET,
-	"Oh, please come in, |PLAYERNAME| \z
-	If you need magical equipment such as {runes} or {wands}, just ask me for a {trade}."
+	"Oh, please come in, |PLAYERNAME|! I sell " .. formatCategoryList(nil, " and ") .. ". \z
+	Pick a category or say {trade} to see everything."
 )
-npcHandler:setMessage(MESSAGE_SENDTRADE, "Of course, just browse through my wares. Or do you want to look only at " .. GetFormattedShopCategoryNames(itemsTable) .. ".")
+npcHandler:setMessage(MESSAGE_SENDTRADE, "Of course, just browse through my wares. Or do you want to look only at " .. formatCategoryList(nil, " or ") .. "?")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Good bye and come again.")
 npcHandler:setMessage(MESSAGE_WALKAWAY, "Good bye and come again.")
 npcHandler:addModule(FocusModule:new(), npcConfig.name, true, true, true)
