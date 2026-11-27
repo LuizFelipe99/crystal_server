@@ -27,6 +27,122 @@
 #include "lua/callbacks/events_callbacks.hpp"
 #include "lua/creature/events.hpp"
 
+namespace {
+	constexpr int64_t PARTY_REJOIN_WINDOW_MS = 15 * 60 * 1000;
+
+	struct PartyRejoinEntry {
+		uint32_t leaderGuid = 0;
+		std::vector<uint32_t> companionGuids;
+		int64_t expiresAt = 0;
+	};
+
+	phmap::flat_hash_map<uint32_t, PartyRejoinEntry> partyRejoinEntries;
+
+	std::shared_ptr<Player> findOnlineRejoinCompanion(const PartyRejoinEntry &rejoinEntry) {
+		if (const auto &leader = g_game().getPlayerByGUID(rejoinEntry.leaderGuid); leader) {
+			return leader;
+		}
+
+		for (const uint32_t companionGuid : rejoinEntry.companionGuids) {
+			if (const auto &companion = g_game().getPlayerByGUID(companionGuid); companion) {
+				return companion;
+			}
+		}
+		return nullptr;
+	}
+
+	bool isCompanionPartyFromEntry(const std::shared_ptr<Party> &party, const PartyRejoinEntry &rejoinEntry) {
+		for (const auto &partyPlayer : party->getPlayers()) {
+			if (!partyPlayer) {
+				continue;
+			}
+			const uint32_t partyPlayerGuid = partyPlayer->getGUID();
+			if (partyPlayerGuid == rejoinEntry.leaderGuid || std::ranges::find(rejoinEntry.companionGuids, partyPlayerGuid) != rejoinEntry.companionGuids.end()) {
+				return true;
+			}
+		}
+		return false;
+	}
+}
+
+void Party::rememberMembershipForRejoin(const std::shared_ptr<Player> &player) {
+	const auto &party = player ? player->getParty() : nullptr;
+	if (!party) {
+		return;
+	}
+
+	PartyRejoinEntry rejoinEntry;
+	rejoinEntry.expiresAt = OTSYS_TIME() + PARTY_REJOIN_WINDOW_MS;
+	for (const auto &partyPlayer : party->getPlayers()) {
+		if (!partyPlayer || partyPlayer == player) {
+			continue;
+		}
+		rejoinEntry.companionGuids.emplace_back(partyPlayer->getGUID());
+	}
+
+	if (const auto &leader = party->getLeader(); leader && leader != player) {
+		rejoinEntry.leaderGuid = leader->getGUID();
+	}
+
+	if (rejoinEntry.companionGuids.empty()) {
+		return;
+	}
+
+	partyRejoinEntries[player->getGUID()] = std::move(rejoinEntry);
+}
+
+void Party::forgetMembershipForRejoin(uint32_t playerGuid) {
+	partyRejoinEntries.erase(playerGuid);
+}
+
+void Party::restoreMembershipAfterRejoin(uint32_t playerId) {
+	const auto &player = g_game().getPlayerByID(playerId);
+	if (!player || player->getParty()) {
+		return;
+	}
+
+	const auto entryIt = partyRejoinEntries.find(player->getGUID());
+	if (entryIt == partyRejoinEntries.end()) {
+		return;
+	}
+
+	const PartyRejoinEntry rejoinEntry = entryIt->second;
+	partyRejoinEntries.erase(entryIt);
+	if (OTSYS_TIME() > rejoinEntry.expiresAt) {
+		return;
+	}
+
+	const auto &companion = findOnlineRejoinCompanion(rejoinEntry);
+	if (!companion) {
+		return;
+	}
+
+	auto companionParty = companion->getParty();
+	if (companionParty && !isCompanionPartyFromEntry(companionParty, rejoinEntry)) {
+		return;
+	}
+
+	if (!companionParty) {
+		companionParty = Party::create(companion);
+	}
+
+	companionParty->restoreMember(player);
+}
+
+bool Party::restoreMember(const std::shared_ptr<Player> &player) {
+	if (!isPlayerInvited(player)) {
+		inviteList.emplace_back(player);
+		player->addPartyInvitation(getParty());
+	}
+
+	if (joinParty(player)) {
+		return true;
+	}
+
+	removeInvite(player);
+	return false;
+}
+
 std::shared_ptr<Party> Party::create(const std::shared_ptr<Player> &leader) {
 	auto party = std::make_shared<Party>();
 	party->m_leader = leader;

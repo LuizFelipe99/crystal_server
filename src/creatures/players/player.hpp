@@ -535,6 +535,7 @@ public:
 	bool isPartner(const std::shared_ptr<Player> &player) const;
 	void sendPlayerPartyIcons(const std::shared_ptr<Player> &player) const;
 	bool addPartyInvitation(const std::shared_ptr<Party> &party);
+	void scheduleRestorePartyMembership() const;
 	void removePartyInvitation(const std::shared_ptr<Party> &party);
 	void clearPartyInvitations();
 

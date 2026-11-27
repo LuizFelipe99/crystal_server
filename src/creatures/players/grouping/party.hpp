@@ -59,6 +59,10 @@ public:
 
 	bool removeInvite(const std::shared_ptr<Player> &player, bool removeFromPlayer = true);
 
+	static void rememberMembershipForRejoin(const std::shared_ptr<Player> &player);
+	static void forgetMembershipForRejoin(uint32_t playerGuid);
+	static void restoreMembershipAfterRejoin(uint32_t playerId);
+
 	bool isPlayerInvited(const std::shared_ptr<Player> &player) const;
 	void updateAllPartyIcons();
 	void broadcastPartyMessage(MessageClasses msgClass, const std::string &msg, bool sendToInvitations = false);
@@ -105,6 +109,7 @@ public:
 	std::vector<std::shared_ptr<PartyAnalyzer>> membersData;
 
 private:
+	bool restoreMember(const std::shared_ptr<Player> &player);
 	const char* getSharedExpReturnMessage(SharedExpStatus_t value) const;
 	bool isPlayerActive(const std::shared_ptr<Player> &player);
 	SharedExpStatus_t getSharedExperienceStatus();

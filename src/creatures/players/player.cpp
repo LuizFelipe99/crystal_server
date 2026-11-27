@@ -2280,8 +2280,8 @@ void Player::sendPing() {
 
 	if (noPongTime >= 60000 && canLogout() && g_creatureEvents().playerLogout(static_self_cast<Player>())) {
 		g_logger().info("Player {} has been kicked due to ping timeout. (has client: {})", getName(), client != nullptr);
-		// Try to pass party leadership before logging out
 		if (m_party) {
+			Party::rememberMembershipForRejoin(getPlayer());
 			m_party->leaveParty(getPlayer(), true);
 		}
 
@@ -4353,7 +4353,12 @@ bool Player::spawn() {
 	g_game().addCreatureCheck(static_self_cast<Player>());
 	g_game().addPlayer(static_self_cast<Player>());
 	static_self_cast<Player>()->onChangeZone(static_self_cast<Player>()->getZoneType());
+	scheduleRestorePartyMembership();
 	return true;
+}
+
+void Player::scheduleRestorePartyMembership() const {
+	g_dispatcher().addEvent([playerId = getID()] { Party::restoreMembershipAfterRejoin(playerId); }, "Party::restoreMembershipAfterRejoin");
 }
 
 void Player::despawn() {
@@ -4403,8 +4408,9 @@ void Player::despawn() {
 		player->vip()->notifyStatusChange(static_self_cast<Player>(), VipStatus_t::PENDING, false);
 	}
 
-	if (g_configManager().getBoolean(LEAVE_PARTY_ON_DEATH) && m_party) {
-		m_party->leaveParty(static_self_cast<Player>());
+	if (m_party) {
+		Party::rememberMembershipForRejoin(static_self_cast<Player>());
+		m_party->leaveParty(static_self_cast<Player>(), true);
 	}
 
 	setDead(true);
@@ -11571,6 +11577,7 @@ void Player::onCreatureAppear(const std::shared_ptr<Creature> &creature, bool is
 
 	if (isLogin && creature == getPlayer()) {
 		onEquipInventory();
+		scheduleRestorePartyMembership();
 
 		const auto &outfit = Outfits::getInstance().getOutfitByLookType(getPlayer(), defaultOutfit.lookType);
 		if (outfit) {
@@ -11663,6 +11670,7 @@ void Player::onRemoveCreature(const std::shared_ptr<Creature> &creature, bool is
 			onDeEquipInventory();
 
 			if (m_party) {
+				Party::rememberMembershipForRejoin(player);
 				m_party->leaveParty(player, true);
 			}
 			if (guild) {
