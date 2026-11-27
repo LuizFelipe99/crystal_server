@@ -472,37 +472,28 @@ void Npc::onPlayerSellAllLoot(uint32_t playerId, uint16_t itemId, bool ignore, u
 		const auto preSize = container->size();
 		const uint64_t preTotal = totalPrice;
 
-		bool hasSellable = false;
 		const auto &shopVector = getShopItemVector(player->getGUID());
+		const auto isSellableLootItem = [&](const std::shared_ptr<Item> &item) {
+			if (!item || item->getTier() > 0 || item->hasImbuements() || !item->hasMarketAttributes()) {
+				return false;
+			}
+			if (const auto &child = item->getContainer(); child && child->size() > 0) {
+				return false;
+			}
+			if (isSellProtectedItem(player, item->getID())) {
+				return false;
+			}
+			return std::ranges::any_of(shopVector, [&](const ShopBlock &shopBlock) {
+				return shopBlock.itemId == item->getID() && shopBlock.itemSellPrice != 0;
+			});
+		};
+
+		bool hasSellable = false;
 		for (ContainerIterator it = container->iterator(); it.hasNext(); it.advance()) {
-			const auto &item = *it;
-			if (!item) {
-				continue;
+			if (isSellableLootItem(*it)) {
+				hasSellable = true;
+				break;
 			}
-			uint32_t sellPriceCandidate = 0;
-			const ItemType &itemType = Item::items[item->getID()];
-			for (const ShopBlock &shopBlock : shopVector) {
-				if (itemType.id == shopBlock.itemId && shopBlock.itemSellPrice != 0) {
-					sellPriceCandidate = shopBlock.itemSellPrice;
-					break;
-				}
-			}
-			if (sellPriceCandidate == 0) {
-				continue;
-			}
-			if (item->getTier() > 0 || item->hasImbuements()) {
-				continue;
-			}
-			if (const auto &child = item->getContainer()) {
-				if (child->size() > 0) {
-					continue;
-				}
-			}
-			if (!item->hasMarketAttributes()) {
-				continue;
-			}
-			hasSellable = true;
-			break;
 		}
 
 		phmap::flat_hash_map<uint16_t, uint16_t> toSell;
@@ -512,7 +503,7 @@ void Npc::onPlayerSellAllLoot(uint32_t playerId, uint16_t itemId, bool ignore, u
 
 		for (ContainerIterator it = container->iterator(); it.hasNext() && !hasMore; it.advance()) {
 			const auto &item = *it;
-			if (!item) {
+			if (!isSellableLootItem(item)) {
 				continue;
 			}
 
