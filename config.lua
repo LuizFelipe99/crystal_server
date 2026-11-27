@@ -292,7 +292,7 @@ familiarTime = 30
 -- Party
 -- NOTE: partyShareRangeMultiplier: the range of the party share experience, default 3/2 (1.5)
 -- NOTE: advancedPartyProtection will nullfy the damage along your party members and their summons
-leavePartyOnDeath = false
+leavePartyOnDeath = true
 partyAutoShareExperience = true
 partyShareRangeMultiplier = 1.5
 partyShareLootBoosts = false

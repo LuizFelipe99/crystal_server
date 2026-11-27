@@ -4353,7 +4353,6 @@ bool Player::spawn() {
 	g_game().addCreatureCheck(static_self_cast<Player>());
 	g_game().addPlayer(static_self_cast<Player>());
 	static_self_cast<Player>()->onChangeZone(static_self_cast<Player>()->getZoneType());
-	scheduleRestorePartyMembership();
 	return true;
 }
 
@@ -4408,8 +4407,8 @@ void Player::despawn() {
 		player->vip()->notifyStatusChange(static_self_cast<Player>(), VipStatus_t::PENDING, false);
 	}
 
+	Party::forgetMembershipForRejoin(getGUID());
 	if (m_party) {
-		Party::rememberMembershipForRejoin(static_self_cast<Player>());
 		m_party->leaveParty(static_self_cast<Player>(), true);
 	}
 
