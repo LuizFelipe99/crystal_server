@@ -17,10 +17,12 @@ function regenerateStamina.onLogin(player)
 	local staminaMinutes = player:getStamina()
 	local initialStamina = staminaMinutes
 	local maxNormalStaminaRegen = 2340 - math.min(2340, staminaMinutes)
-	local regainStaminaMinutes = offlineTime / configManager.getNumber(configKeys.STAMINA_REGEN_MINUTE)
+	local secondsPerNormalStaminaMinute = configManager.getNumber(configKeys.STAMINA_REGEN_MINUTE)
+	local secondsPerGreenStaminaMinute = configManager.getNumber(configKeys.STAMINA_REGEN_PREMIUM)
+	local regainStaminaMinutes = offlineTime / secondsPerNormalStaminaMinute
 
 	if regainStaminaMinutes > maxNormalStaminaRegen then
-		local happyHourStaminaRegen = (offlineTime - (maxNormalStaminaRegen * 180)) / configManager.getNumber(configKeys.STAMINA_REGEN_PREMIUM)
+		local happyHourStaminaRegen = (offlineTime - (maxNormalStaminaRegen * secondsPerNormalStaminaMinute)) / secondsPerGreenStaminaMinute
 		staminaMinutes = math.min(2520, math.max(2340, staminaMinutes) + happyHourStaminaRegen)
 	else
 		staminaMinutes = staminaMinutes + regainStaminaMinutes

@@ -648,8 +648,8 @@ dropSurpriseBagsFromMonsters = false
 
 -- Stamina
 staminaSystem = true
-timeToRegenMinuteStamina = 3 * 60
-timeToRegenMinutePremiumStamina = 6 * 60
+timeToRegenMinuteStamina = 2 * 60
+timeToRegenMinutePremiumStamina = 3 * 60
 
 -- Stamina in trainers
 staminaTrainer = true
@@ -657,8 +657,8 @@ staminaTrainerDelay = 2
 staminaTrainerGain = 1
 
 -- Stamina in protect zone
-staminaPz = false
-staminaOrangeDelay = 1
+staminaPz = true
+staminaOrangeDelay = 2
 staminaGreenDelay = 2
 staminaPzGain = 1
 
