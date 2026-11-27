@@ -653,7 +653,7 @@ timeToRegenMinutePremiumStamina = 3 * 60
 
 -- Stamina in trainers
 staminaTrainer = true
-staminaTrainerDelay = 2
+staminaTrainerDelay = 1
 staminaTrainerGain = 1
 
 -- Stamina in protect zone
