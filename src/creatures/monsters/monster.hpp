@@ -202,7 +202,7 @@ public:
 
 	bool isForgeCreature() const;
 
-	void setForgeMonster(bool forge) const;
+	void setForgeMonster(bool forge);
 
 	uint16_t getForgeStack() const;
 
@@ -263,6 +263,7 @@ private:
 
 	// Forge System
 	uint16_t forgeStack = 0;
+	bool isForgeEligibleInstance = true;
 	ForgeClassifications_t monsterForgeClassification = ForgeClassifications_t::FORGE_NORMAL_MONSTER;
 
 	std::string name;

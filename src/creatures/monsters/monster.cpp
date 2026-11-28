@@ -2750,11 +2750,11 @@ bool Monster::canBeForgeMonster() const {
 }
 
 bool Monster::isForgeCreature() const {
-	return mType->info.isForgeCreature;
+	return mType->info.isForgeCreature && isForgeEligibleInstance;
 }
 
-void Monster::setForgeMonster(bool forge) const {
-	mType->info.isForgeCreature = forge;
+void Monster::setForgeMonster(bool forge) {
+	isForgeEligibleInstance = forge;
 }
 
 uint16_t Monster::getForgeStack() const {
