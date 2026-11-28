@@ -84,6 +84,7 @@ end
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, var)
+	var = resolveAimedSpellVariant(creature, var, 7)
 	-- needPosition: the engine set var to the clicked tile (cursor/crosshair). Cast the 5x5
 	-- area there, then re-strike the same tile after 1s for the echo.
 	local center = var:getPosition()

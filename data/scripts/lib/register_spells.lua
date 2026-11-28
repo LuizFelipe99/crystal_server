@@ -661,3 +661,29 @@ function spellMagicDamage(basePower, level, maglevel)
 	local avg = levelBonus + (basePower / 25) * maglevel + basePower / 6
 	return avg
 end
+
+function resolveAimedSpellVariant(creature, variant, maxRange)
+	local player = creature and creature:getPlayer()
+	if not player then
+		return variant
+	end
+
+	local playerPosition = player:getPosition()
+	local aimedPosition = variant:getPosition()
+	local wasAimedByCrosshair = aimedPosition and (aimedPosition.x ~= playerPosition.x or aimedPosition.y ~= playerPosition.y or aimedPosition.z ~= playerPosition.z)
+	if wasAimedByCrosshair then
+		return variant
+	end
+
+	local target = player:getTarget()
+	if not target then
+		return variant
+	end
+
+	local targetPosition = target:getPosition()
+	if targetPosition.z ~= playerPosition.z or playerPosition:getDistance(targetPosition) > maxRange or not playerPosition:isSightClear(targetPosition) then
+		return variant
+	end
+
+	return Variant(targetPosition)
+end

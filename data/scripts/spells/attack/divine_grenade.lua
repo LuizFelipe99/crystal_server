@@ -82,7 +82,7 @@ function spell.onCastSpell(creature, var)
 		return false
 	end
 
-	-- needPosition: var is the clicked tile (cursor/crosshair). Only allow walkable, non-PZ tiles.
+	var = resolveAimedSpellVariant(creature, var, 7)
 	local position = var:getPosition()
 	if not grenadeTileValid(position) then
 		creature:sendCancelMessage("You cannot throw the grenade there.")

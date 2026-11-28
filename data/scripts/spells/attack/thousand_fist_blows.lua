@@ -48,6 +48,7 @@ local combatTypes = {
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, var)
+	var = resolveAimedSpellVariant(creature, var, 7)
 	local combat = combatPhysical
 	local weapon = creature:getSlotItem(CONST_SLOT_LEFT)
 	if weapon then
