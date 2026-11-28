@@ -1353,6 +1353,7 @@ public:
 	void addItemImbuementStats(const Imbuement* imbuement);
 	void removeItemImbuementStats(const Imbuement* imbuement);
 	void updateImbuementTrackerStats() const;
+	void refreshImbuementTrackerWhileInFight();
 
 	bool isQuickLootListedItem(const std::shared_ptr<Item> &item) const;
 
@@ -2060,6 +2061,7 @@ private:
 	bool moved = false;
 	bool m_isDead = false;
 	bool imbuementTrackerWindowOpen = false;
+	int64_t lastInFightImbuementTrackerUpdate = 0;
 	bool requestedOutfit = false;
 	bool outfitAttributes = false;
 	bool mountAttributes = false;

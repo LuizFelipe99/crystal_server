@@ -3376,6 +3376,19 @@ void Player::removeItemImbuementStats(const Imbuement* imbuement) {
 	}
 }
 
+void Player::refreshImbuementTrackerWhileInFight() {
+	constexpr int64_t inFightImbuementTrackerRefreshIntervalMillis = 10000;
+	const bool isEnteringFight = !hasCondition(CONDITION_INFIGHT);
+	const int64_t currentTimeMillis = OTSYS_TIME();
+	const bool isRefreshIntervalElapsed = currentTimeMillis - lastInFightImbuementTrackerUpdate >= inFightImbuementTrackerRefreshIntervalMillis;
+	if (!isEnteringFight && !isRefreshIntervalElapsed) {
+		return;
+	}
+
+	lastInFightImbuementTrackerUpdate = currentTimeMillis;
+	updateImbuementTrackerStats();
+}
+
 void Player::updateImbuementTrackerStats() const {
 	if (imbuementTrackerWindowOpen) {
 		g_game().playerRequestInventoryImbuements(getID(), true);
@@ -4531,7 +4544,7 @@ void Player::addInFightTicks(bool pzlock /*= false*/) {
 		sendIcons();
 	}
 
-	updateImbuementTrackerStats();
+	refreshImbuementTrackerWhileInFight();
 
 	safeCall([this] {
 		addCondition(Condition::createCondition(CONDITIONID_DEFAULT, CONDITION_INFIGHT, g_configManager().getNumber(PZ_LOCKED)));
