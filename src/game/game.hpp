@@ -732,6 +732,7 @@ public:
 	uint32_t makeFiendishMonster(uint32_t forgeableMonsterId = 0, bool createForgeableMonsters = false);
 	uint32_t makeInfluencedMonster();
 	void batchRefreshInfluencedMonsters();
+	void rebuildForgeableMonsters();
 	void scheduleInfluencedMonstersUpdate();
 
 	uint32_t getFiendishLimit() const;

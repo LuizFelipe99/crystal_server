@@ -11853,17 +11853,7 @@ bool Game::removeFiendishMonster(uint32_t id, bool create /* = true*/) {
 void Game::updateForgeableMonsters() {
 	if (auto influencedLimit = getInfluencedLimit();
 	    forgeableMonsters.size() < influencedLimit) {
-		forgeableMonsters.clear();
-		for (const auto &[monsterId, monster] : monsters) {
-			const auto monsterTile = monster->getTile();
-			if (!monsterTile) {
-				continue;
-			}
-
-			if (monster->canBeForgeMonster() && !monsterTile->hasFlag(TILESTATE_NOLOGOUT)) {
-				forgeableMonsters.emplace_back(monster->getID());
-			}
-		}
+		rebuildForgeableMonsters();
 	}
 
 	for (const auto &monsterId : getFiendishMonsters()) {
@@ -11956,6 +11946,24 @@ bool Game::addInfluencedMonster(const std::shared_ptr<Monster> &monster) {
 	return false;
 }
 
+void Game::rebuildForgeableMonsters() {
+	forgeableMonsters.clear();
+	for (const auto &[monsterId, monster] : monsters) {
+		if (!monster) {
+			continue;
+		}
+
+		const auto monsterTile = monster->getTile();
+		if (!monsterTile) {
+			continue;
+		}
+
+		if (monster->canBeForgeMonster() && !monsterTile->hasFlag(TILESTATE_NOLOGOUT)) {
+			forgeableMonsters.emplace_back(monster->getID());
+		}
+	}
+}
+
 void Game::batchRefreshInfluencedMonsters() {
 	std::vector<uint32_t> toRefresh(influencedMonsters.begin(), influencedMonsters.end());
 	for (const auto monsterId : toRefresh) {
@@ -11964,6 +11972,7 @@ void Game::batchRefreshInfluencedMonsters() {
 		updateInfluencedMonsterStatus(monsterId, name);
 	}
 
+	rebuildForgeableMonsters();
 	createInfluencedMonsters();
 }
 
