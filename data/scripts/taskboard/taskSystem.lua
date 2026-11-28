@@ -224,13 +224,15 @@ local function sendResponse(player, payload)
 	return player:sendExtendedOpcode(taskOpcode, json.encode(payload))
 end
 
+local previousTaskPlayers = TaskSystem and TaskSystem.players
+
 TaskSystem = {
 	list = {},
 	baseStorage = taskBaseStorage,
 	maximumTasks = 2,
 	countForParty = true,
 	maxDist = 15,
-	players = {},
+	players = previousTaskPlayers or {},
 	loadDatabase = function()
 		if (#TaskSystem.list > 0) then
 			return true
@@ -496,6 +498,12 @@ function globalevent.onStartup()
 end
 
 globalevent:register()
+
+local currentGameState = Game.getGameState()
+if currentGameState ~= GAME_STATE_STARTUP and currentGameState ~= GAME_STATE_INIT then
+	TaskSystem.loadDatabase()
+	registerDeathEventForConfiguredMonsters()
+end
 
 local function resolveKillerPlayer(killer)
 	if not killer then
