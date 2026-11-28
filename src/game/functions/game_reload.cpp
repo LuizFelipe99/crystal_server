@@ -25,6 +25,7 @@
 #include "creatures/players/imbuements/imbuements.hpp"
 #include "game/game.hpp"
 #include "game/zones/zone.hpp"
+#include "io/io_wheel.hpp"
 #include "lib/di/container.hpp"
 #include "lua/creature/events.hpp"
 #include "lua/modules/modules.hpp"
@@ -205,6 +206,7 @@ bool GameReload::reloadScripts() {
 	reloadMonsters();
 	reloadNpcs();
 	reloadItems();
+	g_game().getIOWheel()->initializeGlobalData(true);
 	logReloadStatus("Scripts", true);
 	return true;
 }
