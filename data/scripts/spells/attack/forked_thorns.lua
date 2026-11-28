@@ -5,11 +5,9 @@ combat:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_SMALLEARTH)
 -- Vocation Adjustment: forked chain to up to 5 additional targets (6 total).
 combat:setParameter(COMBAT_PARAM_CHAIN_EFFECT, CONST_ME_CARNIPHILA)
 
--- Base damage 105 (ML-scaled). Modeled on strong_terra_strike's formula curve.
 function onGetFormulaValues(player, level, maglevel, basePower)
-	local min = (calculateBaseDamageHealing(level)) + (maglevel * 2.6) + 16
-	local max = (calculateBaseDamageHealing(level)) + (maglevel * 4.1) + 26
-	return -math.floor(min), -math.floor(max)
+	local min, max = calculateMagicSpellDamage(level, maglevel, basePower)
+	return -min, -max
 end
 
 combat:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues")

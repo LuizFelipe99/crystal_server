@@ -5,11 +5,9 @@ combat:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_SMALLICE)
 -- Vocation Adjustment: forked chain to up to 6 additional targets (7 total).
 combat:setParameter(COMBAT_PARAM_CHAIN_EFFECT, CONST_ME_ICEATTACK)
 
--- Base damage 97 (ML-scaled). Modeled on strong_ice_strike's formula curve.
 function onGetFormulaValues(player, level, maglevel, basePower)
-	local min = (calculateBaseDamageHealing(level)) + (maglevel * 2.4) + 14
-	local max = (calculateBaseDamageHealing(level)) + (maglevel * 3.8) + 24
-	return -math.floor(min), -math.floor(max)
+	local min, max = calculateMagicSpellDamage(level, maglevel, basePower)
+	return -min, -max
 end
 
 combat:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues")
