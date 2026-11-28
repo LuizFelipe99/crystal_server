@@ -4735,10 +4735,10 @@ GameStore.Categories = {
 			{
 				icons = { "Gold_Pouch.png" },
 				name = "Auto Seller",
-				price = 500,
+				price = 300,
 				itemtype = 60257,
 				count = 1,
-				description = "<i>Carries as many gold, platinum or crystal coins as your capacity allows, however, no other items.</i>\n\n{character}\n{storeinbox}\n{once}\n{useicon} use it to open it\n{info} always placed on the first position of your Store inbox",
+				description = "<i>Sells all the loot inside your loot pouch at once, from anywhere, for 95% of the NPC price. The gold is deposited directly into your bank account.</i>\n\n{character}\n{storeinbox}\n{once}\n{useicon} use it to sell your loot\n{info} can be used every 30 seconds",
 				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
 				home = true
 			},
@@ -4748,7 +4748,7 @@ GameStore.Categories = {
 				price = 800,
 				itemtype = 62171,
 				count = 1,
-				description = "<i>Carries as many gold, platinum or crystal coins as your capacity allows, however, no other items.</i>\n\n{character}\n{storeinbox}\n{once}\n{useicon} use it to open it\n{info} always placed on the first position of your Store inbox",
+				description = "<i>Activates the Battle Pass PRO for the current season, unlocking the premium reward track.</i>\n\n{character}\n{storeinbox}\n{once}\n{useicon} use it to activate the Battle Pass PRO\n{info} valid only for the current season",
 				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
 				home = true
 			},
@@ -4758,7 +4758,7 @@ GameStore.Categories = {
 				price = 350,
 				itemtype = 60653,
 				count = 1,
-				description = "<i>Carries as many gold, platinum or crystal coins as your capacity allows, however, no other items.</i>\n\n{character}\n{storeinbox}\n{once}\n{useicon} use it to open it\n{info} always placed on the first position of your Store inbox",
+				description = "<i>Opens an ammunition shop from anywhere, so you can restock arrows, bolts and other ammunition without visiting an NPC. Purchases are paid with the gold in your bank account.</i>\n\n{character}\n{storeinbox}\n{once}\n{useicon} use it to open the shop\n{info} cannot be used during a fight",
 				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
 				home = true
 			},
@@ -4768,7 +4768,7 @@ GameStore.Categories = {
 				price = 350,
 				itemtype = 60655,
 				count = 1,
-				description = "<i>Carries as many gold, platinum or crystal coins as your capacity allows, however, no other items.</i>\n\n{character}\n{storeinbox}\n{once}\n{useicon} use it to open it\n{info} always placed on the first position of your Store inbox",
+				description = "<i>Opens a rune shop from anywhere, so you can restock your runes without visiting an NPC. Purchases are paid with the gold in your bank account.</i>\n\n{character}\n{storeinbox}\n{once}\n{useicon} use it to open the shop\n{info} cannot be used during a fight",
 				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
 				home = true
 			},
@@ -4778,7 +4778,7 @@ GameStore.Categories = {
 				price = 100,
 				itemtype = 60252,
 				count = 1,
-				description = "<i>Carries as many gold, platinum or crystal coins as your capacity allows, however, no other items.</i>\n\n{character}\n{storeinbox}\n{once}\n{useicon} use it to open it\n{info} always placed on the first position of your Store inbox",
+				description = "<i>Gives you access to the Exaltation Forge from anywhere, so you can fuse, transfer and convert items without travelling to the forge.</i>\n\n{character}\n{storeinbox}\n{once}\n{useicon} use it to open the Exaltation Forge",
 				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
 				home = true
 			},
