@@ -1253,6 +1253,8 @@ bool InstantSpell::playerCastInstant(const std::shared_ptr<Player> &player, std:
 		// The client sends the aimed tile in the say packet tail; parseSay forwards it here as `to`.
 		else if (needPosition && to.x != 0) {
 			var.pos = to;
+		} else if (const auto &aimedCreature = needPosition ? player->getAttackedCreature() : nullptr; aimedCreature && !aimedCreature->isRemoved() && aimedCreature->getHealth() > 0 && canThrowSpell(player, aimedCreature)) {
+			var.pos = aimedCreature->getPosition();
 		} else {
 			var.pos = player->getPosition();
 		}
