@@ -16,19 +16,17 @@ local DEATH_ECHO_AREA = {
 	{ 1, 1, 1, 1, 1 },
 }
 
--- Base power 85. Formula mirrors the project's death-AoE idioms (great_death_beam
--- / death_strike) scaled to an 85 base spell.
+local DEATH_ECHO_BASE_POWER = 85
+local DEATH_ECHO_ECHO_DAMAGE_FACTOR = 0.5
+
 function onGetDeathEchoValues(player, level, maglevel)
-	local min = (calculateBaseDamageHealing(level)) + (maglevel * 2.4)
-	local max = (calculateBaseDamageHealing(level)) + (maglevel * 3.6)
+	local min, max = calculateMagicSpellDamage(level, maglevel, DEATH_ECHO_BASE_POWER)
 	return -min, -max
 end
 
--- Echo hit deals 50% of the initial damage (halved formula).
 function onGetDeathEchoEchoValues(player, level, maglevel)
-	local min = ((calculateBaseDamageHealing(level)) + (maglevel * 2.4)) * 0.5
-	local max = ((calculateBaseDamageHealing(level)) + (maglevel * 3.6)) * 0.5
-	return -min, -max
+	local min, max = calculateMagicSpellDamage(level, maglevel, DEATH_ECHO_BASE_POWER)
+	return -math.floor(min * DEATH_ECHO_ECHO_DAMAGE_FACTOR), -math.floor(max * DEATH_ECHO_ECHO_DAMAGE_FACTOR)
 end
 
 -- First (immediate) hit - 5x5 area, full damage. One Combat, retuned to the cast-time element.
